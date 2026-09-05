@@ -1,0 +1,14 @@
+{
+  "id": "002-Python-VSCode-002",
+  "module": "002-Python-VSCode",
+  "title": "1. Check packages in the current environment",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "python",
+    "python-vscode"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "02",
+  "source_lines": 6
+}

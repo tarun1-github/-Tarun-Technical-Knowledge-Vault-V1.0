@@ -1,0 +1,13 @@
+{
+  "id": "006-LLM-Tools-007",
+  "module": "006-LLM-Tools",
+  "title": "3. bind_tools()",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "llm-tools"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "06",
+  "source_lines": 2
+}

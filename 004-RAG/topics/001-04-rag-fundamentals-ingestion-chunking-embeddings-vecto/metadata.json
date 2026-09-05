@@ -1,0 +1,18 @@
+{
+  "id": "004-RAG-001",
+  "module": "004-RAG",
+  "title": "04 \u2014 RAG FUNDAMENTALS: INGESTION \u2192 CHUNKING \u2192 EMBEDDINGS \u2192 VECTOR DB",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "jupyter",
+    "langchain",
+    "llm",
+    "ollama",
+    "python",
+    "rag"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "04",
+  "source_lines": 179
+}

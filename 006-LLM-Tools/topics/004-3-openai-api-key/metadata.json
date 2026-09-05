@@ -1,0 +1,17 @@
+{
+  "id": "006-LLM-Tools-004",
+  "module": "006-LLM-Tools",
+  "title": "3. OpenAI API Key",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "langchain",
+    "llm",
+    "llm-tools",
+    "python",
+    "rag"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "06",
+  "source_lines": 162
+}

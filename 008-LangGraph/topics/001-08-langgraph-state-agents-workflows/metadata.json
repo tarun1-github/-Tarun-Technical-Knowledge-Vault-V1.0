@@ -1,0 +1,14 @@
+{
+  "id": "008-LangGraph-001",
+  "module": "008-LangGraph",
+  "title": "08 \u2014 LANGGRAPH: STATE + AGENTS + WORKFLOWS",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "langgraph",
+    "llm"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "08",
+  "source_lines": 4
+}

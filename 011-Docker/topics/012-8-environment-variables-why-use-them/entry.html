@@ -1,0 +1,350 @@
+<!doctype html><html><head><meta charset="utf-8"><title>8. Environment Variables — why use them?</title><meta name="vault-tags" content="agentic,docker,git,github,imported,llm,python,rag"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>8. Environment Variables — why use them?</h1><div><span class="tag">agentic</span> <span class="tag">docker</span> <span class="tag">git</span> <span class="tag">github</span> <span class="tag">imported</span> <span class="tag">llm</span> <span class="tag">python</span> <span class="tag">rag</span></div><p>8. Environment Variables — why use them?</p>
+<p>instead python file</p>
+<p>import os</p>
+<p>color = os.getenv(&quot;COLOR&quot;, &quot;red&quot;)</p>
+<p>Now your application gets the color from the environment.Pass environment variable to Docker</p>
+<pre><code>docker run -e COLOR=blue myapp ##Docker passes: COLOR=blue</code></pre>
+<p>Different configuration.This (enviornment) is much better than rebuilding your application every time you want to change configuration.</p>
+<p>                  SAME IMAGE</p>
+<p>                 myapp:1.0</p>
+<p>                     │</p>
+<p>        ┌────────────┼────────────┐</p>
+<p>        ↓            ↓            ↓</p>
+<p>      DEV          TEST          PROD</p>
+<p>      blue         yellow        green</p>
+<p>---------------------------------------------------------------------</p>
+<pre><code>docker inspect is extremely useful.</code></pre>
+<pre><code>docker inspect myapp OR docker inspect myapp | grep -i COLOR</code></pre>
+<p>You&#x27;ll get JSON containing information such as:</p>
+<p>Container ID</p>
+<p>Image</p>
+<p>Environment variables</p>
+<p>Network</p>
+<p>Mounts</p>
+<p>Ports</p>
+<p>Command</p>
+<p>Entrypoint</p>
+<p>Status</p>
+<p>IP address</p>
+<p>You can also inspect an image:</p>
+<pre><code>docker image inspect myapp</code></pre>
+<p>-----------------------</p>
+<p>Dockerfile vs Docker Inspect</p>
+<p>Dockerfile</p>
+<p>    ↓</p>
+<p>Instructions used to BUILD image</p>
+<pre><code>docker inspect</code></pre>
+<p>    ↓</p>
+<p>Information about the ACTUAL image/container</p>
+<p>Complete picture</p>
+<p>---------------------------------------------------------------------</p>
+<p>                         Dockerfile</p>
+<p>                             │</p>
+<p>             ┌───────────────┼────────────────┐</p>
+<p>             ↓               ↓                ↓</p>
+<p>            ARG             ENV            ENTRYPOINT</p>
+<p>       Build-time       Runtime config      Main program</p>
+<p>                                             │</p>
+<p>                                             +</p>
+<p>                                            CMD</p>
+<p>                                             │</p>
+<p>                                      Default argument</p>
+<p>                                             │</p>
+<p>                                             ↓</p>
+<p>                                           IMAGE</p>
+<p>                                             │</p>
+<p>                                          docker run</p>
+<p>                                             │</p>
+<p>                                             ↓</p>
+<p>                                         CONTAINER</p>
+<p>                                             │</p>
+<p>                                             ↓</p>
+<p>                                      Main process runs</p>
+<p>                                             │</p>
+<p>                                             ↓</p>
+<p>                                      Process finishes</p>
+<p>                                             │</p>
+<p>                                             ↓</p>
+<p>                                      CONTAINER EXITS</p>
+<p>---------------------------------------------------------------------</p>
+<p>Q1. Why does a Docker container exit?</p>
+<p>A container remains running as long as its main/foreground process is running. When that process exits, the container stops.</p>
+<p>Q2. What is CMD?</p>
+<p>CMD defines the default command or arguments executed when a container starts.</p>
+<p>Q3. What is ENTRYPOINT?</p>
+<p>ENTRYPOINT defines the main executable that the container is designed to run.</p>
+<p>Q4. What is ARG?</p>
+<p>ARG is primarily a build-time variable used during Docker image construction.</p>
+<p>Q5. Why use ENV?</p>
+<p>Environment variables allow application configuration to be changed without modifying or rebuilding the application code/image.</p>
+<p>Q6. What does docker inspect do?</p>
+<p>It displays detailed low-level configuration and runtime information about Docker objects such as containers and images.</p>
+<p>---------------------------------------------------------------------</p>
+<pre><code>Docker compse in  yaml</code></pre>
+<p>compose v2 - twoi words</p>
+<pre><code>docker compse plugin</code></pre>
+<p>voting application</p>
+<pre><code>Docker Engine, storage and networkig, docker registry , docker on windows</code></pre>
+<p>container orchestration - swarm and kubernetes</p>
+<p>---------------------------------------------------------------------</p>
+<pre><code>Docker Compose is used to define and run multiple containers as one application.</code></pre>
+<p>Without Compose, you would run many commands:</p>
+<pre><code>docker run -d --name=redis redis</code></pre>
+<pre><code>docker run -d --name=db postgres:14</code></pre>
+<pre><code>docker run -d --name=vote -p 5000:80 voting-app</code></pre>
+<pre><code>docker run -d --name=result -p 5001:80 result-app</code></pre>
+<pre><code>docker run -d --name=worker worker</code></pre>
+<p>With Compose, you describe everything in one YAML file:</p>
+<p>services:</p>
+<p>  redis:</p>
+<p>    image: redis</p>
+<p>  db:</p>
+<p>    image: postgres:14</p>
+<p>  vote:</p>
+<p>    image: voting-app</p>
+<p>    ports:</p>
+<p>      - &quot;5000:80&quot;</p>
+<p>  result:</p>
+<p>    image: result-app</p>
+<p>    ports:</p>
+<p>      - &quot;5001:80&quot;</p>
+<p>  worker:</p>
+<p>    image: worker</p>
+<pre><code>Docker Compose = define multiple containers/services in YAML and manage them together.</code></pre>
+<pre><code>docker compose up</code></pre>
+<p> What is the Voting Application?</p>
+<p> The application in your diagram has 5 containers/services:</p>
+<p> The purpose is simply to demonstrate a multi-container application.</p>
+<p> You have five independent containers, but together they behave like one application.</p>
+<p>                 ┌──────────────┐</p>
+<p>                │     VOTE     │</p>
+<p>                │   Python     │</p>
+<p>                └──────┬───────┘</p>
+<p>                       │</p>
+<p>                       ▼</p>
+<p>                ┌──────────────┐</p>
+<p>                │    Redis     │</p>
+<p>                └──────┬───────┘</p>
+<p>                       │</p>
+<p>                       ▼</p>
+<p>                ┌──────────────┐</p>
+<p>                │    Worker    │</p>
+<p>                │     .NET     │</p>
+<p>                └──────┬───────┘</p>
+<p>                       │</p>
+<p>                       ▼</p>
+<p>                ┌──────────────┐</p>
+<p>                │  PostgreSQL  │</p>
+<p>                │      DB      │</p>
+<p>                └──────┬───────┘</p>
+<p>                       │</p>
+<p>                       ▼</p>
+<p>                ┌──────────────┐</p>
+<p>                │    RESULT    │</p>
+<p>                │   Node.js    │</p>
+<p>                └──────────────┘</p>
+<p>Compose automatically creates a network</p>
+<p>vote_default ##All services are attached to that network by default.</p>
+<p>              vote_default</p>
+<p>        ┌─────────────────────┐</p>
+<p>        │                     │</p>
+<p>        │ vote                │</p>
+<p>        │ redis               │</p>
+<p>        │ db                  │</p>
+<p>        │ result              │</p>
+<p>        │ worker              │</p>
+<p>        │                     │</p>
+<p>        └─────────────────────┘</p>
+<p>---------------------------------------------------------------------</p>
+<pre><code>docker compose up</code></pre>
+<p>Read compose.yaml</p>
+<p>      ↓</p>
+<p>Build images</p>
+<p>      ↓</p>
+<p>Create network</p>
+<p>      ↓</p>
+<p>Create containers</p>
+<p>      ↓</p>
+<p>Start containers</p>
+<p>      ↓</p>
+<p>Connect containers to network</p>
+<p>Building 3 images...</p>
+<p>vote     Built → myproj-vote</p>
+<p>result   Built → myproj-result</p>
+<p>worker   Built → myproj-worker</p>
+<p>Running 5/5</p>
+<p>🧠 Your Docker Compose cheat sheet</p>
+<pre><code>Docker Compose</code></pre>
+<p>│</p>
+<p>├── docker compose</p>
+<p>│      └── Modern Compose V2 CLI plugin</p>
+<p>│</p>
+<p>├── compose.yaml</p>
+<p>│      └── YAML definition of application</p>
+<p>│</p>
+<p>├── services</p>
+<p>│      ├── vote</p>
+<p>│      ├── redis</p>
+<p>│      ├── worker</p>
+<p>│      ├── db</p>
+<p>│      └── result</p>
+<p>│</p>
+<p>├── image</p>
+<p>│      └── Use existing image</p>
+<p>│</p>
+<p>├── build</p>
+<p>│      └── Build image from Dockerfile</p>
+<p>│</p>
+<p>├── ports</p>
+<p>│      └── Host:Container</p>
+<p>│</p>
+<p>├── networks</p>
+<p>│      └── Container communication/isolation</p>
+<p>│</p>
+<p>└── docker compose up</p>
+<p>       ├── Build (if required)</p>
+<p>       ├── Create network</p>
+<p>       ├── Create containers</p>
+<p>       └── Start services</p>
+<pre><code>docker compose up</code></pre>
+<pre><code>docker compose up -d</code></pre>
+<pre><code>docker compose download</code></pre>
+<pre><code>docker compose ps</code></pre>
+<pre><code>docker compose logs</code></pre>
+<p>--------------------------------------------------------</p>
+<p>https://www.youtube.com/watch?v=exmSJpJvIPs</p>
+<pre><code>Docker image (too light like class dont take much memory)</code></pre>
+<p>Image (executable file - tatic SS) consists of containers (take memory/space like object)</p>
+<pre><code>docker run -it ubuntu ## ubuntu container can be run in window/mac os in interactive mode)</code></pre>
+<p>Now we are inside ubuntu container (isolated from mac/window OS)</p>
+<pre><code>docker -v</code></pre>
+<pre><code>docker hub (image repos) is like github</code></pre>
+<pre><code>docker pull hello-world</code></pre>
+<pre><code>docker run can pull the image and run the container a well.</code></pre>
+<pre><code>docker ps is to see active containers</code></pre>
+<p>rmi = remove and destroy image</p>
+<p>rm = remove and destroy  container</p>
+<p>tag is version or variant else latest version will be pulled</p>
+<pre><code>docker run -d &lt;image&gt;   -d = detach mode,  bydefault its attach mode</code></pre>
+<p>image layer</p>
+<p>Base layer --&gt; layer1--&gt;layer2 --&gt; container (only container can change else all layers are immutable)</p>
+<p>port binding (use -p to bind ports)</p>
+<p>Host OS PORTS  (8080 and 5000) --&gt; Docker container PORTS (3306   and 3306)</p>
+<pre><code>docker exec-it cont_id /bin/bash  (exec to run additional commands )</code></pre>
+<pre><code>docker virtualize only application layer</code></pre>
+<p>VM virtualize OS kernel and application layer</p>
+<p>Hardware --&gt; OS kernel --&gt;app layer</p>
+<pre><code>docker desktop holds hypervised VM , mini linux</code></pre>
+<pre><code>docker network ls</code></pre>
+<pre><code>docker network create mongo-network</code></pre>
+<p>--------------------------------------------------------</p>
+<p>Publish image to docker repository</p>
+<p>Login with doicker login</p>
+<pre><code>docker logout</code></pre>
+<pre><code>docker login -u &lt;username&gt;</code></pre>
+<pre><code>docker push &lt;image name&gt;</code></pre>
+<pre><code>docker pull &lt;image name&gt;</code></pre>
+<p>--------------------------------------------------------</p>
+<pre><code>Docker volumes</code></pre>
+<p>Volumes are persisent data store for containers</p>
+<p>reserve extra space on host system to create volume on Host OS and mount on container ##named volume</p>
+<p>by default its created on c:\programdata\docker\volumes</p>
+<pre><code>docker run -it -v &lt;hostospath&gt;:&lt;containerpath&gt; ubuntu</code></pre>
+<pre><code>docker volume ls</code></pre>
+<pre><code>docker volume rm  &lt;volumename&gt;</code></pre>
+<pre><code>docker run -v vol_name:cont_dir (named volume)</code></pre>
+<pre><code>docker run -v mount_path (anonymous volumes) - container dir</code></pre>
+<pre><code>docker run -v host_dir:cont_dir (bind mount)</code></pre>
+<p>------------same task we can done with mount)  like --mount type=volume</p>
+<pre><code>docker volume prune (delete all volumes) - delete all anonymous volume , may be container already deleted.</code></pre>
+<p>container dont have ip address its utlized host network ip .</p>
+<p>null network : default one  -- &gt; isolated containers with host and other containers</p>
+<p>--------------------------------------------------------</p>
+<p>Mongo DB</p>
+<p>Make sure open cmd or powershell with elevated rights to ensure appropriate permissions.</p>
+<pre><code>PS C:\Program Files\MongoDB\Server\8.3\bin&gt;</code></pre>
+<p>&amp; &quot;C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe&quot; --dbpath &quot;C:\Program Files\MongoDB\Server\8.3\data&quot;</p>
+<p>MongoDB Windows Service</p>
+<p>        ↓</p>
+<p>mongod.exe</p>
+<p>        ↓</p>
+<pre><code>C:\Program Files\MongoDB\Server\8.3\data</code></pre>
+<p>        ↓</p>
+<p>127.0.0.1:27017</p>
+<p>        ↓</p>
+<p>MongoDB Compass</p>
+<p>CRUD Operation [create read update and delete]</p>
+<p>TT_Conn</p>
+<p>│</p>
+<p>├── admin</p>
+<p>├── config</p>
+<p>├── employees        ← DATABASE</p>
+<p>│   ├── managers     ← COLLECTION</p>
+<p>│   ├── movies       ← COLLECTION</p>
+<p>│   └── stores       ← COLLECTION</p>
+<p>│</p>
+<p>└── local</p>
+<p>use employees</p>
+<p>show collections</p>
+<p>db.getCollectionNames()</p>
+<p>db.stores.find()</p>
+<p>db.stores.countDocuments()</p>
+<p>db.stores.find()</p>
+<p>db.collectionname.find()</p>
+<p>-------------------------------------------</p>
+<p>Samples:</p>
+<p>{</p>
+<p>  _id: 3,</p>
+<p>  name: &#x27;Coffee Shop&#x27;,</p>
+<p>  des</p>
+<p>{</p>
+<p>  _id: 6,</p>
+<p>  name: &#x27;NYC_Coffee Shop&#x27;,</p>
+<p>  description: &#x27;local NYC coffee&#x27;</p>
+<p>}</p>
+<p>-------------------------------------------</p>
+<p>Search coffee in the name field</p>
+<p>db.stores.find({ name: &quot;Coffee Shop&quot; })</p>
+<p>For any name containing &quot;coffee&quot;, case-insensitive:</p>
+<p>db.stores.find({</p>
+<p>  name: { $regex: &quot;coffee&quot;, $options: &quot;i&quot; }</p>
+<p>})</p>
+<p>db.stores.find({</p>
+<p>  description: { $regex: &quot;coffee&quot;, $options: &quot;i&quot; }</p>
+<p>})</p>
+<p>Search coffee in BOTH name and description</p>
+<p>db.stores.find({</p>
+<p>  $or: [</p>
+<p>    { name: { $regex: &quot;coffee&quot;, $options: &quot;i&quot; } },</p>
+<p>    { description: { $regex: &quot;coffee&quot;, $options: &quot;i&quot; } }</p>
+<p>  ]</p>
+<p>})</p>
+<p>-----------------</p>
+<p>db.stores.createIndex({</p>
+<p>  name: &quot;text&quot;,</p>
+<p>  description: &quot;text&quot;</p>
+<p>})</p>
+<p>Verify index</p>
+<p>db.stores.getIndexes()</p>
+<p>========command to change size for journal=======</p>
+<p>db.inventory.updateOne(</p>
+<p>  { item: &quot;journal&quot; },</p>
+<p>  { $set: { &quot;size.h&quot;: 20 } }</p>
+<p>)</p>
+<p>==============</p>
+<p>db.inventory.findOne({ item: &quot;journal&quot; })</p>
+<p>==============</p>
+<p>Pandas + NumPy — MEDIUM priority</p>
+<p>Learn enough to manipulate data and understand what AI/ML libraries are doing.</p>
+<p>Scikit-learn — BASIC/MEDIUM</p>
+<p>train/test split</p>
+<p>preprocessing</p>
+<p>classification/regression</p>
+<p>embeddings concept</p>
+<p>evaluation metrics</p>
+<p>TensorFlow/PyTorch — LOW priority initially</p>
+<p>For your current goal of building LLM/Agentic AI applications, you don&#x27;t need to spend months learning neural-network implementation.</p>
+<p>NLTK/spaCy — LOW priority</p>
+<p>Useful for traditional NLP, but modern Agentic AI work will more commonly involve:</p>
+<p>LLM APIs</p>
+<p>##############################################################################</p></body></html>

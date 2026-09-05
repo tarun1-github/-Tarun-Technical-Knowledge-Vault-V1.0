@@ -1,0 +1,15 @@
+{
+  "id": "008-LangGraph-007",
+  "module": "008-LangGraph",
+  "title": "2. Nodes = Individual tasks",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "langgraph",
+    "llm",
+    "python"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "08",
+  "source_lines": 21
+}

@@ -1,0 +1,14 @@
+{
+  "id": "006-LLM-Tools-012",
+  "module": "006-LLM-Tools",
+  "title": "8. RAG + Tools",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "llm-tools",
+    "rag"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "06",
+  "source_lines": 2
+}

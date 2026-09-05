@@ -1,0 +1,18 @@
+{
+  "id": "002-Python-VSCode-007",
+  "module": "002-Python-VSCode",
+  "title": "$ conda deactivate",
+  "type": "Imported Topic",
+  "tags": [
+    "agentic",
+    "imported",
+    "jupyter",
+    "langchain",
+    "langgraph",
+    "python",
+    "python-vscode"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "02",
+  "source_lines": 108
+}

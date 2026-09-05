@@ -1,0 +1,14 @@
+{
+  "id": "014-QBR-Deployment-005",
+  "module": "014-QBR-Deployment",
+  "title": "4. Build",
+  "type": "Imported Topic",
+  "tags": [
+    "docker",
+    "imported",
+    "qbr-deployment"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "14",
+  "source_lines": 9
+}

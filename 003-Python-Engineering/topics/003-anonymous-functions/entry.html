@@ -1,0 +1,123 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Anonymous Functions-1</title><meta name="vault-tags" content="imported,pydantic,python,python-engineering"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>Anonymous Functions-1</h1><div><span class="tag">imported</span> <span class="tag">pydantic</span> <span class="tag">python</span> <span class="tag">python-engineering</span></div><h2>Anonymous Functions</h2>
+<p>  addition=lamba a,b:a+b</p>
+<p>  print(addition(5,6))</p>
+<p>  is_even = lambda x: x % 2 == 0</p>
+<p>++ map()  =&gt; applies function to all items in list/collections</p>
+<p> numbers=[1,2,3,4,5]</p>
+<p> def square(number):</p>
+<p>	return numer**2</p>
+<p> square(2)</p>
+<p> -----------</p>
+<p>numbers=[1,2,3,4,5]</p>
+<p>list(map(lambda x:x**2,numbers))</p>
+<p>######Map multiple iterables###</p>
+<p>number1=[1,2,3]</p>
+<p>number2=[4,5,6]</p>
+<p>added_numbers=list(map(lambda x,y:x+y,numbers1,numbers2))</p>
+<p>print(added_numbers)</p>
+<p>++ Filter () : Construct an iterator for which functions returns true.</p>
+<p>Filter out items from list based on condition.</p>
+<p>def even(num):</p>
+<p> if num%2==0:</p>
+<p>    return True</p>
+<p>lst=[1,2,3,4,5,6,7,8,9,10]</p>
+<p>list(filter(even,lst))</p>
+<p>++ Import modules and packages (in-built functions) in python (open source programming)</p>
+<p>#####Important modules, install package if not available (pip install math)</p>
+<p>math is package</p>
+<p>Import math</p>
+<p>from math import sqrt,pi  ==&gt; imported multiple functions from package math</p>
+<p>from math import *  =&gt; Import all functions</p>
+<p>import numpy as np  ==&gt; np is alias</p>
+<p>Create custom package/modules</p>
+<p> _init_.py ==&gt;its special file to define packages/modules and initialize the namespace</p>
+<p>from Packages.maths import addition  ==&gt; should be in same module folder to call the function due to _init_.py</p>
+<p>addition(4,5)</p>
+<p>++ standard library</p>
+<p>array, random</p>
+<p>import random</p>
+<p>print(random.randinit(1,10)) ==&gt; pick any random number</p>
+<p>##File and directory access</p>
+<p>import os</p>
+<p>print(os.getcwd())</p>
+<pre><code>C:\Program Files\Notepad++</code></pre>
+<p>##high level operation and collection of files</p>
+<p>import shutil</p>
+<p>###Data Serialization =&gt; convert data to json and vice versa</p>
+<p>import json</p>
+<p>json.dumps ==&gt; Dic to json</p>
+<p>&lt;function dumps at 0x000001DB10B19280&gt;</p>
+<p>json.loads ==&gt; json to dict</p>
+<p>&lt;function loads at 0x000001DB10B19430&gt;</p>
+<p>##CSV</p>
+<p>import csv</p>
+<p>##Datetime</p>
+<p>from datetime import datetime,timedelta</p>
+<p>##time</p>
+<p>import time</p>
+<p>##regular expression</p>
+<p>import re</p>
+<p>++File operation in python  ==&gt; read/write files (text and binary files)</p>
+<p>##Read whole file</p>
+<p>++Exception handling</p>
+<p>Exception try , except block</p>
+<p>try:</p>
+<p>	a=b</p>
+<p>except NameError as ex:</p>
+<p>	print(ex)</p>
+<p>except Exception as ex1: =&gt; Parent/Main exception class (exception  derived from here). Should be last exception</p>
+<p>	print(ex1)</p>
+<p>finally:</p>
+<p>	print(&quot;execution completes&quot;)</p>
+<p>++classes and Objects in python</p>
+<p>##class is blue print for creating objects , attributes and methods</p>
+<p>##Instance variable and methods</p>
+<p>##Define class with Instance variable</p>
+<p>class dog:</p>
+<p>	##Constructor</p>
+<p>	def _init_(self,name,age): =&gt; self is accessing instance variables. name and ages are attributes/properties</p>
+<p>		self.name=name</p>
+<p>		self.age=age</p>
+<p>	##create objects</p>
+<p>	dog1=dog(&quot;buddy&quot;,3)</p>
+<p>	print(dog1)</p>
+<p>	print(dog1.name)</p>
+<p>	##create objects</p>
+<p>	dog2=dog(&quot;lucy&quot;,3)</p>
+<p>	print(dog2)</p>
+<p>	print(dog2.name)</p>
+<p>##Define class with Instance Method</p>
+<p>class dog:</p>
+<p>	##Constructor</p>
+<p>	def _init_(self,name,age): =&gt; self is accessing instance variables. name and ages are attributes/properties</p>
+<p>		self.name=name</p>
+<p>		self.age=age</p>
+<p>	##Instance method/functions</p>
+<p>	def bark(self)</p>
+<p>		print(f&quot;{self.name} says woof&quot;)</p>
+<p>	##create objects</p>
+<p>	dog1=dog(&quot;buddy&quot;,3)</p>
+<p>	dog1.bark()</p>
+<p>##Call Parent class  - Inheritance  super()</p>
+<p> super()._init_(windows,doors,enginetype)</p>
+<p>Inheritance from multiple child/derived class dont require super()&#x27;</p>
+<p>++ Polymorphormism</p>
+<p>++ Encapsulation</p>
+<p>++ Abstract class</p>
+<p>++ Magic method  =&gt; starts with double underscore used to define the behaviour of objects for built-in operations</p>
+<p>override the behaviour of objects.</p>
+<p>class Person:</p>
+<p>	pass</p>
+<p>person=Person()</p>
+<p>dir (person)</p>
+<p>++ Operator overloading</p>
+<p>++ Iterator (looping and memory management)</p>
+<p>++ generators=&gt; simple way to create iterators</p>
+<p>	yield create/stores value in local variable but not in memory</p>
+<p>++ Decorators</p>
+<p>++ Numpy in python  ==&gt; Numpy library : support for arrays and matrices, mathematical operation will be fast</p>
+<p>++ pandas  - Datafrane and series : Data manipulation used for data analysis and cleaning</p>
+<p>Series is 1 Dimensional  array like object</p>
+<p>DataFrane is 2 Dimensional array like object</p>
+<p>++ Pydantic -&gt; data validation library for python. its fast and works with IDE.</p>
+<p>##Field function allow you to specify validation rules, aliases .</p></body></html>

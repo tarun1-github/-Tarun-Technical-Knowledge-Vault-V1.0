@@ -1,0 +1,19 @@
+{
+  "id": "010-CI-CD-Testing-057",
+  "module": "010-CI-CD-Testing",
+  "title": "15. Agentic AI",
+  "type": "Imported Topic",
+  "tags": [
+    "agentic",
+    "ci-cd-testing",
+    "docker",
+    "fastapi",
+    "imported",
+    "langchain",
+    "langgraph",
+    "python"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "10",
+  "source_lines": 55
+}

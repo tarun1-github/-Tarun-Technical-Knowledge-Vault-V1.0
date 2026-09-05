@@ -1,0 +1,16 @@
+{
+  "id": "006-LLM-Tools-013",
+  "module": "006-LLM-Tools",
+  "title": "9. Multi-agent",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "langchain",
+    "llm",
+    "llm-tools",
+    "python"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "06",
+  "source_lines": 57
+}

@@ -1,0 +1,13 @@
+{
+  "id": "014-QBR-Deployment-013",
+  "module": "014-QBR-Deployment",
+  "title": "7. Test locally from Ubuntu",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "qbr-deployment"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "14",
+  "source_lines": 3
+}

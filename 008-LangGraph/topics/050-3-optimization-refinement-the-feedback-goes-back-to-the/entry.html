@@ -1,0 +1,170 @@
+<!doctype html><html><head><meta charset="utf-8"><title>3. Optimization / Refinement : The feedback goes back to the Generator:</title><meta name="vault-tags" content="agentic,imported,langgraph,llm,rag"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>3. Optimization / Refinement : The feedback goes back to the Generator:</h1><div><span class="tag">agentic</span> <span class="tag">imported</span> <span class="tag">langgraph</span> <span class="tag">llm</span> <span class="tag">rag</span></div><p>3. Optimization / Refinement : The feedback goes back to the Generator:</p>
+<p>Generator</p>
+<p>    ↓</p>
+<p>Initial Answer</p>
+<p>    ↓</p>
+<p>Evaluator</p>
+<p>    ↓</p>
+<p>Feedback</p>
+<p>    ↓</p>
+<p>Generator</p>
+<p>    ↓</p>
+<p>Improved Answer</p>
+<p>    ↓</p>
+<p>Evaluator</p>
+<p>Generate → Evaluate → Feedback → Refine → Evaluate → Output.</p>
+<p>=========================================================================</p>
+<p>Traditional RAG</p>
+<p>User Question</p>
+<p>      ↓</p>
+<p>Retriever</p>
+<p>      ↓</p>
+<p>Vector Database</p>
+<p>      ↓</p>
+<p>Relevant Documents</p>
+<p>      ↓</p>
+<p>LLM</p>
+<p>      ↓</p>
+<p>Answer</p>
+<p>---------------------</p>
+<p>Agentic RAG</p>
+<p>                 User Question</p>
+<p>                       ↓</p>
+<p>                     Agent</p>
+<p>                       ↓</p>
+<p>             &quot;Do I need retrieval?&quot;</p>
+<p>                    /       \</p>
+<p>                  No         Yes</p>
+<p>                  ↓           ↓</p>
+<p>                 LLM      Retriever Tool</p>
+<p>                              ↓</p>
+<p>                         Vector DB / Web</p>
+<p>                              ↓</p>
+<p>                       Retrieved Context</p>
+<p>                              ↓</p>
+<p>                     &quot;Is it relevant?&quot;</p>
+<p>                         /       \</p>
+<p>                       No         Yes</p>
+<p>                       ↓           ↓</p>
+<p>                  Refine Query    LLM</p>
+<p>                       │           ↓</p>
+<p>                       └──────→  Answer</p>
+<p>What makes it &quot;Agentic&quot;?</p>
+<p>The key difference is decision-making.</p>
+<p>&quot;Why is SEP001122334455 showing Unregistered, and what should I check?&quot;</p>
+<p>A traditional RAG system might simply:</p>
+<p>Question</p>
+<p>   ↓</p>
+<p>Vector Search</p>
+<p>   ↓</p>
+<p>CUCM troubleshooting documents</p>
+<p>   ↓</p>
+<p>LLM</p>
+<p>   ↓</p>
+<p>Answer</p>
+<p>An Agentic RAG system could reason:</p>
+<p>Agent</p>
+<p> ↓</p>
+<p>Need CUCM registration information</p>
+<p> ↓</p>
+<p>Retrieve CUCM troubleshooting docs</p>
+<p> ↓</p>
+<p>Need SIP information</p>
+<p> ↓</p>
+<p>Retrieve SIP troubleshooting docs</p>
+<p> ↓</p>
+<p>Need device-specific information</p>
+<p> ↓</p>
+<p>Call CUCM/API Tool</p>
+<p> ↓</p>
+<p>Combine all evidence</p>
+<p> ↓</p>
+<p>Generate RCA</p>
+<p>=========================================================================</p>
+<p>LLM Gateway</p>
+<p>LLM Gateway as a smart middleware layer between your applications and different LLM providers.</p>
+<p>Instead of every application directly connecting to OpenAI, Gemini, or Claude:</p>
+<p>The gateway gives your organization one controlled entry point for all LLM calls.</p>
+<p>Without LLM Gateway</p>
+<p>Chatbot ─────→ OpenAI</p>
+<p>RAG     ─────→ Gemini</p>
+<p>App     ─────→ Claude</p>
+<p>you introduce one common gateway:</p>
+<p>                    ┌─────────────┐</p>
+<p>                    │   OpenAI    │</p>
+<p>                    └──────▲──────┘</p>
+<p>                           │</p>
+<p>                    ┌──────┴──────┐</p>
+<p>                    │    Gemini   │</p>
+<p>                    └──────▲──────┘</p>
+<p>                           │</p>
+<p>                    ┌──────┴──────┐</p>
+<p>                    │ Claude API  │</p>
+<p>                    └──────▲──────┘</p>
+<p>                           │</p>
+<p>                    ┌──────┴──────┐</p>
+<p>                    │ LLM Gateway │</p>
+<p>                    │   Smart     │</p>
+<p>                    │ Middleware  │</p>
+<p>                    └──────▲──────┘</p>
+<p>                           │</p>
+<p>              ┌────────────┼────────────┐</p>
+<p>              │            │            │</p>
+<p>           Chatbot        RAG          App</p>
+<p>OpenAI unavailable</p>
+<p>       ↓</p>
+<p>LLM Gateway</p>
+<p>       ↓</p>
+<p>Fallback</p>
+<p>       ↓</p>
+<p>Claude</p>
+<p>LLM Gateway</p>
+<p>│</p>
+<p>├── Routing</p>
+<p>│     → Which LLM should handle the request?</p>
+<p>│</p>
+<p>├── Authentication</p>
+<p>│     → Who is allowed to use the LLM?</p>
+<p>│</p>
+<p>├── Rate Limiting</p>
+<p>│     → How many requests are allowed?</p>
+<p>│</p>
+<p>├── Cost Control</p>
+<p>│     → Which model is being used and how much does it cost?</p>
+<p>│</p>
+<p>├── Logging</p>
+<p>│     → What prompts/responses are being generated?</p>
+<p>│</p>
+<p>├── Monitoring</p>
+<p>│     → Latency, errors, token usage</p>
+<p>│</p>
+<p>├── Security</p>
+<p>│     → Protect API keys and sensitive data</p>
+<p>│</p>
+<p>├── Guardrails</p>
+<p>│     → Filter/block unwanted requests</p>
+<p>│</p>
+<p>└── Fallback</p>
+<p>      → If one provider fails, use another</p>
+<p>An LLM Gateway is a centralized smart middleware layer that manages access to multiple LLM providers and provides capabilities such as routing, authentication, rate limiting, cost control, monitoring, security, guardrails, and fallback.</p>
+<p>	  =========================================================================</p>
+<p>LLM Gateway</p>
+<p>Controls LLM access and infrastructure:</p>
+<p>Security</p>
+<p>Routing</p>
+<p>Cost</p>
+<p>Rate limits</p>
+<p>Monitoring</p>
+<p>Provider management</p>
+<p>LangGraph</p>
+<p>Controls agent/workflow execution</p>
+<p>State</p>
+<p>Nodes</p>
+<p>Edges</p>
+<p>Routing</p>
+<p>Tools</p>
+<p>Loops</p>
+<p>Memory</p>
+<p>Human-in-the-loop</p>
+<p> =========================================================================</p>
+<p>##############################################################################</p></body></html>

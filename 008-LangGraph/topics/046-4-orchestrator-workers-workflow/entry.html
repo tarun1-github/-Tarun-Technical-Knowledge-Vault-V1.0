@@ -1,0 +1,72 @@
+<!doctype html><html><head><meta charset="utf-8"><title>4) Orchestrator–Workers Workflow</title><meta name="vault-tags" content="imported,langgraph,llm"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>4) Orchestrator–Workers Workflow</h1><div><span class="tag">imported</span> <span class="tag">langgraph</span> <span class="tag">llm</span></div><p>4) Orchestrator–Workers Workflow</p>
+<p>A central LLM (Orchestrator) dynamically decides what subtasks are required, sends them to worker nodes/agents, and then a Synthesizer combines their results.</p>
+<p>A. The Orchestrator is the central LLM.</p>
+<p>It receives the user&#x27;s request and decides:</p>
+<p>What subtasks are needed?</p>
+<p>How many workers are needed?</p>
+<p>What should each worker do?</p>
+<p>What information should be given to each worker?</p>
+<p>Worker 1 → Analyze infrastructure</p>
+<p>Worker 2 → Analyze applications</p>
+<p>Worker 3 → Analyze security</p>
+<p>Worker 4 → Analyze databases</p>
+<p>                         ┌──────────────┐</p>
+<p>                         │   Worker 1   │</p>
+<p>                         └──────┬───────┘</p>
+<p>                                │</p>
+<p>User                          │</p>
+<p>  ↓                            ↓</p>
+<p>Orchestrator ─────────────→ Worker 2 ──────┐</p>
+<p>  │                                         │</p>
+<p>  └──────────────────────→ Worker 3 ──────┤</p>
+<p>                                            ↓</p>
+<p>                                      Synthesizer</p>
+<p>                                            ↓</p>
+<p>                                         Output</p>
+<p>B. Workers are specialized LLMs/nodes/agents that perform the subtasks.</p>
+<p>             Orchestrator</p>
+<p>              /    |    \</p>
+<p>             ↓     ↓     ↓</p>
+<p>        Worker 1 Worker 2 Worker 3</p>
+<p>        Security  Database  Network</p>
+<p>C. Synthesizer takes all worker outputs and produces the final answer.</p>
+<p>Worker 1 ──┐</p>
+<p>Worker 2 ──┤</p>
+<p>Worker 3 ──┼──→ Synthesizer → Final Answer</p>
+<p>Worker 4 ──┘</p>
+<p>Worker 1:</p>
+<p>&quot;Security has these issues...&quot;</p>
+<p>Worker 2:</p>
+<p>&quot;Database has these issues...&quot;</p>
+<p>Worker 3:</p>
+<p>&quot;Network has these issues...&quot;</p>
+<p>              ↓</p>
+<p>          Synthesizer</p>
+<p>              ↓</p>
+<p>&quot;Overall architecture has 3 major areas</p>
+<p>requiring improvement...&quot;</p>
+<p>=========================================================================</p>
+<p>The most important difference from Parallelization</p>
+<p>Parallelization</p>
+<p>You already know the tasks:The tasks are predefined.</p>
+<p>             ┌→ Task A</p>
+<p>START ───────┼→ Task B</p>
+<p>             └→ Task C</p>
+<p>Orchestrator–Workers</p>
+<p>The orchestrator decides the tasks dynamically:</p>
+<p>                    User</p>
+<p>                     ↓</p>
+<p>               Orchestrator</p>
+<p>                     ↓</p>
+<p>          &quot;What work is required?&quot;</p>
+<p>                     ↓</p>
+<p>          ┌──────────┼──────────┐</p>
+<p>          ↓          ↓          ↓</p>
+<p>       Worker 1   Worker 2   Worker 3</p>
+<p>          ↓          ↓          ↓</p>
+<p>          └──────────┼──────────┘</p>
+<p>                     ↓</p>
+<p>                Synthesizer</p>
+<p>                     ↓</p>
+<p>                   Output</p>
+<p>=========================================================================</p></body></html>

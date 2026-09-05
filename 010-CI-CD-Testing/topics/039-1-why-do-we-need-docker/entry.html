@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"><title>1. Why do we need Docker?</title><meta name="vault-tags" content="ci-cd-testing,docker,fastapi,imported,langchain,langgraph,python"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>1. Why do we need Docker?</h1><div><span class="tag">ci-cd-testing</span> <span class="tag">docker</span> <span class="tag">fastapi</span> <span class="tag">imported</span> <span class="tag">langchain</span> <span class="tag">langgraph</span> <span class="tag">python</span></div><p>1. Why do we need Docker?</p>
+<p>&quot;It works on my machine, but it doesn&#x27;t work on another machine.&quot;</p>
+<p>Suppose Developer A builds an application:</p>
+<p>Developer A. The application works perfectly.</p>
+<p>│</p>
+<p>├── Windows</p>
+<p>├── Python 3.12</p>
+<p>├── LangChain 1.x</p>
+<p>├── LangGraph</p>
+<p>├── FastAPI</p>
+<p>├── Other libraries</p>
+<p>└── Configuration</p>
+<p>----------------------------------------------------------</p>
+<p>Now we move it to Developer B / QA / Production:</p>
+<p>Developer B / Server . The application may fail.</p>
+<p>│</p>
+<p>├── Linux</p>
+<p>├── Python 3.11</p>
+<p>├── Different library versions</p>
+<p>├── Different OS libraries</p>
+<p>└── Different configuration</p>
+<p>----------------------------------------------------------</p>
+<pre><code>Docker solution : Docker packages the application together with its required environment.</code></pre>
+<p>Application</p>
+<p>     +</p>
+<p>Dependencies</p>
+<p>     +</p>
+<p>Runtime</p>
+<p>     +</p>
+<p>Configuration</p>
+<p>     ↓</p>
+<p> Docker Image</p>
+<p>     ↓</p>
+<p>Deploy anywhere</p>
+<p>----------------------------------------------------------</p>
+<p>Docker</p>
+<p>│</p>
+<p>├── Environment standardization</p>
+<p>├── Isolation ##Keep applications separated from each other.</p>
+<p>├── Portability  ##Move the same application environment between machines.</p>
+<p>├── Consistency</p>
+<p>└── Easy deployment</p>
+<p>----------------------------------------------------------</p></body></html>

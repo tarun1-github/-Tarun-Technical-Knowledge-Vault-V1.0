@@ -1,0 +1,16 @@
+{
+  "id": "003-Python-Engineering-001",
+  "module": "003-Python-Engineering",
+  "title": "03 \u2014 PYTHON FUNDAMENTALS + DATA + OOP + Pydantic + FastAPI",
+  "type": "Imported Topic",
+  "tags": [
+    "fastapi",
+    "imported",
+    "pydantic",
+    "python",
+    "python-engineering"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "03",
+  "source_lines": 144
+}

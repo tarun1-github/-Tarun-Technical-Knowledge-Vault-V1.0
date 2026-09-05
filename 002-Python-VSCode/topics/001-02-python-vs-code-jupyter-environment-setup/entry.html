@@ -1,0 +1,73 @@
+<!doctype html><html><head><meta charset="utf-8"><title>02 — PYTHON + VS CODE + JUPYTER + ENVIRONMENT SETUP</title><meta name="vault-tags" content="agentic,docker,git,imported,jupyter,ollama,python,python-vscode,vscode"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>02 — PYTHON + VS CODE + JUPYTER + ENVIRONMENT SETUP</h1><div><span class="tag">agentic</span> <span class="tag">docker</span> <span class="tag">git</span> <span class="tag">imported</span> <span class="tag">jupyter</span> <span class="tag">ollama</span> <span class="tag">python</span> <span class="tag">python-vscode</span> <span class="tag">vscode</span></div><p>02 — PYTHON + VS CODE + JUPYTER + ENVIRONMENT SETUP</p>
+<p>##############################################################################</p>
+<p>++Install VSCode</p>
+<p>Terminal &gt; code . (to open vs code from folder)</p>
+<p>winget install Python.Python.3.13  (Install python)</p>
+<p>Open VS Code Settings</p>
+<p>Press Ctrl + ,</p>
+<p>escape a to create cells</p>
+<p>create virtual env</p>
+<p>##create separate env for different project via conda , virtualenv, python commands for libraries, packages.</p>
+<pre><code>python -m venv &lt;foldername&gt; (if foldername does not exists then it will get created.</code></pre>
+<p>&lt;foldername&gt;/Scripts/activate</p>
+<p>install libraries via python or requirements.txt</p>
+<pre><code>python --version</code></pre>
+<p>By default, venv will get created for installed version , if we have multiple versions then</p>
+<pre><code>python -m venv &lt;foldername&gt;</code></pre>
+<p>conda create -p venv python==3.14    (-p (pwd) create env in working location)</p>
+<p>conda create -n venv python==3.14    (-n anaconda directory , it will create where anaconda is installed)</p>
+<pre><code>pip install -r ./requirements.txt  (-r Read the packages listed in requirements.txt and install all of them.)</code></pre>
+<p>conda env list</p>
+<p>conda run -p .\venv python --version</p>
+<p>For all Conda environments, you can use PowerShell:</p>
+<p>conda env list | Select-String &quot;^[^#\s]&quot;</p>
+<p>base                     C:\Users\tataneja\AppData\Local\anaconda3</p>
+<p>Create custom package/modules   setup.py</p>
+<p> __init__.py ==&gt;its special file to define packages/modules and initialize the namespace. Make folder as package.</p>
+<p>setup.py (follow packaging url)</p>
+<p>requirements.txt</p>
+<p>	-e.    (Install the current project as an editable package)</p>
+<pre><code>pip install -r requirements.txt</code></pre>
+<p>            ↓</p>
+<p>          -e .</p>
+<p>            ↓</p>
+<p>      process setup.py</p>
+<p>            ↓</p>
+<p>       setup(...) ✅</p>
+<p>            ↓</p>
+<p>     package discovered</p>
+<p>            ↓</p>
+<p>      .egg-info created ✅</p>
+<p>=======================================================================</p>
+<p>VS code : Remote-SSH extension to ubuntu 10.106.44.12  root/cisco  ssh root@10.106.44.12</p>
+<p>Windows</p>
+<p>  │</p>
+<p>  │ VS Code Remote-SSH</p>
+<p>  ▼</p>
+<p>Ubuntu 26.04 VM</p>
+<p>  │</p>
+<p>  └── /home/tarun/AgenticAI/</p>
+<p>          │</p>
+<p>          └── docker-beginner/</p>
+<p>                ├── .venv/</p>
+<p>                ├── app.py</p>
+<p>                ├── requirements.txt</p>
+<p>                ├── README.md</p>
+<p>                └── .gitignore</p>
+<p>=======================================================================</p>
+<p>Create custom package/modules  pyptoject.toml</p>
+<p>=========================================</p>
+<pre><code>python -m ensurepip --upgrade</code></pre>
+<pre><code>python -m pip install --upgrade pip</code></pre>
+<pre><code>python -m pip install --upgrade pip</code></pre>
+<p>uv pip install --python .\venv\Scripts\python.exe pip</p>
+<p>.\venv\Scripts\python.exe -m pip --version</p>
+<p>Because VS Code caches the ERR_TUNNEL_CONNECTION_FAILED state in its local session data, simply saving settings.json doesn&#x27;t reset the network background worker.</p>
+<p>launch vs code</p>
+<p>code --no-proxy-server</p>
+<p>=========================================</p>
+<p> Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub | ssh root@10.106.44.12 &quot;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys&quot;</p>
+<p> Test from Windows with verbose output</p>
+<p> ssh -vvv root@10.106.44.12</p>
+<p> journalctl -u ollama -f</p>
+<p>=========================================</p></body></html>

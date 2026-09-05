@@ -1,0 +1,168 @@
+<!doctype html><html><head><meta charset="utf-8"><title>7. Check Ollama logs</title><meta name="vault-tags" content="fastapi,git,github,imported,ollama,python"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>7. Check Ollama logs</h1><div><span class="tag">fastapi</span> <span class="tag">git</span> <span class="tag">github</span> <span class="tag">imported</span> <span class="tag">ollama</span> <span class="tag">python</span></div><p>7. Check Ollama logs</p>
+<p>This is particularly useful if Ollama isn&#x27;t detecting your GPU:</p>
+<pre><code>sudo journalctl -u ollama --no-pager -n 100</code></pre>
+<pre><code>sudo journalctl -u ollama -f</code></pre>
+<p>[root@centostt ~]# sudo systemctl status ollama --no-pager</p>
+<p>● ollama.service - Ollama Service</p>
+<p>   Loaded: loaded (/etc/systemd/system/ollama.service; enabled; vendor preset: disabled)</p>
+<p>   Active: active (running) since Wed 2026-08-26 07:16:36 IST; 53min ago</p>
+<p> Main PID: 1647 (ollama)</p>
+<p>[root@centostt ~]# lscpu | egrep &#x27;Model name|CPU\(s\)|Core|Thread|Architecture&#x27;</p>
+<p>Architecture:        x86_64</p>
+<p>CPU(s):              16</p>
+<p>On-line CPU(s) list: 0-15</p>
+<p>Thread(s) per core:  1</p>
+<p>Core(s) per socket:  1</p>
+<p>Model name:          Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz</p>
+<p>BIOS Model name:     Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz</p>
+<p>NUMA node0 CPU(s):   0-15</p>
+<p>[root@centostt ~]#</p>
+<p>lspci | grep -Ei &#x27;vga|3d|display&#x27;</p>
+<p>-----------------------------------------------------</p>
+<p>-</p>
+<p>Window Architecture</p>
+<p>$env:PROCESSOR_ARCHITECTURE</p>
+<p>x64-based PC → x64</p>
+<p>ARM64-based PC → ARM64</p>
+<p>x86-based PC → 32-bit</p>
+<p>--------------------</p>
+<pre><code>python -m py_compile app\main.py</code></pre>
+<p>--------------------WEB APPLICATION------ACCESS VERIFICATION SYSTEM----------------------------</p>
+<p>Test-NetConnection evaccesscheck.cisco.com -Port 8000</p>
+<p>curl.exe -k https://evaccesscheck.cisco.com:8000/</p>
+<p>Copy-Item .\app\routers\verification_fine_tuned.py .\app\routers\verification.py -Force</p>
+<p>Indent convert to spaces</p>
+<p>$i=1; Get-Content -LiteralPath (Join-Path (Get-Location) &#x27;app\routers\verification.py&#x27;) | ForEach-Object { if($i -ge 15 -and $i -le 28) { &quot;$i`: [$($_)]&quot; }; $i++ }</p>
+<p>--------------------</p>
+<pre><code>uvicorn app.main:app --reload</code></pre>
+<pre><code>uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload</code></pre>
+<pre><code>uvicorn app.main:app --host 10.106.44.24 --port 8000 --reload</code></pre>
+<p>Browser</p>
+<p>   │</p>
+<p>   │ http://127.0.0.1:8000</p>
+<p>   ▼</p>
+<p>Uvicorn</p>
+<p>   │</p>
+<p>   ▼</p>
+<p>FastAPI</p>
+<p>   │</p>
+<p>   ▼</p>
+<p>GET /</p>
+<p>   │</p>
+<p>   ▼</p>
+<p>Home()</p>
+<p>-----------</p>
+<p>tree app /F</p>
+<p>---------</p>
+<p>Future supervisor change</p>
+<p>Later, if Deepak Garg moves from Tarun to another supervisor:</p>
+<pre><code>UPDATE dbo.ac_engineers</code></pre>
+<p>SET supervisor_id = NEW_SUPERVISOR_ID</p>
+<p>WHERE alias = &#x27;dgarg&#x27;;</p>
+<p>EXEC dbo.sp_reset_expired_access_verification;</p>
+<p>GO</p>
+<pre><code>python -m compileall .</code></pre>
+<pre><code>python -m py_compile portal.py database.py routers/verification.py models/verification.py</code></pre>
+<p>http://10.106.44.24:8000/analytics/11</p>
+<p>http://10.106.44.24:8000/vbhat</p>
+<p>http://10.106.44.24:8000/ttaneja</p>
+<p>                    ┌─────────────────────┐</p>
+<p>                    │     ENGINEERS       │</p>
+<p>                    │ Personalized URL    │</p>
+<p>                    │ Verify Access       │</p>
+<p>                    └──────────┬──────────┘</p>
+<p>                               │</p>
+<p>                               ▼</p>
+<p>┌──────────────────────────────────────────────────────────┐</p>
+<p>│             CMS BOA EV ACCESS COMPLIANCE PORTAL          │</p>
+<p>│                                                          │</p>
+<p>│  FastAPI Application                                     │</p>
+<p>│                                                          │</p>
+<p>│  main.py                                                 │</p>
+<p>│      │                                                   │</p>
+<p>│      ├── portal.py        → Dashboards / Analytics       │</p>
+<p>│      ├── verification.py  → Verify / Issue / ARM         │</p>
+<p>│      ├── engineers.py     → Engineer management          │</p>
+<p>│      ├── applications.py  → Application management       │</p>
+<p>│      ├── notifications.py → Notification APIs            │</p>
+<p>│      └── reports.py       → Reporting                    │</p>
+<p>│                                                          │</p>
+<p>│  services_email.py → Email sending service               │</p>
+<p>└──────────────────────────┬───────────────────────────────┘</p>
+<p>                           │</p>
+<p>                           ▼</p>
+<p>              ┌────────────────────────┐</p>
+<p>              │       SQL SERVER       │</p>
+<p>              │          CPDB          │</p>
+<p>              └────────────────────────┘</p>
+<p>✅ Login page</p>
+<p>✅ Username = alias</p>
+<p>✅ Password authentication</p>
+<p>✅ Password hashing</p>
+<p>✅ First-time password setup</p>
+<p>✅ Session cookie</p>
+<p>✅ Logout</p>
+<p>✅ Engineer authorization</p>
+<p>✅ Supervisor authorization</p>
+<p>✅ URL tampering protection</p>
+<p>✅ API authorization</p>
+<p>✅ Change password</p>
+<p>=====================================================================</p>
+<pre><code>git check-ignore -v venv</code></pre>
+<p>Get-Location</p>
+<pre><code>git rev-parse --show-toplevel  ##That will tell us exactly where Git considers your repository root.</code></pre>
+<p>I recommend one more safety check because app/ contains your Python source and could potentially contain credentials/tokens.</p>
+<pre><code>git grep -n -I -E &quot;password|passwd|secret|api[_-]?key|token|smtp_password|DB_PASSWORD&quot;</code></pre>
+<p>OR</p>
+<p>Get-ChildItem -Recurse -File app | Select-String -Pattern &quot;password|passwd|secret|api[_-]?key|smtp_password|DB_PASSWORD&quot;</p>
+<p>=====================================================================</p>
+<pre><code>git add .</code></pre>
+<pre><code>git commit -m &quot;Enforce engineer and supervisor authorization&quot;</code></pre>
+<pre><code>git push -u origin phase2-authorization</code></pre>
+<p>=====================================================================</p>
+<p>(venv) PS E:\Projects\AccessCompliancePortal&gt; pip freeze | findstr python-multipart</p>
+<p>python-multipart==0.0.32</p>
+<p>=====================================================================</p>
+<p>Find string in code</p>
+<p>Get-ChildItem -Path . -Recurse -File | Select-String -Pattern &quot;587&quot;</p>
+<p>Get-ChildItem -Path . -Recurse -File |</p>
+<p>    Where-Object { $_.FullName -notmatch &#x27;\\(venv|\.git)\\&#x27; } |</p>
+<p>    Select-String -Pattern &quot;tataneja@cisco.com&quot;</p>
+<p>----------------</p>
+<p>We can continue making changes on phase2-authorization.</p>
+<p>=====================================================================</p>
+<pre><code>git checkout main</code></pre>
+<pre><code>git pull origin main</code></pre>
+<pre><code>git merge phase2-authorization</code></pre>
+<pre><code>git push origin main</code></pre>
+<p>=====================================================================</p>
+<pre><code>git status</code></pre>
+<pre><code>git checkout main</code></pre>
+<pre><code>git pull origin main</code></pre>
+<pre><code>git checkout -b phase2-forgot-password</code></pre>
+<p>cd E:\Projects\QBR_Ticket_Alert_Dashboard; git push -u origin master 2&gt;&amp;1  (no error)</p>
+<p>=====================================================================</p>
+<p>Start-Process powershell.exe -ArgumentList &quot;-NoProfile -ExecutionPolicy Bypass -File `&quot;E:\Projects\AccessCompliancePortal\run_portal.ps1`&quot;&quot;</p>
+<p>=====================================================================</p>
+<p>taskkill /PID 13372 /F</p>
+<p>=========================	QBR============================================</p>
+<p>cd E:\Projects</p>
+<pre><code>git clone https://github.com/girishshenoy16/Enterprise-KPI-Anomaly-RCA-System.git</code></pre>
+<p>=====================================================================</p>
+<p>cd Enterprise-KPI-Anomaly-RCA-System</p>
+<pre><code>PS E:\Projects\Enterprise-KPI-Anomaly-RCA-System&gt; .\venv\Scripts\Activate.ps1</code></pre>
+<p>.\venv\Scripts\Activate.ps1 : File E:\Projects\Enterprise-KPI-Anomaly-RCA-System\venv\Scripts\Activate.ps1 cannot be loaded because running scripts is</p>
+<p>disabled on this system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.</p>
+<p>At line:1 char:1</p>
+<p>Yes, this is a PowerShell execution-policy issue, not a problem with your venv. Your existing virtual environment is fine.</p>
+<p>Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</p>
+<p>.\venv\Scripts\Activate.ps1</p>
+<p>+ .\venv\Scripts\Activate.ps1</p>
+<p>+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+<p>    + CategoryInfo          : SecurityError: (:) [], PSSecurityException</p>
+<p>    + FullyQualifiedErrorId : UnauthorizedAccess</p>
+<p>	RUn-----------&gt;</p>
+<p>Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</p>
+<p>=====================================================================</p>
+<p>Here, “Anomaly Engine” means the part of the application that automatically detects unusual changes in your KPI data.</p>
+<p>##############################################################################</p></body></html>

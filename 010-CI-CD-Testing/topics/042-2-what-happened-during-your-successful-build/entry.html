@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"><title>2. What happened during your successful build?</title><meta name="vault-tags" content="agentic,ci-cd-testing,docker,imported,python"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>2. What happened during your successful build?</h1><div><span class="tag">agentic</span> <span class="tag">ci-cd-testing</span> <span class="tag">docker</span> <span class="tag">imported</span> <span class="tag">python</span></div><p>2. What happened during your successful build?</p>
+<p>/root/AgenticAI/docker-beginner</p>
+<p>app.py</p>
+<p>Dockerfile</p>
+<p>README.md</p>
+<p>requirements.txt</p>
+<p>.venv/</p>
+<p>------------------------</p>
+<p>FROM ubuntu:26.04</p>
+<p>RUN apt-get update &amp;&amp; \</p>
+<p>    apt-get install -y python3 python3-flask &amp;&amp; \</p>
+<p>    rm -rf /var/lib/apt/lists/*</p>
+<p>COPY app.py /opt/app.py</p>
+<p>ENV FLASK_APP=/opt/app.py</p>
+<p>ENTRYPOINT [&quot;flask&quot;, &quot;run&quot;, &quot;--host=0.0.0.0&quot;]</p>
+<p>----------------------</p>
+<pre><code>Docker CLI</code></pre>
+<p>    │</p>
+<p>    │ reads</p>
+<p>    ▼</p>
+<p>/root/.docker/config.json</p>
+<p>    │</p>
+<p>    │ proxy configuration</p>
+<p>    ▼</p>
+<p>BuildKit</p>
+<p>    │</p>
+<p>    ▼</p>
+<p>RUN apt-get update</p>
+<p>    │</p>
+<p>    ▼</p>
+<p>Cisco Proxy</p>
+<p>    │</p>
+<p>    ▼</p>
+<p>Ubuntu repositories</p>
+<p>----------------------</p>
+<p>Ubuntu VM working with the Cisco proxy.</p>
+<p>cat &gt; /etc/apt/apt.conf.d/80proxy &lt;&lt;&#x27;EOF&#x27;</p>
+<p>Acquire::http::Proxy &quot;http://proxy.esl.cisco.com:80&quot;;</p>
+<p>Acquire::https::Proxy &quot;http://proxy.esl.cisco.com:8080&quot;;</p>
+<p>EOF</p>
+<p>----------------------------------------------------------------------------------------</p>
+<p>D. Your Flask application : app.py</p>
+<p>from flask import Flask</p>
+<p>app = Flask(__name__)</p>
+<p>@app.route(&quot;/&quot;)</p>
+<p>def home():</p>
+<p>    return &quot;Hello from my Ubuntu Docker LAB!&quot;</p>
+<p>if __name__ == &quot;__main__&quot;:</p>
+<p>    app.run(host=&quot;0.0.0.0&quot;, port=5000)</p>
+<p>----------------------------------------------------------------------------------------</p>
+<pre><code>Docker image webapp:latest was successfully created.</code></pre>
+<p>----------------------------------------------------------------------------------------</p>
+<pre><code>docker images</code></pre>
+<pre><code>docker run -d --name webapp -p 5000:5000 webapp:latest</code></pre>
+<p>http://10.106.44.12:5000</p></body></html>

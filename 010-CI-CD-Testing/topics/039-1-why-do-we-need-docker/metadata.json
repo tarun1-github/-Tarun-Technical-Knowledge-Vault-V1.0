@@ -1,0 +1,18 @@
+{
+  "id": "010-CI-CD-Testing-039",
+  "module": "010-CI-CD-Testing",
+  "title": "1. Why do we need Docker?",
+  "type": "Imported Topic",
+  "tags": [
+    "ci-cd-testing",
+    "docker",
+    "fastapi",
+    "imported",
+    "langchain",
+    "langgraph",
+    "python"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "10",
+  "source_lines": 48
+}

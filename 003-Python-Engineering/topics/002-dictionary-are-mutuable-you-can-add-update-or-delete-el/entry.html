@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><title>dictionary are mutuable, you can add . update or delete element</title><meta name="vault-tags" content="imported,python-engineering"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>dictionary are mutuable, you can add . update or delete element</h1><div><span class="tag">imported</span> <span class="tag">python-engineering</span></div><h2>dictionary are mutuable, you can add . update or delete element</h2>
+<p>del student[&#x27;grade&#x27;]  ##Delete key and Value pair</p>
+<p>#dictionaries methods</p>
+<p>keys=students.keys()  ## get all the keys</p>
+<p>values=students.values()  ## get all the values</p>
+<p>items=students.items()  ## get all the keys values pair</p>
+<p>##Shallow copy</p>
+<p>student_copy=student</p>
+<p>print(student)</p>
+<p>print(student_copy)</p>
+<p>student[&quot;name&quot;]=&quot;krish2&quot;</p>
+<p>##Shallow copy</p>
+<p>student[&quot;name&quot;]=&quot;krish3&quot;</p>
+<p>student_copy1=student.copy() ## Shallow copy - provides diff memory allocation</p>
+<p>print(student)</p>
+<p>print(student_copy1)</p>
+<p>##Dictionary comprehension</p>
+<p>squares={x:x**2 for x in range(5)}</p>
+<p>print (squares)</p>
+<p>{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}</p>
+<p>##Conditional Dictionary comprehension</p>
+<p>evens={x:x**2 for x in range(10) if x%2==0}</p>
+<p>print(evens)</p>
+<p>{0: 0, 2: 4, 4: 16, 6: 36, 8: 64}</p>
+<p>++Tuples its ordered collection of items and immutable. its similar to list but immutability make it different.</p>
+<p>##Empty tuple</p>
+<p>empty_tuple=()</p>
+<p>list can be converted to tuple and vice versa</p>
+<p>Immutable nature of Tuples, Elements can not be changes once assigned</p>
+<p>Functions</p>
+<p>-------------------</p>
+<p>A block of code to perform specific tasks, organizing code, reuse code</p>
+<p>##variable length argument</p>
+<p>def greet(name=&quot;krish&quot;)</p>
+<p>##positional argument</p>
+<p>def print_numbers(=*args)  =&gt; standard format</p>
+<p>##Keyword argument</p>
+<p>def print_numbers(=**kwargs)  =&gt; standard format</p>
+<p>-------------------</p>
+<p>++lamba function  (small anonymous -without name function using lambda keyword but only one expression )</p>
+<p>lambda arguments:expression</p>
+<p>##Simple function</p>
+<p> def addition(a,b)</p>
+<p>	return a+b</p>
+<p> addition(2,3)</p></body></html>

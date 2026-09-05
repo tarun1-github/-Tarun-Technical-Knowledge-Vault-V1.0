@@ -1,0 +1,14 @@
+{
+  "id": "014-QBR-Deployment-018",
+  "module": "014-QBR-Deployment",
+  "title": "5. Create production environment file",
+  "type": "Imported Topic",
+  "tags": [
+    "docker",
+    "imported",
+    "qbr-deployment"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "14",
+  "source_lines": 3
+}

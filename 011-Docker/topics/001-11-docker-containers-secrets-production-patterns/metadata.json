@@ -1,0 +1,13 @@
+{
+  "id": "011-Docker-001",
+  "module": "011-Docker",
+  "title": "11 \u2014 DOCKER + CONTAINERS + SECRETS + PRODUCTION PATTERNS",
+  "type": "Imported Topic",
+  "tags": [
+    "docker",
+    "imported"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "11",
+  "source_lines": 2
+}

@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8"><title>4. Rate limits, Guardrails &amp; PII detection</title><meta name="vault-tags" content="agent-safety,imported,langchain,llm"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>4. Rate limits, Guardrails &amp; PII detection</h1><div><span class="tag">agent-safety</span> <span class="tag">imported</span> <span class="tag">langchain</span> <span class="tag">llm</span></div><p>4. Rate limits, Guardrails &amp; PII detection</p>
+<p>Middleware can prevent unsafe or unwanted behavior.</p>
+<p>User:</p>
+<p>&quot;Give me the customer&#x27;s Aadhaar number.&quot;</p>
+<p>        ↓</p>
+<p>   Middleware</p>
+<p>        ↓</p>
+<p>   PII Detection</p>
+<p>        ↓</p>
+<p>   ⚠️ Sensitive data</p>
+<p>        ↓</p>
+<p>   Block / Mask</p>
+<p> Middleware is a control layer in an agent that allows us to intercept and control agent execution, including prompts, tool calls, outputs, errors, security, and monitoring.</p>
+<p>Middleware = Logging + Transformation + Retry/Fallback + Guardrails + PII + Control</p>
+<p>LLM          → Brain</p>
+<p>Tool         → Capability / Hands</p>
+<p>Agent        → Decision maker</p>
+<p>Middleware   → Control &amp; Safety layer</p>
+<p>Structured Output → Standardized result</p>
+<p>===========================================================================</p>
+<p>Built-in Middleware in LangChain</p>
+<p>Human-in-the-loop:</p>
+<p>Pause agent execution for human approval, editing, or rejection of tool calls before they execute.</p>
+<p>Built-in Middleware</p>
+<p>│</p>
+<p>├── Summarization</p>
+<p>│   └── Control context / tokens</p>
+<p>│</p>
+<p>├── Human-in-the-loop</p>
+<p>│   └── Human approval</p>
+<p>│</p>
+<p>└── Model Call Limit</p>
+<p>    └── Control number of LLM calls  (Restricts the number of times the agent can call the LLM.)</p>
+<p>===========================================================================</p>
+<p>##############################################################################</p></body></html>

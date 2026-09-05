@@ -1,0 +1,6617 @@
+TARUN TANEJA — AGENTIC AI / PYTHON / RAG / LANGGRAPH STUDY NOTES
+ORDERED INTERVIEW-LEARNING SEQUENCE
+==============================================================================
+
+Purpose:
+These are the original study notes reorganized into a learning/interview sequence.
+The note wording/content has not been substantively rewritten; sections have been moved.
+Credential-like values have been redacted for safety.
+
+RECOMMENDED SEQUENCE
+00 Roadmap
+01 Agentic AI context
+02 Python/VS Code/Jupyter/environment
+03 Python application development
+04 RAG
+05 LangChain
+06 LLM + tool calling + structured output
+07 Middleware + guardrails + HITL
+08 LangGraph + agent orchestration
+09 Git/GitHub
+10 CI/CD + testing + evaluation
+11 Docker
+12 Ollama/local LLM
+13 Portfolio projects
+14 Production deployment
+
+==============================================================================
+
+
+##############################################################################
+00 — MASTER LEARNING ROADMAP
+##############################################################################
+
+LangChain
+LangGraph
+RAG
+Vector databases
+Embeddings
+Tool calling
+MCP
+Agent orchestration
+FastAPI
+Docker
+CI/CD
+Cloud deployment
+
+--------------------------------------------------------
+1. First understand what you actually need to learn. 10 layers:
+
+                    AGENTIC AI ARCHITECT
+                           │
+                  ┌────────┴────────┐
+                  │ Multi-Agent AI  │
+                  │ Agentic Systems │
+                  └────────┬────────┘
+                           │
+                    LangGraph / Agents
+                           │
+                Tool Calling / MCP
+                           │
+                       RAG
+                           │
+                Embeddings / Vector DB
+                           │
+                    LLM / GenAI
+                           │
+                Python + FastAPI
+                           │
+               Docker + Git + CI/CD
+                           │
+            Linux + DB + APIs + Networking
+--------------------------------------------------------
+2. Python — your first priority
+You need AI application development Python.
+
+Learn these
+
+Python fundamentals
+
+Variables
+Lists
+Tuples
+Sets
+Dictionaries
+Loops
+Conditions
+Functions
+Lambda
+List/dict comprehensions
+
+Intermediate Python
+
+OOP
+Classes
+Inheritance
+Modules
+Packages
+Exception handling
+File handling
+JSON
+YAML
+Environment variables
+Logging
+*args / **kwargs
+Type hints
+Dataclasses
+
+Very important for AI applications
+
+async
+await
+asyncio
+requests
+httpx
+Pydantic
+
+You don't need initially
+Advanced NumPy
+Advanced Pandas
+TensorFlow internals
+PyTorch internals
+Complex mathematical proofs
+--------------------------------------------------------
+3. API and backend development
+
+REST API
+HTTP
+GET
+POST
+PUT
+DELETE
+
+Headers
+Authentication
+Bearer tokens
+OAuth2
+JSON
+Status codes
+Webhooks
+API security
+OpenAPI
+Swagger
+--------------------------------------------------------
+FastAPI
+
+Learn:
+
+Routes
+Path parameters
+Query parameters
+Request body
+Pydantic
+Authentication
+Error handling
+Async APIs
+Swagger/OpenAPI
+Database integration
+Docker deployment
+--------------------------------------------------------
+4. LLM fundamentals
+
+You don't need to train an LLM from scratch.
+Now move into Generative AI.
+
+You should understand:
+
+LLM concepts
+LLM
+Tokens
+Context window
+Temperature
+System/user/assistant messages
+Prompt engineering
+Structured output
+Function calling
+Tool calling
+Streaming
+Multimodal models
+Embeddings
+Model selection
+Hallucination
+Grounding
+--------------------------------------------------------
+5. Prompt Engineering
+
+Don't spend weeks on fancy prompt tricks.
+
+Learn practical enterprise prompting.
+
+Topics
+System prompts
+Role
+Instructions
+Context
+Constraints
+Few-shot prompting
+Chain-of-thought concepts
+Structured output
+JSON output
+Prompt templates
+Prompt injection
+Guardrails
+--------------------------------------------------------
+6. RAG — VERY IMPORTANT
+
+You should become comfortable with RAG.
+
+Documents
+   ↓
+Loaders
+   ↓
+Chunking
+   ↓
+Embeddings
+   ↓
+Vector Database
+   ↓
+Similarity Search
+   ↓
+Retriever
+   ↓
+LLM
+   ↓
+Answer
+--------------------------------------------------------
+opics
+Documents
+PDF/Word/HTML loaders
+Chunking
+Chunk size
+Overlap
+Embeddings
+Vector search
+Semantic search
+Metadata
+Similarity search
+Hybrid search
+Reranking
+Retrieval evaluation
+Grounded responses
+Vector databases
+
+Learn one deeply initially.
+For example:Don't try to learn all six.
+
+Chroma
+FAISS
+Qdrant
+Weaviate
+Pinecone
+PostgreSQL/pgvector
+------------------------------------------------------
+7. LangChain
+
+You are already learning this, so continue.
+
+Learn:
+
+LangChain fundamentals
+Models
+Prompts
+Messages
+Output parsers
+Runnable concepts
+Retrievers
+Document loaders
+Embeddings
+Vector stores
+Tools
+Agents
+Memory/state
+Structured output
+
+But don't stop at LangChain.
+
+The more important skill for your target role is:--
+------------------------------------------------------
+10. MCP — learn this after Tool Calling
+
+MCP = Model Context Protocol
+
+This is increasingly important for enterprise AI architectures.
+
+Think of it approximately as:
+
+A standardized way for AI applications to connect to tools, data and resources.
+
+                    AI Agent
+                       │
+                       │ MCP
+          ┌────────────┼────────────┐
+          ↓            ↓            ↓
+       CUCM MCP     SQL MCP     Linux MCP
+          │            │            │
+        CUCM          DB          Linux
+		
+------------------------------------------------------
+11. Multi-Agent Architecture
+
+Once you understand individual agents, learn:
+
+Agent patterns
+Single agent
+Supervisor agent
+Router agent
+Planner agent
+Worker agents
+Sequential agents
+Parallel agents
+Hierarchical agents
+Reflection
+Human-in-the-loop
+Agent handoff
+------------------------------------------------------
+12. Memory and state
+
+Conversation history
+        ↓
+Short-term memory
+
+Persistent user/context state
+        ↓
+Long-term memory
+
+For agents, understand:
+
+Session ID
+Conversation state
+Checkpoints
+Persistence
+Context management
+State machines
+Memory stores
+------------------------------------------------------
+13. AI Evaluation and Observability
+
+Agent
+ ↓
+Trace
+ ↓
+Tool calls
+ ↓
+LLM calls
+ ↓
+Latency
+ ↓
+Tokens
+ ↓
+Cost
+ ↓
+Errors
+ ↓
+Evaluation
+
+Learn:
+
+Tracing
+Logging
+Token usage
+Latency
+Cost
+Evaluation datasets
+Hallucination evaluation
+RAG evaluation
+Agent evaluation
+Tool-call accuracy
+Guardrails
+
+LangGraph's ecosystem also emphasizes tracing/debugging for agent workflows.
+------------------------------------------------------
+14. AI Security
+
+LLM security
+Prompt injection
+Indirect prompt injection
+Data leakage
+Excessive agent permissions
+Tool abuse
+Sensitive data exposure
+Authentication
+Authorization
+Secrets management
+RBAC
+Audit logging
+Human approval
+Guardrails
+------------------------------------------------------
+15. Docker
+
+Dockerfile
+Docker image
+Container
+Volumes
+Networks
+Environment variables
+Docker Compose
+Multi-container applications
+Health checks
+------------------------------------------------------
+16. Git + CI/CD
+
+Git
+GitHub
+Branching
+Pull requests
+Merge
+Tags
+GitHub Actions
+CI
+CD
+Testing
+Docker build
+Docker push
+Deployment
+------------------------------------------------------
+Cloud
+
+Google Cloud
+
+Learn:
+
+IAM
+Projects
+Service accounts
+Cloud Run
+Cloud Functions
+GCS
+Secret Manager
+Cloud SQL
+Vertex AI / Gemini ecosystem
+Logging
+Monitoring
+VPC basics
+
+Don't try to master AWS + Azure + GCP simultaneously.
+------------------------------------------------------
+Database
+------------------------------------------------------
+don't go too deep initially.
+Traditional Machine Learning
+Deep Learning
+Transformer architecture
+-----------------------------------------------------
+ollama list
+ollama run <model-name>
+
+
+##############################################################################
+01 — AGENTIC AI CAREER / TECHNOLOGY CONTEXT
+##############################################################################
+
+Python is widely used in Agentic AI because it has a very strong AI/ML ecosystem.You need application-level Python.
+
+"Python is one of the dominant choices because of its mature AI/ML ecosystem, extensive LLM and agent framework support, strong data-processing libraries, and ease of integrating APIs and tools. TypeScript/JavaScript are also strong choices, especially for web-centric applications."
+
+JavaScript/TypeScript is also heavily used for LLM applications.
+
+Excellent support for LLM frameworks such as LangChain and LangGraph, easy API integration, strong data-processing capabilities, and allows us to quickly build tools, agents, RAG pipelines, and automation workflows.
+
+LM APIs are very easy to call from Python
+
+This is probably the #1 reason.
+Python
+  │
+  ├── Machine Learning
+  │     ├── PyTorch
+  │     ├── TensorFlow
+  │     └── scikit-learn
+  │
+  ├── LLM
+  │     ├── OpenAI SDK
+  │     ├── Anthropic SDK
+  │     ├── Google AI SDK
+  │     └── Hugging Face
+  │
+  ├── Agentic AI
+  │     ├── LangChain
+  │     ├── LangGraph
+  │     └── other agent frameworks
+  │
+  ├── RAG
+  │     ├── Vector databases
+  │     ├── Embeddings
+  │     └── Retrievers
+  │
+  └── APIs / Backend
+        ├── FastAPI
+        └── Flask
+
+=======================================================================
+
+VS Code and PyCharm are IDE/code editors. 
+LangChain and LangGraph are frameworks/libraries.
+
+1. IDE vs Framework
+
+┌─────────────────────────────────────────────┐
+│                  IDE                        │
+│       VS Code / Antigravity / Cursor        │
+├─────────────────────────────────────────────┤
+│              Python                         │
+├─────────────────────────────────────────────┤
+│          AI Frameworks                      │
+│      LangChain / LangGraph                  │
+├─────────────────────────────────────────────┤
+│             LLM / Models                    │
+│   OpenAI / Gemini / Claude / etc.           │
+├─────────────────────────────────────────────┤
+│          Tools / Data / APIs                │
+│ CUCM / SQL / REST / RAG / Vector DB / etc.  │
+└─────────────────────────────────────────────┘
+
+VS Code
+│
+├── Python
+├── Jupyter
+├── LangChain
+├── LangGraph
+├── FastAPI
+├── Git
+├── Docker
+├── REST Client
+├── SQL
+├── YAML
+├── JSON
+├── Markdown
+└── AI coding assistants
+
+"I primarily use VS Code for Agentic AI development because it provides a flexible environment for Python, Jupyter, LangChain, LangGraph, FastAPI, Git, Docker and API development
+
+=======================================================================
+Jupyter Notebook
+Jupyter isn't really the same type of IDE as VS Code/PyCharm.
+That's why your .ipynb workflow is perfectly valid while you're learning.
+
+Think of Jupyter Notebook as an interactive Python laboratory.
+You can use Jupyter Notebook INSIDE VS Code.
+
+VS Code
+   │
+   └── 1-simplegraph.ipynb
+            │
+            ├── Code Cell
+            ├── Code Cell
+            ├── Markdown
+            └── Output
+			
+Learning
+Experimentation
+LLM testing
+RAG experiments
+Embeddings
+Data analysis
+Prompt experiments
+
+Cell 1 → import libraries
+   ↓
+Cell 2 → create LLM
+   ↓
+Cell 3 → send prompt
+   ↓
+Cell 4 → inspect response
+   ↓
+Cell 5 → create tool
+   ↓
+Cell 6 → test agent
+
+AI frameworks
+LangChain
+LangGraph
+LlamaIndex
+FastAPI
+Pydantic
+
+                 VS Code
+                    │
+                 Python
+                    │
+        ┌───────────┼───────────┐
+        ↓           ↓           ↓
+    LangChain   LangGraph    FastAPI
+        │           │           │
+        └───────────┼───────────┘
+                    ↓
+                 Agent
+                    ↓
+             OpenAI/Gemini
+=======================================================================
+
+Machine Learning is a way of teaching a computer to learn patterns from data so that it can make predictions or decisions without being explicitly programmed with every rule.
+where algorithms learn patterns from data.
+
+Artificial Intelligence
+        ↓
+Machine Learning
+        ↓
+Deep Learning
+        ↓
+Neural Networks
+        ↓
+Transformers
+        ↓
+Modern LLMs
+=======================================================================
+Artificial Intelligence
+        │
+        ↓
+Machine Learning
+        │
+        ↓
+Deep Learning
+        │
+        ↓
+Neural Networks
+        │
+        ↓
+Transformers
+        │
+        ↓
+Large Language Models
+        │
+        ↓
+Generative AI
+        │
+        ↓
+Agents
+        │
+        ↓
+Agentic AI
+=======================================================================
+Anaconda :Anaconda is a Python distribution + environment/package management platform
+It also provides conda, its environment and package manager.
+
+Anaconda
+    ↓
+Python environment
+    ↓
+Packages
+
+Install anaconda
+
+             Development Stack
+
+          ┌────────────────────┐
+          │      VS Code       │ ← IDE / Editor
+          └─────────┬──────────┘
+                    ↓
+              Python 3.x
+                    ↓
+          ┌─────────┴──────────┐
+          ↓                    ↓
+       venv                  conda
+   Environment           Environment
+          ↓                    ↓
+       Packages             Packages
+          ↓
+       Jupyter
+=======================================================================
+Jupyter
+    ↓
+.ipynb
+    ↓
+Run Python cell-by-cell
+=======================================================================
+
+##############################################################################
+02 — PYTHON + VS CODE + JUPYTER + ENVIRONMENT SETUP
+##############################################################################
+
+++Install VSCode
+Terminal > code . (to open vs code from folder)
+
+winget install Python.Python.3.13  (Install python)
+
+Open VS Code Settings
+Press Ctrl + ,
+
+escape a to create cells
+
+create virtual env
+
+##create separate env for different project via conda , virtualenv, python commands for libraries, packages.
+
+python -m venv <foldername> (if foldername does not exists then it will get created.
+<foldername>/Scripts/activate
+install libraries via python or requirements.txt
+python --version 
+By default, venv will get created for installed version , if we have multiple versions then
+python -m venv <foldername> 
+
+conda create -p venv python==3.14    (-p (pwd) create env in working location)
+conda create -n venv python==3.14    (-n anaconda directory , it will create where anaconda is installed)
+
+pip install -r ./requirements.txt  (-r Read the packages listed in requirements.txt and install all of them.)
+
+conda env list
+conda run -p .\venv python --version
+
+For all Conda environments, you can use PowerShell:
+conda env list | Select-String "^[^#\s]"
+base                     C:\Users\tataneja\AppData\Local\anaconda3
+
+Create custom package/modules   setup.py
+ __init__.py ==>its special file to define packages/modules and initialize the namespace. Make folder as package.
+ 
+setup.py (follow packaging url) 
+requirements.txt 
+	-e.    (Install the current project as an editable package)
+	
+pip install -r requirements.txt
+            ↓
+          -e .
+            ↓
+      process setup.py
+            ↓
+       setup(...) ✅
+            ↓
+     package discovered
+            ↓
+      .egg-info created ✅
+=======================================================================
+VS code : Remote-SSH extension to ubuntu 10.106.44.12  root/cisco  ssh root@10.106.44.12
+
+Windows
+  │
+  │ VS Code Remote-SSH
+  ▼
+Ubuntu 26.04 VM
+  │
+  └── /home/tarun/AgenticAI/
+          │
+          └── docker-beginner/
+                ├── .venv/
+                ├── app.py
+                ├── requirements.txt
+                ├── README.md
+                └── .gitignore
+=======================================================================
+Create custom package/modules  pyptoject.toml
+=========================================
+python -m ensurepip --upgrade
+python -m pip install --upgrade pip
+python -m pip install --upgrade pip
+
+uv pip install --python .\venv\Scripts\python.exe pip
+.\venv\Scripts\python.exe -m pip --version
+
+Because VS Code caches the ERR_TUNNEL_CONNECTION_FAILED state in its local session data, simply saving settings.json doesn't reset the network background worker.
+launch vs code
+code --no-proxy-server
+
+=========================================
+ Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub | ssh root@10.106.44.12 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+ 
+ Test from Windows with verbose output
+ ssh -vvv root@10.106.44.12
+ 
+ journalctl -u ollama -f
+
+=========================================
+1. Check packages in the current environment
+python -m pip list
+python -m pip freeze  (shows packages installed in the currently active environment.)
+
+pip list
+where pip
+
+2. Check where a specific package is installed
+python -m pip show numpy
+python -m pip show langchain-community
+
+ .\venv\Scripts\python.exe -m pip show bs4
+
+python --version
+where python
+=========================================
+=======Linux commands > install virtualenv=====
+pip  install virtualenv
+virtualenv -p python3 virtual_env
+virtual_env\scripts\activate 
+
+=========================================
+WikipediaLoader in langchain-community relies on the Python wikipedia package to query Wikipedia.
+
+
+=========================================
+Writing book : Scrible ink by microsoft
+=========================================
+VS code from microsoft
+Extension :  Python from microsoft (provide kernel to execute code)
+
+Product				Microsoft?					Purpose
+Visual Studio Code	✅ Microsoft			Lightweight code editor
+Visual Studio		✅ Microsoft			Full IDE, mainly .NET/C++, enterprise development
+GitHub				✅ Microsoft			Code hosting / Git platform
+GitHub Copilot		✅ Microsoft/GitHub		AI coding assistant
+PyCharm				❌ JetBrains			Python IDE
+
+Terminal > conda create -p venv python==3.14 (create env)
+Install packages
+
+# To activate this environment, use
+#
+#     $ conda activate "C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\venv"
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+++Activate venv
+conda activate "C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\venv"
+
+pip install -r .\requirements.txt (To install packages from requirement.txt)
+
+create virtual env using UV (fast python package writtent in rust language)
+A single tool to replace pip, pip-tools, pipx, pyenv, twine, virtualenv (10-100x fast)
+
+uv init demouv (initiate/start UV project)
+
+++create virtual env
+---------------------------
+PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph> cd .\demouv\
+PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\demouv> uv venv
+Using CPython 3.12.13
+Creating virtual environment at: .venv
+Activate with: .venv\Scripts\activate
+PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\demouv> 
+
+####source .venv/bin/activate  or  . .venv/bin/activate
+
+Activate venv
+PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\demouv> .venv\Scripts\activate
+
+py --list  (To see list of python versions)
+uv python list 
+
+uv add pandas (not working, alternate  pip install pandas)
+uv add langchain
+uv add langgraph
+uv add langchain-openai
+uv add langchain-communit
+
+uv add ipykernel (for jupiyter)
+
+uv pip list
+
+Failed to uninstall package at .venv\Lib\site-packages\demouv-0.1.0.dist-info
+due to missing `RECORD` file usually means the existing .venv has an incomplete/stale installation record for your own project.)
+	deactivate
+	Remove-Item -Recurse -Force .venv
+	uv venv
+	.venv\Scripts\activate
+	uv add ipykernel
+	
+	ipynb  =  jupyter notebook file)
+=========
+deactivate
+Remove-Item -Recurse -Force ".\venv"
+ Test-Path ".\venv"  (false)
+ uv venv --python 3.14.6 venv
+ .\venv\Scripts\python.exe --version
+ 
+ uv pip install --python .\venv\Scripts\python.exe pip
+
+uv pip install --python .\venv\Scripts\python.exe ipykernel    (install ipykernel)   
+ 
+ ========ipykernel kernel=========
+ .\venv\Scripts\python.exe -m ipykernel --version
+ 
+ Register the kernel
+ .\venv\Scripts\python.exe -m ipykernel install --user --name python_bootcamp --display-name "Python 3.14 - Python Bootcamp"
+ 
+ =======================
+ Check the certificate variables
+ 
+
+ 
+PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Python_Bootcamp> Get-ChildItem Env: | Where-Object { $_.Name -match 'UV|SSL|CERT|PROXY' }
+
+Name                           Value                                                                                     
+----                           -----                                                                                     
+SSL_CERT_FILE                  C:\Users\tataneja\OneDrive - Cisco\Documents\cisco_root.pem     
+
+ Enable Windows system certificates
+ 
+Remove-Item Env:SSL_CERT_FILE -ErrorAction SilentlyContinue
+$env:UV_SYSTEM_CERTS="true"
+
+Make the certificate fix permanent
+[Environment]::SetEnvironmentVariable("UV_SYSTEM_CERTS","true","User")
+[Environment]::SetEnvironmentVariable("SSL_CERT_FILE",$null,"User")
+                    
+++Ctrl + Shift + P   (Developer: Reload Window)
+
+(venv) PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Python_Bootcamp> jupyter kernelspec list
+Available kernels:
+
+  python3            C:\Users\tataneja\OneDrive Cisco\Desktop\Agentic_AI\Python_Bootcamp\venv\share\jupyter\kernels\python3
+  python_bootcamp    C:\Users\tataneja\AppData\Roaming\jupyter\kernels\python_bootcamp
+ 
+++User variable vs System variable
+User variable A variable created by the user/programmer 
+Lowercase → normal variable
+
+System environment variables provided by the OS/applications.
+UPPERCASE → constant / configuration / environment variable
+
+++Syntax and semantic
+syntax : correct arrangement of words and symbols in code
+Semantic : interpretation of symbol, characters and commands in language (what tasks/code supposed to do)
+
+++## Single line comments
+'''  multi line comments ''' (wint work in ipyb - jupyter notebook)
+
+##############################################################################
+03 — PYTHON FUNDAMENTALS + DATA + OOP + Pydantic + FastAPI
+##############################################################################
+
+
+++indentation : define structure and hierarchy of code. many langaue use braces {} to delimit the blocks of code.
+indentation to define blocks of code.  Commonly 4 spaces or tab is required.
+
+
+++line continuation
+total=1+2+3+4+5+6+\
+7+8+9
+24
+
+++multiple ststement in single line
+x=5;y=10;z=x+y
+
+++understanding semantic
+##variable assignment
+age=32 ##age is an integeter - python kernel knows
+type(age)
+<class 'int'>
+
+++Type inference : During runtime we can change the type of variable. its determined at runtime
+variable(10)
+print(type(variable))
+variable="krish"
+print(type(variable))
+
+++Variable
+age=32
+print("age:", age)
+age: 32
+
+##Type conversion
+age_str=str(age)
+print(type(age_str))
+
+print(type(int(age_str))) >> Converted in one line
+
+##Dynamic Typing, python allows the change the type of variable as program executed
+var=10
+print(var,type(var))
+
+var="hello"
+print(var,type(var))
+10 <class 'int'>
+
+++Data types : Tells the compiler how programmer intends to ude the data
+
+++Conditional statement
+else statement execute once if condition is false
+elif allows you to check multiple conditions (else if)
+
+++loop
+range(5)
+range(0, 5)
+
+##For loop
+range(1,10,1)   1= start  10=before 10  1=incremental value
+range(10,1,-1)   10= start  1=before 1  1=decremental value
+
+++Data Structure
+list, tuple,dictionaries
+Lists are ordered, mutuable (can change it) collection of items
+
+print(fruits[1:])
+print(fruits[-1:])
+fruits.append
+fruits.insert
+fruits.remove (remove first occurence of duplicate item)
+fruits.pop (remove and return the last item)
+fruits.index
+fruits.count
+fruits.insert
+fruits.sort
+fruits.reverse
+fruits.clear
+
+++iterating with index
+use enumerate
+for index,numbers in enumerate(numbers):
+	print(index,numbers)
+	
+++ List comprehension (expressions for item in iterable if condition)
+========================
+lst=[]
+for x in range(10):
+	lst.append(x**2)
+print(lst)
+
+or
+
+Basic list comprehension
+[x**2 for x in range(10)]
+========================
+list comprehension with condition
+lst=[]
+for i in range(10):
+	if i%2==0:
+	lst.append(i)
+print(lst)
+
+or
+
+even_numbers=[num for num in range(10) if num%2==0]
+print(even_numbers)
+========================
+++sets in Python : unordered (dont follow specific order) but do not allow duplicate elements
+sets operations like union, intersections (common element), difference and symmteric difference
+
+my_set={1,2,3,4,5}
+my_empty_set=set()
+my_set.add()
+my_set.remove() - Will give error if its not members of set
+my_set.discard() - wont give error if its not members of set
+my_set.pop() - remove first inserted element (FIFO)
+my_set.clear
+
+set membership in test
+my_set={1,2,3,4,5}
+print(3 in my_set)
+True
+
+set1.intersection_update(set2)
+intersection_update : pick common element and update in first variable set1
+
+difference, difference_update
+
+convert to list to set 
+lst=[1,2,3,4,4,5]
+set(lst)
+
+========================
+++ Dictionaries : unordered collection of items , storeddata in KV pairs , Keys must be unique and immutable.
+
+###Accessing dictionaries element
+
+print(student['grade'])
+
+Accessing dictionaries element using get() method
+print(student.get('grade'))
+print(student.get('last_name', "Not available"))
+
+###Modifying dictionaries element
+## dictionary are mutuable, you can add . update or delete element
+
+del student['grade']  ##Delete key and Value pair
+
+#dictionaries methods
+keys=students.keys()  ## get all the keys
+values=students.values()  ## get all the values
+items=students.items()  ## get all the keys values pair
+
+##Shallow copy
+
+student_copy=student
+print(student)
+print(student_copy)
+
+student["name"]="krish2"
+
+##Shallow copy
+
+student["name"]="krish3"
+student_copy1=student.copy() ## Shallow copy - provides diff memory allocation
+print(student)
+print(student_copy1)
+
+##Dictionary comprehension
+squares={x:x**2 for x in range(5)}
+print (squares)
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+##Conditional Dictionary comprehension
+
+evens={x:x**2 for x in range(10) if x%2==0}
+print(evens)
+{0: 0, 2: 4, 4: 16, 6: 36, 8: 64}
+
+++Tuples its ordered collection of items and immutable. its similar to list but immutability make it different. 
+
+##Empty tuple
+empty_tuple=()
+
+list can be converted to tuple and vice versa
+
+Immutable nature of Tuples, Elements can not be changes once assigned
+
+Functions
+-------------------
+A block of code to perform specific tasks, organizing code, reuse code
+
+##variable length argument
+def greet(name="krish")
+
+##positional argument
+
+def print_numbers(=*args)  => standard format
+
+##Keyword argument
+def print_numbers(=**kwargs)  => standard format
+
+-------------------
+++lamba function  (small anonymous -without name function using lambda keyword but only one expression )
+
+lambda arguments:expression
+
+##Simple function
+ def addition(a,b)
+	return a+b
+	
+ addition(2,3)
+
+## Anonymous Functions
+  addition=lamba a,b:a+b
+  print(addition(5,6))
+  
+  is_even = lambda x: x % 2 == 0
+  
+++ map()  => applies function to all items in list/collections
+ numbers=[1,2,3,4,5]
+ def square(number):
+	return numer**2
+	
+ square(2)
+ -----------
+numbers=[1,2,3,4,5]
+list(map(lambda x:x**2,numbers))
+
+######Map multiple iterables###
+number1=[1,2,3]
+number2=[4,5,6]
+
+added_numbers=list(map(lambda x,y:x+y,numbers1,numbers2))
+print(added_numbers)
+
+++ Filter () : Construct an iterator for which functions returns true.
+Filter out items from list based on condition.
+
+def even(num):
+ if num%2==0:
+    return True
+
+lst=[1,2,3,4,5,6,7,8,9,10]
+list(filter(even,lst))
+
+++ Import modules and packages (in-built functions) in python (open source programming)
+
+#####Important modules, install package if not available (pip install math)
+math is package 
+
+Import math
+from math import sqrt,pi  ==> imported multiple functions from package math
+from math import *  => Import all functions
+
+import numpy as np  ==> np is alias
+
+Create custom package/modules
+ _init_.py ==>its special file to define packages/modules and initialize the namespace
+ 
+from Packages.maths import addition  ==> should be in same module folder to call the function due to _init_.py
+addition(4,5)
+
+++ standard library
+array, random
+
+import random
+print(random.randinit(1,10)) ==> pick any random number
+
+##File and directory access
+import os
+print(os.getcwd())
+C:\Program Files\Notepad++
+
+##high level operation and collection of files
+import shutil
+
+###Data Serialization => convert data to json and vice versa
+import json
+
+json.dumps ==> Dic to json
+<function dumps at 0x000001DB10B19280>
+json.loads ==> json to dict
+<function loads at 0x000001DB10B19430>
+
+##CSV
+import csv
+
+##Datetime
+from datetime import datetime,timedelta
+
+##time
+import time
+
+##regular expression
+import re
+ 
+++File operation in python  ==> read/write files (text and binary files)
+
+##Read whole file
+
+++Exception handling
+
+Exception try , except block
+
+try:
+	a=b
+except NameError as ex:
+	print(ex)
+except Exception as ex1: => Parent/Main exception class (exception  derived from here). Should be last exception
+	print(ex1)
+finally:
+	print("execution completes")
+	
+++classes and Objects in python
+
+##class is blue print for creating objects , attributes and methods 
+
+##Instance variable and methods
+
+##Define class with Instance variable
+class dog:
+	##Constructor
+	def _init_(self,name,age): => self is accessing instance variables. name and ages are attributes/properties
+		self.name=name
+		self.age=age
+		
+	##create objects
+	dog1=dog("buddy",3)
+	print(dog1)
+	print(dog1.name)
+	
+	##create objects
+	dog2=dog("lucy",3)
+	print(dog2)
+	print(dog2.name)
+	
+##Define class with Instance Method
+class dog:
+	##Constructor
+	def _init_(self,name,age): => self is accessing instance variables. name and ages are attributes/properties
+		self.name=name
+		self.age=age
+		
+	##Instance method/functions
+	
+	def bark(self) 
+		print(f"{self.name} says woof")
+		
+	##create objects
+	dog1=dog("buddy",3)
+	dog1.bark()
+	
+##Call Parent class  - Inheritance  super()
+ super()._init_(windows,doors,enginetype)
+ 
+Inheritance from multiple child/derived class dont require super()'
+
+++ Polymorphormism
+++ Encapsulation
+++ Abstract class
+
+++ Magic method  => starts with double underscore used to define the behaviour of objects for built-in operations 
+override the behaviour of objects.
+
+class Person:
+	pass
+
+person=Person()
+dir (person)
+
+++ Operator overloading
+++ Iterator (looping and memory management)
+++ generators=> simple way to create iterators
+	yield create/stores value in local variable but not in memory
+++ Decorators
+
+++ Numpy in python  ==> Numpy library : support for arrays and matrices, mathematical operation will be fast
+
+++ pandas  - Datafrane and series : Data manipulation used for data analysis and cleaning
+Series is 1 Dimensional  array like object 
+DataFrane is 2 Dimensional array like object 
+
+++ Pydantic -> data validation library for python. its fast and works with IDE.
+
+##Field function allow you to specify validation rules, aliases . 
+
+## FastAPI is a high-performance web framework for building APIs with Python 3.8+
+
+++Typecasting is the conversion of a value from one data type to another.
+
+
+
+OPENAI_API_KEY=[REDACTED]
+
+
+##############################################################################
+04 — RAG FUNDAMENTALS: INGESTION → CHUNKING → EMBEDDINGS → VECTOR DB
+##############################################################################
+
+LANGCHAIN_API_KEY=[REDACTED]
+
+python-dotenv package : Import all above key value pair in py or jupyter file
+
+ ##create venev 
+ conda create -p venv python=3.14 -y
+ 
+++RAG : retrieval augmented generation
+
+LLM have limitation w.r.t context size (constraint)
+
+- Load the data sets (data sources - pdf/image/json/video/url/doc/db) called data ingestion
+- spilt data to small text/document chunks called data transformation
+- Embed : Text conversion to vectors (alogarithm for similarity checks) Text embedding techniques (LLM have thier own techniques)
+- Store vector data into vectore store DB (FAISS, Chroma DB, Astra DB)
+
+user query -->> Query to Vector DB for context info (Document stuff load chain-->retireval chain) - interface responsbile to query vector store DB and gets context info and combine with prompt)) -->> passing it to LLM to answer.
+
+###data ingestion with document loader (in langchain)
+
+https://docs.langchain.com/oss/python/integrations/document_loaders
+
+https://docs.langchain.com/oss/python/langchain/overview
+
+
+##Data Transformation####
+text spliting from documents
+text spliting by Character   or by single character
+		OR
+Character text splitter
+
+HTMLHeaderTextSplitter is a "structure-aware" chunker that splits text at the HTML element level and adds metadata for each header "relevant" to any given chunk.
+
+=======================================================
+LangChain's text splitter that splits text based on characters" means breaking a large piece of text into smaller pieces (chunks), using characters as the measurement.
+
+Suppose you have:
+
+LangChain is a framework for building AI applications.
+It helps us work with documents and language models.
+
+Imagine we want chunks of approximately 30 characters.
+
+The text splitter might divide it into smaller chunks like:
+
+Chunk 1:
+"LangChain is a framework for"
+
+Chunk 2:
+"building AI applications."
+
+Chunk 3:
+"It helps us work with"
+
+Chunk 4:
+"documents and language models."
+'documents and language models.'
+=======================================================
+(Text-->vectors)
+OpenAI Embedding  >> PAID
+Ollama --> Opensource
+huggingface --> opensource
+
+======================================
+Embedding
+OpenAI's text-embedding-3-large takes text as input and converts it into a list of numbers.
+
+"How do I troubleshoot a Cisco phone?"
+                 ↓
+       text-embedding-3-large
+                 ↓
+[0.021, -0.034, 0.087, 0.112, ...]
+
+======================================
+
+That list of numbers is called an embedding/vector.
+
+OpenAI's text-embedding-3-large can produce embeddings with up to 3072 dimensions.
+
+A vector of 3072 dimensions means that one piece of text is represented as a list of 3,072 numerical values
+
+3072 dimensions ≠ 3072 words or 3072 pieces of information.
+It simply means the numerical representation has 3,072 coordinates.That's a 2-dimensional vector.
+
+Text → [3072 numbers]
+
+##Your vector database needs to create a field that expects:
+
+Vector field
+├── Dimension 1
+├── Dimension 2
+├── Dimension 3
+├── ...
+└── Dimension 3072
+
+##If you're using an embedding model that produces 3072 dimensions:
+Embedding Model
+      │
+      │ "Cisco phone registration issue"
+      ▼
+[0.021, -0.034, 0.087, ... 0.015]
+      │
+      │ 3072 numbers
+      ▼
+Vector Database
+      │
+      └── vector field: dimension = 3072
+	  
+###Then when you perform a search:
+User question
+     ↓
+Embedding model
+     ↓
+3072-dimensional vector
+     ↓
+Vector DB
+     ↓
+Compare against stored 3072-dimensional vectors
+     ↓
+Similarity score
+
+###Vector Embedding and vector store  DB (Chroma)
+
+The rule to remember
+
+Embedding model dimension = Vector database field dimension
+
+❌ What happens if dimensions don't match?
+
+Suppose your database is configured: dimension = 1536
+
+but your embedding model produces: dimension = 3072
+
+You can't directly store/search that vector.
+
+You'd effectively be trying to put: [3072 values]
+
+into a container designed for: [1536 values]
+
+The vector database will normally return a dimension mismatch/error.
+================================================================
+
+Ollama : open source runtime LLM
+
+gemma4 : 12b (Size of the language model)
+   │       │
+   │       └── 12 billion parameters (Parameters are the learned numerical values inside the neural network.)
+   │
+   └────────── Model family/version
+   
+##12B as the number of learned parameters inside the AI model.However, the parameters do require memory.
+================================================================
+HuggingFace LLM (Open Source)
+Create API Key
+================================================================
+RAG loads documents, splits them into manageable chunks, converts those chunks into embeddings, stores them in a vector database, retrieves the most relevant chunks for a user's query, and passes that context to an LLM to generate a grounded answer.
+
+📄 PDF
+ ↓
+📥 Loader
+ ↓
+✂️ Split into Chunks
+ ↓
+🔢 Embedding
+ ↓
+🗄️ Vector DB
+ ↓
+🔎 Similarity Search
+ ↓
+📚 Relevant Context
+ ↓
+🤖 LLM
+ ↓
+💬 Answer
+================================================================
+FAISS : Facebook AI similarity search its library for similarity search
+
+## similarity search
+Given a user's question, find the stored chunks whose meaning is most similar to the question.
+
+Similarity search is the process of comparing a query embedding with stored document embeddings and retrieving the most semantically similar chunks.
+
+User asks:
+
+❓ "My Cisco phone is not registering. How can I fix it?"
+
+The system first converts the question into an embedding:
+
+Question
+   ↓
+Embedding Model
+   ↓
+[0.12, -0.04, 0.87, ... 3072 values]
+
+Then it compares this vector against the vectors stored in the Vector DB.
+
+========================================
+One-line memory trick
+
+Embedding = convert text → numbers
+
+Similarity Search = compare numbers → find closest meaning
+Cosine similarity tells us how similar two vectors are by measuring the angle between them.
+
+Cosine Similarity
+                A · B
+Cos(A,B) = ─────────────
+             ‖A‖ × ‖B‖
+
+If the angle θ is small, the vectors point in almost the same direction → high similarity.
+If the angle is large → low similarity.
+
+RAG = retrieve those closest chunks → give them to the LLM → generate answer.
+
+But embeddings capture semantic meaning, so similarity search can recognize:
+
+"phone isn't connecting"
+          ≈
+"endpoint registration failure"
+
+That's why embeddings are powerful in RAG.
+
+====================================================
+LangSmith is a platform for developing, debugging, testing, evaluating, and monitoring LLM applications such as RAG and AI agents.
+
+If you're learning LangChain + RAG, think of LangSmith as a debugging and observability tool.
+
+
+##############################################################################
+05 — LANGCHAIN FOUNDATIONS + RETRIEVER + PROMPTS
+##############################################################################
+
+LangChain
+   ↓
+BUILD the application
+
+LangSmith
+   ↓
+SEE + DEBUG + EVALUATE the application
+====================================================
+Retriever class
+
+Retriever = the component that searches your knowledge base and returns the most relevant chunks.
+====================================================
+In LangChain, ChatPromptTemplate is used to create a structured prompt for an LLM.
+
+SYSTEM
+"You are a Cisco troubleshooting assistant."
+
+USER
+"Why is my phone unregistered?"
+========================================================
+Scenario :::  Scrape the contents from website. Scraping is the data ingestion part
+
+from langchain_community.document_loaders import WebBaseLoader
+library beautifulsoup4 - help to scrape the data from website.
+		>> Internally webbaseloader use  beautifulsoup4
+                    WEBSITE
+                       │
+                       ▼
+              ┌─────────────────┐
+              │  Web Scraping   │
+              │ BeautifulSoup   │
+              │   / WebLoader   │
+              └────────┬────────┘
+                       │
+                       ▼
+              Raw Website Content
+                       │
+                       ▼
+              ┌─────────────────┐
+              │ Content Cleaner
+				/ Parse   		│
+              │ HTML → Text     │
+              └────────┬────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │ Document Loader │
+              └────────┬────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │ Text Splitter   │
+              │ Chunking        │
+              └────────┬────────┘
+                       │
+                       ▼
+             ┌──────────────────┐
+             │ Embedding Model  │
+             │ text → vectors   │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Vector Database  │
+             │ FAISS / Chroma   │
+             └────────┬─────────┘
+                      │
+                 USER QUESTION
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Query Embedding  │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Similarity Search│
+             │    Retriever     │
+             └────────┬─────────┘
+                      │
+                 Top K Chunks
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Prompt Template  │
+             │ Context + Query  │
+             └────────┬─────────┘
+                      │
+                      ▼
+                    LLM
+                      │
+                      ▼
+                 FINAL ANSWER
+========================================================
+FastAPI is the Python framework for building HTTP APIs, 
+while LangServe is a LangChain-specific serving layer that uses FastAPI to expose LangChain chains and Runnables as APIs.
+
+Your LangChain Code
+       │
+       ▼
+    LangServe
+       │
+       ▼
+     REST API
+       │
+ ┌─────┼─────┐
+ ▼     ▼     ▼
+Python  Web  Power
+App     App  Automate
+
+
+                 YOUR RAG / LLM LOGIC
+                        │
+                        ▼
+                   LangChain
+                        │
+                        ▼
+                    LangServe
+                        │
+                        ▼
+                    FastAPI
+                        │
+                        ▼
+                    HTTP / REST
+                        │
+             ┌──────────┼──────────┐
+             ▼          ▼          ▼
+          Browser    Postman   Power Automate
+
+LangChain = Build the chain
+LangServe = Serve the chain
+LangSmith = See what the chain is doing
+========================================================
+++ChatPromptTemplate with message history
+
+MessagesPlaceholder is used with ChatPromptTemplate to dynamically insert a list of previous conversation messages into the prompt, allowing the LLM to maintain conversational context.
+
+session_id is the key concept that connects a user's multiple requests into the same conversation/session
+
+USER QUESTION
+      │
+      ▼
+Message History
+      │
+      ▼
+ChatPromptTemplate
+      │
+      ├───────────────┐
+      │               │
+      ▼               ▼
+   History         Question
+                      │
+                      ▼
+                 Retriever
+                      │
+                      ▼
+                 RAG Context
+                      │
+                      ▼
+              ChatPromptTemplate
+                      │
+                      ▼
+                     LLM
+                      │
+                      ▼
+                   Answer
+========================================================
+AI Agent = the individual worker
+
+User
+ ↓
+AI Agent
+ ↓
+"Need phone registration status"
+ ↓
+Call CUCM API
+ ↓
+Analyze response
+ ↓
+Tell user:
+"Phone 8841 is registered"
+'Phone 8841 is registered'
+
+Agent 1 — CUCM Agent
+
+User:
+"Check phone 8841"
+       ↓
+CUCM Agent
+       ↓
+AXL/API
+       ↓
+Get phone status
+       ↓
+Analyze
+       ↓
+Response
+========================================================
+Agentic AI = the overall capability/approach
+Autonomous (independent identity) decision based on real time data and circumstances
+
+Goal					
+ ↓
+Planning
+ ↓
+Choose tools
+ ↓
+Execute
+ ↓
+Observe result
+ ↓
+Reason
+ ↓
+Take next action
+ ↓
+Complete goal
+
+
+##############################################################################
+06 — LLM FUNDAMENTALS + TOOLS + TOOL CALLING + STRUCTURED OUTPUT
+##############################################################################
+
+======
+Agentic AI
+     │
+     │  Overall organization/workflow
+     │
+     ├───────────────┐
+     ▼               ▼
+Agent 1           Agent 2
+CUCM Agent        DB Agent
+     │               │
+     ▼               ▼
+CUCM API           SQL DB
+
+"Investigate why phone 8841 isn't working and fix it."
+
+                USER GOAL
+                    │
+                    ▼
+             Orchestrator
+                    │
+          "Investigate problem"
+                    │
+       ┌────────────┼────────────┐
+       ▼            ▼            ▼
+   CUCM Agent    SIP Agent    DB Agent
+       │            │            │
+       ▼            ▼            ▼
+   Phone state   SIP trace    DB lookup
+       │            │            │
+       └────────────┼────────────┘
+                    ▼
+                 Reason
+                    │
+                    ▼
+             Decide next step
+                    │
+                    ▼
+               Take action
+                    │
+                    ▼
+              Final answer
+
+AI Agent = employee
+Agentic AI = organization/process that allows employees to independently accomplish goals
+========================================================
+IDE  :VS code (Microsoft) , Google antigravity, cursor
+
+(.venv) before the PowerShell prompt, it means a Python virtual environment is currently activated.
+
++++ Google antigravity
+1. create google AI studio API key
+2. Grow API key
+3. OpenAI API Key
+
+UV package manager (Fast)
+
+Install
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+Initialized project 
+uv init
+
+Create Virual env
+uv venv
+
+Activate venv
+ .venv\Scripts\activate
+ 
+from requirements.txt >> UV will install latest / recent version of libraries
+uv add -r requirements.txt
+
+langchain
+langchain-community
+lanngchain-openai
+langchain-groq
+python-dotenv
+langchain-google-genai
+==============================
+I would do a clean setup:
+.\.venv\Scripts\deactivate.bat
+Remove-Item -Recurse -Force .venv
+uv venv .venv --python 3.12
+.\.venv\Scripts\Activate.ps1
+
+Command to verifty virtual env
+$env:VIRTUAL_ENV
+
+===========================================================================
+🔴 Actual problem now: OneDrive + uv hardlinks
+
+Failed to hardlink files; falling back to full copy
+The cloud operation cannot be performed on a file with incompatible hardlinks
+
+uv is trying to use hardlinks between its cache and your OneDrive folder. OneDrive's cloud-managed files can prevent that operation.
+
+✅ Fix — tell uv to COPY instead of hardlink
+$env:UV_LINK_MODE="copy"
+
+If you want it permanently for your Windows user:
+[Environment]::SetEnvironmentVariable("UV_LINK_MODE", "copy", "User")
+
+uv pip install -r requirements.txt
+uv pip install -r requirements.txt --link-mode=copy
+===========================================================================
+Every LLM has a knowledge cutoff,Think of an LLM as having two sources of information:
+The LLM provides the reasoning, while the tool provides fresh information.
+
+Today's stock price
+Today's weather
+Latest Cisco CUCM release
+Latest Microsoft documentation
+Latest news
+Latest API changes
+
+                    LLM
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+   Training Knowledge       External Tools
+   (Knowledge Cutoff)       (Web / API / DB)
+          │                     │
+   "What I learned"       "What I can fetch now"
+===========================================================================
+React Architechture - we will build agent to get latest info.
+===========================================================================
+Batching and streaming
+
+model.invoke wont do this.We need to keep waiting for output until LLM generates it.
+
+Steam : Stream the o/p of LLM while its generated.We can use loop to process each chunk in real-time.
+calling stream.
+
+model.stream("write a 200 words paragraph on AI")
+for chunk in model.stream("write a 200 words paragraph on AI"):
+	print(chunk.txt, end="|", flush=true)
+
+Batch  Collection of independent request to model improve performance and reduce costs.Processing can eb done in parallal.
+
+response = model.batch([
+	"Why do parrots have colorful fethers"
+	"how do airpalns fly"
+	"what is quantum computing?"
+	])
+	for response in responses:
+		print(response)
+		
+model.batch(
+    ["Why do parrots have colorful feathers?",
+     "How do airplanes fly?",
+     "What is quantum computing?"],
+    config={
+        'max_concurrency': 5,  # Limit to 5 parallel calls  
+    }
+)
+===========================================================================
+Tools in LangChain
+
+Tools are pairing of schema, argument, function.
+
+from langchain.tools import tool
+
+@tool
+def add_numbers(a: int, b: int) -> int:
+    """Add two numbers together."""
+    return a + b
+	
+@tool
+   ↓
+LangChain converts Python function
+   ↓
+Tool schema
+   ↓
+LLM can understand:
+   Tool name   → add_numbers
+   Description → Add two numbers together
+   Inputs      → a, b
+ 
+The docstring is important because it helps the model understand when and how to use the tool.
+
+You can directly bind tools to a model:
+model_with_tools = model.bind_tools([add_numbers])
+
+The model may return a tool call rather than directly calculating the answer.
+response = model_with_tools.invoke(
+    "What is 25 + 35?"
+)
+===========================================================================
+Multiple tools
+from langchain.agents import create_agent
+from langchain.tools import tool
+
+
+@tool
+def add(a: int, b: int) -> int:
+    """Add two numbers."""
+    return a + b
+
+
+@tool
+def multiply(a: int, b: int) -> int:
+    """Multiply two numbers."""
+    return a * b
+
+
+@tool
+def divide(a: int, b: int) -> float:
+    """Divide a by b."""
+    return a / b
+
+
+agent = create_agent(
+    model="openai:gpt-5.4",
+    tools=[add, multiply, divide]
+)
+
+1. Python function
+       ↓
+2. @tool
+       ↓
+3. bind_tools()
+       ↓
+4. Tool call / ToolMessage
+       ↓
+5. create_agent()
+       ↓
+6. Multiple tools
+       ↓
+7. API / SQL / CUCM tools
+       ↓
+8. RAG + Tools
+       ↓
+9. Multi-agent
+===========================================================================
+Messages are unit of context for models in langchain
+
+MESSAGE
+│
+├── Role
+│   ├── System
+│   ├── Human/User
+│   ├── AI/Assistant
+│   └── Tool
+│
+├── Content
+│   └── Actual message/data
+│
+└── Metadata
+    └── Additional information
+
+messages = [
+    SystemMessage(content="You are a helpful assistant."),
+    HumanMessage(content="What is LangChain?"),
+    AIMessage(content="LangChain is a framework for building LLM applications.")
+]
+
+HumanMessage is LangChain's class for a user message, rather than UserMessage.
+
+Model gives o/p is AI messages
+Human gives i/p is Human message
+
+model.invoke("Why do parrots talk?") ##Human Messages
+O/p will be AI Message
+
+
+
+text prompts: 
+A text prompt is the simplest way to give instructions/input to an LLM as plain text.
+
+Text prompt vs Message
+TEXT PROMPT
+───────────
+"Explain LangChain"
+       ↓
+Simple text input
+
+
+MESSAGE
+───────
+Role    → user
+Content → "Explain LangChain"
+Metadata → additional information
+
+Detailed Message
+system_msg = SystemMessage("""
+You are a senior Python developer with expertise in web frameworks.
+Always provide code examples and explain your reasoning.
+Be concise but thorough in your explanations.
+""")
+
+## Message Metadata
+human_msg = HumanMessage(
+    content="Hello!",
+    name="alice",  # Optional: identify different users
+    id="msg_123", 	# Optional: unique identifier for tracing
+)
+
+response.usage_metadata
+{'input_tokens': 53, 'output_tokens': 258, 'total_tokens': 311}
+
+===========================================================================
+Structured Output
+
+Structured output means asking the LLM to return its answer in a predefined format/schema instead of normal free-form text.This is useful when the LLM's response needs to be parsed, stored, or passed to another program/tool.
+
+### Pydantic
+Pydantic models provide the richest feature set with field validation, descriptions, and nested structures.
+because of field validation , value of string should string only else encounter with error.
+
+One common LangChain approach is a Pydantic schema:
+
+from pydantic import BaseModel, Field
+
+
+class Person(BaseModel):
+    name: str = Field(description="Person's name")
+    age: int = Field(description="Person's age")
+    profession: str = Field(description="Person's profession")
+	
+Then provide this schema to the model:
+
+structured_model = model.with_structured_output(Person)
+
+result = structured_model.invoke(
+    "Tarun is 43 years old and works as a Python developer."
+)
+
+print(result)
+
+=======================
+User:
+"Check phone SEP001122334455"
+          ↓
+        Agent
+          ↓
+       CUCM Tool
+          ↓
+Structured Output
+          ↓
+{
+  "device": "SEP001122334455",
+  "status": "Registered",
+  "ip_address": "10.10.10.25",
+  "model": "8861"
+}
+          ↓
+     Final Response
+=======================
+
+Normal output is designed for humans; structured output is designed for programs.
+
+STRUCTURED OUTPUT
+─────────────────
+
+LLM response follows a predefined schema.
+
+Purpose:
+• Easy to parse
+• Easy to validate
+• Easy to store
+• Easy to pass to tools/APIs
+• Reliable downstream processing
+
+Common schema:
+• Pydantic
+• TypedDict
+• JSON Schema
+
+Example:
+
+{
+    "name": "Tarun",
+    "age": 43,
+    "profession": "Python Developer"
+}
+
+Normal LLM Output
+        ↓
+   Free-form text
+        ↓
+ Harder to parse
+----------------------------------
+Structured Output
+        ↓
+ Predefined schema
+        ↓
+ Easier for programs to process
+===========================================================================
+TypedDict is a Python typing feature that lets you define the expected structure of dictionary data.
+In LangChain, it can be used as a schema for structured output when you want to describe the expected fields but don't need runtime validation like Pydantic provides.
+
+--------No runtime validation of fields/data types.
+
+Remember: TypedDict describes the shape of the data, while Pydantic can additionally validate the data at runtime.
+===========================================================================
+A dataclass is a Python feature used to define a structured data object using a class
+
+Structured Output
+       │
+       ├── TypedDict
+       │     → Simple dictionary structure
+       │     → No runtime validation
+       │
+       ├── Dataclass
+       │     → Structured Python object
+       │     → Can contain methods/defaults
+       │
+       └── Pydantic
+             → Structured object
+             → Runtime validation
+             → More powerful
+===========================================================================
+
+##############################################################################
+07 — AGENT SAFETY: MIDDLEWARE + GUARDRAILS + HUMAN-IN-THE-LOOP
+##############################################################################
+
+Middleware
+
+Middleware provides a way to tightly control what happens inside an agent.
+its control layer around the agent's execution.
+
+User
+  ↓
+Agent
+  ↓
+┌─────────────────────────┐
+│      Middleware         │
+│                         │
+│  Logging                │
+│  Guardrails             │
+│  Retry                  │
+│  PII Detection          │
+│  Prompt Transformation  │
+│  Tool Control           │
+└───────────┬─────────────┘
+            ↓
+        LLM / Tool
+            ↓
+        Middleware
+            ↓
+       Final Response
+
+1. Logging / Analytics / Debugging
+
+Track what the agent is doing:
+
+User Request
+     ↓
+Agent selected Tool A
+     ↓
+Tool A executed
+     ↓
+Tool result
+     ↓
+Final answer
+
+2. Transforming prompts, tool selection & output
+
+Middleware can modify what happens before or after the model/tool executes.
+Original Prompt
+      ↓
+Middleware
+      ↓
+Modified Prompt
+      ↓
+LLM
+
+3. Retries, fallbacks & early termination
+
+If an API fails:
+
+Agent
+ ↓
+API Tool
+ ↓
+❌ Error
+ ↓
+Middleware
+ ↓
+Retry
+ ↓
+API Tool
+ ↓
+✅ Success
+
+OR
+Condition detected
+       ↓
+Middleware
+       ↓
+STOP AGENT
+
+4. Rate limits, Guardrails & PII detection
+
+Middleware can prevent unsafe or unwanted behavior.
+
+User:
+"Give me the customer's Aadhaar number."
+
+        ↓
+   Middleware
+        ↓
+   PII Detection
+        ↓
+   ⚠️ Sensitive data
+        ↓
+   Block / Mask
+   
+ Middleware is a control layer in an agent that allows us to intercept and control agent execution, including prompts, tool calls, outputs, errors, security, and monitoring.
+
+Middleware = Logging + Transformation + Retry/Fallback + Guardrails + PII + Control
+
+LLM          → Brain
+Tool         → Capability / Hands
+Agent        → Decision maker
+Middleware   → Control & Safety layer
+Structured Output → Standardized result
+===========================================================================
+Built-in Middleware in LangChain
+
+Human-in-the-loop:
+Pause agent execution for human approval, editing, or rejection of tool calls before they execute.
+
+Built-in Middleware
+│
+├── Summarization
+│   └── Control context / tokens
+│
+├── Human-in-the-loop
+│   └── Human approval
+│
+└── Model Call Limit
+    └── Control number of LLM calls  (Restricts the number of times the agent can call the LLM.)
+===========================================================================
+
+
+##############################################################################
+08 — LANGGRAPH: STATE + AGENTS + WORKFLOWS
+##############################################################################
+
+LangGraph is a library for building stateful, multi-actor applications with LLMs. It is especially useful for building agents and multi-agent workflows.
+
+1. Stateful
+
+LangGraph maintains the state of the application while the workflow executes.
+
+
+State
+├── User question
+├── Conversation history
+├── Tool results
+├── Agent decisions
+└── Current step
+
+2. Multi-actor / Multi-agent
+
+You can have multiple agents working together:
+
+             User
+               ↓
+        ┌──────────────┐
+        │ Supervisor   │
+        └──────┬───────┘
+          ┌────┴────┐
+          ↓         ↓
+     Researcher   Developer
+          ↓         ↓
+          └────┬────┘
+               ↓
+          Final Agent
+		  
+3. Memory
+
+LangGraph can persist application state, allowing conversations and other state updates to survive across interactions.
+
+Conversation 1
+     ↓
+   State
+     ↓
+Conversation 2
+     ↓
+Same persisted state
+
+		  
+4. Human-in-the-loop
+
+You can pause execution and ask a human for approval:
+
+Agent
+  ↓
+"Restart CUCM phone?"
+  ↓
+Human approval
+  ↓
+YES → Execute tool
+  ↓
+Continue workflow
+
+===========================================================
+LangChain
+   ↓
+Components for LLM applications
+   ↓
+Models + Prompts + Tools + Agents + Retrievers
+
+
+LangGraph
+   ↓
+Workflow / orchestration layer
+   ↓
+State + Nodes + Edges + Decisions + Persistence
+
+LangChain gives you the building blocks. LangGraph gives you fine-grained control over how those building blocks execute as a stateful workflow.
+
+State 
+  + 
+Nodes 
+  +
+Edges
+  +
+LLMs
+  +
+Tools
+  +
+Memory
+  +
+Human-in-the-loop
+      ↓
+Production Agent / Multi-Agent Workflow
+=========================================================================
+1. State = What the application currently knows
+
+State is the shared information that travels through your workflows
+Imagine the user says:
+
+"Check whether SEP001122334455 is registered."
+
+State
+│
+├── user_question
+│      "Check SEP001122334455"
+│
+├── phone_number
+│      "SEP001122334455"
+│
+├── registration_status
+│      "Registered"
+│
+├── phone_ip
+│      "10.10.10.25"
+│
+└── next_action
+       "Show result"
+	   
+2. Nodes = Individual tasks
+
+A node is a function that performs a specific piece of work.
+
+Node 1 → Understand user question
+
+Node 2 → Extract phone number
+
+Node 3 → Query CUCM
+
+Node 4 → Analyze result
+
+Node 5 → Generate response
+
+Each box is a Node.A node might contain. 
+ Node = A unit of work in the workflow.
+Python code
+LLM call
+Tool call
+Business logic
+Database operation
+
+3. Edges = How you move between nodes
+
+"After this node finishes, where should we go?"
+
+[Understand Question]
+          │
+          ↓
+[Extract Phone]
+          │
+          ↓
+[Check CUCM]
+          │
+          ↓
+[Generate Answer]
+
+The arrows are edges.
+
+4. Conditional Edges = Decision making
+This is called a conditional edge.
+
+Check CUCM
+    │
+    ├── Registered ──→ Get phone details
+    │
+    └── Not Registered ──→ Troubleshooting
+	
+Edge = fixed route.
+Conditional Edge = route chosen based on state/result.
+
+5. LLM = The reasoning/decision engine
+The LLM provides the intelligence.
+
+User:
+"Phone is showing Unregistered.
+What should I check?"
+
+Is the phone registered?
+        ↓
+No
+        ↓
+Check:
+• Network connectivity
+• TFTP
+• CUCM reachability
+• Device configuration
+
+6. Tools = Ability to perform actions
+An LLM by itself can't directly query your CUCM.
+
+LLM
+ ↓
+"I need registration status"
+ ↓
+CUCM Tool
+ ↓
+CUCM
+ ↓
+REGISTERED
+
+CUCM API
+SQL
+REST API
+SSH
+PowerShell
+Weather API
+File system
+Web search
+
+7. Memory = Remembering information
+"My phone is SEP001122334455."
+
+Day 1
+User → "My phone is SEP001122334455"
+                ↓
+              Memory
+                ↓
+Day 2
+User → "Is it registered?"
+                ↓
+       Agent remembers phone
+	   
+Conversation history
+User preferences
+Previous tool results
+Workflow state
+Long-term application data
+
+8. Human-in-the-loop = Human approval/control
+Human-in-the-loop = Human can review, approve, reject, or correct an agent's action.
+
+restart_phone()
+
+Agent
+ ↓
+Decides: restart phone
+ ↓
+Human approval
+ ↓
+┌───────────────┐
+│ Approve?      │
+│               │
+│ YES / NO      │
+└───────┬───────┘
+        │
+        ↓
+      YES
+        ↓
+ restart_phone()
+ 
+Agent
+ ↓
+Human
+ ↓
+NO
+ ↓
+Stop / choose another action
+
+                         ┌───────────────┐
+                         │     STATE     │
+                         │               │
+                         │ Question      │
+                         │ Phone         │
+                         │ Results       │
+                         │ Decisions     │
+                         └───────┬───────┘
+                                 │
+                                 ↓
+                         ┌───────────────┐
+                         │     NODE      │
+                         │  Understand   │
+                         └───────┬───────┘
+                                 │
+                                 ↓
+                         ┌───────────────┐
+                         │      LLM      │
+                         │   Reasoning   │
+                         └───────┬───────┘
+                                 │
+                                 ↓
+                         ┌───────────────┐
+                         │     TOOL      │
+                         │     CUCM      │
+                         └───────┬───────┘
+                                 │
+                                 ↓
+                              RESULT
+                                 │
+                                 ↓
+                         ┌───────────────┐
+                         │     STATE     │
+                         │   Updated     │
+                         └───────┬───────┘
+                                 │
+                                 ↓
+                       ┌───────────────────┐
+                       │ CONDITIONAL EDGE  │
+                       └───────┬─────┬─────┘
+                               │     │
+                         YES ──┘     └── NO
+                               │         │
+                               ↓         ↓
+                            Node A     Node B
+                               │         │
+                               └────┬────┘
+                                    ↓
+                            Human Approval
+                                    │
+                                    ↓
+                              Final Result
+					
+					
+=========================================================================
+
+Lang graph studio
+
+This diagram is showing a simple LangGraph workflow.
+StateGraph is class : Striucture of entire Graph
+
+                    START
+                      │
+                      ↓
+                 start_play
+                 /         \
+                ↓           ↓
+           badminton      cricket
+                \           /
+                 ↓         ↓
+                     END
+					 
+1. __start__
+
+This is the entry point of the LangGraph.
+start_play is a node.
+
+__start__
+    ↓
+start_play   
+
+=========================================================================
+__start__
+   ↓
+ ENTRY POINT
+
+
+NODE
+   ↓
+ Performs a task
+
+
+EDGE
+   ↓
+ Connects nodes / controls flow
+
+
+CONDITIONAL EDGE
+   ↓
+ Chooses the next node based on a condition
+
+
+__end__
+   ↓
+ EXIT POINT
+ ====================Code in LangGraph============================================
+ from typing import TypedDict
+import random
+
+from langgraph.graph import StateGraph, START, END
+
+
+# ============================================================
+# 1. Define the State
+# ============================================================
+
+class State(TypedDict):
+    play: str
+
+
+# ============================================================
+# 2. Define the Nodes
+# ============================================================
+
+def start_play(state: State):
+    print("Starting the game...")
+    return state
+
+
+def cricket(state: State):
+    print("Playing Cricket 🏏")
+    return {"play": "cricket"}
+
+
+def badminton(state: State):
+    print("Playing Badminton 🏸")
+    return {"play": "badminton"}
+
+
+# ============================================================
+# 3. Define the Conditional Decision Function
+# ============================================================
+
+def random_play(state: State):
+    """
+    Randomly decide whether to play cricket or badminton.
+    The returned string must match the destination node name.
+    """
+
+    play = random.choice(["cricket", "badminton"])
+
+    print(f"Selected game: {play}")
+
+    return play
+
+
+# ============================================================
+# 4. Build the Graph
+# ============================================================
+
+graph = StateGraph(State)
+
+
+# Add nodes
+graph.add_node("start_play", start_play)
+graph.add_node("cricket", cricket)
+graph.add_node("badminton", badminton)
+
+
+# ============================================================
+# 5. Define the Flow
+# ============================================================
+
+# START → start_play
+graph.add_edge(START, "start_play")
+
+
+# start_play → random decision → cricket OR badminton
+graph.add_conditional_edges(
+    "start_play",
+    random_play
+)
+
+
+# cricket → END
+graph.add_edge("cricket", END)
+
+
+# badminton → END
+graph.add_edge("badminton", END)
+
+
+# ============================================================
+# 6. Compile the Graph
+# ============================================================
+
+graph_builder = graph.compile()
+
+
+# ============================================================
+# 7. Execute the Graph
+# ============================================================
+
+initial_state = {
+    "play": ""
+}
+
+result = graph_builder.invoke(initial_state)
+
+
+# ============================================================
+# 8. Print Final State
+# ============================================================
+
+print("\nFinal State:")
+print(result)
+
+=========================================================================
+
+langgraph dev : find langgraph.json
+
+Your LangGraph code
+        ↓
+   langgraph dev
+        ↓
+Local LangGraph server
+        ↓
+Test / Debug your Agent
+
+=========================================================================
+1. Prompt chaining in langgraph
+
+Prompt chaining means breaking one complex task into multiple smaller LLM prompts, where the output of one step becomes the input to the next step.
+
+Prompt Chaining = sequentially connect multiple LLM prompts.
+
+User
+ ↓
+Prompt 1
+ ↓
+LLM
+ ↓
+Output 1
+ ↓
+Prompt 2
+ ↓
+LLM
+ ↓
+Output 2
+ ↓
+Prompt 3
+ ↓
+LLM
+ ↓
+Final Output
+===================================
+Complex Task
+     ↓
+┌───────────────┐
+│ Step 1        │
+│ Extract       │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│ Step 2        │
+│ Analyze       │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│ Step 3        │
+│ Generate      │
+└───────┬───────┘
+        ↓
+      Output
+=========================================================================
+
+2.) Parallaization in Lanngraph :
+
+Parallelization means running multiple independent tasks at the same time instead of waiting for one task to finish before starting the next.
+
+If Task A, B, and C don't depend on each other:
+
+                 ┌──→ Task A ──┐
+                 │             │
+START ───────────┼──→ Task B ──┼──→ Aggregator → END
+                 │             │
+                 └──→ Task C ──┘
+				 
+Independent Nodes
+       ↓
+Parallel Execution
+       ↓
+Aggregator
+       ↓
+Combined Result
+
+
+Chaining = "Do this, then this."
+Parallelization = "Do these together."
+=========================================================================
+
+3) Routing in LangGraph
+
+Routing means deciding which node should execute next based on the current State or the output of the previous node.
+
+State
+ │
+ │ sport = "cricket"
+ ↓
+route_sport()
+ │
+ ↓
+"cricket"
+ │
+ ↓
+Cricket Node
+
+=========================================================================
+4) Orchestrator–Workers Workflow
+
+A central LLM (Orchestrator) dynamically decides what subtasks are required, sends them to worker nodes/agents, and then a Synthesizer combines their results.
+
+A. The Orchestrator is the central LLM.
+
+It receives the user's request and decides:
+
+What subtasks are needed?
+How many workers are needed?
+What should each worker do?
+What information should be given to each worker?
+
+Worker 1 → Analyze infrastructure
+Worker 2 → Analyze applications
+Worker 3 → Analyze security
+Worker 4 → Analyze databases
+
+                         ┌──────────────┐
+                         │   Worker 1   │
+                         └──────┬───────┘
+                                │
+User                          │
+  ↓                            ↓
+Orchestrator ─────────────→ Worker 2 ──────┐
+  │                                         │
+  └──────────────────────→ Worker 3 ──────┤
+                                            ↓
+                                      Synthesizer
+                                            ↓
+                                         Output
+										
+B. Workers are specialized LLMs/nodes/agents that perform the subtasks.
+
+             Orchestrator
+              /    |    \
+             ↓     ↓     ↓
+        Worker 1 Worker 2 Worker 3
+        Security  Database  Network
+		
+C. Synthesizer takes all worker outputs and produces the final answer.
+
+Worker 1 ──┐
+Worker 2 ──┤
+Worker 3 ──┼──→ Synthesizer → Final Answer
+Worker 4 ──┘
+
+Worker 1:
+"Security has these issues..."
+
+Worker 2:
+"Database has these issues..."
+
+Worker 3:
+"Network has these issues..."
+
+              ↓
+
+          Synthesizer
+
+              ↓
+
+"Overall architecture has 3 major areas
+requiring improvement..."
+
+=========================================================================
+
+The most important difference from Parallelization
+
+Parallelization
+
+You already know the tasks:The tasks are predefined.
+
+             ┌→ Task A
+START ───────┼→ Task B
+             └→ Task C
+
+Orchestrator–Workers
+
+The orchestrator decides the tasks dynamically:
+
+                    User
+                     ↓
+               Orchestrator
+                     ↓
+          "What work is required?"
+                     ↓
+          ┌──────────┼──────────┐
+          ↓          ↓          ↓
+       Worker 1   Worker 2   Worker 3
+          ↓          ↓          ↓
+          └──────────┼──────────┘
+                     ↓
+                Synthesizer
+                     ↓
+                   Output
+				   
+=========================================================================
+5) Evaluator–Optimizer Workflow in Langraph
+
+This pattern is about generate → evaluate → improve → repeat.
+
+             Input
+               ↓
+          ┌──────────┐
+          │ Generator│
+          └────┬─────┘
+               ↓
+            Response
+               ↓
+          ┌──────────┐
+          │ Evaluator│
+          └────┬─────┘
+               ↓
+          ┌────┴────┐
+          │         │
+       Accepted   Rejected
+          │         │
+          ↓         ↓
+        Output   Feedback
+                    │
+                    ↓
+               Generator
+                    │
+                    ↺
+1. Generator
+
+The Generator LLM creates the initial response.
+
+User:
+"Explain SIP troubleshooting."
+
+        ↓
+
+Generator
+
+        ↓
+
+"Check SIP trunk status,
+verify signaling, check
+SIP messages..."
+
+2) Evaluator checks whether the generated response meets predefined criteria.
+
+Evaluator checks:
+
+✓ Technically correct?
+✓ Complete?
+✓ Relevant?
+✓ Clear?
+✓ Missing troubleshooting steps?
+
+Score: 6/10
+
+Feedback:
+"Include SIP response codes
+and RTP troubleshooting."
+
+3. Optimization / Refinement : The feedback goes back to the Generator:
+
+Generator
+    ↓
+Initial Answer
+    ↓
+Evaluator
+    ↓
+Feedback
+    ↓
+Generator
+    ↓
+Improved Answer
+    ↓
+Evaluator
+
+Generate → Evaluate → Feedback → Refine → Evaluate → Output.
+
+=========================================================================
+Traditional RAG
+
+User Question
+      ↓
+Retriever
+      ↓
+Vector Database
+      ↓
+Relevant Documents
+      ↓
+LLM
+      ↓
+Answer
+
+---------------------
+Agentic RAG
+
+                 User Question
+                       ↓
+                     Agent
+                       ↓
+             "Do I need retrieval?"
+                    /       \
+                  No         Yes
+                  ↓           ↓
+                 LLM      Retriever Tool
+                              ↓
+                         Vector DB / Web
+                              ↓
+                       Retrieved Context
+                              ↓
+                     "Is it relevant?"
+                         /       \
+                       No         Yes
+                       ↓           ↓
+                  Refine Query    LLM
+                       │           ↓
+                       └──────→  Answer
+					   
+What makes it "Agentic"? 
+The key difference is decision-making.
+
+"Why is SEP001122334455 showing Unregistered, and what should I check?"
+
+A traditional RAG system might simply:
+Question
+   ↓
+Vector Search
+   ↓
+CUCM troubleshooting documents
+   ↓
+LLM
+   ↓
+Answer
+
+
+An Agentic RAG system could reason:
+
+Agent
+ ↓
+Need CUCM registration information
+ ↓
+Retrieve CUCM troubleshooting docs
+ ↓
+Need SIP information
+ ↓
+Retrieve SIP troubleshooting docs
+ ↓
+Need device-specific information
+ ↓
+Call CUCM/API Tool
+ ↓
+Combine all evidence
+ ↓
+Generate RCA
+
+=========================================================================
+LLM Gateway
+
+LLM Gateway as a smart middleware layer between your applications and different LLM providers.
+Instead of every application directly connecting to OpenAI, Gemini, or Claude:
+
+The gateway gives your organization one controlled entry point for all LLM calls.
+
+Without LLM Gateway
+
+Chatbot ─────→ OpenAI
+RAG     ─────→ Gemini
+App     ─────→ Claude
+
+you introduce one common gateway:
+                    ┌─────────────┐
+                    │   OpenAI    │
+                    └──────▲──────┘
+                           │
+                    ┌──────┴──────┐
+                    │    Gemini   │
+                    └──────▲──────┘
+                           │
+                    ┌──────┴──────┐
+                    │ Claude API  │
+                    └──────▲──────┘
+                           │
+                    ┌──────┴──────┐
+                    │ LLM Gateway │
+                    │   Smart     │
+                    │ Middleware  │
+                    └──────▲──────┘
+                           │
+              ┌────────────┼────────────┐
+              │            │            │
+           Chatbot        RAG          App
+		   
+OpenAI unavailable
+       ↓
+LLM Gateway
+       ↓
+Fallback
+       ↓
+Claude
+
+
+LLM Gateway
+│
+├── Routing
+│     → Which LLM should handle the request?
+│
+├── Authentication
+│     → Who is allowed to use the LLM?
+│
+├── Rate Limiting
+│     → How many requests are allowed?
+│
+├── Cost Control
+│     → Which model is being used and how much does it cost?
+│
+├── Logging
+│     → What prompts/responses are being generated?
+│
+├── Monitoring
+│     → Latency, errors, token usage
+│
+├── Security
+│     → Protect API keys and sensitive data
+│
+├── Guardrails
+│     → Filter/block unwanted requests
+│
+└── Fallback
+      → If one provider fails, use another
+
+An LLM Gateway is a centralized smart middleware layer that manages access to multiple LLM providers and provides capabilities such as routing, authentication, rate limiting, cost control, monitoring, security, guardrails, and fallback.
+	  =========================================================================
+LLM Gateway
+
+Controls LLM access and infrastructure:
+
+Security
+Routing
+Cost
+Rate limits
+Monitoring
+Provider management
+
+LangGraph
+
+Controls agent/workflow execution
+
+State
+Nodes
+Edges
+Routing
+Tools
+Loops
+Memory
+Human-in-the-loop
+ =========================================================================
+
+##############################################################################
+09 — GIT + GITHUB FUNDAMENTALS
+##############################################################################
+
+
+GIT — Complete Basic Setup & Push
+
+Install Git for Windows, which provides:
+
+Git Bash
+Git CLI
+Git Credential Manager
+SSH support
+
+Verify installation:
+git --version
+
+cd "C:/Users/tataneja/OneDrive - Cisco/Desktop/Agentic_AI/Gittutorials"
+
+Create a README file:
+echo "# TT_GitTutorials" >> README.md
+ls
+
+Initialize Git Repository
+git init
+
+Project Folder
+      ↓
+   git init
+      ↓
+Local Git Repository
+
+Configure Git Commit Identity.These settings identify who authored the commit.
+git config --global user.name "tarun1-github"
+git config --global user.email "taruntan@gmail.com"
+git config --global user.email
+git config --global user.email
+git config --global --list
+
+Commit Identity
+       ↓
+user.name
+user.email
+
+Authentication
+       ↓
+HTTPS + Credential Manager/PAT
+       OR
+SSH + SSH Key
+
+git status
+
+Add Files to Staging Area
+git add README.md
+OR
+git add .
+
+Git workflow
+Working Directory
+       ↓
+    git add
+       ↓
+Staging Area
+       ↓
+  git commit
+       ↓
+Local Repository
+
+git commit -m "first commit"
+git commit -m "Add initial README"
+git log --oneline
+
+Check Current Branch
+git branch
+* master
+
+Rename it to main:
+git branch -M main
+git branch
+
+Create GitHub Repository
+TT_GitTutorials
+tarun1-github/TT_GitTutorials
+
+Connect Local Repository to GitHub
+
+
+ git remote set-url origin https://github.com/tarun1-github/QBR_Data.git
+
+git remote add origin https://github.com/tarun1-github/TT_GitTutorials.git
+git remote -v
+origin  https://github.com/tarun1-github/TT_GitTutorials.git (fetch)
+origin  https://github.com/tarun1-github/TT_GitTutorials.git (push)
+
+origin
+   ↓
+GitHub Repository
+
+git status
+
+Push Local Main Branch to GitHub
+git push
+
+-u = sets the upstream/tracking relationship between:
+
+local main
+     ↕
+origin/main
+
+🔴 TROUBLESHOOTING — HTTPS AUTHENTICATION
+git push -u origin main
+remote: Invalid username or token.
+Password authentication is not supported for Git operations.
+fatal: Authentication failed
+
+GitHub no longer accepts your normal GitHub account password for Git operations over HTTPS.
+
+HTTPS
+  ↓
+Git Credential Manager
+  ↓
+GitHub authentication
+
+Check Git Identity
+git config --global user.email
+git config --global user.name
+git config --global --list
+
+Check Git Credential Manager
+git config --get credential.helper
+git credential-manager --version
+git credential-manager github login
+
+Test GitHub Repository Access
+git ls-remote origin
+
+Check Local Commit and Branch
+git log --oneline --decorate -5
+
+Check branch tracking:
+git branch -vv
+
+Advanced HTTPS Troubleshooting
+GIT_TRACE=1 GIT_CURL_VERBOSE=1 git push -u origin main
+
+Connected to github.com:443
+TLSv1.3
+SSL certificate verify ok
+
+HTTP 401 : Authentication required / Unauthorized
+git credential-manager get
+The Credential Manager authentication flow was getting stuck.
+
+The problem was the HTTPS authentication/credential-manager flow.
+
+🔐 TROUBLESHOOTING — SSH AUTHENTICATION
+
+Check Existing SSH Keys
+ls -al ~/.ssh
+ls: cannot access '/c/Users/tataneja/.ssh': No such file or directory
+
+Generate an SSH Key
+ssh-keygen -t ed25519 -C "taruntan@gmail.com"
+
+id_ed25519
+     ↓
+PRIVATE KEY 🔐
+NEVER SHARE
+
+id_ed25519.pub
+     ↓
+PUBLIC KEY 🔑
+Add to GitHub
+
+Start SSH Agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+
+Add this public key to:
+GitHub → Settings → SSH and GPG keys → New SSH key
+
+Test GitHub SSH Authentication
+ssh -T git@github.com
+Hi tarun1-github! You've successfully authenticated,
+but GitHub does not provide shell access.
+
+Your PC
+   ↓
+SSH Private Key
+   ↓
+GitHub
+   ↓
+Authentication successful
+
+Change Remote from HTTPS to SSH
+git remote set-url origin git@github.com:tarun1-github/TT_GitTutorials.git
+git remote -v
+origin  git@github.com:tarun1-github/TT_GitTutorials.git (fetch)
+origin  git@github.com:tarun1-github/TT_GitTutorials.git (push)
+
+git push -u origin main
+
+🔥 HTTPS vs SSH — Training Notes
+Git
+ ↓
+HTTPS :443
+ ↓
+GitHub
+ ↓
+Credential Manager / Token
+ ↓
+Authentication
+ ↓
+Push
+----------------------------
+Git
+ ↓
+SSH
+ ↓
+Ed25519 Key Pair
+ ↓
+GitHub
+ ↓
+Authentication
+ ↓
+Push
+
+GitHub does not use your normal account password for Git operations.
+Git Credential Manager
+        OR
+Personal Access Token
+
+🎯 Important Git Concepts
+                 GIT
+                  │
+        ┌─────────┼─────────┐
+        ↓         ↓         ↓
+   Working     Staging    Local
+   Directory    Area      Repository
+        │         │          │
+        │ git add │          │
+        └────────→│          │
+                  │ commit   │
+                  └─────────→│
+                              │
+                              │ git push
+                              ↓
+                         Remote Repository
+                              │
+                           GitHub
+WRITE CODE
+    ↓
+git status
+    ↓
+git add .
+    ↓
+STAGING AREA
+    ↓
+git commit
+    ↓
+LOCAL REPOSITORY
+    ↓
+git push
+    ↓
+REMOTE REPOSITORY
+    ↓
+GITHUB
+
+git clone https://github.com/tarun1-github/TT_GitTutorials.git
+
+The device-code/browser login prompt means Git Credential Manager successfully started GitHub authentication. You entered the code in the browser, authenticated, and the push completed.
+
+
+git config --global color.ui.auto
+
+What does "Stage" mean?
+
+Stage = prepare for commit
+unstage = remove from that preparation.
+
+Working Directory
+       ↓
+    Modified
+       ↓
+Git knows the file changed, but it is not yet selected for the next commit.
+
+When you run:git add file.py
+
+Working Directory
+       ↓
+    git add
+       ↓
+  STAGING AREA
+  
+Now you're telling Git:"Include this file's current changes in my next commit."
+
+git commit
+= Seal the parcel/checkpoint.  (staging - playground)
+
+git push
+= Send it to GitHub.
+
+Suppose you accidentally did:
+"I don't want README.md in this commit."
+git restore --staged README.md
+
+Staged:
+    agent.py
+    tools.py
+
+Not staged:
+    README.md
+
+Git — Restore, Reset, Diff, Branch & Log
+
+git restore vs git reset
+Primarily used to restore files / undo changes in the working tree or staging area.
+
+Unstage a file
+git restore --staged README.md
+
+Discard changes in working directory
+git restore README.md
+
+git reset is more powerful and can move the HEAD/branch pointer and/or change the staging area.
+git reset --soft HEAD~1  ##Undo the last commit but keep changes staged.
+
+Commit
+  ↓
+reset --soft
+  ↓
+Changes remain staged
+
+git reset HEAD~1  	##Undo the commit and unstage the changes, but keep the changes in your working directory.
+
+Commit
+  ↓
+reset
+  ↓
+Working Directory
+
+git reset --hard HEAD~1 	##Moves the branch back and discards changes.
+
+Commit
+  ↓
+reset --hard
+  ↓
+Changes can be LOST
+
+git diff  		##Shows the differences between your working directory and the staging area.
+
+Working Directory
+       ↕
+Staging Area
+
+git diff --staged 	##Shows changes that are already staged, compared with the last commit.
+
+Last Commit
+     ↕
+Staging Area
+
+git branch
+git checkout developer   ###Switch branch
+
+main
+  ↓
+git checkout developer
+  ↓
+developer
+
+git merge developer  ##Merge the specified branch into the branch I'm currently on.
+
+developer
+    ↓
+    ↓ merge
+    ↓
+  main
+
+git log ##Shows commit history:
+git log --oneline
+git log -p  #Show the commit history AND the actual changes introduced by each commit.  -p = patch
+git log -p -11
+
+git log
+  +
+-p      → show changes/diffs
+  +
+-11     → show up to 11 commits
+
+Let's read YOUR output
+commit 9596f3f4afba572f07e7333387bae0ebf2387e22
+(HEAD -> developer, origin/main, origin/developer, main)
+HEAD -> developer  ##means you're currently on: developer
+main = Your local main branch.
+
+
+                    9596f3f
+                       ↑
+        ┌──────────────┼──────────────┐
+        │              │              │
+      main         developer     origin/main
+                                      │
+                                origin/developer
+What does @@ -1 +1,3 @@ mean?
+-1 = Starting around line 1 in the old file.
++1,3 = Starting around line 1, there are 3 lines in the new version.
+
+Git — Pull, Merge Branches & Resolve Conflicts
+  
+git pull  ##Download the latest changes from the remote repository and integrate them into your current local branch.
+
+
+GitHub
+  │
+  │ git pull
+  ↓
+Local Repository
+
+git fetch
+   +
+git merge
+
+git fetch ###Downloads remote changes but doesn't merge them into your current branch.
+
+GitHub
+  ↓
+git fetch
+  ↓
+origin/main
+
+A conflict occurs when Git cannot automatically decide which change should be kept.
+If both branches modified the same part of the same file, Git may report:You manually decide what the final content should be.
+
+git merge --abort  ##If you're in the middle of a merge conflict and decide:"I don't want to continue this merge."
+=========================================================================
+
+##############################################################################
+10 — GITHUB ACTIONS + CI/CD + TESTING + AI EVALUATION
+##############################################################################
+
+Git : Distributed version of control system (Developer) -> Track source code files.
+
+GitHub Actions — CI/CD Pipelines
+
+"GitHub Actions can implement CI/CD pipelines where code changes trigger automated build, testing, validation, and deployment workflows across environments such as DEV, QA, UAT, and Production."
+
+GitHub Actions is GitHub's built-in automation platform. It lets you automatically run tasks when something happens in a repository, such as:
+
+git push
+Pull request creation/update
+New release
+Scheduled time
+Manual trigger
+
+Developer
+    │
+    │ git push
+    ↓
+GitHub Repository
+    │
+    ↓
+GitHub Actions
+    │
+    ├── Run tests
+    ├── Check code quality
+    ├── Build application
+    ├── Security scan
+    └── Deploy
+          │
+          ↓
+       Production
+	   
+CI — Continuous Integration
+CI = Automatically test and validate code whenever developers push changes or create a PR.
+
+git push
+   ↓
+GitHub Actions
+   ↓
+Install dependencies
+   ↓
+Run tests
+   ↓
+Tests PASS ✅
+   ↓
+Build
+------------------------
+Tests FAIL ❌
+    ↓
+Developer gets notification
+    ↓
+Fix code
+    ↓
+Push again
+
+CD — Continuous Deployment / Delivery
+CD takes the validated code and moves it toward deployment.
+
+Code
+ ↓
+Build
+ ↓
+Test
+ ↓
+Security checks
+ ↓
+Deploy
+ ↓
+Cloud / Server
+
+A workflow is the complete automation definition.
+
+.github/
+   workflows/
+      ci.yml
+	  
+Event / Trigger :  Defines when the workflow starts. Run this workflow whenever code is pushed to main.
+
+on:
+  push:
+    branches: [main]
+
+Job : A workflow contains one or more jobs.
+
+Workflow
+   │
+   ├── Test Job
+   ├── Build Job
+   └── Deploy Job
+   
+ Each job contains individual steps.
+ 
+Job
+ │
+ ├── Checkout code
+ ├── Setup Python
+ ├── Install dependencies
+ ├── Run tests
+ └── Build
+ 
+Git + GitHub Actions = the software engineering/DevOps layer that helps you reliably build, test, and deploy your Agentic AI applications.
+
+Git → GitHub → GitHub Actions → Docker → CI/CD → Cloud deployment
+=========================================================================
+CI/CD Workflows  YAML File  :: Developer Workflow
+
+Continuous Deployment is the practice of automatically deploying successfully tested code through different environments until it reaches Production.
+
+Developer
+    ↓
+GitHub Repository
+    ↓
+CI Pipeline
+    ↓
+DEV
+    ↓
+QA
+    ↓
+UAT
+    ↓
+Production
+
+1. Unit Testing
+2. Integration Testing
+3. Regression Testing
+4. E2E Testing
+5. Code Review
+6. Security Testing
+7. Performance Testing
+8. RAG Evaluation
+9. Agent Evaluation
+10. LLM/Prompt/Guardrail Testing
+
+In modern GitHub Actions pipelines, you often use both:
+            Pull Request
+                  ↓
+            Code Review
+                  ↓
+          GitHub Actions
+                  ↓
+        ┌─────────┴─────────┐
+        ↓                   ↓
+   Code Quality          Testing
+        ↓                   ↓
+    Linting             Unit Tests
+    Security             Integration
+    Analysis             Regression
+        ↓                   ↓
+        └─────────┬─────────┘
+                  ↓
+               APPROVE
+                  ↓
+                MERGE
+				
+Testing & Code Review — Complete Flow
+------------------------------
+Developer writes code
+        ↓
+   1. Unit Testing
+        ↓
+   2. Integration Testing
+        ↓
+   3. Code Review
+        ↓
+   4. Security Testing
+        ↓
+   5. Regression Testing
+        ↓
+   6. Performance Testing
+        ↓
+   7. E2E Testing
+        ↓
+   ─────────────────────────────
+        AI / Agentic AI
+   ─────────────────────────────
+        ↓
+   8. RAG Evaluation
+        ↓
+   9. Agent Evaluation
+        ↓
+  10. LLM / Prompt / Guardrail Testing
+        ↓
+      Deploy
+        ↓
+     Production
+	 
+1. Unit Testing #Test the smallest individual piece of code.
+
+Function / Class
+       ↓
+     Test
+       ↓
+ ┌─────┴─────┐
+ ↓           ↓
+PASS        FAIL
+ ↓           ↓
+Continue    Fix code
+
+2. Integration Testing ##Integration testing checks whether components work together.
+
+Agent
+  ↓
+LangGraph
+  ↓
+Retriever
+  ↓
+Vector DB
+  ↓
+LLM
+  ↓
+Tool/API
+
+3. Code Review
+
+Developer
+    ↓
+Push Code
+    ↓
+Pull Request
+    ↓
+Code Review
+    ↓
+ ┌──┴───────────┐
+ ↓              ↓
+Approve       Changes
+ ↓              ↓
+Merge         Fix Code
+                ↓
+             Review again
+			 
+4. Security Testing ## Now check whether the application is secure.
+
+Application
+     ↓
+Security Testing
+     ↓
+ ┌───┼────────┬─────────┐
+ ↓   ↓        ↓         ↓
+Auth  API   Secrets   Dependencies
+      Security
+     ↓
+Vulnerability?
+     ↓
+ ┌───┴───┐
+ ↓       ↓
+No      Yes
+ ↓       ↓
+Pass    Fix
+
+5. Regression Testing ##Whenever you add or modify functionality, make sure existing functionality still works.
+
+Existing Application
+        ↓
+New Change
+        ↓
+Regression Tests
+        ↓
+ ┌──────┴──────┐
+ ↓             ↓
+PASS          FAIL
+ ↓             ↓
+Continue      Fix
+
+6. Performance Testing  ##Now test speed, capacity and scalability.
+
+Application
+     ↓
+Performance Test
+     ↓
+ ┌──────────┬──────────┬──────────┐
+ ↓          ↓          ↓
+Latency   Throughput  Resources
+ ↓          ↓          ↓
+Response   Requests   CPU/Memory
+Time       /sec
+
+7. E2E — End-to-End Testing
+
+User
+ ↓
+Chat UI
+ ↓
+API / FastAPI
+ ↓
+Agent
+ ↓
+LangGraph
+ ↓
+Tool Selection
+ ↓
+CUCM API
+ ↓
+Database
+ ↓
+LLM
+ ↓
+Response
+ ↓
+User
+
+8. RAG Evaluation  ##RAG has two major areas:
+
+                 RAG
+                  ↓
+       ┌──────────┴──────────┐
+       ↓                     ↓
+  Retrieval              Generation
+       ↓                     ↓
+Did we get              Did LLM use
+correct documents?      them correctly?
+
+9. Agent Evaluation
+
+Understand task
+      ↓
+Decide what to do
+      ↓
+Choose tool
+      ↓
+Provide correct parameters
+      ↓
+Execute tool
+      ↓
+Observe result
+      ↓
+Decide next action
+      ↓
+Produce final answer
+
+10. LLM / Prompt / Guardrail Testing
+
+Prompt Testing ##Check whether your prompt produces the intended behavior.
+Prompt
+  ↓
+LLM
+  ↓
+Response
+  ↓
+Expected behavior?
+
+
+11. Guardrail Testing##Guardrails prevent unwanted behavior.
+
+User
+ ↓
+Guardrail
+ ↓
+ ┌───────────────┐
+ ↓               ↓
+Safe            Unsafe
+ ↓               ↓
+LLM            Block
+ ↓
+Response
+----------------------------------------------
+🔥 Complete Agentic AI Testing Architecture
+
+                    CODE
+                     │
+                     ↓
+              UNIT TESTING
+                     │
+                     ↓
+           INTEGRATION TESTING
+                     │
+                     ↓
+                CODE REVIEW
+                     │
+                     ↓
+             SECURITY TESTING
+                     │
+                     ↓
+            REGRESSION TESTING
+                     │
+                     ↓
+           PERFORMANCE TESTING
+                     │
+                     ↓
+              E2E TESTING
+                     │
+        ┌────────────┴────────────┐
+        │                         │
+        ↓                         ↓
+   Traditional              Agentic AI
+   Application                  Layer
+        │                         │
+        │                 ┌───────┼────────┐
+        │                 ↓       ↓        ↓
+        │                RAG    Agent    LLM
+        │                Eval   Eval    Testing
+        │                         │        │
+        │                         └────┬───┘
+        │                              ↓
+        │                         Guardrails
+        │                              │
+        └──────────────┬───────────────┘
+                       ↓
+                    DEPLOY
+                       ↓
+                  PRODUCTION
+----------------------------------------------				  
+Traditional application testing:
+
+Unit
+ ↓
+Integration
+ ↓
+Regression
+ ↓
+Security
+ ↓
+Performance
+ ↓
+E2E
+----------------------------------------------
+Agentic AI adds another dimension:
+
+RAG Evaluation
+      +
+Agent Evaluation
+      +
+LLM Evaluation
+      +
+Prompt Testing
+      +
+Guardrail Testing
+----------------------------------------------
+
+Developer Workflow
+
+tests folder should exists in python coding
+
+git push = send my code to GitHub.
+Pull Request (PR) = ask the team to review and merge my code into another branch.
+
+Your PC
+  │
+  │ git push
+  ↓
+GitHub Repository
+-------------------------------------
+developer branch
+       │
+       │ Pull Request
+       ↓
+    main branch
+	
+PR
+ ↓
+Code Review
+ ↓
+CI Pipeline
+ ↓
+Tests
+ ↓
+Approval
+ ↓
+Merge
+-------------------------------------
+GitHub Actions — Python CI Pipeline
+
+1. Workflow file
+
+.github/
+└── workflows/
+    └── unittest.yml  ##The YAML file defines when the CI pipeline runs and what it does.
+-------------------------------------------------------------------------------------------------------------	
+Git → GitHub → GitHub Actions → CI/CD → Testing → Agentic AI deployment.
+-------------------------------------------------------------------------------------------------------------
+
+name: Python CI   ##What should I call this workflow?
+
+# Events that trigger the workflow
+on:				##on defines the event that triggers the workflow
+  push:         ##Run the CI pipeline whenever code is pushed to main.
+    branches:
+      - main
+
+  pull_request:  ##Run the CI pipeline when a Pull Request targets main.
+    branches:
+      - main
+
+jobs:     ##A workflow contains one or more jobs.
+
+  test:
+    runs-on: ubuntu-latest  ##This tells GitHub where the job should execute. (Container)
+
+    steps:   ##A job consists of individual steps.
+
+      # Step 1: Checkout the repository code
+      - name: Check out code
+        uses: actions/checkout@v4  ##Use an existing GitHub Action.
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5  ##Use an existing GitHub Action.
+        with:
+          python-version: '3.12'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Step 4: Run unit tests
+      - name: Run tests
+        run: |
+          pytest     ##Now pytest executes your test cases.
+-------------------------------------
+Workflow
+   │
+   ├── Name
+   │
+   ├── Trigger/Event
+   │
+   ├── Jobs
+   │     │
+   │     └── Test
+   │           │
+   │           ├── Runner
+   │           │
+   │           └── Steps
+   │                 ├── Checkout
+   │                 ├── Setup Python
+   │                 ├── Install dependencies
+   │                 └── Run tests
+ -------------------------------------
+ 
+ GitHub Event
+     ↓
+   Trigger
+     ↓
+Workflow
+
+ Common events include:
+ 
+push
+pull_request
+merge
+workflow_dispatch
+schedule
+issues
+release
+-------------------------------------
+GitHub
+  ↓
+Runner
+  ↓
+Ubuntu Linux
+  ↓
+Execute your commands
+-------------------------------------
+Use an existing GitHub Action.
+actions/checkout@v4 is a reusable action provided for checking out repository contents.
+
+GitHub Repository
+       ↓
+actions/checkout
+       ↓
+GitHub Runner
+       ↓
+Your source code
+-------------------------------------
+Developer
+    │
+    │ git push
+    ↓
+GitHub Repository
+    │
+    ↓
+GitHub Event
+    │
+    ↓
+.github/workflows/unittest.yml
+    │
+    ↓
+Workflow triggered
+    │
+    ↓
+Job: test
+    │
+    ↓
+Ubuntu Runner
+    │
+    ↓
+Checkout Code
+    │
+    ↓
+Setup Python
+    │
+    ↓
+Install requirements.txt
+    │
+    ↓
+Run pytest
+    │
+    ↓
+   PASS?
+   /   \
+ YES    NO
+  │      │
+  ↓      ↓
+Success  Failure
+  │      │
+  ↓      ↓
+PR can   Developer
+continue fixes code
+         │
+         ↓
+       git push
+         │
+         ↓
+      CI runs again
+-------------------------------------
+But git pull ≠ Pull Request
+
+git pull origin main
+
+GitHub
+   ↓
+Your local repository
+-------------------------------------
+A PR is normally used for code review and merging branches.
+A GitHub collaboration process:
+
+developer
+    ↓
+Pull Request
+    ↓
+main
+-------------------------------------
+Scenario 2 — You edited something directly on GitHub
+
+GitHub
+ ↓
+Edit README
+ ↓
+Commit changes
+
+Now remote has a commit that your PC doesn't have.
+-------------------------------------
+git push
+↓
+Local → Remote
+-------------------------------------
+git pull
+↓
+Remote → Local
+-------------------------------------
+Pull Request
+↓
+Request to merge one remote branch into another
+↓
+Usually Code Review + CI
+-------------------------------------
+Docker / Docker Container
+
+Docker : its way to package your application together with everything it needs to run.
+Docker solves this problem by packaging the application and its runtime environment into a standardized unit.
+
+its standardize the enviornment (isolation and portability). Build it once and deploy it anywhere.
+
+A container is a running instance of a Docker image.
+
+                 DOCKER IMAGE
+              ┌─────────────────┐
+              │ Python           │
+              │ LangChain        │
+              │ LangGraph        │
+              │ FastAPI          │
+              │ Your Agent       │
+              │ Dependencies     │
+              └────────┬────────┘
+                       │
+                    RUN
+                       ↓
+              ┌─────────────────┐
+              │    CONTAINER     │
+              │                  │
+              │   Running Agent  │
+              └─────────────────┘
+			  
+Dockerfile
+    ↓
+docker build
+    ↓
+Docker Image ##An image is read-only packaged application content used to create containers.
+    ↓
+docker run
+    ↓
+Docker Container ##A container is a running instance of that image.
+
+agentic-ai:v1  ##Docker Image
+       │
+       ├── Container 1
+       ├── Container 2
+       └── Container 3
+--------------------------------------------------------------------------	  
+              Physical Server
+                    │
+              Host Operating System
+                    │
+               Docker Engine
+                    │
+       ┌────────────┼────────────┐
+       ↓            ↓            ↓
+   Container 1  Container 2  Container 3
+       │            │            │
+      App          App          App
+--------------------------------------------------------------------------
+1. Why do we need Docker?
+"It works on my machine, but it doesn't work on another machine."
+
+Suppose Developer A builds an application:
+Developer A. The application works perfectly.
+
+│ 
+├── Windows
+├── Python 3.12
+├── LangChain 1.x
+├── LangGraph
+├── FastAPI
+├── Other libraries
+└── Configuration
+----------------------------------------------------------
+
+Now we move it to Developer B / QA / Production:
+
+Developer B / Server . The application may fail.
+│
+├── Linux
+├── Python 3.11
+├── Different library versions
+├── Different OS libraries
+└── Different configuration
+----------------------------------------------------------
+Docker solution : Docker packages the application together with its required environment.
+
+Application
+     +
+Dependencies
+     +
+Runtime
+     +
+Configuration
+     ↓
+ Docker Image
+     ↓
+Deploy anywhere
+----------------------------------------------------------
+Docker
+│
+├── Environment standardization
+├── Isolation ##Keep applications separated from each other.
+├── Portability  ##Move the same application environment between machines.
+├── Consistency
+└── Easy deployment
+----------------------------------------------------------
+10. Important Docker terms
+
+DOCKER
+│
+├── Dockerfile
+│      ↓
+│   Instructions for building an image
+│
+├── Image
+│      ↓
+│   Packaged application + dependencies
+│
+├── Container
+│      ↓
+│   Running instance of an image
+│
+├── Docker Engine
+│      ↓
+│   Runs containers
+│
+├── Docker Registry
+│      ↓
+│   Stores images
+│
+├── Docker Hub
+│      ↓
+│   Public/private image registry
+│
+├── Volume
+│      ↓
+│   Persistent data
+│
+├── Network
+│      ↓
+│   Container communication
+│
+└── Docker Compose
+       ↓
+    Run multiple containers
+----------------------------------------------------------
+📝 Put this in your Docker notes
+
+Problem:
+curl works but docker pull/run fails.
+
+Reason:
+Shell proxy ≠ Docker daemon proxy.
+
+Check shell:
+env | grep -i proxy
+
+Check Docker daemon:
+sudo systemctl show --property=Environment docker
+
+Configure:
+ /etc/systemd/system/docker.service.d/http-proxy.conf
+
+[Service]
+Environment="HTTP_PROXY=http://proxy.esl.cisco.com:80"
+Environment="HTTPS_PROXY=http://proxy.esl.cisco.com:80"
+Environment="NO_PROXY=localhost,127.0.0.1"
+
+Reload:
+sudo systemctl daemon-reload
+
+Restart:
+sudo systemctl restart docker
+
+Verify:
+sudo systemctl show --property=Environment docker
+
+Test:
+sudo docker run --rm hello-world
+----------------------------------------------------------
+Run Nginx in background
+docker run -d --name my-nginx nginx  
+------------------------------------  ----------------------
+VS code --> ubuntu 
+
+DOCKER-BEGINNER
+│
+├── app.py
+├── README.md
+├── requirements.txt
+├── .gitignore
+└── .venv
+
+app.py
+requirements.txt
+      │
+      ▼
+  Dockerfile
+      │
+      ▼
+ docker build
+      │
+      ▼
+ Docker Image
+      │
+      ▼
+ docker run
+      │
+      ▼
+ Flask Container
+      │
+      ▼
+10.106.44.12:5000
+------------------------------------------------------------------------------------------------------------
+sudo systemctl show --property=Environment docker
+apt-config dump | grep -i proxy
+
+1. How did Docker find /root/.docker/config.json?
+/root/.docker/config.json is read by the Docker CLI/BuildKit automatically.
+
+mkdir -p /root/.docker
+
+cat > /root/.docker/config.json <<'EOF'
+{
+  "proxies": {
+    "default": {
+      "httpProxy": "http://proxy.esl.cisco.com:80",
+      "httpsProxy": "http://proxy.esl.cisco.com:8080",
+      "noProxy": "localhost,127.0.0.1,10.106.44.0/24"
+    }
+  }
+}
+EOF
+
+docker build -t webapp .
+Docker automatically looks for its configuration under:$DOCKER_CONFIG/config.json
+root
+ ↓
+HOME=/root
+ ↓
+/root/.docker/config.json
+
+2. What happened during your successful build?
+/root/AgenticAI/docker-beginner
+app.py
+Dockerfile
+README.md
+requirements.txt
+.venv/
+
+------------------------
+FROM ubuntu:26.04
+
+RUN apt-get update && \
+    apt-get install -y python3 python3-flask && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY app.py /opt/app.py
+
+ENV FLASK_APP=/opt/app.py
+
+ENTRYPOINT ["flask", "run", "--host=0.0.0.0"]
+----------------------
+Docker CLI
+    │
+    │ reads
+    ▼
+/root/.docker/config.json
+    │
+    │ proxy configuration
+    ▼
+BuildKit
+    │
+    ▼
+RUN apt-get update
+    │
+    ▼
+Cisco Proxy
+    │
+    ▼
+Ubuntu repositories
+----------------------
+Ubuntu VM working with the Cisco proxy.
+cat > /etc/apt/apt.conf.d/80proxy <<'EOF'
+Acquire::http::Proxy "http://proxy.esl.cisco.com:80";
+Acquire::https::Proxy "http://proxy.esl.cisco.com:8080";
+EOF
+----------------------------------------------------------------------------------------
+D. Your Flask application : app.py
+
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def home():
+    return "Hello from my Ubuntu Docker LAB!"
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+----------------------------------------------------------------------------------------
+Docker image webapp:latest was successfully created.
+----------------------------------------------------------------------------------------
+docker images
+
+docker run -d --name webapp -p 5000:5000 webapp:latest
+http://10.106.44.12:5000
+
+1. Python
+      ↓
+2. Flask application
+      ↓
+3. Dockerfile
+      ↓
+4. Docker build
+      ↓
+5. Docker image       ← YOU ARE HERE
+      ↓
+6. Docker container
+      ↓
+7. Port mapping
+      ↓
+8. Container lifecycle
+      ↓
+9. Volumes
+      ↓
+10. Docker Compose
+      ↓
+11. FastAPI
+      ↓
+12. LangChain
+      ↓
+13. LangGraph
+      ↓
+14. RAG
+      ↓
+15. Agentic AI
+----------------------------------------------------------------------------------------
+Docker BuildKit — Traditional vs Modern Docker Builds
+
+Traditional Docker Build
+        │
+        ├── Problem 1 → Packages re-download every build
+        │
+        ├── Problem 2 → Secrets can leak into image/history
+        │
+        ├── Problem 3 → Architecture lock-in
+        │
+        └── Problem 4 → Independent stages run sequentially
+----------------------------------------------------------------------------------------		
+Problem 1 — Packages re-download every build
+
+Consider dockerfile
+
+FROM python:3.12
+RUN pip install -r requirements.txt
+COPY . .
+If dependencies are downloaded during a build, rebuilding can cause unnecessary downloads.
+
+Build 1
+   ↓
+Download Flask
+Download LangChain
+Download LangGraph
+Download FastAPI
+   ↓
+Build
+
+Build 2
+   ↓
+Download again ❌
+This makes builds slower and wastes bandwidth.
+
+Modern solution — Cache mounts
+BuildKit allows a persistent cache to be mounted during the build.
+
+Build 1
+   ↓
+Download packages
+   ↓
+Cache
+
+Build 2
+   ↓
+Reuse cache ✅
+   ↓
+Only download what's missing
+
+Consider dockerfile
+
+##############################################################################
+11 — DOCKER + CONTAINERS + SECRETS + PRODUCTION PATTERNS
+##############################################################################
+
+# syntax=docker/dockerfile:1
+
+FROM python:3.12
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+pip install -r requirements.txt
+
+The important concept:
+Cache Mount
+     ↓
+Persist package cache between builds
+     ↓
+Faster rebuilds
+----------------------------------------------------------------------------------------
+Problem 2 — Secrets can leak
+
+Suppose you need an API key during the build.
+A bad approach is: The problem is that secrets can become part of the image's build history or metadata.
+
+dockerfile
+ARG API_KEY=[REDACTED]
+RUN some-command --api-key=[REDACTED]
+
+You can inspect image history with:  🚨 Never put production secrets directly into a Dockerfile.
+docker history --no-trunc myapp
+
+Modern solution — BuildKit secret mounts
+dockerfile
+# syntax=docker/dockerfile:1
+
+FROM ubuntu
+RUN --mount=type=secret,id=mysecret \
+    cat /run/secrets/mysecret
+
+Build:
+docker buildx build --secret id=mysecret,src=mysecret.txt -t myapp .
+
+Secret
+   │
+   ↓
+BuildKit
+   │
+   ├── temporarily mounted
+   │
+   ↓
+RUN command
+   │
+   ↓
+Secret removed
+
+Secret → available during build
+Secret → NOT baked into final image
+"BuildKit makes secrets impossible to leak."
+'BuildKit makes secrets impossible to leak.'
+BuildKit secret mounts prevent the secret from being persisted as part of the image layer when used correctly.
+----------------------------------------------------------------------------------------
+Problem 3 — Architecture lock-in
+Traditional builds can result in an image built for a specific CPU architecture.
+
+Developer machine
+      ↓
+x86/amd64
+      ↓
+Docker image
+      ↓
+Works on amd64
+
+Then someone tries to run it on:ARM64  and you can encounter: exec format error
+This becomes particularly important with:
+Intel/AMD servers → amd64
+Apple Silicon     → arm64
+AWS Graviton      → arm64
+
+Modern solution — Multi-platform builds
+BuildKit/buildx can build for multiple architectures.
+
+docker buildx build --platform linux/amd64,linux/arm64 -t myapp:latest .
+You can use the same image name/tag: myapp:latest. This is called a multi-platform image.
+
+                 myapp:latest
+                      │
+             ┌────────┴────────┐
+             ↓                 ↓
+        linux/amd64       linux/arm64
+             │                 │
+        Intel/AMD          ARM systems
+----------------------------------------------------------------------------------------
+Problem 4 — Independent stages run sequentially
+Consider a multi-stage Dockerfile: 
+If the stages are independent, traditional build behavior can result in unnecessary sequential work.
+This can increase build time.
+
+dockerfile
+FROM python:3.12 AS backend
+...
+FROM node:22 AS frontend
+...
+Ellipsis
+----------------
+Traditional
+
+Backend
+   ↓
+complete
+   ↓
+Frontend
+   ↓
+complete
+
+Modern solution — Parallel build stages
+BuildKit understands the dependency graph between stages.If two stages are independent:
+So independent work can be performed in parallel.
+
+             BuildKit
+                │
+       ┌────────┴────────┐
+       ↓                 ↓
+   Backend stage     Frontend stage
+       │                 │
+       ↓                 ↓
+    Build             Build
+       │                 │
+       └────────┬────────┘
+                ↓
+             Final
+			 
+BuildKit : BuildKit is Docker's modern build engine.
+It provides capabilities such as:
+
+                    BuildKit
+                       │
+       ┌───────────────┼────────────────┐
+       ↓               ↓                ↓
+ Content-hash      Cache mounts    Secret mounts
+ caching
+       │
+       ├───────────────┐
+       ↓               ↓
+ Multi-platform    Parallel stages
+ builds
+ 
+buildx provides the CLI interface for advanced BuildKit functionality.
+
+Traditional/simple command  #docker build -t web .
+Modern BuildKit/buildx command  #docker buildx build -t web .
+
+✅ docker history --no-trunc myapp
+
+Your CI/CD pipeline could do:
+
+Git Push
+    ↓
+GitHub Actions
+    ↓
+docker buildx build
+    │
+    ├── Cache dependencies
+    ├── Use secrets safely
+    ├── Build amd64
+    ├── Build arm64
+    └── Run independent stages in parallel
+    ↓
+Docker Image
+    ↓
+Container Registry
+    ↓
+Deployment
+----------------------------------------------------------------------------------------
+Docker Init — Dockerfile Scaffolding
+
+1. What is Dockerfile Scaffolding?
+Scaffolding means Docker automatically creates the initial project files/configuration needed to containerize an application.
+
+Instead of manually creating:
+Dockerfile
+.dockerignore
+compose.yaml
+README / Docker configuration
+
+you can use:
+docker init. docker init is not an AI tool. docker init is a template generator
+It uses predefined Docker templates/scaffolding based on the project type and language it detects.
+
+Docker asks questions such as:
+What application platform?
+What language?
+What port?
+What command should run?
+
+Files generated by docker init
+myapp/
+│
+├── Dockerfile  ##Instructions to build the image
+├── .dockerignore ##Files/directories excluded from build context
+├── compose.yaml ##Defines/runs multi-container applications
+├── README.Docker.md ##Docker-generated usage instructions
+│
+├── app.py
+└── requirements.txt
+
+Supported Languages / Frameworks
+Python
+Node.js
+Go
+Java
+.NET
+PHP
+---------------------------------------------------------------------------------------
+
+⭐ Remember this 
+Application
+     ↓
+docker init
+    ↓
+Scaffolding / predefined templates
+    ↓
+Dockerfile + supporting files
+    ↓
+Review & customize
+    ↓
+docker build
+    ↓
+Image
+    ↓
+docker run
+    ↓
+Container
+    ↓
+ENTRYPOINT + CMD
+---------------------------------------------------------------------------------------
+Docker — CMD, ARG, ENTRYPOINT & Environment Variables
+
+1. First understand: Why does a container exit?
+This is the most important Docker concept.
+	A container stays alive only while its main process is running.
+
+docker run ubuntu ##Ubuntu starts, but there is no long-running foreground process.
+
+Container   ##Docker doesn't keep the container alive just because you created it.
+   ↓
+Main process
+   ↓
+Process finishes
+   ↓
+Container exits
+
+2. CMD — What should the container do by default?
+CMD defines the default command that Docker should execute when the container starts.
+
+dockerfile
+FROM ubuntu
+CMD ["sleep", "5"]
+
+docker build -t ubuntu-sleeper .
+docker run ubuntu-sleeper
+
+After 5 seconds:
+sleep finishes
+      ↓
+container exits
+
+3. Override CMD
+
+dockerfile
+FROM ubuntu
+CMD ["sleep", "5"]
+
+docker run ubuntu-sleeper
+But you can override the CMD: docker run ubuntu-sleeper sleep 10
+
+Dockerfile CMD :: The Dockerfile hasn't changed.
+sleep 5
+   ↓
+OVERRIDDEN
+   ↓
+sleep 10
+
+4. ENTRYPOINT — The main program
+'This container is designed to run this particular program.'
+ENTRYPOINT = sleep
+argument     = 10
+
+5. ENTRYPOINT + CMD   ##This is where it becomes really useful.
+
+dockerfile
+FROM ubuntu
+ENTRYPOINT ["sleep"]
+CMD ["5"]
+
+6. Override CMD while keeping ENTRYPOINT  ##docker run ubuntu-sleeper 10
+ENTRYPOINT = sleep       ← stays
+CMD = 5                  ← replaced with 10
+
+7. ARG — Build-time variable
+A variable available while building the image.
+
+dockerfile
+FROM ubuntu
+ARG APP_VERSION=1.0
+RUN echo "Building version $APP_VERSION"
+
+docker build --build-arg APP_VERSION=2.0 -t myapp .
+
+ARG → BUILD TIME
+ENV → RUNTIME
+
+8. Environment Variables — why use them?
+
+instead python file 
+import os
+color = os.getenv("COLOR", "red")
+
+Now your application gets the color from the environment.Pass environment variable to Docker
+
+docker run -e COLOR=blue myapp ##Docker passes: COLOR=blue
+
+Different configuration.This (enviornment) is much better than rebuilding your application every time you want to change configuration.
+                  SAME IMAGE
+                 myapp:1.0
+                     │
+        ┌────────────┼────────────┐
+        ↓            ↓            ↓
+      DEV          TEST          PROD
+      blue         yellow        green
+---------------------------------------------------------------------
+docker inspect is extremely useful.
+
+docker inspect myapp OR docker inspect myapp | grep -i COLOR
+You'll get JSON containing information such as:
+Container ID
+Image
+Environment variables
+Network
+Mounts
+Ports
+Command
+Entrypoint
+Status
+IP address
+
+You can also inspect an image:
+docker image inspect myapp
+
+-----------------------
+Dockerfile vs Docker Inspect
+
+Dockerfile
+    ↓
+Instructions used to BUILD image
+
+docker inspect
+    ↓
+Information about the ACTUAL image/container
+
+Complete picture
+---------------------------------------------------------------------
+                         Dockerfile
+                             │
+             ┌───────────────┼────────────────┐
+             ↓               ↓                ↓
+            ARG             ENV            ENTRYPOINT
+       Build-time       Runtime config      Main program
+                                             │
+                                             +
+                                            CMD
+                                             │
+                                      Default argument
+                                             │
+                                             ↓
+                                           IMAGE
+                                             │
+                                          docker run
+                                             │
+                                             ↓
+                                         CONTAINER
+                                             │
+                                             ↓
+                                      Main process runs
+                                             │
+                                             ↓
+                                      Process finishes
+                                             │
+                                             ↓
+                                      CONTAINER EXITS
+---------------------------------------------------------------------
+Q1. Why does a Docker container exit?
+A container remains running as long as its main/foreground process is running. When that process exits, the container stops.
+
+Q2. What is CMD?
+CMD defines the default command or arguments executed when a container starts.
+
+Q3. What is ENTRYPOINT?
+ENTRYPOINT defines the main executable that the container is designed to run.
+
+Q4. What is ARG?
+ARG is primarily a build-time variable used during Docker image construction.
+
+Q5. Why use ENV?
+Environment variables allow application configuration to be changed without modifying or rebuilding the application code/image.
+
+Q6. What does docker inspect do?
+It displays detailed low-level configuration and runtime information about Docker objects such as containers and images.
+---------------------------------------------------------------------
+
+Docker compse in  yaml
+
+compose v2 - twoi words
+docker compse plugin
+
+voting application
+
+
+Docker Engine, storage and networkig, docker registry , docker on windows
+container orchestration - swarm and kubernetes
+---------------------------------------------------------------------
+Docker Compose is used to define and run multiple containers as one application.
+
+Without Compose, you would run many commands:
+docker run -d --name=redis redis
+docker run -d --name=db postgres:14
+docker run -d --name=vote -p 5000:80 voting-app
+docker run -d --name=result -p 5001:80 result-app
+docker run -d --name=worker worker
+
+With Compose, you describe everything in one YAML file:
+services:
+  redis:
+    image: redis
+
+  db:
+    image: postgres:14
+
+  vote:
+    image: voting-app
+    ports:
+      - "5000:80"
+
+  result:
+    image: result-app
+    ports:
+      - "5001:80"
+
+  worker:
+    image: worker
+
+Docker Compose = define multiple containers/services in YAML and manage them together.
+docker compose up
+
+
+ What is the Voting Application?
+ The application in your diagram has 5 containers/services:
+ The purpose is simply to demonstrate a multi-container application.
+ You have five independent containers, but together they behave like one application.
+ 
+                 ┌──────────────┐
+                │     VOTE     │
+                │   Python     │
+                └──────┬───────┘
+                       │
+                       ▼
+                ┌──────────────┐
+                │    Redis     │
+                └──────┬───────┘
+                       │
+                       ▼
+                ┌──────────────┐
+                │    Worker    │
+                │     .NET     │
+                └──────┬───────┘
+                       │
+                       ▼
+                ┌──────────────┐
+                │  PostgreSQL  │
+                │      DB      │
+                └──────┬───────┘
+                       │
+                       ▼
+                ┌──────────────┐
+                │    RESULT    │
+                │   Node.js    │
+                └──────────────┘
+				
+Compose automatically creates a network 
+vote_default ##All services are attached to that network by default.
+
+              vote_default
+        ┌─────────────────────┐
+        │                     │
+        │ vote                │
+        │ redis               │
+        │ db                  │
+        │ result              │
+        │ worker              │
+        │                     │
+        └─────────────────────┘
+---------------------------------------------------------------------
+docker compose up
+	
+Read compose.yaml
+      ↓
+Build images
+      ↓
+Create network
+      ↓
+Create containers
+      ↓
+Start containers
+      ↓
+Connect containers to network
+
+Building 3 images...
+
+vote     Built → myproj-vote
+result   Built → myproj-result
+worker   Built → myproj-worker
+
+Running 5/5
+
+🧠 Your Docker Compose cheat sheet
+
+Docker Compose
+│
+├── docker compose
+│      └── Modern Compose V2 CLI plugin
+│
+├── compose.yaml
+│      └── YAML definition of application
+│
+├── services
+│      ├── vote
+│      ├── redis
+│      ├── worker
+│      ├── db
+│      └── result
+│
+├── image
+│      └── Use existing image
+│
+├── build
+│      └── Build image from Dockerfile
+│
+├── ports
+│      └── Host:Container
+│
+├── networks
+│      └── Container communication/isolation
+│
+└── docker compose up
+       ├── Build (if required)
+       ├── Create network
+       ├── Create containers
+       └── Start services
+	   
+docker compose up
+docker compose up -d
+docker compose download
+docker compose ps 
+docker compose logs 
+--------------------------------------------------------
+https://www.youtube.com/watch?v=exmSJpJvIPs
+
+Docker image (too light like class dont take much memory)
+
+Image (executable file - tatic SS) consists of containers (take memory/space like object)
+
+docker run -it ubuntu ## ubuntu container can be run in window/mac os in interactive mode)
+Now we are inside ubuntu container (isolated from mac/window OS)
+
+
+docker -v
+docker hub (image repos) is like github
+
+docker pull hello-world
+
+docker run can pull the image and run the container a well.
+
+docker ps is to see active containers
+
+rmi = remove and destroy image
+rm = remove and destroy  container
+
+tag is version or variant else latest version will be pulled
+
+docker run -d <image>   -d = detach mode,  bydefault its attach mode
+
+image layer 
+
+Base layer --> layer1-->layer2 --> container (only container can change else all layers are immutable)
+
+port binding (use -p to bind ports)
+
+Host OS PORTS  (8080 and 5000) --> Docker container PORTS (3306   and 3306)
+
+docker exec-it cont_id /bin/bash  (exec to run additional commands )
+
+docker virtualize only application layer
+
+VM virtualize OS kernel and application layer 
+
+Hardware --> OS kernel -->app layer
+
+docker desktop holds hypervised VM , mini linux
+
+docker network ls
+docker network create mongo-network
+--------------------------------------------------------
+Publish image to docker repository
+
+Login with doicker login
+docker logout
+docker login -u <username>
+
+docker push <image name>
+docker pull <image name>
+--------------------------------------------------------
+Docker volumes
+
+Volumes are persisent data store for containers
+
+reserve extra space on host system to create volume on Host OS and mount on container ##named volume 
+
+by default its created on c:\programdata\docker\volumes
+
+
+docker run -it -v <hostospath>:<containerpath> ubuntu
+docker volume ls
+docker volume rm  <volumename>
+
+docker run -v vol_name:cont_dir (named volume)
+docker run -v mount_path (anonymous volumes) - container dir
+docker run -v host_dir:cont_dir (bind mount)
+
+------------same task we can done with mount)  like --mount type=volume
+
+docker volume prune (delete all volumes) - delete all anonymous volume , may be container already deleted.
+
+container dont have ip address its utlized host network ip .
+
+null network : default one  -- > isolated containers with host and other containers
+--------------------------------------------------------
+Mongo DB
+
+Make sure open cmd or powershell with elevated rights to ensure appropriate permissions.
+
+PS C:\Program Files\MongoDB\Server\8.3\bin> 
+& "C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe" --dbpath "C:\Program Files\MongoDB\Server\8.3\data"
+
+MongoDB Windows Service
+        ↓
+mongod.exe
+        ↓
+C:\Program Files\MongoDB\Server\8.3\data
+        ↓
+127.0.0.1:27017
+        ↓
+MongoDB Compass
+
+CRUD Operation [create read update and delete]
+
+TT_Conn
+│
+├── admin
+├── config
+├── employees        ← DATABASE
+│   ├── managers     ← COLLECTION
+│   ├── movies       ← COLLECTION
+│   └── stores       ← COLLECTION
+│
+└── local
+
+use employees
+show collections
+db.getCollectionNames()
+db.stores.find()
+db.stores.countDocuments()
+db.stores.find()
+db.collectionname.find()
+
+-------------------------------------------
+Samples:
+
+{
+  _id: 3,
+  name: 'Coffee Shop',
+  des
+  
+{
+  _id: 6,
+  name: 'NYC_Coffee Shop',
+  description: 'local NYC coffee'
+}
+-------------------------------------------
+Search coffee in the name field
+db.stores.find({ name: "Coffee Shop" })
+
+For any name containing "coffee", case-insensitive:
+db.stores.find({
+  name: { $regex: "coffee", $options: "i" }
+})
+
+db.stores.find({
+  description: { $regex: "coffee", $options: "i" }
+})
+
+Search coffee in BOTH name and description
+db.stores.find({
+  $or: [
+    { name: { $regex: "coffee", $options: "i" } },
+    { description: { $regex: "coffee", $options: "i" } }
+  ]
+})
+
+-----------------
+db.stores.createIndex({
+  name: "text",
+  description: "text"
+})
+
+Verify index
+db.stores.getIndexes()
+========command to change size for journal=======
+db.inventory.updateOne(
+  { item: "journal" },
+  { $set: { "size.h": 20 } }
+)
+==============
+db.inventory.findOne({ item: "journal" })
+==============
+Pandas + NumPy — MEDIUM priority
+Learn enough to manipulate data and understand what AI/ML libraries are doing.
+
+Scikit-learn — BASIC/MEDIUM
+train/test split
+preprocessing
+classification/regression
+embeddings concept
+evaluation metrics
+
+TensorFlow/PyTorch — LOW priority initially
+For your current goal of building LLM/Agentic AI applications, you don't need to spend months learning neural-network implementation.
+
+NLTK/spaCy — LOW priority
+Useful for traditional NLP, but modern Agentic AI work will more commonly involve:
+
+LLM APIs
+
+##############################################################################
+12 — OLLAMA + LOCAL LLM OPERATIONS
+##############################################################################
+
+Ollama
+top -p $(pgrep -d',' ollama)
+ps -eo pid,ppid,%cpu,%mem,etime,cmd | grep -i ollama | grep -v grep
+ollama ps
+systemctl is-active ollama
+
+7. Check Ollama logs
+
+This is particularly useful if Ollama isn't detecting your GPU:
+sudo journalctl -u ollama --no-pager -n 100
+sudo journalctl -u ollama -f
+
+
+
+[root@centostt ~]# sudo systemctl status ollama --no-pager
+● ollama.service - Ollama Service
+   Loaded: loaded (/etc/systemd/system/ollama.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2026-08-26 07:16:36 IST; 53min ago
+ Main PID: 1647 (ollama)
+
+
+[root@centostt ~]# lscpu | egrep 'Model name|CPU\(s\)|Core|Thread|Architecture'
+Architecture:        x86_64
+CPU(s):              16
+On-line CPU(s) list: 0-15
+Thread(s) per core:  1
+Core(s) per socket:  1
+Model name:          Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz
+BIOS Model name:     Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz
+NUMA node0 CPU(s):   0-15
+[root@centostt ~]#
+
+lspci | grep -Ei 'vga|3d|display'
+
+-----------------------------------------------------
+
+-
+Window Architecture
+
+$env:PROCESSOR_ARCHITECTURE
+x64-based PC → x64
+ARM64-based PC → ARM64
+x86-based PC → 32-bit
+--------------------
+python -m py_compile app\main.py
+--------------------WEB APPLICATION------ACCESS VERIFICATION SYSTEM----------------------------
+
+Test-NetConnection evaccesscheck.cisco.com -Port 8000
+curl.exe -k https://evaccesscheck.cisco.com:8000/
+
+Copy-Item .\app\routers\verification_fine_tuned.py .\app\routers\verification.py -Force   
+
+Indent convert to spaces
+
+$i=1; Get-Content -LiteralPath (Join-Path (Get-Location) 'app\routers\verification.py') | ForEach-Object { if($i -ge 15 -and $i -le 28) { "$i`: [$($_)]" }; $i++ }
+
+
+--------------------
+uvicorn app.main:app --reload
+
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+uvicorn app.main:app --host 10.106.44.24 --port 8000 --reload
+
+Browser
+   │
+   │ http://127.0.0.1:8000
+   ▼
+Uvicorn
+   │
+   ▼
+FastAPI
+   │
+   ▼
+GET /
+   │
+   ▼
+Home()
+
+-----------
+
+tree app /F
+
+---------
+Future supervisor change
+
+Later, if Deepak Garg moves from Tarun to another supervisor:
+
+UPDATE dbo.ac_engineers
+SET supervisor_id = NEW_SUPERVISOR_ID
+WHERE alias = 'dgarg';
+
+EXEC dbo.sp_reset_expired_access_verification;
+GO
+
+python -m compileall .
+
+python -m py_compile portal.py database.py routers/verification.py models/verification.py
+
+http://10.106.44.24:8000/analytics/11
+http://10.106.44.24:8000/vbhat
+
+http://10.106.44.24:8000/ttaneja
+
+ 
+
+                    ┌─────────────────────┐
+                    │     ENGINEERS       │
+                    │ Personalized URL    │
+                    │ Verify Access       │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────┐
+│             CMS BOA EV ACCESS COMPLIANCE PORTAL          │
+│                                                          │
+│  FastAPI Application                                     │
+│                                                          │
+│  main.py                                                 │
+│      │                                                   │
+│      ├── portal.py        → Dashboards / Analytics       │
+│      ├── verification.py  → Verify / Issue / ARM         │
+│      ├── engineers.py     → Engineer management          │
+│      ├── applications.py  → Application management       │
+│      ├── notifications.py → Notification APIs            │
+│      └── reports.py       → Reporting                    │
+│                                                          │
+│  services_email.py → Email sending service               │
+└──────────────────────────┬───────────────────────────────┘
+                           │
+                           ▼
+              ┌────────────────────────┐
+              │       SQL SERVER       │
+              │          CPDB          │
+              └────────────────────────┘
+
+✅ Login page
+✅ Username = alias
+✅ Password authentication
+✅ Password hashing
+✅ First-time password setup
+✅ Session cookie
+✅ Logout
+✅ Engineer authorization
+✅ Supervisor authorization
+✅ URL tampering protection
+✅ API authorization
+✅ Change password
+
+=====================================================================			  
+git check-ignore -v venv   
+Get-Location
+git rev-parse --show-toplevel  ##That will tell us exactly where Git considers your repository root.
+
+I recommend one more safety check because app/ contains your Python source and could potentially contain credentials/tokens.
+git grep -n -I -E "password|passwd|secret|api[_-]?key|token|smtp_password|DB_PASSWORD"
+
+OR
+
+Get-ChildItem -Recurse -File app | Select-String -Pattern "password|passwd|secret|api[_-]?key|smtp_password|DB_PASSWORD"
+=====================================================================
+git add .
+git commit -m "Enforce engineer and supervisor authorization"
+git push -u origin phase2-authorization
+=====================================================================
+(venv) PS E:\Projects\AccessCompliancePortal> pip freeze | findstr python-multipart
+python-multipart==0.0.32
+=====================================================================
+Find string in code
+Get-ChildItem -Path . -Recurse -File | Select-String -Pattern "587"
+
+
+Get-ChildItem -Path . -Recurse -File |
+    Where-Object { $_.FullName -notmatch '\\(venv|\.git)\\' } |
+    Select-String -Pattern "tataneja@cisco.com"
+
+
+----------------
+We can continue making changes on phase2-authorization.
+=====================================================================
+git checkout main
+git pull origin main
+git merge phase2-authorization
+git push origin main
+=====================================================================
+git status
+git checkout main
+git pull origin main
+git checkout -b phase2-forgot-password
+
+cd E:\Projects\QBR_Ticket_Alert_Dashboard; git push -u origin master 2>&1  (no error)
+=====================================================================
+Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"E:\Projects\AccessCompliancePortal\run_portal.ps1`""
+=====================================================================
+taskkill /PID 13372 /F
+
+
+=========================	QBR============================================
+cd E:\Projects
+
+git clone https://github.com/girishshenoy16/Enterprise-KPI-Anomaly-RCA-System.git
+
+=====================================================================
+cd Enterprise-KPI-Anomaly-RCA-System  
+PS E:\Projects\Enterprise-KPI-Anomaly-RCA-System> .\venv\Scripts\Activate.ps1        
+.\venv\Scripts\Activate.ps1 : File E:\Projects\Enterprise-KPI-Anomaly-RCA-System\venv\Scripts\Activate.ps1 cannot be loaded because running scripts is 
+disabled on this system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
+
+Yes, this is a PowerShell execution-policy issue, not a problem with your venv. Your existing virtual environment is fine.
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\venv\Scripts\Activate.ps1
+
++ .\venv\Scripts\Activate.ps1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+	
+	RUn----------->
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+=====================================================================	
+Here, “Anomaly Engine” means the part of the application that automatically detects unusual changes in your KPI data.
+			
+
+##############################################################################
+13 — PORTFOLIO / PROJECT NOTES: QBR + ACCESS COMPLIANCE
+##############################################################################
+
+4. Start the portal
+streamlit run app/dashboard.py
+
+====================QBR=====================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=====================================================================
+Problem Area – Why We Created the Access Verification Tool
+
+
+1 Access SPOC managing access for ~40 engineers, making manual tracking difficult.
+Engineers rarely checked their access proactively, resulting in access getting revoked.
+
+Access revocation created avoidable operational impact and delays.
+Client had to provide approvals repeatedly whenever access needed to be restored.
+No structured mechanism was available for the Access SPOC to monitor access status.
+SPOC could only act reactively after receiving an access-related notification.
+
+Individual follow-ups with 40 engineers were time-consuming and difficult to manage.
+
+When access was revoked, engineers had to:
+Raise an ARM request with the bank/client.
+Wait for client approval.
+Follow up until access was restored.
+The overall process was manual, reactive, and dependent on multiple stakeholders.
+The tool was created to enable a proactive, centralized, and structured access verification process.
+Goal: identify access issues early, reduce manual follow-ups, avoid unnecessary access revocation, and minimize client dependency.
+
+
+=====================================================================
+Cisco CMS – HCLTech
+        │
+        ├── Delivery Snapshot
+        │     ├── Volume
+        │     ├── SLA
+        │     ├── MTTR
+        │     ├── Backlog
+        │     └── Major Incidents
+        │
+        ├── Track-Level Highlights
+        │     ├── Voice / IPT
+        │     ├── Contact Center
+        │     ├── Collaboration
+        │     └── Other Tracks
+        │
+        ├── People
+        │     ├── Headcount
+        │     ├── Productivity
+        │     └── Attrition
+        │
+        ├── CMS Revenue
+        │     ├── Monthly
+        │     ├── Quarterly
+        │     └── QoQ %
+        │
+        ├── Operational Insights
+        │     ├── Anomalies
+        │     ├── RCA
+        │     └── Trends
+        │
+        └── AI / Value Initiatives
+              ├── Use cases
+              ├── Hours saved
+              ├── MTTR reduction
+              └── Customer value
+			  
+streamlit run app/qbr_executive_dashboard.py
+==========================
+---------Freelancing-----------------
+upwork
+fiverr
+freelancer
+peopleperhour
+Angellist
+Contra
+WWR
+Topal
+Truelancer
+Turing
+=====================Free LLM Models=========================================================
+Figma for students : free for 2 years >>
+opencode zen
+Amazon Q developer  july 2027
+openroiuter
+kilocode
+Qwen
+blackbox
+cline
+opencodex
+Brevy code
+openprovider
+------------freebuff
+==============================================================================
+Kilo code
+61% context/session progress
+157.2K tokens used
+4.9M cache
+52.5K output
+38+ tokens/sec earlier
+
+-------------------------------------
+61% — Context usage
+155.1K / 256K
+155,100 tokens currently in context
+256,000 tokens maximum context
+Context is the information the LLM can currently consider when working on your task.
+
+All of that contributes to the context being sent/maintained for the model.
+
+Your original request
+       +
+Conversation history
+       +
+Files it has read
+       +
+Code snippets
+       +
+Terminal output
+       +
+Errors
+       +
+Previous changes
+       +
+Its reasoning/task state
+       +
+Tool results
+-------------------------------------
+This represents token usage associated with the agent's model interaction/context.
+A token is not the same thing as a word or a request.This does NOT mean:"Kilo made 157,200 requests."
+The token number measures amount of model input/context
+
+Tokens ↑ 157.2K
+
+1 user request
+       ↓
+many files read
+       ↓
+multiple tool calls
+       ↓
+several model calls
+       ↓
+157K tokens
+-------------------------------------
+4.9M cache number is very interesting.4.9 million cached tokens.
+↑ cache 4.9M
+
+A lot of that information may be unchanged between requests.
+Instead of recomputing/reprocessing everything from scratch, the provider/model infrastructure can reuse cached portions.
+
+Request 1
+──────────────
+Project context
+Conversation
+Files
+Tools
+       ↓
+    process
+       ↓
+     cache
+
+
+Request 2
+──────────────
+same project context ──────┐
+same conversation ─────────┤
+new question ──────────────┤
+                           ↓
+                    cached portions
+                           +
+                       new tokens
+-------------------------------------					   
+52.5K output tokens
+
+↓ 52.5K
+This is the model's generated output associated with the session/usage display.
+
+That can include more than just the text you see.
+
+User:
+Fix database initialization.
+
+LLM:
+I'll inspect database.py.
+
+→ tool call
+
+LLM:
+The table creation logic has an issue.
+
+→ edit
+
+LLM:
+Now I'll run the database initialization.
+
+→ terminal
+
+LLM:
+The Track table still fails.
+
+→ edit
+
+LLM:
+I'll test again.
+-------------------------------------
+38 tokens generated per second.Real response times will be affected by network latency, tool calls, reasoning, model load, and other factors.
+
+38.1 tokens/sec
+38.1 t/s
+Kilo Auto Free
+      ↓
+~38 tokens/sec
+      ↓
+interactive coding
+-------------------------------------
+LLM reasoning
+     ↓
+Read file
+     ↓
+Analyze
+     ↓
+Tool call
+     ↓
+Read result
+     ↓
+Reason again
+     ↓
+Edit file
+     ↓
+Run command
+     ↓
+Read error
+     ↓
+Reason again
+     ↓
+Edit
+     ↓
+Run test
+     ↓
+Analyze result
+-------------------------------------
+System Architecture Diagram
+	AI Coding Assistant Architecture
+
+                 VS CODE
+                    │
+        ┌───────────┼────────────┐
+        │           │            │
+    Kilo Code     Ollama     OpenRouter
+        │           │            │
+   Free/Cloud     Linux       Free/Paid
+     Models       Models        Models
+        │           │            │
+        └───────────┴────────────┘
+                    │
+             Coding / Review
+-------------------------------------
+LF will be replaced by CRLF the next time Git touches it  why we get this
+	Yes, this is a normal Git warning on Windows, not an error.
+	
+	What does LF → CRLF mean?
+Text files have different ways of representing a new line:
+"This file currently uses LF. The next time Git/Windows rewrites it, I'll convert it to CRLF."
+
+Linux / macOS:
+LF  = \n
+
+Windows:
+CRLF = \r\n
+
+Your project is being edited on Windows, while some files were created/maintained with Linux-style LF endings.
+
+Add a .gitattributes file at the root of your project:
+
+* text=auto eol=lf
+
+Then configure Git:
+git config --global core.autocrlf false
+This tells Git:
+
+Don't automatically convert LF ↔ CRLF
+-------------------------------------
+ARCHITECTURE.md
+Markdown (.md) architecture document.
+
+Open the .md file in VS Code and press:
+Ctrl + Shift + V
+
+
+Because your local app\dashboard.py has old uncommitted changes, don't run git pull directly.
+First make a backup of your local changes:
+
+git stash push -m "backup-before-qbr-dashboard-fix" -- app/dashboard.py
+git stash push -u -m "QBR local backup before ticket-centric migration"
+git pull --ff-only origin test-chatgpt-write
+
+git branch --show-current
+====================
+Sometimes you need to copy its forcefully ... ctrl+C and ctrl+V dont work.
+
+Copy-Item "E:\Projects\load_data_v2.py" ".\load_data_v2.py" -Force
+Copy-Item "E:\Projects\dashboard_data.py" ".\app\dashboard_data.py" -Force
+Copy-Item "E:\Projects\dashboard.py" ".\app\dashboard.py" -Force
+
+
+-------------------------------------
+In that case, the right next step is to identify the actual 8,109 records' Assignment Groups, rather than guessing mappings.
+SELECT
+    ISNULL(AssignmentGroup, '<NULL>') AS AssignmentGroup,
+    COUNT(*) AS TicketCount
+FROM qbr.Ticket
+GROUP BY AssignmentGroup
+ORDER BY TicketCount DESC;
+
+app\dataset\processed\20260829_XXXXXX
+-------------------------------------
+If by duplicate record you mean duplicate based on the TicketNumber, use:
+
+SELECT
+    TicketNumber,
+    COUNT(*) AS DuplicateCount
+FROM [CPDB].[qbr].[Ticket]
+GROUP BY TicketNumber
+HAVING COUNT(*) > 1
+ORDER BY DuplicateCount DESC;
+============================
+streamlit run app\dashboard.py --server.address 0.0.0.0 --server.port 8501 --server.sslCertFile "E:\Projects\QBR_Ticket_Alert_Dashboard\certs\10.106.44.24+1.pem" --server.sslKeyFile "E:\Projects\QBR_Ticket_Alert_Dashboard\certs\10.106.44.24+1-key.pem"
+============================
+
+============================
+
+Enable telnet Client 
+
+dism /online /Enable-Feature /FeatureName:TelnetClient
+
+============================
+244266 - Value add
+============================
+================
+Excel powerful
+
+----------------Excel power----------------
+
+https://chatgpt.com/share/6a93d208-eaa0-83ee-96d8-b9a0f19601ef   (Excel Dashboard Design)
+
+https://chatgpt.com/share/6a93d2a3-3f24-83ee-997e-19f393610336   (Colab recovery runbook - Excel)
+
+We can take raw operational data, structure it into a 
+	relational analytical model
+	automate ingestion and validation
+	expose reusable KPI
+	eventually add AI agents that explain anomalies and generate insights.
+
+
+Anomalies means unusual or unexpected patterns in the QBR data—for example:
+
+📈 Ticket volume suddenly much higher than normal
+📉 Unusually low ticket volume
+🚨 Spike in EMS/CMSP monitoring-generated tickets
+🔺 Abnormal Critical/High-priority ticket increase
+🏢 One tower/track suddenly dominating ticket volume
+🔁 Duplicate or repeated ticket patterns
+⏱️ Unusual changes in daily/weekly trends
+
+For your dashboard, I would recommend an “Anomaly Detection” section that automatically highlights what changed, where, and by how much, rather than just showing another chart.
+
+Management doesn't want to see:
+TicketNumber
+ParentTicket
+AssignmentGroup
+Track
+Tower
+Priority
+Status
+CreatedDate
+ResolvedDate
+...
+They want:
+What happened? Why did it happen? Where is the problem? What should we do?
+
+Where Excel/ becomes powerful
+
+
+
+
+====================
+
+docker --version
+docker info
+docker run hello-world
+
+docker --version
+docker compose version
+wsl --version
+
+python -m pip freeze lists all Python packages installed in your currently active virtual environment, including exact versions.
+
+python -m pip freeze > requirements.txt
+
+systeminfo | findstr /i "Virtualization"
+
+Docker Desktop currently requires a 
+supported 64-bit Windows version
+WSL 2.1.5+ for the WSL backend, 
+hardware virtualization, 
+and at least 8 GB RAM for the WSL 2 backend.
+
+Docker uses WSL 2 as the default backend on supported systems.
+Docker containers are fundamentally Linux-based in many common setups. Docker Desktop can therefore use WSL 2 to provide the Linux environment needed to run Linux containers efficiently.
+WSL = Windows Subsystem for Linux.
+wsl --version
+PS E:\Projects\QBR_Ticket_Alert_Dashboard\certs> wsl --version
+WSL version: 2.7.12.0
+Kernel version: 6.18.33.2-2
+WSLg version: 1.0.73.2
+MSRDC version: 1.2.7214
+Direct3D version: 1.611.1-81528511
+DXCore version: 10.0.26100.1-240331-1435.ge-release
+Windows version: 10.0.22000.3260
+
+wsl -l -v
+
+
+Why would YOU need it
+
+Windows
+   ↓
+Python venv
+   ↓
+Uvicorn
+   ↓
+FastAPI
+
+If we Dockerize it:
+
+Windows
+   ↓
+Docker Desktop
+   ↓
+Linux container
+   ↓
+FastAPI
+   ↓
+Uvicorn
+====================
+
+
+We will not copy .env, venv, .git, backups, certificates, or your local database into the image unless we explicitly determine they are required.
+
+====================================================================================================
+Step 1 — Create Dockerfile
+Step 2 — Create .dockerignore
+Step 3 — Create docker-compose.yml
+Step 4 — Create .env.docker
+
+First check what your current .env contains without showing the password:
+Get-Content .\.env | ForEach-Object {
+    if ($_ -match '^\s*([^#=\s]+)\s*=') {
+        $matches[1]
+    }
+}
+Step 5 — Protect .env.docker
+	Get-Content .\.gitignore  (Make sure it contains:.env and .env.docker)
+	Add-Content .gitignore "`n.env`n.env.docker"
+	
+git status --short
+
+Step 6 — Build the image
+
+Validate YAML before building
+docker compose config
+
+Start Docker Desktop , Don't run the build until it is fully started.
+
+This Windows machine is itself running inside VMware. A hypervisor has been detected.
+means you are not dealing with a normal physical desktop BIOS setting.
+
+Ask IT team to enable nested virtualization / expose hardware-assisted virtualization to this VM.
+
+Your output:
+Manufacturer       : VMware, Inc.
+Model              : VMware7,1
+HypervisorPresent  : True
+
+VMware nested virtualization → WSL2 → Docker Engine → QBR container.
+
+Docker Desktop failed to start because virtualisation support wasn’t detected. Contact your IT admin to enable virtualization or check system requirements.
+====================================================================================================
+Recommended architecture.
+
+Docker Engine runs natively on Linux/Ubuntu. Linux Docker doesn't need WSL2.
+
+docker --version
+docker compose version
+systemd-detect-virt
+
+Your Windows VM
+├── VS Code
+├── Git
+└── Development
+        │
+        │ Git / Docker image
+        ▼
+   Ubuntu 26 VM
+        │
+        ├── Docker Engine
+        │
+        ├── QBR Dashboard
+        │
+        └── Access Compliance
+                │
+                ▼
+          SQL Server / CPDB
+
+git clone -b test-chatgpt-write https://github.com/tarun1-github/QBR_Dashboard_TT.git
+
+lets not put your .env into GitHub.
+
+##############################################################################
+14 — QBR DOCKER / UBUNTU PRODUCTION DEPLOYMENT NOTES
+##############################################################################
+
+We'll create the production environment file directly on Ubuntu.
+
+Dockerfile
+docker-compose.yml
+.dockerignore
+.env.example   ← corrected for SQL Server
+
+git pull origin test-chatgpt-write
+
+1. Create the runtime environment file
+cp .env.example .env.docker
+
+2. Make sure the secret is generated
+python3 -c "import secrets; print(secrets.token_urlsafe(48))"
+
+Use the resulting value for:
+QBR_COOKIE_SECRET=[REDACTED]
+
+3. Check Compose before building
+docker compose config
+
+4. Build
+docker compose build --no-cache
+
+root@ubuntu-tt:~/QBR_Dashboard_TT# docker compose build --no-cache
+[+] Building 37.8s (7/16)
+ => [internal] load local bake definitions                                 
+ 
+[+] build 1/1
+ ✔ Image qbr_dashboard_tt-qbr-dashboard Built                                                                                            
+ 
+5. Start QBR
+docker compose up -d
+
+
+ ✔ Network qbr_dashboard_tt_default Created                                                                                                0.0s
+ ✔ Container qbr-dashboard          Started    
+ 
+docker compose ps
+
+docker compose logs --tail=100 qbr-dashboard
+
+Find the Ubuntu VM IP:
+hostname -I
+
+From the Ubuntu container, SQL Server connectivity may require resolving that Windows hostname and reaching TCP 1433.
+getent hosts HQ-AD-DNS-CLONE
+
+
+root@ubuntu-tt:~/QBR_Dashboard_TT# nc -vz HQ-AD-DNS-CLONE 1433
+nc: getaddrinfo for host "HQ-AD-DNS-CLONE" port 1433: Temporary failure in name resolution
+
+
+After QBR works
+
+Phase 1
+✅ QBR Docker container
+
+Phase 2
+✅ SQL Server connectivity
+
+Phase 3
+✅ Login/session/password tests
+
+Phase 4
+✅ Excel loader + duplicate detection
+
+Phase 5
+✅ CompanyAccount → Customer → Tower → Track
+
+Phase 6
+✅ EMS/CMSP monitoring-ticket analytics
+
+Phase 7
+✅ Access Compliance Docker container
+
+Phase 8
+✅ Reverse proxy + HTTPS
+
+Phase 9
+✅ Production deployment package
+
+At that point the Bank server needs only:
+Docker Engine
+Docker Compose
+approved images/configuration
+
+nc -vz <SQL_SERVER_IP> 1433
+nc -vz HQ-AD-DNS-CLONE.cciecollab.cisco.com 1433
+
+getent hosts HQ-AD-DNS-CLONE.cciecollab.cisco.com
+10.106.44.20    HQ-AD-DNS-CLONE.cciecollab.cisco.com
+
+1. Go to your QBR project
+git pull origin test-chatgpt-write
+git log -1 --oneline
+
+2. Create the Docker environment
+ls -la .env.docker
+cp .env.example .env.docker
+
+3. Generate the cookie secret
+python3 -c "import secrets; print(secrets.token_urlsafe(48))"
+QBR_COOKIE_SECRET=[REDACTED]
+
+4. Validate Docker Compose
+docker compose config
+docker compose config --services
+
+5. Build the QBR image
+docker compose build --no-cache
+ ✔ Image qbr_dashboard_tt-qbr-dashboard Built                                                                                            167.0s
+
+6. Start the container
+docker compose up -d
+docker compose ps
+docker compose logs --tail=100 qbr-dashboard
+
+->8501/tcp, [::]:8501->8501/tcp
+root@ubuntu-tt:~/QBR_Dashboard_TT# docker compose logs --tail=100 qbr-dashboard
+qbr-dashboard  | 2026-08-30 11:37:03.011 Uvicorn server started on 0.0.0.0:8501
+qbr-dashboard  |
+qbr-dashboard  |   You can now view your Streamlit app in your browser.
+qbr-dashboard  |
+qbr-dashboard  |   Local URL: http://localhost:8501
+qbr-dashboard  |   Network URL: http://172.18.0.2:8501
+qbr-dashboard  |   External URL: http://10.106.44.12:8501
+qbr-dashboard  |
+
+
+7. Test locally from Ubuntu
+
+curl http://localhost:8501/_stcore/health
+
+8. Test from Windows
+http://10.106.44.12:8501
+You should get your QBR login page.
+
+                 Windows
+              Web Browser
+                   │
+                   │ HTTP :8501
+                   ▼
+          ┌──────────────────┐
+          │   Ubuntu VM      │
+          │   10.106.44.12   │
+          │                  │
+          │ Docker Engine    │
+          │       │          │
+          │       ▼          │
+          │ QBR Container    │
+          │ Streamlit :8501  │
+          └────────┬─────────┘
+                   │
+                   │ TCP 1433
+                   ▼
+          ┌──────────────────┐
+          │ SQL Server       │
+          │ 10.106.44.20     │
+          │ CPDB             │
+          └──────────────────┘
+		  
+Ubuntu
+  ↓
+Docker Engine
+  ↓
+QBR container
+
+git pull origin test-chatgpt-write
+docker compose config
+
+Ubuntu Docker host is healthy and the QBR container is already running correctly.
+
+============================================================
+Next milestone
+
+Once the container connects successfully to CPDB, we'll freeze this QBR Docker image, then dockerize Access Compliance on the same Ubuntu host. After that we'll put HTTPS/reverse proxy in front so users don't access :8501 directly.
+
+One security action is urgent before production: rotate the database password that appeared in this chat and replace the placeholder cookie secret.
+============================================================
+docker exec qbr-dashboard env | grep -E 'DATABASE_|DB_|QBR_COOKIE'
+
+docker exec qbr-dashboard python -c "import socket; h='HQ-AD-DNS-CLONE.cciecollab.cisco.com'; print('DNS:',socket.gethostbyname(h)); s=socket.create_connection((h,1433),5); print('TCP 1433: OK'); s.close()"
+DNS: 10.106.44.20
+TCP 1433: OK
+
+============================================================
+Update the DB_PASSWORD in /env docker and restart the docker
+
+docker compose down
+docker compose up -d
+============================================================
+Run on DB to see logs
+
+EXEC xp_readerrorlog 0, 1, N'Login failed for user ''copilotadmin''';
+
+docker exec -it qbr-dashboard python -c "from app.db import engine; c=engine.connect(); print(c.exec_driver_sql('SELECT COUNT(*) FROM qbr.Ticket').fetchone()); c.close()"                                                                                 (20065,)
+
+docker exec -it qbr-dashboard python -c "import pyodbc,os; cs='DRIVER={ODBC Driver 18 for SQL Server};SERVER='+os.environ['DATABASE_SERVER']+';DATABASE='+os.environ['DATABASE_NAME']+';UID='+os.environ['DATABASE_USER']+';PWD=[REDACTED]DB_PASSWORD']+';TrustServerCertificate=yes;'; c=pyodbc.connect(cs,timeout=10); print(c.execute('SELECT DB_NAME(), SUSER_SNAME()').fetchone()); c.close()"
+
+============================================================
+Run python files inside the docker
+root@ubuntu-tt:~/QBR_Dashboard_TT# docker exec qbr-dashboard ls -l /app/load_data.py /app/load_data_v2.py
+-rw-r--r-- 1 root root   226 Aug 30 10:50 /app/load_data.py
+-rw-r--r-- 1 root root 16105 Aug 30 10:50 /app/load_data_v2.py
+root@ubuntu-tt:~/QBR_Dashboard_TT#
+
+
+docker exec -it qbr-dashboard python /app/load_data.py
+============================================================
+For production, we should not expose Streamlit directly on :8501 to users. We'll eventually expose only HTTPS/443 through the reverse proxy.
+
+Phase 1 — Freeze the known-good image	
+
+root@ubuntu-tt:~/QBR_Dashboard_TT# docker images | grep qbr
+qbr_dashboard_tt-qbr-dashboard:latest   294197339e27       1.38GB          322MB   U
+
+
+root@ubuntu-tt:~/QBR_Dashboard_TT# docker compose ps
+NAME            IMAGE                            COMMAND                  SERVICE         CREATED       STATUS                 PORTS
+qbr-dashboard   qbr_dashboard_tt-qbr-dashboard   "python -m streamlit…"   qbr-dashboard   2 hours ago   Up 2 hours (healthy)   0.0.0.0:8501->8501/tcp, [::]:8501->8501/tcp
+
+
+root@ubuntu-tt:~/QBR_Dashboard_TT# docker inspect qbr-dashboard --format '{{.Image}}'
+sha256:294197339e270f3b7a1b4de568301b7bf4a79b8c8325db0d9134ec6a29c3dc7a
+
+We don't manually edit Python on the production server.
+Docker's recommended production workflow is to rebuild and recreate the service when application code changes.
+
+
+Phase 2 — Create a production Compose file
+I don't recommend using your current development Compose file 
+directly for normal development/testing, and: #docker-compose.yml
+for production #compose.production.yml
+
+services:
+  qbr-dashboard:
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:8501:8501"
+
+    secrets:
+      - db_password
+      - qbr_cookie_secret
+
+secrets:
+  db_password:
+    file: ./secrets/db_password
+
+  qbr_cookie_secret:
+    file: ./secrets/qbr_cookie_secret
+	
+	
+Phase 3 — Remove passwords from environment variables
+For production, we'll change the application to support:./secrets/db_password
+Docker Compose secrets are specifically designed for passwords, certificates and API keys that shouldn't be stored in Dockerfiles or source code. They are mounted into the container under /run/secrets/<secret_name>
+
+Development
+    ↓
+.env.docker
+--------------------
+Production
+    ↓
+Docker Secret
+
+Phase 4 — Prepare the production server
+Install Docker Engine using Docker's official repository:
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo systemctl enable docker
+sudo systemctl start docker
+
+docker --version
+docker compose version
+docker run hello-world
+
+Phase 5 — Don't install VS Code / Python / venv
+
+The production server should not need:
+❌ VS Code
+❌ PyCharm
+❌ Python venv
+❌ pip install pandas
+❌ Streamlit installation
+❌ Plotly installation
+❌ pyodbc installation
+
+Production server needs
+Ubuntu
+Docker Engine
+Docker Compose
+Git OR supplied image
+
+Phase 6 — How I recommend transferring the application
+
+Model A — Git-based deployment
+git clone -b production https://github.com/.../QBR_Dashboard_TT.git
+cd QBR_Dashboard_TT
+docker compose build
+docker compose up -d
+
+Model B — Image-based deployment — my preference
+docker save qbr-dashboard:1.0.0 -o qbr-dashboard-1.0.0.tar
+Transfer the image through the client's approved software-transfer mechanism.
+
+docker load -i qbr-dashboard-1.0.0.tar
+docker compose up -d
+
+Phase 7 — Database access
+nslookup HQ-AD-DNS-CLONE.cciecollab.cisco.com
+nc -vz HQ-AD-DNS-CLONE.cciecollab.cisco.com 1433
+
+Phase 8 — HTTPS
+After the application is working on the production server:
+https://qbr.company.com
+Your existing .pem certificates can potentially be used here, depending on what certificate/key files the client provides.
+
+Phase 9 — Operations
+Once production is running, the administrator should be able to use only a few commands.
+docker compose ps
+docker compose logs --tail=100 qbr-dashboard
+docker compose restart qbr-dashboard
+
+Deploy new version
+docker compose pull
+docker compose up -d
+
+or, for a locally built image:
+docker compose build qbr-dashboard
+docker compose up -d --no-deps qbr-dashboard
+
+
+2. Create Docker secret directory
+mkdir -p secrets
+chmod 700 secrets
+
+nano secrets/db_password
+chmod 600 secrets/db_password
+
+Create the QBR cookie secret:
+nano secrets/qbr_cookie_secret
+chmod 600 secrets/qbr_cookie_secret
+
+3. Modify app/config.py
+We need the application to support Docker secrets while retaining .env.docker compatibility for development.
+
+4. Create production Compose
+nano compose.production.yml
+
+5. Create production environment file
+nano .env.production
+There is deliberately no DB_PASSWORD.Those are now Docker secrets.
+
+6. Protect .env.production Because we added it to .gitignore
+
+7. Build a versioned image
+docker tag qbr_dashboard_tt-qbr-dashboard:latest qbr-dashboard:1.0.0
+
+Verify
+qbr-dashboard    1.0.0
+
+8. Validate the production Compose configuration
+docker compose -f compose.production.yml config
+
+9. Then we'll test the production container
+
+docker compose -f compose.production.yml up -d
+docker compose -f compose.production.yml ps
+docker compose -f compose.production.yml logs --tail=100 qbr-dashboard
+
+Then the most important test:
+docker exec -it qbr-dashboard python -c "from app.db import engine; c=engine.connect(); print(c.exec_driver_sql('SELECT DB_NAME(), SUSER_SNAME()').fetchone()); c.close()"
+
+('CPDB', 'copilotadmin')

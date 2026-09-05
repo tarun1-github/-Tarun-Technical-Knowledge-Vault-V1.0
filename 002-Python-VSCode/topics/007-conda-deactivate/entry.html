@@ -1,0 +1,75 @@
+<!doctype html><html><head><meta charset="utf-8"><title>$ conda deactivate</title><meta name="vault-tags" content="agentic,imported,jupyter,langchain,langgraph,python,python-vscode"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>$ conda deactivate</h1><div><span class="tag">agentic</span> <span class="tag">imported</span> <span class="tag">jupyter</span> <span class="tag">langchain</span> <span class="tag">langgraph</span> <span class="tag">python</span> <span class="tag">python-vscode</span></div><h2>$ conda deactivate</h2>
+<p>++Activate venv</p>
+<p>conda activate &quot;C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\venv&quot;</p>
+<pre><code>pip install -r .\requirements.txt (To install packages from requirement.txt)</code></pre>
+<p>create virtual env using UV (fast python package writtent in rust language)</p>
+<p>A single tool to replace pip, pip-tools, pipx, pyenv, twine, virtualenv (10-100x fast)</p>
+<p>uv init demouv (initiate/start UV project)</p>
+<p>++create virtual env</p>
+<p>---------------------------</p>
+<pre><code>PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph&gt; cd .\demouv\</code></pre>
+<pre><code>PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\demouv&gt; uv venv</code></pre>
+<p>Using CPython 3.12.13</p>
+<p>Creating virtual environment at: .venv</p>
+<p>Activate with: .venv\Scripts\activate</p>
+<pre><code>PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\demouv&gt;</code></pre>
+<p>####source .venv/bin/activate  or  . .venv/bin/activate</p>
+<p>Activate venv</p>
+<pre><code>PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\demouv&gt; .venv\Scripts\activate</code></pre>
+<p>py --list  (To see list of python versions)</p>
+<p>uv python list</p>
+<p>uv add pandas (not working, alternate  pip install pandas)</p>
+<p>uv add langchain</p>
+<p>uv add langgraph</p>
+<p>uv add langchain-openai</p>
+<p>uv add langchain-communit</p>
+<p>uv add ipykernel (for jupiyter)</p>
+<p>uv pip list</p>
+<p>Failed to uninstall package at .venv\Lib\site-packages\demouv-0.1.0.dist-info</p>
+<p>due to missing `RECORD` file usually means the existing .venv has an incomplete/stale installation record for your own project.)</p>
+<p>	deactivate</p>
+<p>	Remove-Item -Recurse -Force .venv</p>
+<p>	uv venv</p>
+<p>	.venv\Scripts\activate</p>
+<p>	uv add ipykernel</p>
+<p>	ipynb  =  jupyter notebook file)</p>
+<p>=========</p>
+<p>deactivate</p>
+<p>Remove-Item -Recurse -Force &quot;.\venv&quot;</p>
+<p> Test-Path &quot;.\venv&quot;  (false)</p>
+<p> uv venv --python 3.14.6 venv</p>
+<p> .\venv\Scripts\python.exe --version</p>
+<p> uv pip install --python .\venv\Scripts\python.exe pip</p>
+<p>uv pip install --python .\venv\Scripts\python.exe ipykernel    (install ipykernel)</p>
+<p> ========ipykernel kernel=========</p>
+<p> .\venv\Scripts\python.exe -m ipykernel --version</p>
+<p> Register the kernel</p>
+<p> .\venv\Scripts\python.exe -m ipykernel install --user --name python_bootcamp --display-name &quot;Python 3.14 - Python Bootcamp&quot;</p>
+<p> =======================</p>
+<p> Check the certificate variables</p>
+<pre><code>PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Python_Bootcamp&gt; Get-ChildItem Env: | Where-Object { $_.Name -match &#x27;UV|SSL|CERT|PROXY&#x27; }</code></pre>
+<p>Name                           Value</p>
+<p>----                           -----</p>
+<p>SSL_CERT_FILE                  C:\Users\tataneja\OneDrive - Cisco\Documents\cisco_root.pem</p>
+<p> Enable Windows system certificates</p>
+<p>Remove-Item Env:SSL_CERT_FILE -ErrorAction SilentlyContinue</p>
+<p>$env:UV_SYSTEM_CERTS=&quot;true&quot;</p>
+<p>Make the certificate fix permanent</p>
+<p>[Environment]::SetEnvironmentVariable(&quot;UV_SYSTEM_CERTS&quot;,&quot;true&quot;,&quot;User&quot;)</p>
+<p>[Environment]::SetEnvironmentVariable(&quot;SSL_CERT_FILE&quot;,$null,&quot;User&quot;)</p>
+<p>++Ctrl + Shift + P   (Developer: Reload Window)</p>
+<p>(venv) PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Python_Bootcamp&gt; jupyter kernelspec list</p>
+<p>Available kernels:</p>
+<p>  python3            C:\Users\tataneja\OneDrive Cisco\Desktop\Agentic_AI\Python_Bootcamp\venv\share\jupyter\kernels\python3</p>
+<p>  python_bootcamp    C:\Users\tataneja\AppData\Roaming\jupyter\kernels\python_bootcamp</p>
+<p>++User variable vs System variable</p>
+<p>User variable A variable created by the user/programmer</p>
+<p>Lowercase → normal variable</p>
+<p>System environment variables provided by the OS/applications.</p>
+<p>UPPERCASE → constant / configuration / environment variable</p>
+<p>++Syntax and semantic</p>
+<p>syntax : correct arrangement of words and symbols in code</p>
+<p>Semantic : interpretation of symbol, characters and commands in language (what tasks/code supposed to do)</p>
+<p>++## Single line comments</p>
+<p>&#x27;&#x27;&#x27;  multi line comments &#x27;&#x27;&#x27; (wint work in ipyb - jupyter notebook)</p>
+<p>##############################################################################</p></body></html>

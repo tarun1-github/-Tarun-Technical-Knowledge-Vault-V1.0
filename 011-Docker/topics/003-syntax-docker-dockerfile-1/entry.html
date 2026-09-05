@@ -1,0 +1,121 @@
+<!doctype html><html><head><meta charset="utf-8"><title>syntax=docker/dockerfile:1</title><meta name="vault-tags" content="docker,git,github,imported,python"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>syntax=docker/dockerfile:1</h1><div><span class="tag">docker</span> <span class="tag">git</span> <span class="tag">github</span> <span class="tag">imported</span> <span class="tag">python</span></div><h2>syntax=docker/dockerfile:1</h2>
+<p>FROM ubuntu</p>
+<p>RUN --mount=type=secret,id=mysecret \</p>
+<p>    cat /run/secrets/mysecret</p>
+<p>Build:</p>
+<pre><code>docker buildx build --secret id=mysecret,src=mysecret.txt -t myapp .</code></pre>
+<p>Secret</p>
+<p>   │</p>
+<p>   ↓</p>
+<p>BuildKit</p>
+<p>   │</p>
+<p>   ├── temporarily mounted</p>
+<p>   │</p>
+<p>   ↓</p>
+<p>RUN command</p>
+<p>   │</p>
+<p>   ↓</p>
+<p>Secret removed</p>
+<p>Secret → available during build</p>
+<p>Secret → NOT baked into final image</p>
+<p>&quot;BuildKit makes secrets impossible to leak.&quot;</p>
+<p>&#x27;BuildKit makes secrets impossible to leak.&#x27;</p>
+<p>BuildKit secret mounts prevent the secret from being persisted as part of the image layer when used correctly.</p>
+<p>----------------------------------------------------------------------------------------</p>
+<p>Problem 3 — Architecture lock-in</p>
+<p>Traditional builds can result in an image built for a specific CPU architecture.</p>
+<p>Developer machine</p>
+<p>      ↓</p>
+<p>x86/amd64</p>
+<p>      ↓</p>
+<pre><code>Docker image</code></pre>
+<p>      ↓</p>
+<p>Works on amd64</p>
+<p>Then someone tries to run it on:ARM64  and you can encounter: exec format error</p>
+<p>This becomes particularly important with:</p>
+<p>Intel/AMD servers → amd64</p>
+<p>Apple Silicon     → arm64</p>
+<p>AWS Graviton      → arm64</p>
+<p>Modern solution — Multi-platform builds</p>
+<p>BuildKit/buildx can build for multiple architectures.</p>
+<pre><code>docker buildx build --platform linux/amd64,linux/arm64 -t myapp:latest .</code></pre>
+<p>You can use the same image name/tag: myapp:latest. This is called a multi-platform image.</p>
+<p>                 myapp:latest</p>
+<p>                      │</p>
+<p>             ┌────────┴────────┐</p>
+<p>             ↓                 ↓</p>
+<p>        linux/amd64       linux/arm64</p>
+<p>             │                 │</p>
+<p>        Intel/AMD          ARM systems</p>
+<p>----------------------------------------------------------------------------------------</p>
+<p>Problem 4 — Independent stages run sequentially</p>
+<p>Consider a multi-stage Dockerfile:</p>
+<p>If the stages are independent, traditional build behavior can result in unnecessary sequential work.</p>
+<p>This can increase build time.</p>
+<p>dockerfile</p>
+<p>FROM python:3.12 AS backend</p>
+<p>...</p>
+<p>FROM node:22 AS frontend</p>
+<p>...</p>
+<p>Ellipsis</p>
+<p>----------------</p>
+<p>Traditional</p>
+<p>Backend</p>
+<p>   ↓</p>
+<p>complete</p>
+<p>   ↓</p>
+<p>Frontend</p>
+<p>   ↓</p>
+<p>complete</p>
+<p>Modern solution — Parallel build stages</p>
+<p>BuildKit understands the dependency graph between stages.If two stages are independent:</p>
+<p>So independent work can be performed in parallel.</p>
+<p>             BuildKit</p>
+<p>                │</p>
+<p>       ┌────────┴────────┐</p>
+<p>       ↓                 ↓</p>
+<p>   Backend stage     Frontend stage</p>
+<p>       │                 │</p>
+<p>       ↓                 ↓</p>
+<p>    Build             Build</p>
+<p>       │                 │</p>
+<p>       └────────┬────────┘</p>
+<p>                ↓</p>
+<p>             Final</p>
+<p>BuildKit : BuildKit is Docker&#x27;s modern build engine.</p>
+<p>It provides capabilities such as:</p>
+<p>                    BuildKit</p>
+<p>                       │</p>
+<p>       ┌───────────────┼────────────────┐</p>
+<p>       ↓               ↓                ↓</p>
+<p> Content-hash      Cache mounts    Secret mounts</p>
+<p> caching</p>
+<p>       │</p>
+<p>       ├───────────────┐</p>
+<p>       ↓               ↓</p>
+<p> Multi-platform    Parallel stages</p>
+<p> builds</p>
+<p>buildx provides the CLI interface for advanced BuildKit functionality.</p>
+<p>Traditional/simple command  #docker build -t web .</p>
+<p>Modern BuildKit/buildx command  #docker buildx build -t web .</p>
+<p>✅ docker history --no-trunc myapp</p>
+<p>Your CI/CD pipeline could do:</p>
+<pre><code>Git Push</code></pre>
+<p>    ↓</p>
+<p>GitHub Actions</p>
+<p>    ↓</p>
+<pre><code>docker buildx build</code></pre>
+<p>    │</p>
+<p>    ├── Cache dependencies</p>
+<p>    ├── Use secrets safely</p>
+<p>    ├── Build amd64</p>
+<p>    ├── Build arm64</p>
+<p>    └── Run independent stages in parallel</p>
+<p>    ↓</p>
+<pre><code>Docker Image</code></pre>
+<p>    ↓</p>
+<p>Container Registry</p>
+<p>    ↓</p>
+<p>Deployment</p>
+<p>----------------------------------------------------------------------------------------</p>
+<pre><code>Docker Init — Dockerfile Scaffolding</code></pre></body></html>

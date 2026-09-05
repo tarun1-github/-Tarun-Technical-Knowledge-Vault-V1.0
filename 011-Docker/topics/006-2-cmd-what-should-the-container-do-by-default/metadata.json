@@ -1,0 +1,13 @@
+{
+  "id": "011-Docker-006",
+  "module": "011-Docker",
+  "title": "2. CMD \u2014 What should the container do by default?",
+  "type": "Imported Topic",
+  "tags": [
+    "docker",
+    "imported"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "11",
+  "source_lines": 14
+}

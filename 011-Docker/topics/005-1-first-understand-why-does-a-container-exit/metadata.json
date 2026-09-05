@@ -1,0 +1,13 @@
+{
+  "id": "011-Docker-005",
+  "module": "011-Docker",
+  "title": "1. First understand: Why does a container exit?",
+  "type": "Imported Topic",
+  "tags": [
+    "docker",
+    "imported"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "11",
+  "source_lines": 13
+}

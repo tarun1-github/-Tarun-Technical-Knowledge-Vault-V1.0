@@ -1,0 +1,18 @@
+{
+  "id": "014-QBR-Deployment-014",
+  "module": "014-QBR-Deployment",
+  "title": "8. Test from Windows",
+  "type": "Imported Topic",
+  "tags": [
+    "docker",
+    "git",
+    "github",
+    "imported",
+    "python",
+    "qbr-deployment",
+    "testing"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "14",
+  "source_lines": 197
+}

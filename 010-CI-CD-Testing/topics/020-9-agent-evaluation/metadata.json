@@ -1,0 +1,13 @@
+{
+  "id": "010-CI-CD-Testing-020",
+  "module": "010-CI-CD-Testing",
+  "title": "9. Agent Evaluation",
+  "type": "Imported Topic",
+  "tags": [
+    "ci-cd-testing",
+    "imported"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "10",
+  "source_lines": 2
+}

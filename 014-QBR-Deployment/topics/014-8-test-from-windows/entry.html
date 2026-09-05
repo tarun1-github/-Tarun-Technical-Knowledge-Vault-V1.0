@@ -1,0 +1,149 @@
+<!doctype html><html><head><meta charset="utf-8"><title>8. Test from Windows</title><meta name="vault-tags" content="docker,git,github,imported,python,qbr-deployment,testing"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>8. Test from Windows</h1><div><span class="tag">docker</span> <span class="tag">git</span> <span class="tag">github</span> <span class="tag">imported</span> <span class="tag">python</span> <span class="tag">qbr-deployment</span> <span class="tag">testing</span></div><p>8. Test from Windows</p>
+<p>http://10.106.44.12:8501</p>
+<p>You should get your QBR login page.</p>
+<p>                 Windows</p>
+<p>              Web Browser</p>
+<p>                   │</p>
+<p>                   │ HTTP :8501</p>
+<p>                   ▼</p>
+<p>          ┌──────────────────┐</p>
+<p>          │   Ubuntu VM      │</p>
+<p>          │   10.106.44.12   │</p>
+<p>          │                  │</p>
+<p>          │ Docker Engine    │</p>
+<p>          │       │          │</p>
+<p>          │       ▼          │</p>
+<p>          │ QBR Container    │</p>
+<p>          │ Streamlit :8501  │</p>
+<p>          └────────┬─────────┘</p>
+<p>                   │</p>
+<p>                   │ TCP 1433</p>
+<p>                   ▼</p>
+<p>          ┌──────────────────┐</p>
+<p>          │ SQL Server       │</p>
+<p>          │ 10.106.44.20     │</p>
+<p>          │ CPDB             │</p>
+<p>          └──────────────────┘</p>
+<p>Ubuntu</p>
+<p>  ↓</p>
+<pre><code>Docker Engine</code></pre>
+<p>  ↓</p>
+<p>QBR container</p>
+<pre><code>git pull origin test-chatgpt-write</code></pre>
+<pre><code>docker compose config</code></pre>
+<p>Ubuntu Docker host is healthy and the QBR container is already running correctly.</p>
+<p>============================================================</p>
+<p>Next milestone</p>
+<p>Once the container connects successfully to CPDB, we&#x27;ll freeze this QBR Docker image, then dockerize Access Compliance on the same Ubuntu host. After that we&#x27;ll put HTTPS/reverse proxy in front so users don&#x27;t access :8501 directly.</p>
+<p>One security action is urgent before production: rotate the database password that appeared in this chat and replace the placeholder cookie secret.</p>
+<p>============================================================</p>
+<pre><code>docker exec qbr-dashboard env | grep -E &#x27;DATABASE_|DB_|QBR_COOKIE&#x27;</code></pre>
+<pre><code>docker exec qbr-dashboard python -c &quot;import socket; h=&#x27;HQ-AD-DNS-CLONE.cciecollab.cisco.com&#x27;; print(&#x27;DNS:&#x27;,socket.gethostbyname(h)); s=socket.create_connection((h,1433),5); print(&#x27;TCP 1433: OK&#x27;); s.close()&quot;</code></pre>
+<p>DNS: 10.106.44.20</p>
+<p>TCP 1433: OK</p>
+<p>============================================================</p>
+<pre><code>Update the DB_PASSWORD in /env docker and restart the docker</code></pre>
+<pre><code>docker compose down</code></pre>
+<pre><code>docker compose up -d</code></pre>
+<p>============================================================</p>
+<p>Run on DB to see logs</p>
+<p>EXEC xp_readerrorlog 0, 1, N&#x27;Login failed for user &#x27;&#x27;copilotadmin&#x27;&#x27;&#x27;;</p>
+<pre><code>docker exec -it qbr-dashboard python -c &quot;from app.db import engine; c=engine.connect(); print(c.exec_driver_sql(&#x27;SELECT COUNT(*) FROM qbr.Ticket&#x27;).fetchone()); c.close()&quot;                                                                                 (20065,)</code></pre>
+<pre><code>docker exec -it qbr-dashboard python -c &quot;import pyodbc,os; cs=&#x27;DRIVER={ODBC Driver 18 for SQL Server};SERVER=&#x27;+os.environ[&#x27;DATABASE_SERVER&#x27;]+&#x27;;DATABASE=&#x27;+os.environ[&#x27;DATABASE_NAME&#x27;]+&#x27;;UID=&#x27;+os.environ[&#x27;DATABASE_USER&#x27;]+&#x27;;PWD=[REDACTED]DB_PASSWORD&#x27;]+&#x27;;TrustServerCertificate=yes;&#x27;; c=pyodbc.connect(cs,timeout=10); print(c.execute(&#x27;SELECT DB_NAME(), SUSER_SNAME()&#x27;).fetchone()); c.close()&quot;</code></pre>
+<p>============================================================</p>
+<p>Run python files inside the docker</p>
+<p>root@ubuntu-tt:~/QBR_Dashboard_TT# docker exec qbr-dashboard ls -l /app/load_data.py /app/load_data_v2.py</p>
+<p>-rw-r--r-- 1 root root   226 Aug 30 10:50 /app/load_data.py</p>
+<p>-rw-r--r-- 1 root root 16105 Aug 30 10:50 /app/load_data_v2.py</p>
+<p>root@ubuntu-tt:~/QBR_Dashboard_TT#</p>
+<pre><code>docker exec -it qbr-dashboard python /app/load_data.py</code></pre>
+<p>============================================================</p>
+<p>For production, we should not expose Streamlit directly on :8501 to users. We&#x27;ll eventually expose only HTTPS/443 through the reverse proxy.</p>
+<p>Phase 1 — Freeze the known-good image</p>
+<p>root@ubuntu-tt:~/QBR_Dashboard_TT# docker images | grep qbr</p>
+<p>qbr_dashboard_tt-qbr-dashboard:latest   294197339e27       1.38GB          322MB   U</p>
+<p>root@ubuntu-tt:~/QBR_Dashboard_TT# docker compose ps</p>
+<p>NAME            IMAGE                            COMMAND                  SERVICE         CREATED       STATUS                 PORTS</p>
+<p>qbr-dashboard   qbr_dashboard_tt-qbr-dashboard   &quot;python -m streamlit…&quot;   qbr-dashboard   2 hours ago   Up 2 hours (healthy)   0.0.0.0:8501-&gt;8501/tcp, [::]:8501-&gt;8501/tcp</p>
+<p>root@ubuntu-tt:~/QBR_Dashboard_TT# docker inspect qbr-dashboard --format &#x27;{{.Image}}&#x27;</p>
+<p>sha256:294197339e270f3b7a1b4de568301b7bf4a79b8c8325db0d9134ec6a29c3dc7a</p>
+<p>We don&#x27;t manually edit Python on the production server.</p>
+<p>Docker&#x27;s recommended production workflow is to rebuild and recreate the service when application code changes.</p>
+<p>Phase 2 — Create a production Compose file</p>
+<p>I don&#x27;t recommend using your current development Compose file</p>
+<p>directly for normal development/testing, and: #docker-compose.yml</p>
+<p>for production #compose.production.yml</p>
+<p>services:</p>
+<p>  qbr-dashboard:</p>
+<p>    restart: unless-stopped</p>
+<p>    ports:</p>
+<p>      - &quot;127.0.0.1:8501:8501&quot;</p>
+<p>    secrets:</p>
+<p>      - db_password</p>
+<p>      - qbr_cookie_secret</p>
+<p>secrets:</p>
+<p>  db_password:</p>
+<p>    file: ./secrets/db_password</p>
+<p>  qbr_cookie_secret:</p>
+<p>    file: ./secrets/qbr_cookie_secret</p>
+<p>Phase 3 — Remove passwords from environment variables</p>
+<p>For production, we&#x27;ll change the application to support:./secrets/db_password</p>
+<pre><code>Docker Compose secrets are specifically designed for passwords, certificates and API keys that shouldn&#x27;t be stored in Dockerfiles or source code. They are mounted into the container under /run/secrets/&lt;secret_name&gt;</code></pre>
+<p>Development</p>
+<p>    ↓</p>
+<p>.env.docker</p>
+<p>--------------------</p>
+<p>Production</p>
+<p>    ↓</p>
+<pre><code>Docker Secret</code></pre>
+<p>Phase 4 — Prepare the production server</p>
+<p>Install Docker Engine using Docker&#x27;s official repository:</p>
+<pre><code>sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code></pre>
+<pre><code>sudo systemctl enable docker</code></pre>
+<pre><code>sudo systemctl start docker</code></pre>
+<pre><code>docker --version</code></pre>
+<pre><code>docker compose version</code></pre>
+<pre><code>docker run hello-world</code></pre>
+<p>Phase 5 — Don&#x27;t install VS Code / Python / venv</p>
+<p>The production server should not need:</p>
+<p>❌ VS Code</p>
+<p>❌ PyCharm</p>
+<p>❌ Python venv</p>
+<p>❌ pip install pandas</p>
+<p>❌ Streamlit installation</p>
+<p>❌ Plotly installation</p>
+<p>❌ pyodbc installation</p>
+<p>Production server needs</p>
+<p>Ubuntu</p>
+<pre><code>Docker Engine</code></pre>
+<pre><code>Docker Compose</code></pre>
+<pre><code>Git OR supplied image</code></pre>
+<p>Phase 6 — How I recommend transferring the application</p>
+<p>Model A — Git-based deployment</p>
+<pre><code>git clone -b production https://github.com/.../QBR_Dashboard_TT.git</code></pre>
+<p>cd QBR_Dashboard_TT</p>
+<pre><code>docker compose build</code></pre>
+<pre><code>docker compose up -d</code></pre>
+<p>Model B — Image-based deployment — my preference</p>
+<pre><code>docker save qbr-dashboard:1.0.0 -o qbr-dashboard-1.0.0.tar</code></pre>
+<p>Transfer the image through the client&#x27;s approved software-transfer mechanism.</p>
+<pre><code>docker load -i qbr-dashboard-1.0.0.tar</code></pre>
+<pre><code>docker compose up -d</code></pre>
+<p>Phase 7 — Database access</p>
+<p>nslookup HQ-AD-DNS-CLONE.cciecollab.cisco.com</p>
+<p>nc -vz HQ-AD-DNS-CLONE.cciecollab.cisco.com 1433</p>
+<p>Phase 8 — HTTPS</p>
+<p>After the application is working on the production server:</p>
+<p>https://qbr.company.com</p>
+<p>Your existing .pem certificates can potentially be used here, depending on what certificate/key files the client provides.</p>
+<p>Phase 9 — Operations</p>
+<p>Once production is running, the administrator should be able to use only a few commands.</p>
+<pre><code>docker compose ps</code></pre>
+<pre><code>docker compose logs --tail=100 qbr-dashboard</code></pre>
+<pre><code>docker compose restart qbr-dashboard</code></pre>
+<p>Deploy new version</p>
+<pre><code>docker compose pull</code></pre>
+<pre><code>docker compose up -d</code></pre>
+<p>or, for a locally built image:</p>
+<pre><code>docker compose build qbr-dashboard</code></pre>
+<pre><code>docker compose up -d --no-deps qbr-dashboard</code></pre></body></html>

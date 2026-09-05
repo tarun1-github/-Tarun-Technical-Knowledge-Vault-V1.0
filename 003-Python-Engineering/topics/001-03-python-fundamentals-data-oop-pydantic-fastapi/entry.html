@@ -1,0 +1,110 @@
+<!doctype html><html><head><meta charset="utf-8"><title>03 — PYTHON FUNDAMENTALS + DATA + OOP + Pydantic + FastAPI</title><meta name="vault-tags" content="fastapi,imported,pydantic,python,python-engineering"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>03 — PYTHON FUNDAMENTALS + DATA + OOP + Pydantic + FastAPI</h1><div><span class="tag">fastapi</span> <span class="tag">imported</span> <span class="tag">pydantic</span> <span class="tag">python</span> <span class="tag">python-engineering</span></div><p>03 — PYTHON FUNDAMENTALS + DATA + OOP + Pydantic + FastAPI</p>
+<p>##############################################################################</p>
+<p>++indentation : define structure and hierarchy of code. many langaue use braces {} to delimit the blocks of code.</p>
+<p>indentation to define blocks of code.  Commonly 4 spaces or tab is required.</p>
+<p>++line continuation</p>
+<p>total=1+2+3+4+5+6+\</p>
+<p>7+8+9</p>
+<p>24</p>
+<p>++multiple ststement in single line</p>
+<p>x=5;y=10;z=x+y</p>
+<p>++understanding semantic</p>
+<p>##variable assignment</p>
+<p>age=32 ##age is an integeter - python kernel knows</p>
+<p>type(age)</p>
+<p>&lt;class &#x27;int&#x27;&gt;</p>
+<p>++Type inference : During runtime we can change the type of variable. its determined at runtime</p>
+<p>variable(10)</p>
+<p>print(type(variable))</p>
+<p>variable=&quot;krish&quot;</p>
+<p>print(type(variable))</p>
+<p>++Variable</p>
+<p>age=32</p>
+<p>print(&quot;age:&quot;, age)</p>
+<p>age: 32</p>
+<p>##Type conversion</p>
+<p>age_str=str(age)</p>
+<p>print(type(age_str))</p>
+<p>print(type(int(age_str))) &gt;&gt; Converted in one line</p>
+<p>##Dynamic Typing, python allows the change the type of variable as program executed</p>
+<p>var=10</p>
+<p>print(var,type(var))</p>
+<p>var=&quot;hello&quot;</p>
+<p>print(var,type(var))</p>
+<p>10 &lt;class &#x27;int&#x27;&gt;</p>
+<p>++Data types : Tells the compiler how programmer intends to ude the data</p>
+<p>++Conditional statement</p>
+<p>else statement execute once if condition is false</p>
+<p>elif allows you to check multiple conditions (else if)</p>
+<p>++loop</p>
+<p>range(5)</p>
+<p>range(0, 5)</p>
+<p>##For loop</p>
+<p>range(1,10,1)   1= start  10=before 10  1=incremental value</p>
+<p>range(10,1,-1)   10= start  1=before 1  1=decremental value</p>
+<p>++Data Structure</p>
+<p>list, tuple,dictionaries</p>
+<p>Lists are ordered, mutuable (can change it) collection of items</p>
+<p>print(fruits[1:])</p>
+<p>print(fruits[-1:])</p>
+<p>fruits.append</p>
+<p>fruits.insert</p>
+<p>fruits.remove (remove first occurence of duplicate item)</p>
+<p>fruits.pop (remove and return the last item)</p>
+<p>fruits.index</p>
+<p>fruits.count</p>
+<p>fruits.insert</p>
+<p>fruits.sort</p>
+<p>fruits.reverse</p>
+<p>fruits.clear</p>
+<p>++iterating with index</p>
+<p>use enumerate</p>
+<p>for index,numbers in enumerate(numbers):</p>
+<p>	print(index,numbers)</p>
+<p>++ List comprehension (expressions for item in iterable if condition)</p>
+<p>========================</p>
+<p>lst=[]</p>
+<p>for x in range(10):</p>
+<p>	lst.append(x**2)</p>
+<p>print(lst)</p>
+<p>or</p>
+<p>Basic list comprehension</p>
+<p>[x**2 for x in range(10)]</p>
+<p>========================</p>
+<p>list comprehension with condition</p>
+<p>lst=[]</p>
+<p>for i in range(10):</p>
+<p>	if i%2==0:</p>
+<p>	lst.append(i)</p>
+<p>print(lst)</p>
+<p>or</p>
+<p>even_numbers=[num for num in range(10) if num%2==0]</p>
+<p>print(even_numbers)</p>
+<p>========================</p>
+<p>++sets in Python : unordered (dont follow specific order) but do not allow duplicate elements</p>
+<p>sets operations like union, intersections (common element), difference and symmteric difference</p>
+<p>my_set={1,2,3,4,5}</p>
+<p>my_empty_set=set()</p>
+<p>my_set.add()</p>
+<p>my_set.remove() - Will give error if its not members of set</p>
+<p>my_set.discard() - wont give error if its not members of set</p>
+<p>my_set.pop() - remove first inserted element (FIFO)</p>
+<p>my_set.clear</p>
+<p>set membership in test</p>
+<p>my_set={1,2,3,4,5}</p>
+<p>print(3 in my_set)</p>
+<p>True</p>
+<p>set1.intersection_update(set2)</p>
+<p>intersection_update : pick common element and update in first variable set1</p>
+<p>difference, difference_update</p>
+<p>convert to list to set</p>
+<p>lst=[1,2,3,4,4,5]</p>
+<p>set(lst)</p>
+<p>========================</p>
+<p>++ Dictionaries : unordered collection of items , storeddata in KV pairs , Keys must be unique and immutable.</p>
+<p>###Accessing dictionaries element</p>
+<p>print(student[&#x27;grade&#x27;])</p>
+<p>Accessing dictionaries element using get() method</p>
+<p>print(student.get(&#x27;grade&#x27;))</p>
+<p>print(student.get(&#x27;last_name&#x27;, &quot;Not available&quot;))</p>
+<p>###Modifying dictionaries element</p></body></html>

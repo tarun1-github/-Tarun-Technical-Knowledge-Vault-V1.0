@@ -1,0 +1,15 @@
+{
+  "id": "003-Python-Engineering-004",
+  "module": "003-Python-Engineering",
+  "title": "FastAPI is a high-performance web framework for building APIs with Python 3.8+",
+  "type": "Imported Topic",
+  "tags": [
+    "fastapi",
+    "imported",
+    "python",
+    "python-engineering"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "03",
+  "source_lines": 10
+}

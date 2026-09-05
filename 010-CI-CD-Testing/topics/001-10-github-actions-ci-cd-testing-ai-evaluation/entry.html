@@ -1,0 +1,102 @@
+<!doctype html><html><head><meta charset="utf-8"><title>10 — GITHUB ACTIONS + CI/CD + TESTING + AI EVALUATION</title><meta name="vault-tags" content="agentic,ci-cd-testing,docker,git,github,imported,python,testing"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>10 — GITHUB ACTIONS + CI/CD + TESTING + AI EVALUATION</h1><div><span class="tag">agentic</span> <span class="tag">ci-cd-testing</span> <span class="tag">docker</span> <span class="tag">git</span> <span class="tag">github</span> <span class="tag">imported</span> <span class="tag">python</span> <span class="tag">testing</span></div><p>10 — GITHUB ACTIONS + CI/CD + TESTING + AI EVALUATION</p>
+<p>##############################################################################</p>
+<pre><code>Git : Distributed version of control system (Developer) -&gt; Track source code files.</code></pre>
+<p>GitHub Actions — CI/CD Pipelines</p>
+<p>&quot;GitHub Actions can implement CI/CD pipelines where code changes trigger automated build, testing, validation, and deployment workflows across environments such as DEV, QA, UAT, and Production.&quot;</p>
+<p>GitHub Actions is GitHub&#x27;s built-in automation platform. It lets you automatically run tasks when something happens in a repository, such as:</p>
+<pre><code>git push</code></pre>
+<p>Pull request creation/update</p>
+<p>New release</p>
+<p>Scheduled time</p>
+<p>Manual trigger</p>
+<p>Developer</p>
+<p>    │</p>
+<p>    │ git push</p>
+<p>    ↓</p>
+<p>GitHub Repository</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>GitHub Actions</p>
+<p>    │</p>
+<p>    ├── Run tests</p>
+<p>    ├── Check code quality</p>
+<p>    ├── Build application</p>
+<p>    ├── Security scan</p>
+<p>    └── Deploy</p>
+<p>          │</p>
+<p>          ↓</p>
+<p>       Production</p>
+<p>CI — Continuous Integration</p>
+<p>CI = Automatically test and validate code whenever developers push changes or create a PR.</p>
+<pre><code>git push</code></pre>
+<p>   ↓</p>
+<p>GitHub Actions</p>
+<p>   ↓</p>
+<p>Install dependencies</p>
+<p>   ↓</p>
+<p>Run tests</p>
+<p>   ↓</p>
+<p>Tests PASS ✅</p>
+<p>   ↓</p>
+<p>Build</p>
+<p>------------------------</p>
+<p>Tests FAIL ❌</p>
+<p>    ↓</p>
+<p>Developer gets notification</p>
+<p>    ↓</p>
+<p>Fix code</p>
+<p>    ↓</p>
+<p>Push again</p>
+<p>CD — Continuous Deployment / Delivery</p>
+<p>CD takes the validated code and moves it toward deployment.</p>
+<p>Code</p>
+<p> ↓</p>
+<p>Build</p>
+<p> ↓</p>
+<p>Test</p>
+<p> ↓</p>
+<p>Security checks</p>
+<p> ↓</p>
+<p>Deploy</p>
+<p> ↓</p>
+<p>Cloud / Server</p>
+<p>A workflow is the complete automation definition.</p>
+<p>.github/</p>
+<p>   workflows/</p>
+<p>      ci.yml</p>
+<p>Event / Trigger :  Defines when the workflow starts. Run this workflow whenever code is pushed to main.</p>
+<p>on:</p>
+<p>  push:</p>
+<p>    branches: [main]</p>
+<p>Job : A workflow contains one or more jobs.</p>
+<p>Workflow</p>
+<p>   │</p>
+<p>   ├── Test Job</p>
+<p>   ├── Build Job</p>
+<p>   └── Deploy Job</p>
+<p> Each job contains individual steps.</p>
+<p>Job</p>
+<p> │</p>
+<p> ├── Checkout code</p>
+<p> ├── Setup Python</p>
+<p> ├── Install dependencies</p>
+<p> ├── Run tests</p>
+<p> └── Build</p>
+<pre><code>Git + GitHub Actions = the software engineering/DevOps layer that helps you reliably build, test, and deploy your Agentic AI applications.</code></pre>
+<pre><code>Git → GitHub → GitHub Actions → Docker → CI/CD → Cloud deployment</code></pre>
+<p>=========================================================================</p>
+<p>CI/CD Workflows  YAML File  :: Developer Workflow</p>
+<p>Continuous Deployment is the practice of automatically deploying successfully tested code through different environments until it reaches Production.</p>
+<p>Developer</p>
+<p>    ↓</p>
+<p>GitHub Repository</p>
+<p>    ↓</p>
+<p>CI Pipeline</p>
+<p>    ↓</p>
+<p>DEV</p>
+<p>    ↓</p>
+<p>QA</p>
+<p>    ↓</p>
+<p>UAT</p>
+<p>    ↓</p>
+<p>Production</p></body></html>

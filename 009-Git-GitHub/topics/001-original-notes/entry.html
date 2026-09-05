@@ -1,0 +1,335 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Original Notes</title><meta name="vault-tags" content="agentic,git,git-github,github,imported"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>Original Notes</h1><div><span class="tag">agentic</span> <span class="tag">git</span> <span class="tag">git-github</span> <span class="tag">github</span> <span class="tag">imported</span></div><p>09 — GIT + GITHUB FUNDAMENTALS</p>
+<p>##############################################################################</p>
+<pre><code>GIT — Complete Basic Setup &amp; Push</code></pre>
+<p>Install Git for Windows, which provides:</p>
+<pre><code>Git Bash</code></pre>
+<pre><code>Git CLI</code></pre>
+<pre><code>Git Credential Manager</code></pre>
+<pre><code>SSH support</code></pre>
+<p>Verify installation:</p>
+<pre><code>git --version</code></pre>
+<p>cd &quot;C:/Users/tataneja/OneDrive - Cisco/Desktop/Agentic_AI/Gittutorials&quot;</p>
+<p>Create a README file:</p>
+<p>echo &quot;# TT_GitTutorials&quot; &gt;&gt; README.md</p>
+<p>ls</p>
+<p>Initialize Git Repository</p>
+<pre><code>git init</code></pre>
+<p>Project Folder</p>
+<p>      ↓</p>
+<p>   git init</p>
+<p>      ↓</p>
+<p>Local Git Repository</p>
+<p>Configure Git Commit Identity.These settings identify who authored the commit.</p>
+<pre><code>git config --global user.name &quot;tarun1-github&quot;</code></pre>
+<pre><code>git config --global user.email &quot;taruntan@gmail.com&quot;</code></pre>
+<pre><code>git config --global user.email</code></pre>
+<pre><code>git config --global user.email</code></pre>
+<pre><code>git config --global --list</code></pre>
+<p>Commit Identity</p>
+<p>       ↓</p>
+<p>user.name</p>
+<p>user.email</p>
+<p>Authentication</p>
+<p>       ↓</p>
+<p>HTTPS + Credential Manager/PAT</p>
+<p>       OR</p>
+<pre><code>SSH + SSH Key</code></pre>
+<pre><code>git status</code></pre>
+<p>Add Files to Staging Area</p>
+<pre><code>git add README.md</code></pre>
+<p>OR</p>
+<pre><code>git add .</code></pre>
+<pre><code>Git workflow</code></pre>
+<p>Working Directory</p>
+<p>       ↓</p>
+<p>    git add</p>
+<p>       ↓</p>
+<p>Staging Area</p>
+<p>       ↓</p>
+<p>  git commit</p>
+<p>       ↓</p>
+<p>Local Repository</p>
+<pre><code>git commit -m &quot;first commit&quot;</code></pre>
+<pre><code>git commit -m &quot;Add initial README&quot;</code></pre>
+<pre><code>git log --oneline</code></pre>
+<p>Check Current Branch</p>
+<pre><code>git branch</code></pre>
+<p>* master</p>
+<p>Rename it to main:</p>
+<pre><code>git branch -M main</code></pre>
+<pre><code>git branch</code></pre>
+<p>Create GitHub Repository</p>
+<p>TT_GitTutorials</p>
+<p>tarun1-github/TT_GitTutorials</p>
+<p>Connect Local Repository to GitHub</p>
+<p> git remote set-url origin https://github.com/tarun1-github/QBR_Data.git</p>
+<pre><code>git remote add origin https://github.com/tarun1-github/TT_GitTutorials.git</code></pre>
+<pre><code>git remote -v</code></pre>
+<p>origin  https://github.com/tarun1-github/TT_GitTutorials.git (fetch)</p>
+<p>origin  https://github.com/tarun1-github/TT_GitTutorials.git (push)</p>
+<p>origin</p>
+<p>   ↓</p>
+<p>GitHub Repository</p>
+<pre><code>git status</code></pre>
+<p>Push Local Main Branch to GitHub</p>
+<pre><code>git push</code></pre>
+<p>-u = sets the upstream/tracking relationship between:</p>
+<p>local main</p>
+<p>     ↕</p>
+<p>origin/main</p>
+<p>🔴 TROUBLESHOOTING — HTTPS AUTHENTICATION</p>
+<pre><code>git push -u origin main</code></pre>
+<p>remote: Invalid username or token.</p>
+<p>Password authentication is not supported for Git operations.</p>
+<p>fatal: Authentication failed</p>
+<p>GitHub no longer accepts your normal GitHub account password for Git operations over HTTPS.</p>
+<p>HTTPS</p>
+<p>  ↓</p>
+<pre><code>Git Credential Manager</code></pre>
+<p>  ↓</p>
+<p>GitHub authentication</p>
+<p>Check Git Identity</p>
+<pre><code>git config --global user.email</code></pre>
+<pre><code>git config --global user.name</code></pre>
+<pre><code>git config --global --list</code></pre>
+<p>Check Git Credential Manager</p>
+<pre><code>git config --get credential.helper</code></pre>
+<pre><code>git credential-manager --version</code></pre>
+<pre><code>git credential-manager github login</code></pre>
+<p>Test GitHub Repository Access</p>
+<pre><code>git ls-remote origin</code></pre>
+<p>Check Local Commit and Branch</p>
+<pre><code>git log --oneline --decorate -5</code></pre>
+<p>Check branch tracking:</p>
+<pre><code>git branch -vv</code></pre>
+<p>Advanced HTTPS Troubleshooting</p>
+<p>GIT_TRACE=1 GIT_CURL_VERBOSE=1 git push -u origin main</p>
+<p>Connected to github.com:443</p>
+<p>TLSv1.3</p>
+<p>SSL certificate verify ok</p>
+<p>HTTP 401 : Authentication required / Unauthorized</p>
+<pre><code>git credential-manager get</code></pre>
+<p>The Credential Manager authentication flow was getting stuck.</p>
+<p>The problem was the HTTPS authentication/credential-manager flow.</p>
+<p>🔐 TROUBLESHOOTING — SSH AUTHENTICATION</p>
+<p>Check Existing SSH Keys</p>
+<p>ls -al ~/.ssh</p>
+<p>ls: cannot access &#x27;/c/Users/tataneja/.ssh&#x27;: No such file or directory</p>
+<p>Generate an SSH Key</p>
+<p>ssh-keygen -t ed25519 -C &quot;taruntan@gmail.com&quot;</p>
+<p>id_ed25519</p>
+<p>     ↓</p>
+<p>PRIVATE KEY 🔐</p>
+<p>NEVER SHARE</p>
+<p>id_ed25519.pub</p>
+<p>     ↓</p>
+<p>PUBLIC KEY 🔑</p>
+<p>Add to GitHub</p>
+<p>Start SSH Agent</p>
+<p>eval &quot;$(ssh-agent -s)&quot;</p>
+<p>ssh-add ~/.ssh/id_ed25519</p>
+<p>cat ~/.ssh/id_ed25519.pub</p>
+<p>Add this public key to:</p>
+<p>GitHub → Settings → SSH and GPG keys → New SSH key</p>
+<p>Test GitHub SSH Authentication</p>
+<pre><code>ssh -T git@github.com</code></pre>
+<p>Hi tarun1-github! You&#x27;ve successfully authenticated,</p>
+<p>but GitHub does not provide shell access.</p>
+<p>Your PC</p>
+<p>   ↓</p>
+<pre><code>SSH Private Key</code></pre>
+<p>   ↓</p>
+<p>GitHub</p>
+<p>   ↓</p>
+<p>Authentication successful</p>
+<p>Change Remote from HTTPS to SSH</p>
+<pre><code>git remote set-url origin git@github.com:tarun1-github/TT_GitTutorials.git</code></pre>
+<pre><code>git remote -v</code></pre>
+<p>origin  git@github.com:tarun1-github/TT_GitTutorials.git (fetch)</p>
+<p>origin  git@github.com:tarun1-github/TT_GitTutorials.git (push)</p>
+<pre><code>git push -u origin main</code></pre>
+<p>🔥 HTTPS vs SSH — Training Notes</p>
+<p>Git</p>
+<p> ↓</p>
+<p>HTTPS :443</p>
+<p> ↓</p>
+<p>GitHub</p>
+<p> ↓</p>
+<p>Credential Manager / Token</p>
+<p> ↓</p>
+<p>Authentication</p>
+<p> ↓</p>
+<p>Push</p>
+<p>----------------------------</p>
+<p>Git</p>
+<p> ↓</p>
+<p>SSH</p>
+<p> ↓</p>
+<p>Ed25519 Key Pair</p>
+<p> ↓</p>
+<p>GitHub</p>
+<p> ↓</p>
+<p>Authentication</p>
+<p> ↓</p>
+<p>Push</p>
+<p>GitHub does not use your normal account password for Git operations.</p>
+<pre><code>Git Credential Manager</code></pre>
+<p>        OR</p>
+<p>Personal Access Token</p>
+<p>🎯 Important Git Concepts</p>
+<p>                 GIT</p>
+<p>                  │</p>
+<p>        ┌─────────┼─────────┐</p>
+<p>        ↓         ↓         ↓</p>
+<p>   Working     Staging    Local</p>
+<p>   Directory    Area      Repository</p>
+<p>        │         │          │</p>
+<p>        │ git add │          │</p>
+<p>        └────────→│          │</p>
+<p>                  │ commit   │</p>
+<p>                  └─────────→│</p>
+<p>                              │</p>
+<p>                              │ git push</p>
+<p>                              ↓</p>
+<p>                         Remote Repository</p>
+<p>                              │</p>
+<p>                           GitHub</p>
+<p>WRITE CODE</p>
+<p>    ↓</p>
+<pre><code>git status</code></pre>
+<p>    ↓</p>
+<pre><code>git add .</code></pre>
+<p>    ↓</p>
+<p>STAGING AREA</p>
+<p>    ↓</p>
+<pre><code>git commit</code></pre>
+<p>    ↓</p>
+<p>LOCAL REPOSITORY</p>
+<p>    ↓</p>
+<pre><code>git push</code></pre>
+<p>    ↓</p>
+<p>REMOTE REPOSITORY</p>
+<p>    ↓</p>
+<p>GITHUB</p>
+<pre><code>git clone https://github.com/tarun1-github/TT_GitTutorials.git</code></pre>
+<p>The device-code/browser login prompt means Git Credential Manager successfully started GitHub authentication. You entered the code in the browser, authenticated, and the push completed.</p>
+<pre><code>git config --global color.ui.auto</code></pre>
+<p>What does &quot;Stage&quot; mean?</p>
+<p>Stage = prepare for commit</p>
+<p>unstage = remove from that preparation.</p>
+<p>Working Directory</p>
+<p>       ↓</p>
+<p>    Modified</p>
+<p>       ↓</p>
+<pre><code>Git knows the file changed, but it is not yet selected for the next commit.</code></pre>
+<p>When you run:git add file.py</p>
+<p>Working Directory</p>
+<p>       ↓</p>
+<p>    git add</p>
+<p>       ↓</p>
+<p>  STAGING AREA</p>
+<p>Now you&#x27;re telling Git:&quot;Include this file&#x27;s current changes in my next commit.&quot;</p>
+<pre><code>git commit</code></pre>
+<p>= Seal the parcel/checkpoint.  (staging - playground)</p>
+<pre><code>git push</code></pre>
+<p>= Send it to GitHub.</p>
+<p>Suppose you accidentally did:</p>
+<p>&quot;I don&#x27;t want README.md in this commit.&quot;</p>
+<pre><code>git restore --staged README.md</code></pre>
+<p>Staged:</p>
+<p>    agent.py</p>
+<p>    tools.py</p>
+<p>Not staged:</p>
+<p>    README.md</p>
+<pre><code>Git — Restore, Reset, Diff, Branch &amp; Log</code></pre>
+<pre><code>git restore vs git reset</code></pre>
+<p>Primarily used to restore files / undo changes in the working tree or staging area.</p>
+<p>Unstage a file</p>
+<pre><code>git restore --staged README.md</code></pre>
+<p>Discard changes in working directory</p>
+<pre><code>git restore README.md</code></pre>
+<pre><code>git reset is more powerful and can move the HEAD/branch pointer and/or change the staging area.</code></pre>
+<pre><code>git reset --soft HEAD~1  ##Undo the last commit but keep changes staged.</code></pre>
+<p>Commit</p>
+<p>  ↓</p>
+<p>reset --soft</p>
+<p>  ↓</p>
+<p>Changes remain staged</p>
+<pre><code>git reset HEAD~1  	##Undo the commit and unstage the changes, but keep the changes in your working directory.</code></pre>
+<p>Commit</p>
+<p>  ↓</p>
+<p>reset</p>
+<p>  ↓</p>
+<p>Working Directory</p>
+<pre><code>git reset --hard HEAD~1 	##Moves the branch back and discards changes.</code></pre>
+<p>Commit</p>
+<p>  ↓</p>
+<p>reset --hard</p>
+<p>  ↓</p>
+<p>Changes can be LOST</p>
+<pre><code>git diff  		##Shows the differences between your working directory and the staging area.</code></pre>
+<p>Working Directory</p>
+<p>       ↕</p>
+<p>Staging Area</p>
+<pre><code>git diff --staged 	##Shows changes that are already staged, compared with the last commit.</code></pre>
+<p>Last Commit</p>
+<p>     ↕</p>
+<p>Staging Area</p>
+<pre><code>git branch</code></pre>
+<pre><code>git checkout developer   ###Switch branch</code></pre>
+<p>main</p>
+<p>  ↓</p>
+<pre><code>git checkout developer</code></pre>
+<p>  ↓</p>
+<p>developer</p>
+<pre><code>git merge developer  ##Merge the specified branch into the branch I&#x27;m currently on.</code></pre>
+<p>developer</p>
+<p>    ↓</p>
+<p>    ↓ merge</p>
+<p>    ↓</p>
+<p>  main</p>
+<pre><code>git log ##Shows commit history:</code></pre>
+<pre><code>git log --oneline</code></pre>
+<pre><code>git log -p  #Show the commit history AND the actual changes introduced by each commit.  -p = patch</code></pre>
+<pre><code>git log -p -11</code></pre>
+<pre><code>git log</code></pre>
+<p>  +</p>
+<p>-p      → show changes/diffs</p>
+<p>  +</p>
+<p>-11     → show up to 11 commits</p>
+<p>Let&#x27;s read YOUR output</p>
+<p>commit 9596f3f4afba572f07e7333387bae0ebf2387e22</p>
+<p>(HEAD -&gt; developer, origin/main, origin/developer, main)</p>
+<p>HEAD -&gt; developer  ##means you&#x27;re currently on: developer</p>
+<p>main = Your local main branch.</p>
+<p>                    9596f3f</p>
+<p>                       ↑</p>
+<p>        ┌──────────────┼──────────────┐</p>
+<p>        │              │              │</p>
+<p>      main         developer     origin/main</p>
+<p>                                      │</p>
+<p>                                origin/developer</p>
+<p>What does @@ -1 +1,3 @@ mean?</p>
+<p>-1 = Starting around line 1 in the old file.</p>
+<p>+1,3 = Starting around line 1, there are 3 lines in the new version.</p>
+<pre><code>Git — Pull, Merge Branches &amp; Resolve Conflicts</code></pre>
+<pre><code>git pull  ##Download the latest changes from the remote repository and integrate them into your current local branch.</code></pre>
+<p>GitHub</p>
+<p>  │</p>
+<p>  │ git pull</p>
+<p>  ↓</p>
+<p>Local Repository</p>
+<pre><code>git fetch</code></pre>
+<p>   +</p>
+<pre><code>git merge</code></pre>
+<pre><code>git fetch ###Downloads remote changes but doesn&#x27;t merge them into your current branch.</code></pre>
+<p>GitHub</p>
+<p>  ↓</p>
+<pre><code>git fetch</code></pre>
+<p>  ↓</p>
+<p>origin/main</p>
+<p>A conflict occurs when Git cannot automatically decide which change should be kept.</p>
+<p>If both branches modified the same part of the same file, Git may report:You manually decide what the final content should be.</p>
+<pre><code>git merge --abort  ##If you&#x27;re in the middle of a merge conflict and decide:&quot;I don&#x27;t want to continue this merge.&quot;</code></pre>
+<p>=========================================================================</p>
+<p>##############################################################################</p></body></html>

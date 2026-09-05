@@ -1,0 +1,125 @@
+<!doctype html><html><head><meta charset="utf-8"><title>3. OpenAI API Key</title><meta name="vault-tags" content="imported,langchain,llm,llm-tools,python,rag"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>3. OpenAI API Key</h1><div><span class="tag">imported</span> <span class="tag">langchain</span> <span class="tag">llm</span> <span class="tag">llm-tools</span> <span class="tag">python</span> <span class="tag">rag</span></div><p>3. OpenAI API Key</p>
+<p>UV package manager (Fast)</p>
+<p>Install</p>
+<p>powershell -ExecutionPolicy ByPass -c &quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</p>
+<p>Initialized project</p>
+<p>uv init</p>
+<p>Create Virual env</p>
+<p>uv venv</p>
+<p>Activate venv</p>
+<p> .venv\Scripts\activate</p>
+<p>from requirements.txt &gt;&gt; UV will install latest / recent version of libraries</p>
+<p>uv add -r requirements.txt</p>
+<p>langchain</p>
+<p>langchain-community</p>
+<p>lanngchain-openai</p>
+<p>langchain-groq</p>
+<p>python-dotenv</p>
+<p>langchain-google-genai</p>
+<p>==============================</p>
+<p>I would do a clean setup:</p>
+<p>.\.venv\Scripts\deactivate.bat</p>
+<p>Remove-Item -Recurse -Force .venv</p>
+<p>uv venv .venv --python 3.12</p>
+<p>.\.venv\Scripts\Activate.ps1</p>
+<p>Command to verifty virtual env</p>
+<p>$env:VIRTUAL_ENV</p>
+<p>===========================================================================</p>
+<p>🔴 Actual problem now: OneDrive + uv hardlinks</p>
+<p>Failed to hardlink files; falling back to full copy</p>
+<p>The cloud operation cannot be performed on a file with incompatible hardlinks</p>
+<p>uv is trying to use hardlinks between its cache and your OneDrive folder. OneDrive&#x27;s cloud-managed files can prevent that operation.</p>
+<p>✅ Fix — tell uv to COPY instead of hardlink</p>
+<p>$env:UV_LINK_MODE=&quot;copy&quot;</p>
+<p>If you want it permanently for your Windows user:</p>
+<p>[Environment]::SetEnvironmentVariable(&quot;UV_LINK_MODE&quot;, &quot;copy&quot;, &quot;User&quot;)</p>
+<p>uv pip install -r requirements.txt</p>
+<p>uv pip install -r requirements.txt --link-mode=copy</p>
+<p>===========================================================================</p>
+<p>Every LLM has a knowledge cutoff,Think of an LLM as having two sources of information:</p>
+<p>The LLM provides the reasoning, while the tool provides fresh information.</p>
+<p>Today&#x27;s stock price</p>
+<p>Today&#x27;s weather</p>
+<p>Latest Cisco CUCM release</p>
+<p>Latest Microsoft documentation</p>
+<p>Latest news</p>
+<p>Latest API changes</p>
+<p>                    LLM</p>
+<p>                     │</p>
+<p>          ┌──────────┴──────────┐</p>
+<p>          │                     │</p>
+<p>   Training Knowledge       External Tools</p>
+<p>   (Knowledge Cutoff)       (Web / API / DB)</p>
+<p>          │                     │</p>
+<p>   &quot;What I learned&quot;       &quot;What I can fetch now&quot;</p>
+<p>===========================================================================</p>
+<p>React Architechture - we will build agent to get latest info.</p>
+<p>===========================================================================</p>
+<p>Batching and streaming</p>
+<p>model.invoke wont do this.We need to keep waiting for output until LLM generates it.</p>
+<p>Steam : Stream the o/p of LLM while its generated.We can use loop to process each chunk in real-time.</p>
+<p>calling stream.</p>
+<p>model.stream(&quot;write a 200 words paragraph on AI&quot;)</p>
+<p>for chunk in model.stream(&quot;write a 200 words paragraph on AI&quot;):</p>
+<p>	print(chunk.txt, end=&quot;|&quot;, flush=true)</p>
+<p>Batch  Collection of independent request to model improve performance and reduce costs.Processing can eb done in parallal.</p>
+<p>response = model.batch([</p>
+<p>	&quot;Why do parrots have colorful fethers&quot;</p>
+<p>	&quot;how do airpalns fly&quot;</p>
+<p>	&quot;what is quantum computing?&quot;</p>
+<p>	])</p>
+<p>	for response in responses:</p>
+<p>		print(response)</p>
+<p>model.batch(</p>
+<p>    [&quot;Why do parrots have colorful feathers?&quot;,</p>
+<p>     &quot;How do airplanes fly?&quot;,</p>
+<p>     &quot;What is quantum computing?&quot;],</p>
+<p>    config={</p>
+<p>        &#x27;max_concurrency&#x27;: 5,  # Limit to 5 parallel calls</p>
+<p>    }</p>
+<p>)</p>
+<p>===========================================================================</p>
+<p>Tools in LangChain</p>
+<p>Tools are pairing of schema, argument, function.</p>
+<p>from langchain.tools import tool</p>
+<p>@tool</p>
+<p>def add_numbers(a: int, b: int) -&gt; int:</p>
+<p>    &quot;&quot;&quot;Add two numbers together.&quot;&quot;&quot;</p>
+<p>    return a + b</p>
+<p>@tool</p>
+<p>   ↓</p>
+<p>LangChain converts Python function</p>
+<p>   ↓</p>
+<p>Tool schema</p>
+<p>   ↓</p>
+<p>LLM can understand:</p>
+<p>   Tool name   → add_numbers</p>
+<p>   Description → Add two numbers together</p>
+<p>   Inputs      → a, b</p>
+<p>The docstring is important because it helps the model understand when and how to use the tool.</p>
+<p>You can directly bind tools to a model:</p>
+<p>model_with_tools = model.bind_tools([add_numbers])</p>
+<p>The model may return a tool call rather than directly calculating the answer.</p>
+<p>response = model_with_tools.invoke(</p>
+<p>    &quot;What is 25 + 35?&quot;</p>
+<p>)</p>
+<p>===========================================================================</p>
+<p>Multiple tools</p>
+<p>from langchain.agents import create_agent</p>
+<p>from langchain.tools import tool</p>
+<p>@tool</p>
+<p>def add(a: int, b: int) -&gt; int:</p>
+<p>    &quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</p>
+<p>    return a + b</p>
+<p>@tool</p>
+<p>def multiply(a: int, b: int) -&gt; int:</p>
+<p>    &quot;&quot;&quot;Multiply two numbers.&quot;&quot;&quot;</p>
+<p>    return a * b</p>
+<p>@tool</p>
+<p>def divide(a: int, b: int) -&gt; float:</p>
+<p>    &quot;&quot;&quot;Divide a by b.&quot;&quot;&quot;</p>
+<p>    return a / b</p>
+<p>agent = create_agent(</p>
+<p>    model=&quot;openai:gpt-5.4&quot;,</p>
+<p>    tools=[add, multiply, divide]</p>
+<p>)</p></body></html>

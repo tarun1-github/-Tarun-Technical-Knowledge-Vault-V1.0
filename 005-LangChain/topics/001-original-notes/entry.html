@@ -1,0 +1,203 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Original Notes</title><meta name="vault-tags" content="agentic,fastapi,imported,langchain,llm,python,rag"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>Original Notes</h1><div><span class="tag">agentic</span> <span class="tag">fastapi</span> <span class="tag">imported</span> <span class="tag">langchain</span> <span class="tag">llm</span> <span class="tag">python</span> <span class="tag">rag</span></div><p>05 — LANGCHAIN FOUNDATIONS + RETRIEVER + PROMPTS</p>
+<p>##############################################################################</p>
+<p>LangChain</p>
+<p>   ↓</p>
+<p>BUILD the application</p>
+<p>LangSmith</p>
+<p>   ↓</p>
+<p>SEE + DEBUG + EVALUATE the application</p>
+<p>====================================================</p>
+<p>Retriever class</p>
+<p>Retriever = the component that searches your knowledge base and returns the most relevant chunks.</p>
+<p>====================================================</p>
+<p>In LangChain, ChatPromptTemplate is used to create a structured prompt for an LLM.</p>
+<p>SYSTEM</p>
+<p>&quot;You are a Cisco troubleshooting assistant.&quot;</p>
+<p>USER</p>
+<p>&quot;Why is my phone unregistered?&quot;</p>
+<p>========================================================</p>
+<p>Scenario :::  Scrape the contents from website. Scraping is the data ingestion part</p>
+<p>from langchain_community.document_loaders import WebBaseLoader</p>
+<p>library beautifulsoup4 - help to scrape the data from website.</p>
+<p>		&gt;&gt; Internally webbaseloader use  beautifulsoup4</p>
+<p>                    WEBSITE</p>
+<p>                       │</p>
+<p>                       ▼</p>
+<p>              ┌─────────────────┐</p>
+<p>              │  Web Scraping   │</p>
+<p>              │ BeautifulSoup   │</p>
+<p>              │   / WebLoader   │</p>
+<p>              └────────┬────────┘</p>
+<p>                       │</p>
+<p>                       ▼</p>
+<p>              Raw Website Content</p>
+<p>                       │</p>
+<p>                       ▼</p>
+<p>              ┌─────────────────┐</p>
+<p>              │ Content Cleaner</p>
+<p>				/ Parse   		│</p>
+<p>              │ HTML → Text     │</p>
+<p>              └────────┬────────┘</p>
+<p>                       │</p>
+<p>                       ▼</p>
+<p>              ┌─────────────────┐</p>
+<p>              │ Document Loader │</p>
+<p>              └────────┬────────┘</p>
+<p>                       │</p>
+<p>                       ▼</p>
+<p>              ┌─────────────────┐</p>
+<p>              │ Text Splitter   │</p>
+<p>              │ Chunking        │</p>
+<p>              └────────┬────────┘</p>
+<p>                       │</p>
+<p>                       ▼</p>
+<p>             ┌──────────────────┐</p>
+<p>             │ Embedding Model  │</p>
+<p>             │ text → vectors   │</p>
+<p>             └────────┬─────────┘</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>             ┌──────────────────┐</p>
+<p>             │ Vector Database  │</p>
+<p>             │ FAISS / Chroma   │</p>
+<p>             └────────┬─────────┘</p>
+<p>                      │</p>
+<p>                 USER QUESTION</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>             ┌──────────────────┐</p>
+<p>             │ Query Embedding  │</p>
+<p>             └────────┬─────────┘</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>             ┌──────────────────┐</p>
+<p>             │ Similarity Search│</p>
+<p>             │    Retriever     │</p>
+<p>             └────────┬─────────┘</p>
+<p>                      │</p>
+<p>                 Top K Chunks</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>             ┌──────────────────┐</p>
+<p>             │ Prompt Template  │</p>
+<p>             │ Context + Query  │</p>
+<p>             └────────┬─────────┘</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>                    LLM</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>                 FINAL ANSWER</p>
+<p>========================================================</p>
+<p>FastAPI is the Python framework for building HTTP APIs,</p>
+<p>while LangServe is a LangChain-specific serving layer that uses FastAPI to expose LangChain chains and Runnables as APIs.</p>
+<p>Your LangChain Code</p>
+<p>       │</p>
+<p>       ▼</p>
+<p>    LangServe</p>
+<p>       │</p>
+<p>       ▼</p>
+<p>     REST API</p>
+<p>       │</p>
+<p> ┌─────┼─────┐</p>
+<p> ▼     ▼     ▼</p>
+<pre><code>Python  Web  Power</code></pre>
+<p>App     App  Automate</p>
+<p>                 YOUR RAG / LLM LOGIC</p>
+<p>                        │</p>
+<p>                        ▼</p>
+<p>                   LangChain</p>
+<p>                        │</p>
+<p>                        ▼</p>
+<p>                    LangServe</p>
+<p>                        │</p>
+<p>                        ▼</p>
+<p>                    FastAPI</p>
+<p>                        │</p>
+<p>                        ▼</p>
+<p>                    HTTP / REST</p>
+<p>                        │</p>
+<p>             ┌──────────┼──────────┐</p>
+<p>             ▼          ▼          ▼</p>
+<p>          Browser    Postman   Power Automate</p>
+<p>LangChain = Build the chain</p>
+<p>LangServe = Serve the chain</p>
+<p>LangSmith = See what the chain is doing</p>
+<p>========================================================</p>
+<p>++ChatPromptTemplate with message history</p>
+<p>MessagesPlaceholder is used with ChatPromptTemplate to dynamically insert a list of previous conversation messages into the prompt, allowing the LLM to maintain conversational context.</p>
+<p>session_id is the key concept that connects a user&#x27;s multiple requests into the same conversation/session</p>
+<p>USER QUESTION</p>
+<p>      │</p>
+<p>      ▼</p>
+<p>Message History</p>
+<p>      │</p>
+<p>      ▼</p>
+<p>ChatPromptTemplate</p>
+<p>      │</p>
+<p>      ├───────────────┐</p>
+<p>      │               │</p>
+<p>      ▼               ▼</p>
+<p>   History         Question</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>                 Retriever</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>                 RAG Context</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>              ChatPromptTemplate</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>                     LLM</p>
+<p>                      │</p>
+<p>                      ▼</p>
+<p>                   Answer</p>
+<p>========================================================</p>
+<p>AI Agent = the individual worker</p>
+<p>User</p>
+<p> ↓</p>
+<p>AI Agent</p>
+<p> ↓</p>
+<p>&quot;Need phone registration status&quot;</p>
+<p> ↓</p>
+<p>Call CUCM API</p>
+<p> ↓</p>
+<p>Analyze response</p>
+<p> ↓</p>
+<p>Tell user:</p>
+<p>&quot;Phone 8841 is registered&quot;</p>
+<p>&#x27;Phone 8841 is registered&#x27;</p>
+<p>Agent 1 — CUCM Agent</p>
+<p>User:</p>
+<p>&quot;Check phone 8841&quot;</p>
+<p>       ↓</p>
+<p>CUCM Agent</p>
+<p>       ↓</p>
+<p>AXL/API</p>
+<p>       ↓</p>
+<p>Get phone status</p>
+<p>       ↓</p>
+<p>Analyze</p>
+<p>       ↓</p>
+<p>Response</p>
+<p>========================================================</p>
+<p>Agentic AI = the overall capability/approach</p>
+<p>Autonomous (independent identity) decision based on real time data and circumstances</p>
+<p>Goal</p>
+<p> ↓</p>
+<p>Planning</p>
+<p> ↓</p>
+<p>Choose tools</p>
+<p> ↓</p>
+<p>Execute</p>
+<p> ↓</p>
+<p>Observe result</p>
+<p> ↓</p>
+<p>Reason</p>
+<p> ↓</p>
+<p>Take next action</p>
+<p> ↓</p>
+<p>Complete goal</p>
+<p>##############################################################################</p></body></html>

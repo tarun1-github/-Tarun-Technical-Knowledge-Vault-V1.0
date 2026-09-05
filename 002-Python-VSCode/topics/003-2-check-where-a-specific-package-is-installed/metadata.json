@@ -1,0 +1,17 @@
+{
+  "id": "002-Python-VSCode-003",
+  "module": "002-Python-VSCode",
+  "title": "2. Check where a specific package is installed",
+  "type": "Imported Topic",
+  "tags": [
+    "git",
+    "github",
+    "imported",
+    "langchain",
+    "python",
+    "python-vscode"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "02",
+  "source_lines": 33
+}

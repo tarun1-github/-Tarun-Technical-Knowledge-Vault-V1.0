@@ -1,0 +1,17 @@
+{
+  "id": "006-LLM-Tools-015",
+  "module": "006-LLM-Tools",
+  "title": "Pydantic",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "langchain",
+    "llm",
+    "llm-tools",
+    "pydantic",
+    "python"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "06",
+  "source_lines": 109
+}

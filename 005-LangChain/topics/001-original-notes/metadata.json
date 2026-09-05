@@ -1,0 +1,18 @@
+{
+  "id": "005-LangChain-001",
+  "module": "005-LangChain",
+  "title": "Original Notes",
+  "type": "Imported Topic",
+  "tags": [
+    "agentic",
+    "fastapi",
+    "imported",
+    "langchain",
+    "llm",
+    "python",
+    "rag"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "05",
+  "source_lines": 222
+}

@@ -1,0 +1,16 @@
+{
+  "id": "004-RAG-002",
+  "module": "004-RAG",
+  "title": "similarity search",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "langchain",
+    "llm",
+    "rag",
+    "testing"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "04",
+  "source_lines": 52
+}

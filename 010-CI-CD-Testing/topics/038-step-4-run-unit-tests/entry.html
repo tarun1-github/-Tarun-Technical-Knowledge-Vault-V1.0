@@ -1,0 +1,191 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Step 4: Run unit tests</title><meta name="vault-tags" content="agentic,ci-cd-testing,docker,fastapi,git,github,imported,langchain,langgraph,python"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>Step 4: Run unit tests</h1><div><span class="tag">agentic</span> <span class="tag">ci-cd-testing</span> <span class="tag">docker</span> <span class="tag">fastapi</span> <span class="tag">git</span> <span class="tag">github</span> <span class="tag">imported</span> <span class="tag">langchain</span> <span class="tag">langgraph</span> <span class="tag">python</span></div><h2>Step 4: Run unit tests</h2>
+<p>      - name: Run tests</p>
+<p>        run: |</p>
+<p>          pytest     ##Now pytest executes your test cases.</p>
+<p>-------------------------------------</p>
+<p>Workflow</p>
+<p>   │</p>
+<p>   ├── Name</p>
+<p>   │</p>
+<p>   ├── Trigger/Event</p>
+<p>   │</p>
+<p>   ├── Jobs</p>
+<p>   │     │</p>
+<p>   │     └── Test</p>
+<p>   │           │</p>
+<p>   │           ├── Runner</p>
+<p>   │           │</p>
+<p>   │           └── Steps</p>
+<p>   │                 ├── Checkout</p>
+<p>   │                 ├── Setup Python</p>
+<p>   │                 ├── Install dependencies</p>
+<p>   │                 └── Run tests</p>
+<p> -------------------------------------</p>
+<p> GitHub Event</p>
+<p>     ↓</p>
+<p>   Trigger</p>
+<p>     ↓</p>
+<p>Workflow</p>
+<p> Common events include:</p>
+<p>push</p>
+<p>pull_request</p>
+<p>merge</p>
+<p>workflow_dispatch</p>
+<p>schedule</p>
+<p>issues</p>
+<p>release</p>
+<p>-------------------------------------</p>
+<p>GitHub</p>
+<p>  ↓</p>
+<p>Runner</p>
+<p>  ↓</p>
+<p>Ubuntu Linux</p>
+<p>  ↓</p>
+<p>Execute your commands</p>
+<p>-------------------------------------</p>
+<p>Use an existing GitHub Action.</p>
+<p>actions/checkout@v4 is a reusable action provided for checking out repository contents.</p>
+<p>GitHub Repository</p>
+<p>       ↓</p>
+<p>actions/checkout</p>
+<p>       ↓</p>
+<p>GitHub Runner</p>
+<p>       ↓</p>
+<p>Your source code</p>
+<p>-------------------------------------</p>
+<p>Developer</p>
+<p>    │</p>
+<p>    │ git push</p>
+<p>    ↓</p>
+<p>GitHub Repository</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>GitHub Event</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>.github/workflows/unittest.yml</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>Workflow triggered</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>Job: test</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>Ubuntu Runner</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>Checkout Code</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>Setup Python</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>Install requirements.txt</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>Run pytest</p>
+<p>    │</p>
+<p>    ↓</p>
+<p>   PASS?</p>
+<p>   /   \</p>
+<p> YES    NO</p>
+<p>  │      │</p>
+<p>  ↓      ↓</p>
+<p>Success  Failure</p>
+<p>  │      │</p>
+<p>  ↓      ↓</p>
+<p>PR can   Developer</p>
+<p>continue fixes code</p>
+<p>         │</p>
+<p>         ↓</p>
+<p>       git push</p>
+<p>         │</p>
+<p>         ↓</p>
+<p>      CI runs again</p>
+<p>-------------------------------------</p>
+<p>But git pull ≠ Pull Request</p>
+<pre><code>git pull origin main</code></pre>
+<p>GitHub</p>
+<p>   ↓</p>
+<p>Your local repository</p>
+<p>-------------------------------------</p>
+<p>A PR is normally used for code review and merging branches.</p>
+<p>A GitHub collaboration process:</p>
+<p>developer</p>
+<p>    ↓</p>
+<p>Pull Request</p>
+<p>    ↓</p>
+<p>main</p>
+<p>-------------------------------------</p>
+<p>Scenario 2 — You edited something directly on GitHub</p>
+<p>GitHub</p>
+<p> ↓</p>
+<p>Edit README</p>
+<p> ↓</p>
+<p>Commit changes</p>
+<p>Now remote has a commit that your PC doesn&#x27;t have.</p>
+<p>-------------------------------------</p>
+<pre><code>git push</code></pre>
+<p>↓</p>
+<p>Local → Remote</p>
+<p>-------------------------------------</p>
+<pre><code>git pull</code></pre>
+<p>↓</p>
+<p>Remote → Local</p>
+<p>-------------------------------------</p>
+<p>Pull Request</p>
+<p>↓</p>
+<p>Request to merge one remote branch into another</p>
+<p>↓</p>
+<p>Usually Code Review + CI</p>
+<p>-------------------------------------</p>
+<pre><code>Docker / Docker Container</code></pre>
+<pre><code>Docker : its way to package your application together with everything it needs to run.</code></pre>
+<pre><code>Docker solves this problem by packaging the application and its runtime environment into a standardized unit.</code></pre>
+<p>its standardize the enviornment (isolation and portability). Build it once and deploy it anywhere.</p>
+<p>A container is a running instance of a Docker image.</p>
+<p>                 DOCKER IMAGE</p>
+<p>              ┌─────────────────┐</p>
+<p>              │ Python           │</p>
+<p>              │ LangChain        │</p>
+<p>              │ LangGraph        │</p>
+<p>              │ FastAPI          │</p>
+<p>              │ Your Agent       │</p>
+<p>              │ Dependencies     │</p>
+<p>              └────────┬────────┘</p>
+<p>                       │</p>
+<p>                    RUN</p>
+<p>                       ↓</p>
+<p>              ┌─────────────────┐</p>
+<p>              │    CONTAINER     │</p>
+<p>              │                  │</p>
+<p>              │   Running Agent  │</p>
+<p>              └─────────────────┘</p>
+<p>Dockerfile</p>
+<p>    ↓</p>
+<pre><code>docker build</code></pre>
+<p>    ↓</p>
+<pre><code>Docker Image ##An image is read-only packaged application content used to create containers.</code></pre>
+<p>    ↓</p>
+<pre><code>docker run</code></pre>
+<p>    ↓</p>
+<pre><code>Docker Container ##A container is a running instance of that image.</code></pre>
+<p>agentic-ai:v1  ##Docker Image</p>
+<p>       │</p>
+<p>       ├── Container 1</p>
+<p>       ├── Container 2</p>
+<p>       └── Container 3</p>
+<p>--------------------------------------------------------------------------</p>
+<p>              Physical Server</p>
+<p>                    │</p>
+<p>              Host Operating System</p>
+<p>                    │</p>
+<p>               Docker Engine</p>
+<p>                    │</p>
+<p>       ┌────────────┼────────────┐</p>
+<p>       ↓            ↓            ↓</p>
+<p>   Container 1  Container 2  Container 3</p>
+<p>       │            │            │</p>
+<p>      App          App          App</p>
+<p>--------------------------------------------------------------------------</p></body></html>

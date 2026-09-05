@@ -1,0 +1,15 @@
+{
+  "id": "014-QBR-Deployment-022",
+  "module": "014-QBR-Deployment",
+  "title": "9. Then we'll test the production container",
+  "type": "Imported Topic",
+  "tags": [
+    "docker",
+    "imported",
+    "python",
+    "qbr-deployment"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "14",
+  "source_lines": 10
+}

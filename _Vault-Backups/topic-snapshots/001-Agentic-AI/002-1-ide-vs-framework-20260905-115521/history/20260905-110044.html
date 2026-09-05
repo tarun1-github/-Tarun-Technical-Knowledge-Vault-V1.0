@@ -1,0 +1,238 @@
+<!doctype html><html><head><meta charset="utf-8"><title>3. IDE for AI development</title><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0;border-radius:6px}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;background:#e8eef7;border-radius:14px;padding:3px 9px;margin:2px;font-size:12px}.diagram{background:#f8fafc;border:1px dashed #94a3b8;padding:14px;white-space:pre-wrap;font-family:monospace}img{max-width:100%;height:auto;border-radius:8px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #cbd5e1;padding:7px}</style></head><body><h1>3. IDE for AI development</h1><div><span class="tag">IDE for AI development</span></div><p class="media-item"></p><p class="media-item" style="font-family: Georgia;"><img src="/files/001-Agentic-AI/topics/002-1-ide-vs-framework/attachments/ChatGPT-Image-Sep-4-2026-04_35_29-PM-2.png" data-tkv-file="attachments/ChatGPT-Image-Sep-4-2026-04_35_29-PM-2.png" alt="ChatGPT Image Sep 4, 2026, 04_35_29 PM.png" title="ChatGPT Image Sep 4, 2026, 04_35_29 PM.png"></p><p class="media-item" style="font-family: Georgia;"></p><p class="media-item" style="font-family: Georgia;"><br></p><p data-start="1524" data-end="1542" class="PDq2pG_selectionAnchorContainer" style="font-family: Georgia;"><strong data-start="1524" data-end="1542"><font color="#16a34a">Integration</font></strong><span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p><p data-start="1544" data-end="1570" style="font-family: Georgia;">Python can easily talk to:</p><p class="media-item" style="font-family: Georgia;">
+
+</p><ul data-start="1572" data-end="1700" style="font-family: Georgia;">
+<li data-section-id="3mxeoj" data-start="1572" data-end="1583">
+REST APIs
+</li>
+<li data-section-id="1o4qo6" data-start="1584" data-end="1589">
+SQL
+</li>
+<li data-section-id="136ts6i" data-start="1590" data-end="1599">
+MongoDB
+</li>
+<li data-section-id="16fhjz1" data-start="1600" data-end="1607">
+files
+</li>
+<li data-section-id="171ry3j" data-start="1608" data-end="1615">
+Excel
+</li>
+<li data-section-id="rkd39z" data-start="1616" data-end="1632">
+cloud services
+</li>
+<li data-section-id="16rabu6" data-start="1633" data-end="1640">
+Linux
+</li>
+<li data-section-id="1u6gra4" data-start="1641" data-end="1649">
+Docker
+</li>
+<li data-section-id="errmfi" data-start="1650" data-end="1660">
+LLM APIs
+</li>
+<li data-section-id="1nlanon" data-start="1661" data-end="1679">
+vector databases
+</li>
+<li data-section-id="16yn9rf" data-start="1680" data-end="1700">
+ent<font color="#000000">erprise syst</font>em</li></ul><div style="font-family: Georgia;"><font face="Georgia">&nbsp;&nbsp;</font></div><div style="font-family: Georgia;"><span style="font-family: Georgia;"><font color="#16a34a">Prototyping speed</font></span><span style="font-family: Georgia;"></span></div><div style="font-family: Georgia;"><span style="font-family: Georgia;">I</span><span style="font-family: Georgia;">dea</span></div><div style="font-family: Georgia;"><font face="Georgia">&nbsp;↓</font></div><div style="font-family: Georgia;"><font face="Georgia">Python prototype</font></div><div style="font-family: Georgia;"><font face="Georgia">&nbsp;↓</font></div><div style="font-family: Georgia;"><font face="Georgia">Test model</font></div><div style="font-family: Georgia;"><font face="Georgia">&nbsp;↓</font></div><div style="font-family: Georgia;"><font face="Georgia">Add API</font></div><div style="font-family: Georgia;"><font face="Georgia">&nbsp;↓</font></div><div style="font-family: Georgia;"><font face="Georgia">Build UI</font></div><div style="font-family: Georgia;"><font face="Georgia">&nbsp;↓</font></div><div style="font-family: Georgia;"><font face="Georgia">Production</font></div><div style="font-family: Georgia;"><font face="Georgia"><br></font></div><div style=""><div style="font-family: Georgia;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Python</div><div style="font-family: Georgia;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│</div><div style="font-family: Georgia;">&nbsp; &nbsp; &nbsp; &nbsp; ┌──────────┴──────────┐</div><div style="font-family: Georgia;">&nbsp; &nbsp; &nbsp; &nbsp; ↓&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;↓</div><div style="font-family: Georgia;">&nbsp; &nbsp;Project A&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Project B</div><div style="font-family: Georgia;">&nbsp; &nbsp;.venv&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .venv</div><div style="font-family: Georgia;">&nbsp; &nbsp;├─ pandas&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├─ pandas</div><div style="font-family: Georgia;">&nbsp; &nbsp;├─ torch&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├─ torch</div><div style="font-family: Georgia;">&nbsp; &nbsp;└─ langchain&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └─ fastapi</div><div style="font-family: Georgia;"><br></div><div style="font-family: Georgia;"><br></div><div style=""><p class="media-item" style="font-family: Georgia;"><img src="/files/001-Agentic-AI/topics/002-1-ide-vs-framework/attachments/ChatGPT-Image-Sep-5-2026-07_50_21-AM.png" data-tkv-file="attachments/ChatGPT-Image-Sep-5-2026-07_50_21-AM.png" alt="ChatGPT Image Sep 5, 2026, 07_50_21 AM.png" title="ChatGPT Image Sep 5, 2026, 07_50_21 AM.png"></p><p class="media-item" style="font-family: Georgia;"></p><div class="commandhead" style="font-family: Georgia;"><b>Which IDE is best ??</b></div><div class="commandhead" style="font-family: Georgia;"><h3 data-section-id="k7srke" data-start="6544" data-end="6555" class="PDq2pG_selectionAnchorContainer">VS Code<span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></h3>
+<p data-start="6557" data-end="6604">My default recommendation for your AI learning.</p>
+<p data-start="6606" data-end="6620">Excellent for:</p>
+<ul data-start="6622" data-end="6725">
+<li data-section-id="2q6buk" data-start="6622" data-end="6630">
+Python
+</li>
+<li data-section-id="1o4hle" data-start="6631" data-end="6636">
+Git
+</li>
+<li data-section-id="1u6gra4" data-start="6637" data-end="6645">
+Docker
+</li>
+<li data-section-id="19pc0xc" data-start="6646" data-end="6655">
+FastAPI
+</li>
+<li data-section-id="pcyo3p" data-start="6656" data-end="6667">
+Streamlit
+</li>
+<li data-section-id="exm5st" data-start="6668" data-end="6677">
+Jupyter
+</li>
+<li data-section-id="1w2f2ay" data-start="6678" data-end="6693">
+AI extensions
+</li>
+<li data-section-id="1crh8gv" data-start="6694" data-end="6705">
+terminals
+</li>
+<li data-section-id="kg531a" data-start="6706" data-end="6725">
+multiple projects</li></ul></div><div class="commandhead" style="font-family: Georgia;"><p class="media-item"><img src="/files/001-Agentic-AI/topics/002-1-ide-vs-framework/attachments/ChatGPT-Image-Sep-5-2026-08_14_14-AM-2.png" data-tkv-file="attachments/ChatGPT-Image-Sep-5-2026-08_14_14-AM-2.png" alt="ChatGPT Image Sep 5, 2026, 08_14_14 AM.png" title="ChatGPT Image Sep 5, 2026, 08_14_14 AM.png"></p></div><div class="commandhead" style="font-family: Georgia;"><br></div><div class="commandhead" style="font-family: Georgia;"><br></div><div class="commandhead" style="font-family: Georgia;">Bash / Linux • Windows — your most useful commands</div><pre style="font-family: Georgia;"><code style=""><font face="Georgia">$ python --version
+
+$ python -m venv .venv
+
+$ .\.venv\Scripts\Activate.ps1
+
+$ python -m pip install --upgrade pip
+
+$ pip install streamlit
+
+$ pip install pandas numpy
+
+$ pip list
+
+$ pip freeze &gt; requirements.txt
+
+$ pip install -r requirements.txt
+
+$ deactivate<br><br>Verify which Python you're using<br></font><span style="background-color: rgba(0, 0, 0, 0); text-align: start; line-height: 26.4px;"><font face="Georgia" style="color: rgb(255, 255, 255); font-family: Georgia; font-size: 16px; font-style: normal; font-weight: 400; text-decoration-line: none;"><br></font><font face="Georgia"><span style="font-size: 16px;">where python
+
+python -c "import sys; print(sys.executable)"
+
+python -m pip --version<br><br>python -m streamlit run app.py</span></font></span><font face="Georgia"></font></code></pre><p style="font-family: Georgia;"></p><div style=""><br></div>⚡ FastAPI + Uvicorn</div><div style=""><br></div><div style=""><h3 data-section-id="1rn2bq6" data-start="9425" data-end="9436" class="PDq2pG_selectionAnchorContainer">FastAPI<span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></h3>
+<p data-start="9438" data-end="9469">Builds the <strong data-start="9449" data-end="9468">API application</strong>.</p><p data-start="9438" data-end="9469"></p><p></p><p></p><div class="codebox"><div class="codelabel">Fastapi • Python <button class="copycode" type="button" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy</button></div><pre><code><span class="comment">##FastAPI : Builds the API application</span>
+
+<span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI
+
+app = FastAPI()
+
+@app.get(<span class="str">"/"</span>)
+<span class="kw">def</span> home():
+    <span class="kw">return</span> {<span class="str">"message"</span>: <span class="str">"Hello AI"</span>}
+
+<span class="comment">#Uvicorn :Runs the application as an ASGI server</span>
+
+uvicorn main:app --reload
+
+main.py
+   │
+   └── app
+        ↓
+     Uvicorn
+        ↓
+   HTTP Server
+        ↓
+     Client
+
+
+pip install fastapi uvicorn
+
+uvicorn main:app --reload
+
+uvicorn main:app --host <span class="num">0.0.0.0</span> --port <span class="num">8000</span>
+
+uvicorn main:app --reload --port <span class="num">9000</span></code></pre></div><p data-start="9438" data-end="9469"></p><p></p><p></p><p style="font-family: Georgia;"></p><p class="media-item" style="font-family: Georgia;"></p><p></p><p></p><div class="codebox"><div class="codelabel">For a new AI project: • Python <button class="copycode" type="button" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy</button></div><pre><code>mkdir My-AI-Project
+
+<span class="kw">cd</span> My-AI-Project
+
+python -m venv .venv
+
+.\.venv\Scripts\Activate.ps1
+
+python -m pip install --upgrade pip
+
+pip install pandas numpy
+
+pip freeze &gt; requirements.txt
+
+code .
+
+pip list
+
+python --version
+python --help
+<span class="kw">where</span> python
+python script.py
+
+<span class="comment">#Environment</span>
+
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+deactivate
+
+
+
+</code></pre></div><p class="media-item"><img src="/files/001-Agentic-AI/topics/002-1-ide-vs-framework/attachments/ChatGPT-Image-Sep-5-2026-08_21_35-AM.png" data-tkv-file="attachments/ChatGPT-Image-Sep-5-2026-08_21_35-AM.png" alt="ChatGPT Image Sep 5, 2026, 08_21_35 AM.png" title="ChatGPT Image Sep 5, 2026, 08_21_35 AM.png"></p><p class="media-item" style="font-family: Georgia;"><b><font color="#16a34a"><span style="font-family: Georgia;"><br></span></font></b></p><p class="media-item"><img src="/files/001-Agentic-AI/topics/002-1-ide-vs-framework/attachments/ChatGPT-Image-Sep-5-2026-08_31_05-AM.png" data-tkv-file="attachments/ChatGPT-Image-Sep-5-2026-08_31_05-AM.png" alt="ChatGPT Image Sep 5, 2026, 08_31_05 AM.png" title="ChatGPT Image Sep 5, 2026, 08_31_05 AM.png"></p><p class="media-item" style="font-family: Georgia;"></p><p></p><p></p><div class="codebox"><div class="codelabel">Packages • Python <button class="copycode" type="button" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy</button></div><pre><code>python -m pip install package
+python -m pip uninstall package
+python -m pip list
+python -m pip freeze
+python -m pip freeze &gt; requirements.txt
+python -m pip install -r requirements.txt
+python -m pip <span class="kw">show</span> package</code></pre></div><p class="media-item" style="font-family: Georgia;"><b><font color="#16a34a"><span style="font-family: Georgia;"><br></span></font></b></p><p class="media-item" style="font-family: Georgia;"></p><p></p><p></p><div class="codebox"><div class="codelabel">Git • Python <button class="copycode" type="button" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy</button></div><pre><code><span class="kw">git</span> status
+<span class="kw">git</span> add .
+<span class="kw">git</span> commit -m <span class="str">"message"</span>
+<span class="kw">git</span> pull
+<span class="kw">git</span> push
+<span class="kw">git</span> branch
+<span class="kw">git</span> checkout -b feature-name</code></pre></div><p class="media-item" style="font-family: Georgia;"></p><p></p><p></p><div class="codebox"><div class="codelabel">Streamlit • Python <button class="copycode" type="button" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy</button></div><pre><code>streamlit run app.py
+
+python -m streamlit run app.py
+
+streamlit version
+
+streamlit hello
+
+<span class="comment">#FastAPI/Uvicorn</span>
+
+uvicorn main:app --reload
+
+uvicorn main:app --port <span class="num">8000</span>
+
+uvicorn main:app --host <span class="num">0.0.0.0</span> --port <span class="num">8000</span></code></pre></div><p class="media-item" style="font-family: Georgia;"><b><font color="#16a34a"><span style="font-family: Georgia;"><br></span></font></b></p><p class="media-item" style="font-family: Georgia;"></p><p></p><p></p><div class="codebox"><div class="codelabel">🧠 Your Python-for-AI Mental Model • Python <button class="copycode" type="button" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy</button></div><pre><code>                 🐍 PYTHON
+                     │
+       ┌─────────────┼──────────────┐
+       ↓             ↓              ↓
+     DATA           ML             AI
+       │             │              │
+ NumPy/Pandas   Scikit-learn     PyTorch
+                                  │
+                                  ↓
+                            Transformers
+                                  │
+                                  ↓
+                               GenAI
+                                  │
+                    ┌─────────────┴────────────┐
+                    ↓                          ↓
+                   RAG                       AGENTS
+                    │                          │
+             LlamaIndex                    LangGraph
+             LangChain                     LangChain
+                    │                          │
+                    └─────────────┬────────────┘
+                                  ↓
+                              FastAPI
+                                  │
+                              Uvicorn
+                                  │
+                         ┌────────┴────────┐
+                         ↓                 ↓
+                    Streamlit          Production
+                         │
+                         ↓
+                       USER</code></pre></div><p class="media-item" style="font-family: Georgia;"><b><font color="#16a34a"><span style="font-family: Georgia;">UV</span></font></b></p><p class="media-item" style="font-family: Georgia;"></p><p class="media-item" style="font-family: Georgia;">pip + venv</p><p class="media-item" style="font-family: Georgia;">&nbsp; &nbsp; &nbsp; ↓</p><p class="media-item" style="font-family: Georgia;">traditional Python workflow</p><p class="media-item" style="font-family: Georgia;">-----------------------------------------------</p><p class="media-item" style="font-family: Georgia;">&nbsp; &nbsp; &nbsp;uv</p><p class="media-item" style="font-family: Georgia;">&nbsp; &nbsp; &nbsp; ↓</p><p class="media-item" style="font-family: Georgia;">modern fast Python project/package/environment workflow</p><p class="media-item" style="font-family: Georgia;"><font face="Georgia">venv → understand Python environments</font></p><p class="media-item" style="font-family: Georgia;"><span style="font-family: Georgia;">uv&nbsp; &nbsp;→ modern project/dependency workflow</span></p><p class="media-item" style="font-family: Georgia;"><font face="Georgia">conda → useful for data science/GPU/scientific environments</font></p><p class="media-item" style="font-family: Georgia;"></p><p style="font-family: Georgia;"></p><p style="font-family: Georgia;"></p><div class="codebox" style="font-family: Georgia;"><div class="codelabel">🚀 <code data-start="4554" data-end="4558"><span style="font-family: Georgia; font-size: 16px; font-weight: 400; font-style: normal; text-decoration: none; color: rgb(22, 163, 74); background-color: rgba(0, 0, 0, 0); text-align: start; line-height: 26.4px;">uv</span>&nbsp;</code><font color="#16a34a"><span style="font-family: Verdana;"><span style="font-family: Georgia;">UV Workflow • PowerShell <button class="copycode" type="button" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy</button></span></span><button class="copycode" type="button" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)"></button></font></div><pre><code>uv init my-ai-project
+
+<span class="kw">cd</span> my-ai-project
+
+uv venv
+
+uv add pandas
+
+uv add streamlit
+
+uv add fastapi
+
+uv add openai
+
+uv run python app.py</code></pre></div><p class="media-item" style="font-family: Georgia;">🌐 <span style="font-family: Georgia; font-size: 16px; font-weight: 400; font-style: normal; text-decoration: none; color: rgb(22, 163, 74); background-color: rgba(0, 0, 0, 0); text-align: start; line-height: 26.4px;">Streamlit</span></p><p class="media-item" style="font-family: Georgia;"><span style="font-family: Georgia; font-size: 16px; font-weight: 400; font-style: normal; text-decoration: none; color: rgb(23, 32, 42); background-color: rgba(0, 0, 0, 0); text-align: start; line-height: 26.4px;">Streamlit = easiest way to turn Python into a web application.</span></p><p class="media-item" style="font-family: Georgia;">app.py • Python <button class="copycode" type="button">Copy</button></p><div class="codebox" style="font-family: Georgia;"><pre><code><span class="kw">import</span> streamlit <span class="kw">as</span> st
+
+st.title(<span class="str">"My AI Application"</span>)
+
+name = st.text_input(<span class="str">"Enter your name"</span>)
+
+<span class="kw">if</span> name:
+    st.write(f<span class="str">"Hello {name}!"</span>)</code></pre></div><p class="media-item" style="font-family: Georgia;">PowerShell</p><p class="media-item" style=""></p><pre style=""><code style=""><font face="Georgia">$ streamlit run app.py<br></font><span style="font-family: Arial;"><span style="font-family: Georgia;"><font face="Georgia"><br></font>$ python -m streamlit run app.py<font face="Georgia"><br></font></span></span><font face="Georgia"><br></font></code></pre><p style="font-family: Georgia;"></p><p></p><p class="media-item" style="font-family: Georgia;">🐍<span style="background-color: rgba(0, 0, 0, 0); font-size: 16px; color: rgb(22, 163, 74); line-height: 26.4px;"> Anaconda</span></p><p class="media-item" style="font-family: Georgia;"><span style="font-family: Georgia; font-size: 16px; font-weight: 400; font-style: normal; text-decoration: none; color: rgb(22, 163, 74); background-color: rgba(0, 0, 0, 0); text-align: start; line-height: 26.4px;">Anaconda is more than just another Python installation.</span></p><p class="media-item" style="font-family: Georgia;"><font color="#16a34a" face="Georgia"></font></p><span style="font-family: Georgia; font-size: 16px; font-weight: 400; font-style: normal; text-decoration: none; color: rgb(23, 32, 42); background-color: rgba(0, 0, 0, 0); text-align: start; line-height: 26.4px;"><p class="media-item"><font color="#16a34a" face="Georgia">Python</font></p><p class="media-item"><font color="#16a34a" face="Georgia">+</font></p><p class="media-item"><font color="#16a34a" face="Georgia">Package management</font></p><p class="media-item"><font color="#16a34a" face="Georgia">+</font></p><p class="media-item"><font color="#16a34a" face="Georgia">Environment management</font></p><p class="media-item"><font color="#16a34a" face="Georgia">+</font></p><p class="media-item"><font color="#16a34a" face="Georgia">Scientific/AI packages</font></p><p class="media-item"><font color="#16a34a" face="Georgia">+</font></p><p class="media-item"><font color="#16a34a" face="Georgia">Jupyter</font></p><p class="media-item"><font color="#16a34a" face="Georgia">+</font></p><p class="media-item"><font color="#16a34a" face="Georgia"><span style="background-color: rgba(0, 0, 0, 0); line-height: 26.4px;"></span></font></p><p class="media-item"><font color="#16a34a" face="Georgia">Data-science ecosystem</font></p><p class="media-item"></p><p></p><p></p><div class="codebox"><div class="codelabel">Conda • PowerShell <button class="copycode" type="button" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy</button></div><pre><code>conda <span class="kw">create</span> -n ai_env python=<span class="num">3.12</span>
+
+conda activate ai_env
+
+conda install numpy pandas
+
+pip install streamlit
+
+conda env list
+
+conda deactivate</code></pre></div></span></div></div><div><div style=""><p class="media-item"><font color="#16a34a" face="Georgia"></font></p><p class="media-item" style="font-family: Georgia;"></p><p></p><p></p><p class="media-item"></p></div></div></body></html>

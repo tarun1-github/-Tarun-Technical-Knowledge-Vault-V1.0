@@ -1,0 +1,20 @@
+{
+  "id": "002-Python-VSCode-001",
+  "module": "002-Python-VSCode",
+  "title": "02 \u2014 PYTHON + VS CODE + JUPYTER + ENVIRONMENT SETUP",
+  "type": "Imported Topic",
+  "tags": [
+    "agentic",
+    "docker",
+    "git",
+    "imported",
+    "jupyter",
+    "ollama",
+    "python",
+    "python-vscode",
+    "vscode"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "02",
+  "source_lines": 94
+}

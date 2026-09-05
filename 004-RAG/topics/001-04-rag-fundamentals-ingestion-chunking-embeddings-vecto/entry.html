@@ -1,0 +1,131 @@
+<!doctype html><html><head><meta charset="utf-8"><title>04 — RAG FUNDAMENTALS: INGESTION → CHUNKING → EMBEDDINGS → VECTOR DB</title><meta name="vault-tags" content="imported,jupyter,langchain,llm,ollama,python,rag"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>04 — RAG FUNDAMENTALS: INGESTION → CHUNKING → EMBEDDINGS → VECTOR DB</h1><div><span class="tag">imported</span> <span class="tag">jupyter</span> <span class="tag">langchain</span> <span class="tag">llm</span> <span class="tag">ollama</span> <span class="tag">python</span> <span class="tag">rag</span></div><p>04 — RAG FUNDAMENTALS: INGESTION → CHUNKING → EMBEDDINGS → VECTOR DB</p>
+<p>##############################################################################</p>
+<p>LANGCHAIN_API_KEY=[REDACTED]</p>
+<p>python-dotenv package : Import all above key value pair in py or jupyter file</p>
+<p> ##create venev</p>
+<p> conda create -p venv python=3.14 -y</p>
+<p>++RAG : retrieval augmented generation</p>
+<p>LLM have limitation w.r.t context size (constraint)</p>
+<p>- Load the data sets (data sources - pdf/image/json/video/url/doc/db) called data ingestion</p>
+<p>- spilt data to small text/document chunks called data transformation</p>
+<p>- Embed : Text conversion to vectors (alogarithm for similarity checks) Text embedding techniques (LLM have thier own techniques)</p>
+<p>- Store vector data into vectore store DB (FAISS, Chroma DB, Astra DB)</p>
+<p>user query --&gt;&gt; Query to Vector DB for context info (Document stuff load chain--&gt;retireval chain) - interface responsbile to query vector store DB and gets context info and combine with prompt)) --&gt;&gt; passing it to LLM to answer.</p>
+<p>###data ingestion with document loader (in langchain)</p>
+<p>https://docs.langchain.com/oss/python/integrations/document_loaders</p>
+<p>https://docs.langchain.com/oss/python/langchain/overview</p>
+<p>##Data Transformation####</p>
+<p>text spliting from documents</p>
+<p>text spliting by Character   or by single character</p>
+<p>		OR</p>
+<p>Character text splitter</p>
+<p>HTMLHeaderTextSplitter is a &quot;structure-aware&quot; chunker that splits text at the HTML element level and adds metadata for each header &quot;relevant&quot; to any given chunk.</p>
+<p>=======================================================</p>
+<p>LangChain&#x27;s text splitter that splits text based on characters&quot; means breaking a large piece of text into smaller pieces (chunks), using characters as the measurement.</p>
+<p>Suppose you have:</p>
+<p>LangChain is a framework for building AI applications.</p>
+<p>It helps us work with documents and language models.</p>
+<p>Imagine we want chunks of approximately 30 characters.</p>
+<p>The text splitter might divide it into smaller chunks like:</p>
+<p>Chunk 1:</p>
+<p>&quot;LangChain is a framework for&quot;</p>
+<p>Chunk 2:</p>
+<p>&quot;building AI applications.&quot;</p>
+<p>Chunk 3:</p>
+<p>&quot;It helps us work with&quot;</p>
+<p>Chunk 4:</p>
+<p>&quot;documents and language models.&quot;</p>
+<p>&#x27;documents and language models.&#x27;</p>
+<p>=======================================================</p>
+<p>(Text--&gt;vectors)</p>
+<p>OpenAI Embedding  &gt;&gt; PAID</p>
+<pre><code>Ollama --&gt; Opensource</code></pre>
+<p>huggingface --&gt; opensource</p>
+<p>======================================</p>
+<p>Embedding</p>
+<p>OpenAI&#x27;s text-embedding-3-large takes text as input and converts it into a list of numbers.</p>
+<p>&quot;How do I troubleshoot a Cisco phone?&quot;</p>
+<p>                 ↓</p>
+<p>       text-embedding-3-large</p>
+<p>                 ↓</p>
+<p>[0.021, -0.034, 0.087, 0.112, ...]</p>
+<p>======================================</p>
+<p>That list of numbers is called an embedding/vector.</p>
+<p>OpenAI&#x27;s text-embedding-3-large can produce embeddings with up to 3072 dimensions.</p>
+<p>A vector of 3072 dimensions means that one piece of text is represented as a list of 3,072 numerical values</p>
+<p>3072 dimensions ≠ 3072 words or 3072 pieces of information.</p>
+<p>It simply means the numerical representation has 3,072 coordinates.That&#x27;s a 2-dimensional vector.</p>
+<p>Text → [3072 numbers]</p>
+<p>##Your vector database needs to create a field that expects:</p>
+<p>Vector field</p>
+<p>├── Dimension 1</p>
+<p>├── Dimension 2</p>
+<p>├── Dimension 3</p>
+<p>├── ...</p>
+<p>└── Dimension 3072</p>
+<p>##If you&#x27;re using an embedding model that produces 3072 dimensions:</p>
+<p>Embedding Model</p>
+<p>      │</p>
+<p>      │ &quot;Cisco phone registration issue&quot;</p>
+<p>      ▼</p>
+<p>[0.021, -0.034, 0.087, ... 0.015]</p>
+<p>      │</p>
+<p>      │ 3072 numbers</p>
+<p>      ▼</p>
+<p>Vector Database</p>
+<p>      │</p>
+<p>      └── vector field: dimension = 3072</p>
+<p>###Then when you perform a search:</p>
+<p>User question</p>
+<p>     ↓</p>
+<p>Embedding model</p>
+<p>     ↓</p>
+<p>3072-dimensional vector</p>
+<p>     ↓</p>
+<p>Vector DB</p>
+<p>     ↓</p>
+<p>Compare against stored 3072-dimensional vectors</p>
+<p>     ↓</p>
+<p>Similarity score</p>
+<p>###Vector Embedding and vector store  DB (Chroma)</p>
+<p>The rule to remember</p>
+<p>Embedding model dimension = Vector database field dimension</p>
+<p>❌ What happens if dimensions don&#x27;t match?</p>
+<p>Suppose your database is configured: dimension = 1536</p>
+<p>but your embedding model produces: dimension = 3072</p>
+<p>You can&#x27;t directly store/search that vector.</p>
+<p>You&#x27;d effectively be trying to put: [3072 values]</p>
+<p>into a container designed for: [1536 values]</p>
+<p>The vector database will normally return a dimension mismatch/error.</p>
+<p>================================================================</p>
+<pre><code>Ollama : open source runtime LLM</code></pre>
+<p>gemma4 : 12b (Size of the language model)</p>
+<p>   │       │</p>
+<p>   │       └── 12 billion parameters (Parameters are the learned numerical values inside the neural network.)</p>
+<p>   │</p>
+<p>   └────────── Model family/version</p>
+<p>##12B as the number of learned parameters inside the AI model.However, the parameters do require memory.</p>
+<p>================================================================</p>
+<p>HuggingFace LLM (Open Source)</p>
+<p>Create API Key</p>
+<p>================================================================</p>
+<p>RAG loads documents, splits them into manageable chunks, converts those chunks into embeddings, stores them in a vector database, retrieves the most relevant chunks for a user&#x27;s query, and passes that context to an LLM to generate a grounded answer.</p>
+<p>📄 PDF</p>
+<p> ↓</p>
+<p>📥 Loader</p>
+<p> ↓</p>
+<p>✂️ Split into Chunks</p>
+<p> ↓</p>
+<p>🔢 Embedding</p>
+<p> ↓</p>
+<p>🗄️ Vector DB</p>
+<p> ↓</p>
+<p>🔎 Similarity Search</p>
+<p> ↓</p>
+<p>📚 Relevant Context</p>
+<p> ↓</p>
+<p>🤖 LLM</p>
+<p> ↓</p>
+<p>💬 Answer</p>
+<p>================================================================</p>
+<p>FAISS : Facebook AI similarity search its library for similarity search</p></body></html>

@@ -1,0 +1,750 @@
+
+
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tarun Technical Knowledge Vault V12.8.3 FINAL</title>
+<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#f4f7fb;color:#17202a}.top{background:#111827;color:#fff;padding:13px 20px;display:flex;gap:14px;align-items:center}.top h1{margin:0;font-size:20px}.layout{display:grid;grid-template-columns:290px 1fr;min-height:calc(100vh - 58px)}aside{background:#fff;border-right:1px solid #ddd;padding:15px}main{padding:20px;max-width:1250px;width:100%}input,select,textarea{width:100%;padding:10px;margin:5px 0 12px;border:1px solid #cbd5e1;border-radius:8px}button{border:0;border-radius:8px;padding:9px 12px;cursor:pointer;background:#eef2f7}.card{background:#fff;border:1px solid #e1e6ec;border-radius:12px;padding:16px;margin:10px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{background:#fff;border:1px solid #e1e6ec;border-radius:12px;padding:14px}.stat b{font-size:24px}.muted{color:#64748b;font-size:13px}.chip{display:inline-block;background:#e8eef7;border-radius:14px;padding:3px 8px;margin:2px;font-size:12px}.toolbar{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0}.editor{min-height:520px;background:#fff;border:1px solid #cbd5e1;border-radius:10px;padding:18px;outline:none;line-height:1.65}.editor:focus{border-color:#64748b}.editor pre{background:#111827;color:#fff;padding:14px;border-radius:8px;white-space:pre-wrap}.editor img{max-width:100%;height:auto;border-radius:8px}.selectable{outline:2px solid #2563eb!important;outline-offset:3px}.editor img{cursor:pointer}.editor a[data-tkv-file]{display:inline-block;padding:7px 10px;background:#eef2f7;border:1px solid #cbd5e1;border-radius:7px}.commandbox{background:#050914;color:#f8fafc;border:1px solid #1e293b;border-radius:10px;overflow:hidden;margin:14px 0;box-shadow:0 3px 12px rgba(0,0,0,.15)}.commandbox pre{background:#050914!important;color:#f8fafc!important;font-family:"Cascadia Mono","Consolas","Courier New",monospace;font-size:14px;line-height:1.6;padding:16px;margin:0;white-space:pre-wrap}.commandbox .kw{color:#60a5fa}.commandbox .str{color:#86efac}.commandbox .num{color:#fbbf24}.commandbox .comment{color:#94a3b8}.commandbox .commandhead{background:#172033;color:#93c5fd;padding:8px 12px;font-weight:700;font-size:12px}.commandbox pre{margin:0;background:#0b1020;color:#f8fafc}#backupVault{background:#e0f2fe;color:#075985;font-weight:800}.deletebtn{background:#fee2e2!important;color:#991b1b!important}.drop.drag{background:#e0f2fe;border-color:#2563eb}.drop{user-select:none}.editor table{border-collapse:collapse;width:100%}.editor td,.editor th{border:1px solid #cbd5e1;padding:7px}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.diagram{background:#f8fafc;border:1px dashed #94a3b8;padding:14px;white-space:pre-wrap;font-family:monospace}.hidden{display:none}.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:20px;z-index:20}.modalbox{background:#fff;border-radius:12px;padding:20px;max-width:800px;width:100%}.modalbox label{display:block;font-weight:600;margin-top:8px}.modalbox input,.modalbox textarea{margin-bottom:12px}.drop{border:2px dashed #94a3b8;padding:14px;text-align:center;border-radius:9px;margin:8px 0}.drag{border-style:solid}@media(max-width:850px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}aside{border-right:0;border-bottom:1px solid #ddd}}
+/* V12.8.3 editor fixes: diagram/mental-diagram whitespace and Format Brush */
+.diagram-editor{font-family:Consolas,"Cascadia Mono","Courier New",monospace!important;font-size:14px;line-height:1.5;white-space:pre!important;tab-size:4;overflow-x:auto;overflow-y:auto;word-wrap:normal!important;overflow-wrap:normal!important;}
+.diagram{overflow-x:auto;}
+.format-btn.active{background:#fff3cd!important;color:#92400e!important;outline:2px solid #f59e0b;font-weight:800;}
+</style><style id="tkvMetricColors">
+.tkv-color-metric:nth-child(1){background:linear-gradient(135deg,#eff6ff,#dbeafe);border-top:5px solid #2563eb}
+.tkv-color-metric:nth-child(2){background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-top:5px solid #16a34a}
+.tkv-color-metric:nth-child(3){background:linear-gradient(135deg,#fff7ed,#fed7aa);border-top:5px solid #f97316}
+.tkv-color-metric:nth-child(4){background:linear-gradient(135deg,#faf5ff,#e9d5ff);border-top:5px solid #9333ea}
+.tkv-color-metric{transition:transform .15s ease,box-shadow .15s ease}
+.tkv-color-metric:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,.08)}
+</style>
+<style id="tkvEditorLayoutV1282">
+/* V12.8.2: editor uses the full available browser width */
+html,body{width:100%;min-height:100%;margin:0}
+body{overflow-x:hidden}
+.layout{display:grid;grid-template-columns:300px minmax(0,1fr);min-height:calc(100vh - 48px);width:100%}
+.layout>aside{width:auto;min-width:0;position:sticky;top:0;height:calc(100vh - 48px);overflow-y:auto;overflow-x:hidden;padding:14px 12px;box-sizing:border-box;background:#fff;border-right:1px solid #dbe2ea}
+.layout>main{min-width:0;width:100%;box-sizing:border-box;padding:16px 22px 40px}
+.editor{width:100%;box-sizing:border-box;min-height:calc(100vh - 310px);max-width:none}
+#drop{width:100%;box-sizing:border-box;min-height:58px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.tkv-editor-tools{margin-top:12px;padding-top:10px;border-top:1px solid #dbe2ea}
+.tkv-primary-tools{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 10px}
+.tkv-primary-tools button{font-weight:800;border:0;border-radius:8px;padding:9px 7px;cursor:pointer}
+.tkv-primary-tools #code{background:#111827;color:#fff}
+.tkv-primary-tools #diagram{background:#ede9fe;color:#5b21b6}
+.tkv-primary-tools #imageBtn{background:#dbeafe;color:#1d4ed8}
+.tkv-primary-tools #fileBtn{background:#dcfce7;color:#166534}
+.tkv-format-label{font-size:12px;font-weight:800;color:#475569;margin:7px 0 4px}
+.tkv-editor-tools .toolbar{display:flex;flex-direction:column;align-items:stretch;gap:5px;margin:0}
+.tkv-editor-tools .toolbar>select,.tkv-editor-tools .toolbar>button{width:100%;box-sizing:border-box;min-height:34px}
+.tkv-editor-tools .toolbar>button{text-align:left}
+.tkv-editor-tools .toolbar>select{padding:7px 8px;border:1px solid #cbd5e1;border-radius:7px;background:#fff}
+ .tkv-editor-tools .toolbar #newLine{background:#e0f2fe;color:#075985;font-weight:800}
+.tkv-editor-tools .toolbar #code,
+.tkv-editor-tools .toolbar #diagram,
+.tkv-editor-tools .toolbar #imageBtn,
+.tkv-editor-tools .toolbar #fileBtn{display:none}
+.tkv-tool-heading{font-size:15px;font-weight:800;margin-bottom:8px}
+@media(max-width:900px){
+  .layout{grid-template-columns:230px minmax(0,1fr)}
+  .layout>main{padding:12px}
+}
+@media(max-width:700px){
+  .layout{grid-template-columns:1fr}
+  .layout>aside{position:relative;height:auto;border-right:0;border-bottom:1px solid #dbe2ea}
+  .tkv-primary-tools{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+
+<style id="tkvPrimaryToolsV1283">
+.tkv-primary-tools{display:grid!important;grid-template-columns:1fr 1fr!important;gap:7px!important}
+.tkv-primary-tools button{display:block!important;width:100%!important;min-height:38px!important;cursor:pointer!important}
+.tkv-primary-tools #command{background:#dcfce7!important;color:#166534!important}
+.tkv-primary-tools #code{background:#111827!important;color:#fff!important}
+.tkv-primary-tools #diagram{background:#ede9fe!important;color:#5b21b6!important}
+.tkv-primary-tools #imageBtn{background:#dbeafe!important;color:#1d4ed8!important}
+.tkv-primary-tools #fileBtn{background:#dcfce7!important;color:#166534!important}
+.tkv-primary-tools button:hover{filter:brightness(.96);transform:translateY(-1px)}
+</style>
+
+<style id="tkvTimestampV1">
+.tkv-updated{
+  display:inline-block;
+  margin:7px 0 10px;
+  padding:5px 9px;
+  border-radius:8px;
+  background:#f1f5f9;
+  color:#475569;
+  font-size:12px;
+}
+#refreshVault,#refreshEditor{
+  cursor:pointer;
+}
+</style>
+</head><body>
+<div class="top"><h1>📚 Tarun Technical Knowledge Vault V1.0</h1><span id="status">Connecting...</span></div><div class="layout"><aside><b>Search</b><input id="q" placeholder="Python, RAG, CUCM, Docker..."><b>Module</b><select id="mod"><option value="">All modules</option></select><b>Tag</b><input id="tag" placeholder="Tag filter"><button id="new">＋ New Knowledge</button> <button id="favorites">⭐ Favorites</button> <button id="refreshVault" title="Reload the Vault index">🔄 Refresh</button> <button id="renameModule" title="Rename selected module">✏️ Rename Module</button> <button id="deleteModule" class="deletebtn" title="Delete selected module">🗑 Delete Module</button> <button id="backupVault" title="Create a full ZIP backup of the Vault">💾 Backup Vault</button><span id="vaultServerStatus" class="muted" style="margin-left:8px;font-size:11px">Server: checking…</span><hr><b>Editor</b><p class="muted">Open a topic and continuously enhance it. Your files remain ordinary HTML/Markdown/attachments.</p></aside><main id="main"></main></div>
+
+<script>
+"use strict";let E=[],R=[],editing=null;let F={};try{F=JSON.parse(localStorage.getItem("tkv10-fav")||"{}");if(!F||typeof F!=="object")F={};}catch(_){F={};localStorage.removeItem("tkv10-fav");}const $=id=>document.getElementById(id);const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+async function api(u,o){
+  let r;
+  try{
+    r=await fetch(u,o);
+  }catch(e){
+    throw Error("Cannot reach Vault server. Make sure server.py is running on http://127.0.0.1:8000/.");
+  }
+  const text=await r.text();
+  let j;
+  try{j=JSON.parse(text)}catch(_){
+    throw Error("Server returned non-JSON (HTTP "+r.status+"). Check/restart server.py.");
+  }
+  if(!r.ok||j.error)throw Error(j.error||("HTTP "+r.status));
+  return j;
+}
+
+async function load(){
+  try{
+    const j=await api("/api/index?v=12.8.3-final");
+    E=j.entries||[];
+    $("status").textContent="Ready • "+E.length+" topics";
+    $("mod").innerHTML='<option value="">All modules</option>'+
+      [...new Set(E.map(e=>e.module))].sort().map(m=>"<option>"+esc(m)+"</option>").join("");
+    render();
+    const s=$("vaultServerStatus");
+    if(s){s.textContent="Server: connected";s.style.color="#15803d";}
+  }catch(e){
+    $("status").textContent="Connection error";
+    $("main").innerHTML='<div class="card"><b>Vault could not load.</b><p>'+esc(e.message)+'</p><button type="button" onclick="load()">🔄 Retry</button></div>';
+    const s=$("vaultServerStatus");
+    if(s){s.textContent="Server: error";s.style.color="#b91c1c";}
+  }
+}
+function get(){
+  const q=$("q").value.trim().toLowerCase(),m=$("mod").value,t=$("tag").value.trim().toLowerCase();
+  return E.filter(e=>
+    (!m||e.module===m)&&
+    (!t||e.tags.join(" ").toLowerCase().includes(t))&&
+    (!q||(e.title+" "+e.module+" "+e.tags.join(" ")+" "+e.text).toLowerCase().includes(q))
+  );
+}
+
+function formatUpdatedAt(value){
+  if(!value)return "Not saved yet";
+  const d=new Date(value);
+  if(Number.isNaN(d.getTime()))return String(value);
+  return d.toLocaleString(undefined,{
+    year:"numeric",month:"short",day:"2-digit",
+    hour:"2-digit",minute:"2-digit",second:"2-digit"
+  });
+}
+function updatedBadge(value){
+  return '<div class="tkv-updated">🕒 Last modified: <b>'+esc(formatUpdatedAt(value))+'</b></div>';
+}
+
+function render(){R=get();let h='<div class="stats"><div class="stat tkv-color-metric"><b>'+E.length+'</b><div>Topics</div></div><div class="stat tkv-color-metric"><b>'+new Set(E.map(e=>e.module)).size+'</b><div>Modules</div></div><div class="stat tkv-color-metric"><b>'+Object.values(F).filter(Boolean).length+'</b><div>Favorites</div></div><div class="stat tkv-color-metric"><b>'+R.length+'</b><div>Results</div></div></div>';h+=R.slice(0,100).map((e,i)=>'<div class="card"><h3>'+esc(e.title)+(F[e.id]?" ⭐":"")+'</h3><div class="muted">'+esc(e.module)+'</div><div>'+e.tags.map(t=>'<span class="chip">'+esc(t)+'</span>').join("")+'</div>'+updatedBadge(e.updated_at)+'<button data-open="'+i+'">Open / Edit</button> <button data-rename="'+i+'">✏️ Rename</button> <button data-delete-topic="'+i+'" class="deletebtn">🗑 Delete</button> <button data-fav="'+i+'">'+(F[e.id]?"Unfavorite":"Favorite")+"</button></div>").join("");$("main").innerHTML=h;
+document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openTopic(+b.dataset.open));
+document.querySelectorAll("[data-rename]").forEach(b=>b.onclick=ev=>{ev.preventDefault();ev.stopPropagation();renameTopic(+b.dataset.rename)});
+document.querySelectorAll("[data-delete-topic]").forEach(b=>b.onclick=ev=>{ev.preventDefault();ev.stopPropagation();deleteTopic(+b.dataset.deleteTopic)});
+document.querySelectorAll("[data-fav]").forEach(b=>b.onclick=()=>fav(+b.dataset.fav))
+}
+
+function normalizeImageUrls(body,module,folder){
+  const base="/files/"+encodeURIComponent(module)+"/topics/"+encodeURIComponent(folder)+"/attachments/";
+  const box=document.createElement("div");
+  box.innerHTML=body||"";
+  box.querySelectorAll("img[src]").forEach(img=>{
+    const s=(img.getAttribute("src")||"").trim();
+    if(!s || s.startsWith("data:") || s.startsWith("http://") || s.startsWith("https://"))return;
+
+    let name="";
+    if(s.startsWith("/files/")){
+      name=decodeURIComponent(s.split("/files/")[1]||"").split("/").pop();
+    }else{
+      name=s.replace(/^\.?\//,"");
+      if(name.startsWith("attachments/"))name=name.slice("attachments/".length);
+      name=name.split("/").pop();
+    }
+
+    if(name){
+      img.setAttribute("src",base+name.split("/").map(encodeURIComponent).join("/"));
+      img.dataset.tkvFile="attachments/"+name;
+    }
+  });
+  return box.innerHTML;
+}
+
+async function checkVaultServer(){
+  const s=$("vaultServerStatus");
+  if(!s)return;
+  try{
+    const r=await fetch("/api/index",{cache:"no-store"});
+    if(r.ok){s.textContent="Server: connected";s.style.color="#15803d";}
+    else{s.textContent="Server: HTTP "+r.status;s.style.color="#b91c1c";}
+  }catch(_){s.textContent="Server: offline";s.style.color="#b91c1c";}
+}
+function wireBackupVault(){
+  const b=$("backupVault");
+  if(!b)return;
+  b.onclick=async()=>{
+    b.disabled=true; b.textContent="⏳ Backing up...";
+    try{
+      const j=await api("/api/backup",{method:"POST"});
+      alert("Vault backup created successfully.\n\n"+j.file+"\n\nYour documentation and attachments are included.");
+    }catch(e){alert("Backup failed:\n\n"+e.message)}
+    finally{b.disabled=false;b.textContent="💾 Backup Vault";}
+  };
+}
+async function openTopic(i){try{let e=R[i];if(!e)return alert("Topic could not be identified.");let r=await fetch("/api/topic?path="+encodeURIComponent(e.path),{cache:"no-store"});let txt=await r.text();let j;try{j=JSON.parse(txt)}catch(_){throw new Error("Server returned a non-JSON response (HTTP "+r.status+"). Restart the V12.1 server.")}if(!r.ok||j.error){
+  // Recover once from a stale client index after module/topic moves.
+  await load();
+  e=R[i]||E.find(x=>x.id===e.id)||e;
+  r=await fetch("/api/topic?path="+encodeURIComponent(e.path),{cache:"no-store"});
+  txt=await r.text();
+  try{j=JSON.parse(txt)}catch(_){throw new Error("Server returned a non-JSON response (HTTP "+r.status+").")}
+}
+if(!r.ok||j.error)throw new Error(j.error||("HTTP "+r.status));
+const existingFolder=e.path.split("/topics/")[1].split("/")[0];
+editing={...e,folder:existingFolder,originalModule:e.module};
+showEditor({title:e.title,module:e.module,tags:(e.tags||[]).join(","),folder:existingFolder,updated_at:e.updated_at,body:normalizeImageUrls(j.html||"<p></p>",e.module,existingFolder)})}catch(err){alert("Open / Edit failed:\n\n"+err.message)}}
+function setupEditorSideTools(){
+  const aside=document.querySelector(".layout>aside");
+  const toolbar=document.querySelector("#main .toolbar");
+  if(!aside||!toolbar)return;
+
+  const old=aside.querySelector(".tkv-editor-tools");
+  if(old)old.remove();
+
+  const wrap=document.createElement("section");
+  wrap.className="tkv-editor-tools";
+  wrap.innerHTML='<div class="tkv-tool-heading">🛠 Documentation Editor</div>'+
+    '<div class="tkv-primary-tools" id="tkvPrimaryTools"></div>'+
+    '<div class="tkv-primary-hint">Add Command / Code / Diagram / Image / Attachment</div>'+
+    '<div class="tkv-format-label">Font & Size</div>'+
+    '<div id="tkvFormatTools"></div>'+
+    '<div class="tkv-format-label">Formatting & Documentation</div>'+
+    '<div id="tkvOtherTools"></div>';
+  aside.appendChild(wrap);
+
+  const primary=document.getElementById("tkvPrimaryTools");
+  const format=document.getElementById("tkvFormatTools");
+  const other=document.getElementById("tkvOtherTools");
+
+  ["command","code","diagram","imageBtn","fileBtn"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){
+      el.setAttribute("type","button");
+      primary.appendChild(el);
+    }
+  });
+
+  ["fontName","fontSize"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)format.appendChild(el);
+  });
+
+  [...toolbar.children].forEach(el=>{
+    if(el.id && ["command","code","diagram","imageBtn","fileBtn","fontName","fontSize"].includes(el.id))return;
+    other.appendChild(el);
+  });
+  toolbar.remove();
+
+  // Re-wire the five primary controls after relocation. These call the
+  // existing dialogs/file inputs; no new storage logic is introduced.
+  primary.addEventListener("click",(ev)=>{
+    const b=ev.target.closest("button");
+    if(!b)return;
+    ev.preventDefault();
+    ev.stopPropagation();
+    saveEditorRange();
+
+    switch(b.id){
+      case "command": commandDialog(); break;
+      case "code": codeDialog(); break;
+      case "diagram": diagramDialog(); break;
+      case "imageBtn": document.getElementById("image")?.click(); break;
+      case "fileBtn": document.getElementById("files")?.click(); break;
+    }
+  });
+
+  const drop=document.getElementById("drop");
+  if(drop){
+    drop.title="Click to choose an attachment, or drag/drop a file here";
+    drop.onclick=(ev)=>{
+      ev.preventDefault();
+      ev.stopPropagation();
+      saveEditorRange();
+      document.getElementById("files")?.click();
+    };
+  }
+}
+
+function cleanEditorSpacing(){
+  const editor=$("editor");
+  if(!editor)return;
+  [...editor.children].forEach(el=>{
+    if(el.tagName==="P" && !el.textContent.trim() &&
+       el.innerHTML.replace(/<br\s*\/?>/gi,"").trim()===""){
+      const prev=el.previousElementSibling;
+      if(prev && prev.matches(".codebox,.commandbox,.diagram,.callout")) el.remove();
+    }
+  });
+  while(editor.lastElementChild &&
+        editor.lastElementChild.tagName==="P" &&
+        !editor.lastElementChild.textContent.trim() &&
+        editor.lastElementChild.innerHTML.replace(/<br\s*\/?>/gi,"").trim()===""){
+    editor.lastElementChild.remove();
+  }
+}
+function showEditor(d){$("main").innerHTML='<div class="card"><button type="button" id="back">← Back</button> <button type="button" id="refreshEditor" title="Reload the Vault index">🔄 Refresh</button><h2>✍ Enhance Documentation</h2><div class="stats"><div><label>Title</label><input id="title"></div><div><label>Module</label><input id="module"></div><div><label>Tags</label><input id="tags"></div><div><label>Storage</label><select id="format"><option value="html">Rich HTML</option><option value="markdown">Markdown</option></select></div></div>'+updatedBadge(d.updated_at)+'<div id="tkvTopSaveBar" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;">  <div style="font-weight:700;color:#17202a;">Documentation Editor</div>  <button type="button" id="tkvSaveTop" style="background:#16a34a;color:#fff;border:0;border-radius:8px;padding:10px 18px;font-weight:800;cursor:pointer;">💾 Save Documentation</button></div><div class="toolbar"><select id="fontName" title="Font"><option>Arial</option><option>Georgia</option><option>Verdana</option><option>Tahoma</option><option>Courier New</option><option>Trebuchet MS</option></select><select id="fontSize" title="Size"><option value="2">Small</option><option value="3" selected>Normal</option><option value="4">Large</option><option value="5">XL</option><option value="6">XXL</option></select><button type="button" id="h1">H1</button><button type="button" id="h2">H2</button><button type="button" id="bold"><b>B</b></button><button type="button" id="italic"><i>I</i></button><button type="button" id="under"><u>U</u></button><button type="button" id="newLine" title="Insert a new normal line">↵ New Line</button><button type="button" id="textColor">🎨 Text Color</button><button type="button" id="highlight">🖍 Highlight</button><button type="button" id="formatBrushBtn" class="format-btn" title="Copy formatting">🖌 Format Brush</button><button type="button" id="left">⬅</button><button type="button" id="center">↔</button><button type="button" id="right">➡</button><button type="button" id="ul">• List</button><button type="button" id="ol">1. List</button><button type="button" id="quote">❝ Quote</button><button type="button" id="link">🔗 URL</button><button type="button" id="concept">🔵 Concept</button><button type="button" id="command">🟢 Command</button><button type="button" id="important">🟡 Important</button><button type="button" id="warning">🔴 Warning</button><button type="button" id="my">🟣 My Understanding</button><button type="button" id="orange">🟠 Troubleshooting</button><button type="button" id="code">⌨ Code</button><button type="button" id="diagram">📊 Diagram</button><button type="button" id="imageBtn">🖼 Image</button><button type="button" id="fileBtn">📎 Attachment</button><button type="button" id="deleteSelected" class="deletebtn">🗑 Delete Selected</button></div><input id="image" class="hidden" type="file" accept="image/*"><input id="files" class="hidden" type="file" accept="*/*"><div id="drop" class="drop">Drag & drop image/file here • or paste a screenshot into the editor</div><div id="editor" class="editor" contenteditable="true"></div><div id="attachmentPanel" class="card"><b>📎 Files attached to this topic</b> <span class="muted">Open or delete individual files</span><div id="attachmentList" class="muted">No files loaded.</div></div><p class="muted">Tip: click Code/Diagram to enter content in a separate box. The example text is selectable and disappears when you replace it. Images and attachments are saved with this topic.</p><button type="button" id="save">💾 Save Documentation</button> <span id="saveStatus"></span></div>';
+$("title").value=d.title;$("module").value=d.module;$("tags").value=d.tags||"";$("editor").innerHTML=d.body||"<p></p>";repairVaultImages($("editor"));cleanEditorSpacing();$("back").onclick=render;$("fontName").onmousedown=saveEditorRange;$("fontSize").onmousedown=saveEditorRange;
+$("fontName").onchange=e=>applyInlineStyle("fontFamily",e.target.value);
+$("fontSize").onchange=e=>{const px={"2":"12px","3":"16px","4":"20px","5":"24px","6":"30px"}[e.target.value]||"16px";applyInlineStyle("fontSize",px)};$("newLine").onmousedown=e=>{e.preventDefault();saveEditorRange()};$("newLine").onclick=insertNewLine;$("h1").onclick=()=>cmd("formatBlock","h1");$("h2").onclick=()=>cmd("formatBlock","h2");$("bold").onclick=()=>cmd("bold");$("italic").onclick=()=>cmd("italic");$("under").onclick=()=>cmd("underline");$("textColor").onclick=()=>{saveEditorRange();colorDialog(false)};$("highlight").onclick=()=>{saveEditorRange();colorDialog(true)};$("formatBrushBtn").onmousedown=e=>{e.preventDefault();saveEditorRange();};$("formatBrushBtn").onclick=toggleFormatBrush;$("left").onclick=()=>cmd("justifyLeft");$("center").onclick=()=>cmd("justifyCenter");$("right").onclick=()=>cmd("justifyRight");$("ul").onclick=()=>cmd("insertUnorderedList");$("ol").onclick=()=>cmd("insertOrderedList");$("quote").onclick=()=>cmd("formatBlock","blockquote");$("link").onclick=()=>{saveEditorRange();linkDialog()};$("concept").onclick=()=>callout("blue","Concept");$("command").onclick=()=>{saveEditorRange();commandDialog()};$("important").onclick=()=>callout("yellow","Important");$("warning").onclick=()=>callout("red","Warning");$("my").onclick=()=>callout("purple","My Understanding");$("orange").onclick=()=>callout("orange","Troubleshooting");$("code").onclick=()=>{saveEditorRange();codeDialog()};$("diagram").onclick=()=>{saveEditorRange();diagramDialog()};$("imageBtn").onclick=()=>{saveEditorRange();$("image").click()};$("fileBtn").onclick=()=>{saveEditorRange();$("files").click()};$("deleteSelected").onclick=deleteSelected;$("image").onchange=e=>upload(e,true);
+$("files").onchange=e=>upload(e,false);
+
+function preventWindowFileDrop(ev){
+  if(ev.dataTransfer&&ev.dataTransfer.files&&ev.dataTransfer.files.length){
+    ev.preventDefault();
+  }
+}
+window.addEventListener("dragover",preventWindowFileDrop);
+window.addEventListener("drop",preventWindowFileDrop);
+
+function handleVaultDrop(ev){
+  ev.preventDefault();
+  ev.stopPropagation();
+  const dz=$("drop");
+  if(dz)dz.classList.remove("drag");
+  const files=[...(ev.dataTransfer?.files||[])];
+  if(!files.length){
+    alert("No file was detected. Drag a file from Windows Explorer onto this area.");
+    return;
+  }
+  saveEditorRange();
+  for(const f of files){
+    uploadFile(f,f.type.startsWith("image/"));
+  }
+}
+const dropZone=$("drop");
+if(dropZone){
+  dropZone.ondragenter=ev=>{ev.preventDefault();ev.stopPropagation();dropZone.classList.add("drag")};
+  dropZone.ondragover=ev=>{ev.preventDefault();ev.stopPropagation();if(ev.dataTransfer)ev.dataTransfer.dropEffect="copy";dropZone.classList.add("drag")};
+  dropZone.ondragleave=ev=>{ev.preventDefault();dropZone.classList.remove("drag")};
+  dropZone.ondrop=handleVaultDrop;
+}
+const editorZone=$("editor");
+if(editorZone){
+  editorZone.ondragenter=ev=>{ev.preventDefault();ev.stopPropagation();$("drop")?.classList.add("drag")};
+  editorZone.ondragover=ev=>{ev.preventDefault();ev.stopPropagation();if(ev.dataTransfer)ev.dataTransfer.dropEffect="copy";$("drop")?.classList.add("drag")};
+  editorZone.ondragleave=ev=>{ev.preventDefault();$("drop")?.classList.remove("drag")};
+  editorZone.ondrop=handleVaultDrop;
+}$("editor").addEventListener("mouseup",()=>{saveEditorRange();if(formatBrushActive)applyFormatBrush();});
+$("editor").addEventListener("keyup",saveEditorRange);
+$("editor").addEventListener("click",selectElement);$("editor").addEventListener("paste",e=>{
+  const items=[...(e.clipboardData?.items||[])];
+  const imageItem=items.find(it=>it.type&&it.type.startsWith("image/"));
+  if(imageItem){
+    const f=imageItem.getAsFile();
+    if(f){
+      e.preventDefault();
+      saveEditorRange();
+      uploadFile(f,true);
+    }
+  }
+});$("save").onclick=save;loadAttachments();setupEditorSideTools()}
+let formatBrushActive=false;let formatBrushSource=null;
+function getBrushFormat(r){let n=r.commonAncestorContainer;if(n.nodeType===3)n=n.parentElement;if(!n||!$("editor").contains(n))return null;const cs=getComputedStyle(n);return{fontFamily:cs.fontFamily,fontSize:cs.fontSize,fontWeight:cs.fontWeight,fontStyle:cs.fontStyle,textDecoration:cs.textDecoration,color:cs.color,backgroundColor:cs.backgroundColor,textAlign:cs.textAlign,lineHeight:cs.lineHeight};}
+function toggleFormatBrush(){const b=$("formatBrushBtn");if(!b)return;if(formatBrushActive){formatBrushActive=false;formatBrushSource=null;b.classList.remove("active");b.textContent="🖌 Format Brush";return;}restoreEditorRange();const r=window._tkvRange;if(!r||r.collapsed||!$("editor").contains(r.commonAncestorContainer)){alert("Select some formatted text first, then click Format Brush.");return;}formatBrushSource=getBrushFormat(r);if(!formatBrushSource){alert("Could not read the selected formatting.");return;}formatBrushActive=true;b.classList.add("active");b.textContent="🖌 Brush Active";}
+function applyFormatBrush(){if(!formatBrushActive||!formatBrushSource)return;saveEditorRange();const r=window._tkvRange;if(!r||r.collapsed||!$("editor").contains(r.commonAncestorContainer))return;const span=document.createElement("span");Object.assign(span.style,formatBrushSource);try{const frag=r.extractContents();span.appendChild(frag);r.insertNode(span);}catch(err){console.warn("Format Brush apply failed",err);return;}const nr=document.createRange();nr.selectNodeContents(span);const sel=window.getSelection();sel.removeAllRanges();sel.addRange(nr);window._tkvRange=nr.cloneRange();formatBrushActive=false;formatBrushSource=null;const b=$("formatBrushBtn");if(b){b.classList.remove("active");b.textContent="🖌 Format Brush";}}
+function saveEditorRange(){const sel=window.getSelection();if(sel&&sel.rangeCount&&$("editor").contains(sel.anchorNode))window._tkvRange=sel.getRangeAt(0).cloneRange()}
+function restoreEditorRange(){if(!window._tkvRange)return;const sel=window.getSelection();sel.removeAllRanges();sel.addRange(window._tkvRange);$("editor").focus()}
+function insertLiteralCommand(text,lang,title){
+  restoreEditorRange();
+  const box=document.createElement("div"); box.className="commandbox";
+  const head=document.createElement("div"); head.className="commandhead"; head.textContent=lang+(title?" • "+title:"");
+  const pre=document.createElement("pre"); const code=document.createElement("code");
+  code.innerHTML=highlightCode(String(text??"")); pre.appendChild(code); box.appendChild(head); box.appendChild(pre);
+  const p=document.createElement("p"); box.appendChild(p);
+  const range=window._tkvRange;
+  if(!range)return;
+  range.deleteContents(); range.insertNode(box);
+  range.setStartAfter(box); range.collapse(true);
+  const sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+  window._tkvRange=range.cloneRange(); $("editor").focus();
+}
+function applyInlineStyle(prop,val){
+  restoreEditorRange();
+  const r=window._tkvRange;
+  if(!r || r.collapsed){alert("Select some text first, then choose the font or size.");return}
+  const span=document.createElement("span");
+  span.style[prop]=val;
+  try{r.surroundContents(span)}
+  catch(_){
+    const frag=r.extractContents();span.appendChild(frag);r.insertNode(span);
+  }
+  const nr=document.createRange();nr.selectNodeContents(span);
+  const sel=window.getSelection();sel.removeAllRanges();sel.addRange(nr);
+  window._tkvRange=nr.cloneRange();
+  $("editor").focus();
+}
+function cmd(a,v){restoreEditorRange();document.execCommand(a,false,v);$("editor").focus()}
+function callout(c,n){cmd("insertHTML",'<div class="callout '+c+'"><b>'+n+'</b><br><span contenteditable="true">Type your '+n.toLowerCase()+' here...</span></div><p></p>')}
+function closeModal(){document.querySelectorAll(".tkv-modal").forEach(x=>x.remove())}
+function makeModal(title){closeModal();const w=document.createElement("div");w.className="modal tkv-modal";const b=document.createElement("div");b.className="modalbox";b.innerHTML="<h3>"+esc(title)+"</h3>";w.appendChild(b);document.body.appendChild(w);return b}
+function linkDialog(){const b=makeModal("🔗 Insert URL");b.innerHTML+='<label>URL</label><input id="urlValue" placeholder="https://example.com"><label>Link text</label><input id="urlLabel" placeholder="Open link"><div class="modal-actions"><button id="urlIns">Insert URL</button><button id="urlCan">Cancel</button></div>';$("urlIns").onclick=()=>{const u=$("urlValue").value.trim();if(!/^https?:\/\//i.test(u))return alert("URL should start with http:// or https://");const label=$("urlLabel").value.trim()||u;cmd("insertHTML",'<a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(label)+'</a>');closeModal()};$("urlCan").onclick=closeModal;$("urlValue").focus()}
+function colorDialog(highlight){const b=makeModal(highlight?"🖍 Highlight Color":"🎨 Text Color");const colors=["#000000","#1d4ed8","#dc2626","#16a34a","#9333ea","#ea580c","#ca8a04","#0891b2","#ffffff"];b.innerHTML+='<p>Choose a color:</p><div class="colorrow">'+colors.map(c=>'<button class="swatch" title="'+c+'" style="background:'+c+'" data-c="'+c+'"></button>').join("")+'</div><div class="modal-actions"><button id="cc">Cancel</button></div>';b.querySelectorAll("[data-c]").forEach(x=>x.onclick=()=>{cmd(highlight?"hiliteColor":"foreColor",x.dataset.c);closeModal()});$("cc").onclick=closeModal}
+function highlightCode(source){
+  // SECURITY/CORRECTNESS RULE:
+  // source is always treated as plain text. Escape happens per text token
+  // before it is inserted into HTML. Never regex-match generated markup.
+  const text=String(source??"");
+  const escText=(v)=>String(v)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#39;");
+  const token=/#[^\r\n]*|\/\/[^\r\n]*|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\b\d+(?:\.\d+)*\b|[A-Za-z_][A-Za-z0-9_-]*/g;
+  const kw=/^(def|class|import|from|return|if|else|elif|for|while|try|except|finally|with|as|in|True|False|None|function|const|let|var|SELECT|FROM|WHERE|INSERT|UPDATE|DELETE|CREATE|DROP|BEGIN|END|Get-[A-Za-z]+|Set-[A-Za-z]+|New-[A-Za-z]+|Invoke-[A-Za-z]+|Test-[A-Za-z]+|docker|git|kubectl|ls|cd|pwd|grep|awk|sed|cat|tail|head|chmod|chown|systemctl|show|configure|exit)$/i;
+  let html="",pos=0,m;
+  while((m=token.exec(text))){
+    html+=escText(text.slice(pos,m.index));
+    const t=m[0];
+    if(t[0]==="#"||t.startsWith("//")) html+='<span class="comment">'+escText(t)+'</span>';
+    else if(t[0]==='"'||t[0]==="'") html+='<span class="str">'+escText(t)+'</span>';
+    else if(/^\d/.test(t)) html+='<span class="num">'+escText(t)+'</span>';
+    else if(kw.test(t)) html+='<span class="kw">'+escText(t)+'</span>';
+    else html+=escText(t);
+    pos=token.lastIndex;
+  }
+  return html+escText(text.slice(pos));
+}
+
+function commandDialog(){
+  const b=makeModal("🟢 Command Builder — Terminal Commands");
+  b.innerHTML+='<label>Command language</label><select id="cmdLang"><option>Bash / Linux</option><option>PowerShell</option><option>Windows CMD</option><option>Cisco IOS</option><option>CUCM CLI</option><option>Git</option><option>Docker</option><option>Kubernetes</option><option>Python</option><option>SQL</option><option>Generic</option></select><label>Title (optional)</label><input id="cmdTitle" placeholder="Example: Check Linux disk usage"><label>Command</label><textarea id="cmdText" rows="10" placeholder="Type or paste command here...&#10;&#10;Example:&#10;ls -ilrt&#10;git status"></textarea><label>Preview</label><div id="cmdPreview" class="commandbox"><div class="commandhead">Bash / Linux</div><pre><code>$ ls -ilrt\n$ git status</code></pre></div><div class="modal-actions"><button id="cmdPreviewBtn">Preview</button><button id="cmdIns">Insert Command</button><button id="cmdCan">Cancel</button></div>';
+  $("cmdLang").onchange=updateCmdPreview;
+  $("cmdText").oninput=updateCmdPreview;
+  $("cmdPreviewBtn").onclick=updateCmdPreview;
+  $("cmdIns").onclick=()=>{
+    const v=$("cmdText").value;
+    if(!v.trim())return alert("Enter a command first.");
+    const lang=$("cmdLang").value,title=$("cmdTitle").value.trim();
+    const label=(title?esc(title)+" • ":"")+esc(lang);
+    const promptLang=/Bash|Linux|PowerShell|CMD|Cisco|CUCM|Git|Docker|Kubernetes/.test(lang);
+    const lines=v.split(/\r?\n/).map(line=>promptLang&&line.trim()?("$ "+line):line).join("\n");
+    restoreEditorRange();
+const box=document.createElement("div"); box.className="commandbox";
+const head=document.createElement("div"); head.className="commandhead"; head.textContent=lang+(title?" • "+title:"");
+const pre=document.createElement("pre"); const codeEl=document.createElement("code");
+codeEl.innerHTML=highlightCode(lines);
+pre.appendChild(codeEl); box.appendChild(head); box.appendChild(pre);
+const r=document.createRange(); r.selectNodeContents(box);
+const frag=r.cloneContents();
+const sel=window.getSelection(); const er=window._tkvRange;
+if(er){er.deleteContents();er.insertNode(frag);sel.removeAllRanges();sel.addRange(er);$("editor").focus()}
+    closeModal();
+  };
+  $("cmdCan").onclick=closeModal;
+  $("cmdText").focus();
+  function updateCmdPreview(){
+    const lang=$("cmdLang").value;
+    const v=$("cmdText").value||"";
+    const lines=v.split(/\r?\n/).map(line=>line.trim()?("$ "+line):line).join("\n");
+    $("cmdPreview").innerHTML='<div class="commandhead">'+esc(lang)+'</div><pre><code>'+highlightCode(lines||"$ ls -ilrt\n$ git status")+'</code></pre>';
+  }
+}
+
+function codeDialog(){const b=makeModal("⌨ Code Builder");b.innerHTML+='<div class="modalgrid"><div><label>Programming / markup language</label><select id="codeLang"><option>Python</option><option>PowerShell</option><option>Bash / Linux</option><option>JavaScript</option><option>TypeScript</option><option>SQL</option><option>JSON</option><option>YAML</option><option>Cisco IOS</option><option>Linux CLI</option><option>Generic</option></select></div><div><label>Title (optional)</label><input id="codeTitle" placeholder="Example: Check Python version"></div></div><label>Paste or type your command/code</label><textarea id="codeText" rows="16" placeholder="Your command/code goes here..."></textarea><div class="modal-actions"><button id="codeIns">Insert Code</button><button id="codeCan">Cancel</button></div>';$("codeIns").onclick=()=>{const v=$("codeText").value;if(!v.trim())return alert("Enter code first.");const lang=$("codeLang").value,title=$("codeTitle").value.trim(),label=title?esc(title)+" • "+esc(lang):esc(lang);cmd("insertHTML",'<div class="codebox"><div class="codelabel">'+label+' <button class="copycode" type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy</button></div><pre><code>'+highlightCode(v)+'</code></pre></div>');closeModal()};$("codeCan").onclick=closeModal;$("codeText").focus()}
+function diagramDialog(){const b=makeModal("📊 Diagram Builder");b.innerHTML+='<div class="modalgrid"><div><label>Diagram type</label><select id="dtype"><option>Flowchart</option><option>Architecture</option><option>Mental Diagram</option><option>Sequence</option><option>Mind Map</option></select><label>Title</label><input id="dtitle" placeholder="My diagram"><label>Nodes — one per line</label><textarea id="dnodes" rows="8">User\nApplication\nAgent\nTool / API\nDatabase</textarea></div><div><label>Connections (1-based, e.g. 1->2,2->3)</label><input id="dlinks" value="1->2,2->3,3->4"><label>Optional Mermaid source</label><textarea id="dmermaid" rows="8" placeholder="Paste Mermaid source here if desired..."></textarea></div></div><div id="dpreview" class="preview">Click Preview to render.</div><div class="modal-actions"><button id="dpreviewBtn">Preview</button><button id="dIns">Insert Diagram</button><button id="dCan">Cancel</button></div>';$("dpreviewBtn").onclick=()=>{$("dpreview").innerHTML=diagramSvg($("dtype").value,$("dtitle").value,$("dnodes").value,$("dlinks").value)};$("dIns").onclick=()=>{const svg=diagramSvg($("dtype").value,$("dtitle").value,$("dnodes").value,$("dlinks").value),src=$("dmermaid").value.trim();cmd("insertHTML",'<div class="diagram">'+svg+(src?'<div class="diagram-source">Mermaid source</div><pre class="diagram-editor">'+esc(src)+'</pre>':"")+'</div><p></p>');closeModal()};$("dCan").onclick=closeModal}
+function diagramSvg(type,title,nodesText,linksText){const ns=nodesText.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);if(!ns.length)return "<p>No nodes.</p>";const links=(linksText||"").split(",").map(x=>x.trim()).map(x=>{const m=x.match(/(\d+)\s*[-=]+>\s*(\d+)/);return m?[+m[1]-1,+m[2]-1]:null}).filter(x=>x&&ns[x[0]]&&ns[x[1]]);let w=900,h=type==="Architecture"?Math.max(230,Math.ceil(ns.length/3)*130+80):Math.max(190,ns.length*80+80);let out='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><defs><marker id="tkvArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>';if(title)out+='<text x="20" y="28" font-family="system-ui" font-size="18" font-weight="700" fill="#17202a">'+esc(title)+'</text>';const y0=title?55:25;if(type==="Architecture"){const cols=3,bw=230,bh=48,gx=55,gy=90;ns.forEach((n,i)=>{let col=i%cols,row=Math.floor(i/cols),x=gx+col*280,y=gy+row*100;out+='<rect x="'+x+'" y="'+y+'" width="'+bw+'" height="'+bh+'" rx="10" fill="#fff" stroke="#475569" stroke-width="2"/><text x="'+(x+bw/2)+'" y="'+(y+30)+'" text-anchor="middle" font-family="system-ui" font-size="14" fill="#17202a">'+esc(n.slice(0,32))+'</text>'});links.forEach(([a,b])=>{let ax=gx+(a%cols)*280+bw/2,ay=gy+Math.floor(a/cols)*100+bh,bx=gx+(b%cols)*280+bw/2,by=gy+Math.floor(b/cols)*100;out+='<line x1="'+ax+'" y1="'+ay+'" x2="'+bx+'" y2="'+by+'" stroke="#334155" stroke-width="2" marker-end="url(#tkvArrow)"/>'})}else if(type==="Mental Diagram"||type==="Mind Map"){const cx=w/2,cy=type==="Mental Diagram"?h/2:80;ns.forEach((n,i)=>{let ang=(i/ns.length)*Math.PI*2-Math.PI/2,rad=type==="Mental Diagram"?Math.min(270,w/2-80):Math.min(250,w/2-80),x=cx+Math.cos(ang)*rad,y=cy+Math.sin(ang)*rad;out+='<rect x="'+(x-105)+'" y="'+(y-23)+'" width="210" height="46" rx="12" fill="#fff" stroke="#475569" stroke-width="2"/><text x="'+x+'" y="'+(y+5)+'" text-anchor="middle" font-family="system-ui" font-size="13" fill="#17202a">'+esc(n.slice(0,30))+'</text><line x1="'+cx+'" y1="'+cy+'" x2="'+x+'" y2="'+y+'" stroke="#64748b" stroke-width="2" marker-end="url(#tkvArrow)"/>'});out+='<circle cx="'+cx+'" cy="'+cy+'" r="58" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/><text x="'+cx+'" y="'+(cy+5)+'" text-anchor="middle" font-family="system-ui" font-size="14" font-weight="700" fill="#17202a">'+esc(title||"Central Idea")+'</text>'}else{const bw=300,bh=48,x=300;ns.forEach((n,i)=>{let y=y0+i*70;out+='<rect x="'+x+'" y="'+y+'" width="'+bw+'" height="'+bh+'" rx="10" fill="#fff" stroke="#475569" stroke-width="2"/><text x="'+(x+bw/2)+'" y="'+(y+30)+'" text-anchor="middle" font-family="system-ui" font-size="14" fill="#17202a">'+esc(n.slice(0,42))+'</text>'});links.forEach(([a,b])=>{let y1=y0+a*70+bh,y2=y0+b*70;out+='<line x1="'+(x+bw/2)+'" y1="'+y1+'" x2="'+(x+bw/2)+'" y2="'+y2+'" stroke="#334155" stroke-width="2" marker-end="url(#tkvArrow)"/>'})}return out+"</svg>"}
+let pendingFiles=[];
+async function upload(ev,isImage){
+  const f=ev.target.files[0];
+  if(f) await uploadFile(f,isImage);
+  ev.target.value="";
+}
+async function uploadFile(f,isImage){
+  const actualIsImage=f.type.startsWith("image/");
+  if(isImage && !actualIsImage){
+    return alert("This control accepts images only. Use 📎 Attachment for PDF, DOCX, XLSX, ZIP, TXT and other files.");
+  }
+  if(!editing){
+    pendingFiles.push({file:f,isImage:actualIsImage});
+    alert("File queued. Save the topic first; it will be uploaded automatically. You can queue multiple files.");
+    return;
+  }
+  const data=await new Promise((res,rej)=>{
+    const r=new FileReader();
+    r.onload=()=>res(r.result);
+    r.onerror=rej;
+    r.readAsDataURL(f);
+  });
+  try{
+    const j=await api("/api/upload",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        module:$("module").value,
+        folder:editing.folder,
+        name:f.name,
+        mime:f.type||"application/octet-stream",
+        data
+      })
+    });
+    if(actualIsImage){
+      const imageUrl="/files/"+String(j.relative||"").replace(/^\/+/,"").split("/").map(encodeURIComponent).join("/");
+      cmd("insertHTML",'<p class="media-item"><img src="'+imageUrl+'" data-tkv-file="'+esc(j.relative)+'" alt="'+esc(f.name)+'" title="'+esc(f.name)+'"></p>');
+    }else{
+      const icon=fileIcon(f.name);
+      cmd("insertHTML",'<p class="media-item"><span>'+icon+' </span><a href="'+j.url+'" data-tkv-file="'+esc(j.relative)+'" data-tkv-attachment="true" target="_blank" rel="noopener" download="'+esc(f.name)+'">'+esc(f.name)+'</a> <small>('+esc(f.type||"file")+')</small></p>');
+    }
+    await loadAttachments();
+  }catch(err){
+    alert("Upload failed: "+err.message);
+  }
+}
+function fileIcon(name){
+  const x=name.toLowerCase();
+  if(x.endsWith(".pdf"))return "📕";
+  if(/\.(doc|docx)$/.test(x))return "📘";
+  if(/\.(xls|xlsx|csv)$/.test(x))return "📗";
+  if(/\.(ppt|pptx)$/.test(x))return "📙";
+  if(/\.(zip|7z|rar|tar|gz)$/.test(x))return "🗜️";
+  if(/\.(txt|md|log)$/.test(x))return "📄";
+  return "📎";
+}
+
+
+function repairVaultImages(root){
+  if(!root || !editing)return;
+  const base="/files/"+encodeURIComponent(editing.module)+"/topics/"+encodeURIComponent(editing.folder)+"/attachments/";
+  root.querySelectorAll("img").forEach(img=>{
+    let rel=img.dataset.tkvFile||"";
+    const src=img.getAttribute("src")||"";
+
+    if(!rel && src){
+      const name=src.includes("/files/")
+        ? decodeURIComponent(src.split("/files/")[1]||"").split("/").pop()
+        : src.replace(/^\.?\//,"").replace(/^attachments\//,"").split("/").pop();
+      if(name)rel="attachments/"+name;
+    }
+
+    if(rel){
+      const name=decodeURIComponent(rel.split("/").pop());
+      if(name){
+        const expected=base+name.split("/").map(encodeURIComponent).join("/");
+        img.dataset.tkvFile="attachments/"+name;
+        img.setAttribute("src",expected);
+      }
+    }
+  });
+}
+
+function selectElement(ev){document.querySelectorAll(".editor .selectable").forEach(x=>x.classList.remove("selectable"));let x=ev.target;if(x.tagName==="IMG"||x.closest("a[data-tkv-file]")||x.closest(".codebox")||x.closest(".commandbox")||x.closest(".callout")){x=x.tagName==="IMG"?x:(x.closest("a[data-tkv-file]")||x.closest(".codebox")||x.closest(".commandbox")||x.closest(".callout"));x.classList.add("selectable");window._tkvSelected=x}}
+async function deleteSelected(){const x=window._tkvSelected;if(!x){const sel=window.getSelection();if(sel&&sel.rangeCount&&!sel.isCollapsed&&$("editor").contains(sel.anchorNode)){document.execCommand("delete");return}return alert("Click an image, attachment, command/code block, diagram, callout, or select text first.");}const file=x.dataset.tkvFile||(x.querySelector&&x.querySelector("[data-tkv-file]")?.dataset.tkvFile);if(file){if(!confirm("Delete this file from the Vault and remove it from the document?"))return;try{await fetch("/api/delete-file?path="+encodeURIComponent(editing.module+"/topics/"+editing.folder+"/"+file),{method:"DELETE"});}catch(err){return alert("File delete failed: "+err.message)}}x.remove();window._tkvSelected=null}
+async function loadAttachments(){if(!editing){$("attachmentList").innerHTML="Save this topic to manage files.";return}try{const j=await api("/api/attachments?module="+encodeURIComponent(editing.module)+"&folder="+encodeURIComponent(editing.folder));$("attachmentList").innerHTML=j.files.length?j.files.map(f=>'<div style="margin:7px 0">📎 <a href="'+f.url+'" target="_blank" rel="noopener">'+esc(f.name)+'</a> <button type="button" data-del-file="'+esc(f.path)+'" class="deletebtn">Delete file</button></div>').join(""):"No files attached.";document.querySelectorAll("[data-del-file]").forEach(b=>b.onclick=async()=>{if(!confirm("Delete "+b.dataset.delFile.split("/").pop()+" from the Vault?"))return;const r=await fetch("/api/delete-file?path="+encodeURIComponent(b.dataset.delFile),{method:"DELETE"});if(!r.ok)return alert("Delete failed.");document.querySelectorAll("[data-tkv-file]").forEach(x=>{if(x.dataset.tkvFile===b.dataset.delFile.replace(editing.module+"/topics/"+editing.folder+"/",""))x.remove()});loadAttachments()})}catch(err){$("attachmentList").textContent="Could not load attachments: "+err.message}}
+async function save(){
+  cleanEditorSpacing();
+  const title=$("title").value.trim(),module=$("module").value.trim();
+  if(!title||!module)return alert("Title and module are required.");
+  $("saveStatus").textContent="Saving...";
+
+  const payload={
+    title,module,
+    tags:$("tags").value.split(",").map(x=>x.trim()).filter(Boolean),
+    content:$("editor").innerHTML,
+    format:$("format").value,
+    folder:editing?editing.folder:null,
+    original_module:editing?editing.originalModule:null
+  };
+
+  try{
+    const j=await api("/api/save",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(payload)
+    });
+
+    $("saveStatus").textContent=(j.updated?"Updated existing topic":"Created new topic")+" • "+j.topics+" topics indexed"+
+      (j.warning?" • ⚠️ history warning":"");
+
+    if(j.warning){
+      console.warn("Vault save warning:",j.warning);
+    }
+
+    if(pendingFiles.length){
+      const qfiles=[...pendingFiles]; pendingFiles=[];
+      editing={...(editing||{}),folder:j.folder,module:j.module,originalModule:j.module};
+      for(const q of qfiles)await uploadFile(q.file,q.isImage);
+    }
+
+    // Keep the edit context current so a second Save continues to update
+    // the same topic rather than accidentally creating a new one.
+    editing={...(editing||{}),folder:j.folder,module:j.module,originalModule:j.module,updated_at:j.updated_at};
+    await load();
+    // Return to the same topic after reload when possible.
+    const found=E.find(x=>x.path===j.module+"/topics/"+j.folder+"/entry.html");
+    if(found){
+      const idx=E.indexOf(found);
+      // Don't force the editor open; just keep the saved timestamp/state.
+    }
+  }catch(e){
+    $("saveStatus").textContent="Save error";
+    let detail=e.message;
+
+    // If the connection dropped after the server wrote the file, check the
+    // fresh index before reporting a hard failure.
+    try{
+      const fresh=await api("/api/index");
+      const hit=(fresh.entries||[]).find(x=>x.path===((module+"/topics/"+(editing?editing.folder:"")+"/entry.html").replace(/\/+/g,"/")));
+      if(hit && hit.title===title){
+        $("saveStatus").textContent="Saved • server confirmed";
+        editing={...(editing||{}),folder:(editing?editing.folder:null),module:hit.module,originalModule:hit.module,updated_at:hit.updated_at};
+        await load();
+        return;
+      }
+    }catch(_){}
+
+    alert("Save failed:\n\n"+detail+"\n\nYour current editor content has NOT been cleared.");
+  }
+}
+
+function insertNewLine(){
+  restoreEditorRange();
+  const editor=$("editor");
+  if(!editor)return;
+  let r=window._tkvRange;
+  if(!r || !editor.contains(r.commonAncestorContainer)){
+    editor.focus(); r=document.createRange();
+    r.selectNodeContents(editor); r.collapse(false);
+  }
+  let node=r.startContainer;
+  if(node.nodeType===3)node=node.parentElement;
+  const special=node&&node.closest?node.closest(".codebox,.commandbox,.diagram,.callout"):null;
+  if(special && editor.contains(special)){
+    let p=special.nextElementSibling;
+    if(!p || p.tagName!=="P"){
+      p=document.createElement("p"); p.innerHTML="<br>";
+      special.parentNode.insertBefore(p,special.nextSibling);
+    }
+    const nr=document.createRange(); nr.selectNodeContents(p); nr.collapse(true);
+    const sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(nr);
+    window._tkvRange=nr.cloneRange(); editor.focus(); return;
+  }
+  r.deleteContents();
+  const p=document.createElement("p"); p.innerHTML="<br>"; r.insertNode(p);
+  const nr=document.createRange(); nr.setStart(p,0); nr.collapse(true);
+  const sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(nr);
+  window._tkvRange=nr.cloneRange(); editor.focus();
+}
+
+async function renameTopic(i){
+  const e=R[i]; if(!e)return;
+  const v=prompt("Rename topic:",e.title||""); if(v===null)return;
+  const title=v.trim(); if(!title||title===e.title)return;
+  try{
+    const j=await api("/api/rename-topic",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({id:e.id,title:title})});
+    E=j.entries||[]; render();
+  }catch(err){alert("Rename topic failed:\n\n"+err.message);}
+}
+async function deleteTopic(i){
+  const e=R[i]; if(!e)return;
+  if(!confirm('⚠️ DELETE TOPIC?\\n\\n"'+e.title+'"\\n\\nThis deletes the topic, attachments and history.\\n\\nThis cannot be undone.'))return;
+
+  // Remove it from the visible UI immediately.
+  const deletedId=e.id;
+  E=E.filter(x=>x.id!==deletedId);
+  R=get();
+  if(F[deletedId]){
+    delete F[deletedId];
+    localStorage.setItem("tkv10-fav",JSON.stringify(F));
+  }
+  render();
+
+  try{
+    const r=await fetch("/api/delete-topic?path="+encodeURIComponent(e.path)+"&id="+encodeURIComponent(e.id),{
+      method:"DELETE",cache:"no-store"
+    });
+    const text=await r.text();
+    let j=null;
+    try{j=JSON.parse(text)}catch(_){}
+
+    if(!r.ok || !j || j.error){
+      // Re-read the real Vault state. If the topic is already gone, deletion
+      // succeeded even if the browser lost the HTTP response.
+      await load();
+      const stillExists=E.some(x=>x.id===deletedId);
+      if(!stillExists)return;
+      throw new Error((j&&j.error)||("HTTP "+r.status));
+    }
+
+    E=j.entries||[];
+    render();
+  }catch(err){
+    // A network error can happen after the server has already deleted the
+    // folder. Verify before showing any failure message.
+    try{
+      await load();
+      const stillExists=E.some(x=>x.id===deletedId);
+      if(!stillExists)return;
+    }catch(_){}
+    alert("Delete topic failed:\n\n"+err.message);
+  }
+}
+async function renameModule(){
+  const module=$("mod").value;
+  if(!module)return alert("Select a module first.");
+  const v=prompt("Rename module:\n\nCurrent: "+module+"\n\nNew module name:",module);
+  if(v===null)return;
+  const newModule=v.trim();
+  if(!newModule||newModule===module)return;
+  if(!/^[^<>:"/\\|?*]+$/.test(newModule)){
+    return alert("Invalid module name. Avoid: < > : \" / \\ | ? *");
+  }
+
+  try{
+    const j=await api("/api/rename-module",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({module:module,new_module:newModule})
+    });
+    E=j.entries||[];
+    $("mod").innerHTML='<option value="">All modules</option>'+
+      [...new Set(E.map(e=>e.module))].sort().map(m=>'<option value="'+esc(m)+'">'+esc(m)+'</option>').join("");
+    $("mod").value=newModule;
+    render();
+    alert("Module renamed successfully.\n\n"+module+"  →  "+newModule+"\n\nAll topics in the module were moved together.");
+  }catch(err){
+    alert("Rename module failed:\n\n"+err.message);
+  }
+}
+async function deleteModule(){
+  const module=$("mod").value; if(!module)return alert("Select a module first.");
+  const count=E.filter(e=>e.module===module).length;
+  if(!confirm('⚠️ DELETE MODULE?\n\n"'+module+'"\n\nThis deletes the module and all '+count+' topic(s), attachments and history.\n\nThis cannot be undone.'))return;
+  try{
+    const j=await api("/api/delete-module?module="+encodeURIComponent(module),{method:"DELETE"});
+    E=j.entries||[];
+    $("mod").innerHTML='<option value="">All modules</option>'+[...new Set(E.map(e=>e.module))].sort().map(m=>"<option>"+esc(m)+"</option>").join("");
+    render();
+  }catch(err){alert("Delete module failed:\n\n"+err.message);}
+}
+async function backupVault(){
+  const b=$("backupVault");
+  if(b){b.disabled=true;b.textContent="⏳ Backing up...";}
+  try{
+    const j=await api("/api/backup",{method:"GET",cache:"no-store"});
+    alert("Vault backup created successfully.\n\n"+j.file+"\n\nYour documentation and attachments are included.");
+  }catch(e){
+    alert("Backup failed:\n\n"+e.message);
+  }finally{
+    if(b){b.disabled=false;b.textContent="💾 Backup Vault";}
+  }
+}
+function fav(i){const e=R[i];F[e.id]=!F[e.id];localStorage.setItem("tkv10-fav",JSON.stringify(F));render()}
+$("q").oninput=render;$("mod").onchange=render;$("tag").oninput=render;$("renameModule").onclick=renameModule;$("deleteModule").onclick=deleteModule;$("refreshVault").onclick=load;wireBackupVault();checkVaultServer();$("new").onclick=()=>{editing=null;showEditor({title:"",module:$("mod").value||"002-Python-VSCode",tags:"",body:"<p></p>"});};$("favorites").onclick=()=>{R=E.filter(e=>F[e.id]);$("main").innerHTML="<h2>⭐ Favorites</h2>"+R.map((e,i)=>'<div class="card"><h3>'+esc(e.title)+'</h3><button data-open="'+i+'">Open / Edit</button></div>').join("");document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openTopic(+b.dataset.open))};load();
+document.addEventListener("keydown",e=>{if(e.key==="Delete"&&window._tkvSelected&&document.activeElement===$("editor")){e.preventDefault();deleteSelected()}});
+document.addEventListener("click",function(ev){if(ev.target&&ev.target.id==="tkvSaveTop"){const ids=["saveBtn","save","saveDocumentation","saveDoc"];for(const id of ids){const el=document.getElementById(id);if(el){el.click();return}}if(typeof saveDocumentation==="function"){saveDocumentation();return}if(typeof save==="function"){save();return}alert("The existing Save Documentation action could not be found.");}});
+
+</script></body></html>
+<script>
+document.addEventListener("click",async ev=>{
+  if(ev.target&&ev.target.id==="refreshEditor"){await load();}
+});
+</script>

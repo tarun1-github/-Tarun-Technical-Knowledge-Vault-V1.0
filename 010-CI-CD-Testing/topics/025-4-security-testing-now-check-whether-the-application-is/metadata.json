@@ -1,0 +1,14 @@
+{
+  "id": "010-CI-CD-Testing-025",
+  "module": "010-CI-CD-Testing",
+  "title": "4. Security Testing ## Now check whether the application is secure.",
+  "type": "Imported Topic",
+  "tags": [
+    "ci-cd-testing",
+    "imported",
+    "testing"
+  ],
+  "updated_at": "2026-09-02T00:11:41",
+  "source_section": "10",
+  "source_lines": 18
+}

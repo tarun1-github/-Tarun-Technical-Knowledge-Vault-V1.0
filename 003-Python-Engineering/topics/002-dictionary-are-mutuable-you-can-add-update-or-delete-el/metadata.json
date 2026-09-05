@@ -1,0 +1,13 @@
+{
+  "id": "003-Python-Engineering-002",
+  "module": "003-Python-Engineering",
+  "title": "dictionary are mutuable, you can add . update or delete element",
+  "type": "Imported Topic",
+  "tags": [
+    "imported",
+    "python-engineering"
+  ],
+  "updated_at": "2026-09-02T00:11:40",
+  "source_section": "03",
+  "source_lines": 68
+}

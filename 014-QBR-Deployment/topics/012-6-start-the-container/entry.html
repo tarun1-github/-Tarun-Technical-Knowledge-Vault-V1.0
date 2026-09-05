@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><title>6. Start the container</title><meta name="vault-tags" content="docker,imported,qbr-deployment"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>6. Start the container</h1><div><span class="tag">docker</span> <span class="tag">imported</span> <span class="tag">qbr-deployment</span></div><p>6. Start the container</p>
+<pre><code>docker compose up -d</code></pre>
+<pre><code>docker compose ps</code></pre>
+<pre><code>docker compose logs --tail=100 qbr-dashboard</code></pre>
+<p>-&gt;8501/tcp, [::]:8501-&gt;8501/tcp</p>
+<p>root@ubuntu-tt:~/QBR_Dashboard_TT# docker compose logs --tail=100 qbr-dashboard</p>
+<p>qbr-dashboard  | 2026-08-30 11:37:03.011 Uvicorn server started on 0.0.0.0:8501</p>
+<p>qbr-dashboard  |</p>
+<p>qbr-dashboard  |   You can now view your Streamlit app in your browser.</p>
+<p>qbr-dashboard  |</p>
+<p>qbr-dashboard  |   Local URL: http://localhost:8501</p>
+<p>qbr-dashboard  |   Network URL: http://172.18.0.2:8501</p>
+<p>qbr-dashboard  |   External URL: http://10.106.44.12:8501</p>
+<p>qbr-dashboard  |</p></body></html>

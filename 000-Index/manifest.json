@@ -1,0 +1,2699 @@
+{
+  "vault_version": "8.0",
+  "created_at": "2026-09-02T00:11:40",
+  "source": "Tarun_Taneja_Agentic_AI_Study_Notes_Ordered.txt",
+  "modules": [
+    {
+      "id": "001-Agentic-AI",
+      "title": "AGENTIC AI CAREER / TECHNOLOGY CONTEXT",
+      "topic_count": 2
+    },
+    {
+      "id": "002-Python-VSCode",
+      "title": "PYTHON + VS CODE + JUPYTER + ENVIRONMENT SETUP",
+      "topic_count": 7
+    },
+    {
+      "id": "003-Python-Engineering",
+      "title": "PYTHON FUNDAMENTALS + DATA + OOP + Pydantic + FastAPI",
+      "topic_count": 4
+    },
+    {
+      "id": "004-RAG",
+      "title": "RAG FUNDAMENTALS: INGESTION → CHUNKING → EMBEDDINGS → VECTOR DB",
+      "topic_count": 2
+    },
+    {
+      "id": "005-LangChain",
+      "title": "LANGCHAIN FOUNDATIONS + RETRIEVER + PROMPTS",
+      "topic_count": 1
+    },
+    {
+      "id": "006-LLM-Tools",
+      "title": "LLM FUNDAMENTALS + TOOLS + TOOL CALLING + STRUCTURED OUTPUT",
+      "topic_count": 15
+    },
+    {
+      "id": "007-Agent-Safety",
+      "title": "AGENT SAFETY: MIDDLEWARE + GUARDRAILS + HUMAN-IN-THE-LOOP",
+      "topic_count": 5
+    },
+    {
+      "id": "008-LangGraph",
+      "title": "LANGGRAPH: STATE + AGENTS + WORKFLOWS",
+      "topic_count": 50
+    },
+    {
+      "id": "009-Git-GitHub",
+      "title": "GIT + GITHUB FUNDAMENTALS",
+      "topic_count": 1
+    },
+    {
+      "id": "010-CI-CD-Testing",
+      "title": "GITHUB ACTIONS + CI/CD + TESTING + AI EVALUATION",
+      "topic_count": 57
+    },
+    {
+      "id": "011-Docker",
+      "title": "DOCKER + CONTAINERS + SECRETS + PRODUCTION PATTERNS",
+      "topic_count": 12
+    },
+    {
+      "id": "012-Ollama",
+      "title": "OLLAMA + LOCAL LLM OPERATIONS",
+      "topic_count": 2
+    },
+    {
+      "id": "013-Portfolio-Projects",
+      "title": "PORTFOLIO / PROJECT NOTES: QBR + ACCESS COMPLIANCE",
+      "topic_count": 2
+    },
+    {
+      "id": "014-QBR-Deployment",
+      "title": "QBR DOCKER / UBUNTU PRODUCTION DEPLOYMENT NOTES",
+      "topic_count": 22
+    }
+  ],
+  "entries": [
+    {
+      "id": "001-Agentic-AI-001",
+      "module": "001-Agentic-AI",
+      "title": "01 — AGENTIC AI CAREER / TECHNOLOGY CONTEXT",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "agentic-ai",
+        "fastapi",
+        "imported",
+        "langchain",
+        "langgraph",
+        "llm",
+        "python",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "01",
+      "source_lines": 45
+    },
+    {
+      "id": "001-Agentic-AI-002",
+      "module": "001-Agentic-AI",
+      "title": "1. IDE vs Framework",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "agentic-ai",
+        "docker",
+        "fastapi",
+        "git",
+        "imported",
+        "jupyter",
+        "langchain",
+        "langgraph",
+        "llm",
+        "pydantic",
+        "python",
+        "rag",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "01",
+      "source_lines": 172
+    },
+    {
+      "id": "002-Python-VSCode-001",
+      "module": "002-Python-VSCode",
+      "title": "02 — PYTHON + VS CODE + JUPYTER + ENVIRONMENT SETUP",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "docker",
+        "git",
+        "imported",
+        "jupyter",
+        "ollama",
+        "python",
+        "python-vscode",
+        "vscode"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "02",
+      "source_lines": 94
+    },
+    {
+      "id": "002-Python-VSCode-002",
+      "module": "002-Python-VSCode",
+      "title": "1. Check packages in the current environment",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "python",
+        "python-vscode"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "02",
+      "source_lines": 6
+    },
+    {
+      "id": "002-Python-VSCode-003",
+      "module": "002-Python-VSCode",
+      "title": "2. Check where a specific package is installed",
+      "type": "Imported Topic",
+      "tags": [
+        "git",
+        "github",
+        "imported",
+        "langchain",
+        "python",
+        "python-vscode"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "02",
+      "source_lines": 33
+    },
+    {
+      "id": "002-Python-VSCode-004",
+      "module": "002-Python-VSCode",
+      "title": "To activate this environment, use",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "python-vscode"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "02",
+      "source_lines": 2
+    },
+    {
+      "id": "002-Python-VSCode-005",
+      "module": "002-Python-VSCode",
+      "title": "$ conda activate \"C:\\Users\\tataneja\\OneDrive - Cisco\\Desktop\\Agentic_AI\\Demo_LangGraph\\venv\"",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "imported",
+        "langgraph",
+        "python-vscode"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "02",
+      "source_lines": 2
+    },
+    {
+      "id": "002-Python-VSCode-006",
+      "module": "002-Python-VSCode",
+      "title": "To deactivate an active environment, use",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "python-vscode"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "02",
+      "source_lines": 2
+    },
+    {
+      "id": "002-Python-VSCode-007",
+      "module": "002-Python-VSCode",
+      "title": "$ conda deactivate",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "imported",
+        "jupyter",
+        "langchain",
+        "langgraph",
+        "python",
+        "python-vscode"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "02",
+      "source_lines": 108
+    },
+    {
+      "id": "003-Python-Engineering-001",
+      "module": "003-Python-Engineering",
+      "title": "03 — PYTHON FUNDAMENTALS + DATA + OOP + Pydantic + FastAPI",
+      "type": "Imported Topic",
+      "tags": [
+        "fastapi",
+        "imported",
+        "pydantic",
+        "python",
+        "python-engineering"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "03",
+      "source_lines": 144
+    },
+    {
+      "id": "003-Python-Engineering-002",
+      "module": "003-Python-Engineering",
+      "title": "dictionary are mutuable, you can add . update or delete element",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "python-engineering"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "03",
+      "source_lines": 68
+    },
+    {
+      "id": "003-Python-Engineering-003",
+      "module": "003-Python-Engineering",
+      "title": "Anonymous Functions",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "pydantic",
+        "python",
+        "python-engineering"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "03",
+      "source_lines": 173
+    },
+    {
+      "id": "003-Python-Engineering-004",
+      "module": "003-Python-Engineering",
+      "title": "FastAPI is a high-performance web framework for building APIs with Python 3.8+",
+      "type": "Imported Topic",
+      "tags": [
+        "fastapi",
+        "imported",
+        "python",
+        "python-engineering"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "03",
+      "source_lines": 10
+    },
+    {
+      "id": "004-RAG-001",
+      "module": "004-RAG",
+      "title": "04 — RAG FUNDAMENTALS: INGESTION → CHUNKING → EMBEDDINGS → VECTOR DB",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "jupyter",
+        "langchain",
+        "llm",
+        "ollama",
+        "python",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "04",
+      "source_lines": 179
+    },
+    {
+      "id": "004-RAG-002",
+      "module": "004-RAG",
+      "title": "similarity search",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langchain",
+        "llm",
+        "rag",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "04",
+      "source_lines": 52
+    },
+    {
+      "id": "005-LangChain-001",
+      "module": "005-LangChain",
+      "title": "Original Notes",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "fastapi",
+        "imported",
+        "langchain",
+        "llm",
+        "python",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "05",
+      "source_lines": 222
+    },
+    {
+      "id": "006-LLM-Tools-001",
+      "module": "006-LLM-Tools",
+      "title": "06 — LLM FUNDAMENTALS + TOOLS + TOOL CALLING + STRUCTURED OUTPUT",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "imported",
+        "llm",
+        "llm-tools",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "06",
+      "source_lines": 53
+    },
+    {
+      "id": "006-LLM-Tools-002",
+      "module": "006-LLM-Tools",
+      "title": "1. create google AI studio API key",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm-tools"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "06",
+      "source_lines": 1
+    },
+    {
+      "id": "006-LLM-Tools-003",
+      "module": "006-LLM-Tools",
+      "title": "2. Grow API key",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm-tools"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "06",
+      "source_lines": 1
+    },
+    {
+      "id": "006-LLM-Tools-004",
+      "module": "006-LLM-Tools",
+      "title": "3. OpenAI API Key",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langchain",
+        "llm",
+        "llm-tools",
+        "python",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:40",
+      "source_section": "06",
+      "source_lines": 162
+    },
+    {
+      "id": "006-LLM-Tools-005",
+      "module": "006-LLM-Tools",
+      "title": "1. Python function",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm-tools",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 2
+    },
+    {
+      "id": "006-LLM-Tools-006",
+      "module": "006-LLM-Tools",
+      "title": "2. @tool",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm-tools"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 2
+    },
+    {
+      "id": "006-LLM-Tools-007",
+      "module": "006-LLM-Tools",
+      "title": "3. bind_tools()",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm-tools"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 2
+    },
+    {
+      "id": "006-LLM-Tools-008",
+      "module": "006-LLM-Tools",
+      "title": "4. Tool call / ToolMessage",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm-tools"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 2
+    },
+    {
+      "id": "006-LLM-Tools-009",
+      "module": "006-LLM-Tools",
+      "title": "5. create_agent()",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm-tools"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 2
+    },
+    {
+      "id": "006-LLM-Tools-010",
+      "module": "006-LLM-Tools",
+      "title": "6. Multiple tools",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm-tools"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 2
+    },
+    {
+      "id": "006-LLM-Tools-011",
+      "module": "006-LLM-Tools",
+      "title": "7. API / SQL / CUCM tools",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm-tools"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 2
+    },
+    {
+      "id": "006-LLM-Tools-012",
+      "module": "006-LLM-Tools",
+      "title": "8. RAG + Tools",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm-tools",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 2
+    },
+    {
+      "id": "006-LLM-Tools-013",
+      "module": "006-LLM-Tools",
+      "title": "9. Multi-agent",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langchain",
+        "llm",
+        "llm-tools",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 57
+    },
+    {
+      "id": "006-LLM-Tools-014",
+      "module": "006-LLM-Tools",
+      "title": "Message Metadata",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm",
+        "llm-tools"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 14
+    },
+    {
+      "id": "006-LLM-Tools-015",
+      "module": "006-LLM-Tools",
+      "title": "Pydantic",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langchain",
+        "llm",
+        "llm-tools",
+        "pydantic",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "06",
+      "source_lines": 109
+    },
+    {
+      "id": "007-Agent-Safety-001",
+      "module": "007-Agent-Safety",
+      "title": "07 — AGENT SAFETY: MIDDLEWARE + GUARDRAILS + HUMAN-IN-THE-LOOP",
+      "type": "Imported Topic",
+      "tags": [
+        "agent-safety",
+        "imported",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "07",
+      "source_lines": 28
+    },
+    {
+      "id": "007-Agent-Safety-002",
+      "module": "007-Agent-Safety",
+      "title": "1. Logging / Analytics / Debugging",
+      "type": "Imported Topic",
+      "tags": [
+        "agent-safety",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "07",
+      "source_lines": 13
+    },
+    {
+      "id": "007-Agent-Safety-003",
+      "module": "007-Agent-Safety",
+      "title": "2. Transforming prompts, tool selection & output",
+      "type": "Imported Topic",
+      "tags": [
+        "agent-safety",
+        "imported",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "07",
+      "source_lines": 10
+    },
+    {
+      "id": "007-Agent-Safety-004",
+      "module": "007-Agent-Safety",
+      "title": "3. Retries, fallbacks & early termination",
+      "type": "Imported Topic",
+      "tags": [
+        "agent-safety",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "07",
+      "source_lines": 24
+    },
+    {
+      "id": "007-Agent-Safety-005",
+      "module": "007-Agent-Safety",
+      "title": "4. Rate limits, Guardrails & PII detection",
+      "type": "Imported Topic",
+      "tags": [
+        "agent-safety",
+        "imported",
+        "langchain",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "07",
+      "source_lines": 45
+    },
+    {
+      "id": "008-LangGraph-001",
+      "module": "008-LangGraph",
+      "title": "08 — LANGGRAPH: STATE + AGENTS + WORKFLOWS",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 4
+    },
+    {
+      "id": "008-LangGraph-002",
+      "module": "008-LangGraph",
+      "title": "1. Stateful",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 11
+    },
+    {
+      "id": "008-LangGraph-003",
+      "module": "008-LangGraph",
+      "title": "2. Multi-actor / Multi-agent",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 16
+    },
+    {
+      "id": "008-LangGraph-004",
+      "module": "008-LangGraph",
+      "title": "3. Memory",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 11
+    },
+    {
+      "id": "008-LangGraph-005",
+      "module": "008-LangGraph",
+      "title": "4. Human-in-the-loop",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langchain",
+        "langgraph",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 46
+    },
+    {
+      "id": "008-LangGraph-006",
+      "module": "008-LangGraph",
+      "title": "1. State = What the application currently knows",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 23
+    },
+    {
+      "id": "008-LangGraph-007",
+      "module": "008-LangGraph",
+      "title": "2. Nodes = Individual tasks",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph",
+        "llm",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 21
+    },
+    {
+      "id": "008-LangGraph-008",
+      "module": "008-LangGraph",
+      "title": "3. Edges = How you move between nodes",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 16
+    },
+    {
+      "id": "008-LangGraph-009",
+      "module": "008-LangGraph",
+      "title": "4. Conditional Edges = Decision making",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 11
+    },
+    {
+      "id": "008-LangGraph-010",
+      "module": "008-LangGraph",
+      "title": "5. LLM = The reasoning/decision engine",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 16
+    },
+    {
+      "id": "008-LangGraph-011",
+      "module": "008-LangGraph",
+      "title": "6. Tools = Ability to perform actions",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 21
+    },
+    {
+      "id": "008-LangGraph-012",
+      "module": "008-LangGraph",
+      "title": "7. Memory = Remembering information",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 18
+    },
+    {
+      "id": "008-LangGraph-013",
+      "module": "008-LangGraph",
+      "title": "8. Human-in-the-loop = Human approval/control",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 101
+    },
+    {
+      "id": "008-LangGraph-014",
+      "module": "008-LangGraph",
+      "title": "1. __start__",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 38
+    },
+    {
+      "id": "008-LangGraph-015",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-016",
+      "module": "008-LangGraph",
+      "title": "1. Define the State",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-017",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 4
+    },
+    {
+      "id": "008-LangGraph-018",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-019",
+      "module": "008-LangGraph",
+      "title": "2. Define the Nodes",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-020",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 15
+    },
+    {
+      "id": "008-LangGraph-021",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-022",
+      "module": "008-LangGraph",
+      "title": "3. Define the Conditional Decision Function",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-023",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 13
+    },
+    {
+      "id": "008-LangGraph-024",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-025",
+      "module": "008-LangGraph",
+      "title": "4. Build the Graph",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-026",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 3
+    },
+    {
+      "id": "008-LangGraph-027",
+      "module": "008-LangGraph",
+      "title": "Add nodes",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 4
+    },
+    {
+      "id": "008-LangGraph-028",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-029",
+      "module": "008-LangGraph",
+      "title": "5. Define the Flow",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-030",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-031",
+      "module": "008-LangGraph",
+      "title": "START → start_play",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 2
+    },
+    {
+      "id": "008-LangGraph-032",
+      "module": "008-LangGraph",
+      "title": "start_play → random decision → cricket OR badminton",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 5
+    },
+    {
+      "id": "008-LangGraph-033",
+      "module": "008-LangGraph",
+      "title": "cricket → END",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 2
+    },
+    {
+      "id": "008-LangGraph-034",
+      "module": "008-LangGraph",
+      "title": "badminton → END",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 2
+    },
+    {
+      "id": "008-LangGraph-035",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-036",
+      "module": "008-LangGraph",
+      "title": "6. Compile the Graph",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-037",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 3
+    },
+    {
+      "id": "008-LangGraph-038",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-039",
+      "module": "008-LangGraph",
+      "title": "7. Execute the Graph",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-040",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 7
+    },
+    {
+      "id": "008-LangGraph-041",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-042",
+      "module": "008-LangGraph",
+      "title": "8. Print Final State",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 1
+    },
+    {
+      "id": "008-LangGraph-043",
+      "module": "008-LangGraph",
+      "title": "============================================================",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 18
+    },
+    {
+      "id": "008-LangGraph-044",
+      "module": "008-LangGraph",
+      "title": "1. Prompt chaining in langgraph",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 70
+    },
+    {
+      "id": "008-LangGraph-045",
+      "module": "008-LangGraph",
+      "title": "3) Routing in LangGraph",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 17
+    },
+    {
+      "id": "008-LangGraph-046",
+      "module": "008-LangGraph",
+      "title": "4) Orchestrator–Workers Workflow",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 98
+    },
+    {
+      "id": "008-LangGraph-047",
+      "module": "008-LangGraph",
+      "title": "5) Evaluator–Optimizer Workflow in Langraph",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 27
+    },
+    {
+      "id": "008-LangGraph-048",
+      "module": "008-LangGraph",
+      "title": "1. Generator",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph",
+        "llm"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 16
+    },
+    {
+      "id": "008-LangGraph-049",
+      "module": "008-LangGraph",
+      "title": "2) Evaluator checks whether the generated response meets predefined criteria.",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 15
+    },
+    {
+      "id": "008-LangGraph-050",
+      "module": "008-LangGraph",
+      "title": "3. Optimization / Refinement : The feedback goes back to the Generator:",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "imported",
+        "langgraph",
+        "llm",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "08",
+      "source_lines": 198
+    },
+    {
+      "id": "009-Git-GitHub-001",
+      "module": "009-Git-GitHub",
+      "title": "Original Notes",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "git",
+        "git-github",
+        "github",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "09",
+      "source_lines": 437
+    },
+    {
+      "id": "010-CI-CD-Testing-001",
+      "module": "010-CI-CD-Testing",
+      "title": "10 — GITHUB ACTIONS + CI/CD + TESTING + AI EVALUATION",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "ci-cd-testing",
+        "docker",
+        "git",
+        "github",
+        "imported",
+        "python",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 124
+    },
+    {
+      "id": "010-CI-CD-Testing-002",
+      "module": "010-CI-CD-Testing",
+      "title": "1. Unit Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 1
+    },
+    {
+      "id": "010-CI-CD-Testing-003",
+      "module": "010-CI-CD-Testing",
+      "title": "2. Integration Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 1
+    },
+    {
+      "id": "010-CI-CD-Testing-004",
+      "module": "010-CI-CD-Testing",
+      "title": "3. Regression Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 1
+    },
+    {
+      "id": "010-CI-CD-Testing-005",
+      "module": "010-CI-CD-Testing",
+      "title": "4. E2E Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 1
+    },
+    {
+      "id": "010-CI-CD-Testing-006",
+      "module": "010-CI-CD-Testing",
+      "title": "5. Code Review",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 1
+    },
+    {
+      "id": "010-CI-CD-Testing-007",
+      "module": "010-CI-CD-Testing",
+      "title": "6. Security Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 1
+    },
+    {
+      "id": "010-CI-CD-Testing-008",
+      "module": "010-CI-CD-Testing",
+      "title": "7. Performance Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 1
+    },
+    {
+      "id": "010-CI-CD-Testing-009",
+      "module": "010-CI-CD-Testing",
+      "title": "8. RAG Evaluation",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 1
+    },
+    {
+      "id": "010-CI-CD-Testing-010",
+      "module": "010-CI-CD-Testing",
+      "title": "9. Agent Evaluation",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 1
+    },
+    {
+      "id": "010-CI-CD-Testing-011",
+      "module": "010-CI-CD-Testing",
+      "title": "10. LLM/Prompt/Guardrail Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "git",
+        "github",
+        "imported",
+        "llm",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 27
+    },
+    {
+      "id": "010-CI-CD-Testing-012",
+      "module": "010-CI-CD-Testing",
+      "title": "1. Unit Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-013",
+      "module": "010-CI-CD-Testing",
+      "title": "2. Integration Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-014",
+      "module": "010-CI-CD-Testing",
+      "title": "3. Code Review",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-015",
+      "module": "010-CI-CD-Testing",
+      "title": "4. Security Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-016",
+      "module": "010-CI-CD-Testing",
+      "title": "5. Regression Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-017",
+      "module": "010-CI-CD-Testing",
+      "title": "6. Performance Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-018",
+      "module": "010-CI-CD-Testing",
+      "title": "7. E2E Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 6
+    },
+    {
+      "id": "010-CI-CD-Testing-019",
+      "module": "010-CI-CD-Testing",
+      "title": "8. RAG Evaluation",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-020",
+      "module": "010-CI-CD-Testing",
+      "title": "9. Agent Evaluation",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-021",
+      "module": "010-CI-CD-Testing",
+      "title": "10. LLM / Prompt / Guardrail Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "llm",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 5
+    },
+    {
+      "id": "010-CI-CD-Testing-022",
+      "module": "010-CI-CD-Testing",
+      "title": "1. Unit Testing #Test the smallest individual piece of code.",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 11
+    },
+    {
+      "id": "010-CI-CD-Testing-023",
+      "module": "010-CI-CD-Testing",
+      "title": "2. Integration Testing ##Integration testing checks whether components work together.",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "langgraph",
+        "llm",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 13
+    },
+    {
+      "id": "010-CI-CD-Testing-024",
+      "module": "010-CI-CD-Testing",
+      "title": "3. Code Review",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 17
+    },
+    {
+      "id": "010-CI-CD-Testing-025",
+      "module": "010-CI-CD-Testing",
+      "title": "4. Security Testing ## Now check whether the application is secure.",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 18
+    },
+    {
+      "id": "010-CI-CD-Testing-026",
+      "module": "010-CI-CD-Testing",
+      "title": "5. Regression Testing ##Whenever you add or modify functionality, make sure existing functionality still works.",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 13
+    },
+    {
+      "id": "010-CI-CD-Testing-027",
+      "module": "010-CI-CD-Testing",
+      "title": "6. Performance Testing  ##Now test speed, capacity and scalability.",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 12
+    },
+    {
+      "id": "010-CI-CD-Testing-028",
+      "module": "010-CI-CD-Testing",
+      "title": "7. E2E — End-to-End Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "fastapi",
+        "imported",
+        "langgraph",
+        "llm",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 23
+    },
+    {
+      "id": "010-CI-CD-Testing-029",
+      "module": "010-CI-CD-Testing",
+      "title": "8. RAG Evaluation  ##RAG has two major areas:",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "llm",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 10
+    },
+    {
+      "id": "010-CI-CD-Testing-030",
+      "module": "010-CI-CD-Testing",
+      "title": "9. Agent Evaluation",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 17
+    },
+    {
+      "id": "010-CI-CD-Testing-031",
+      "module": "010-CI-CD-Testing",
+      "title": "10. LLM / Prompt / Guardrail Testing",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "llm",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 10
+    },
+    {
+      "id": "010-CI-CD-Testing-032",
+      "module": "010-CI-CD-Testing",
+      "title": "11. Guardrail Testing##Guardrails prevent unwanted behavior.",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "ci-cd-testing",
+        "git",
+        "github",
+        "imported",
+        "llm",
+        "python",
+        "rag",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 119
+    },
+    {
+      "id": "010-CI-CD-Testing-033",
+      "module": "010-CI-CD-Testing",
+      "title": "1. Workflow file",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "ci-cd-testing",
+        "git",
+        "github",
+        "imported",
+        "python",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 10
+    },
+    {
+      "id": "010-CI-CD-Testing-034",
+      "module": "010-CI-CD-Testing",
+      "title": "Events that trigger the workflow",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "git",
+        "github",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 16
+    },
+    {
+      "id": "010-CI-CD-Testing-035",
+      "module": "010-CI-CD-Testing",
+      "title": "Step 1: Checkout the repository code",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "git",
+        "github",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 3
+    },
+    {
+      "id": "010-CI-CD-Testing-036",
+      "module": "010-CI-CD-Testing",
+      "title": "Step 2: Set up Python",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "git",
+        "github",
+        "imported",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 5
+    },
+    {
+      "id": "010-CI-CD-Testing-037",
+      "module": "010-CI-CD-Testing",
+      "title": "Step 3: Install dependencies",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 5
+    },
+    {
+      "id": "010-CI-CD-Testing-038",
+      "module": "010-CI-CD-Testing",
+      "title": "Step 4: Run unit tests",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "ci-cd-testing",
+        "docker",
+        "fastapi",
+        "git",
+        "github",
+        "imported",
+        "langchain",
+        "langgraph",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 206
+    },
+    {
+      "id": "010-CI-CD-Testing-039",
+      "module": "010-CI-CD-Testing",
+      "title": "1. Why do we need Docker?",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "docker",
+        "fastapi",
+        "imported",
+        "langchain",
+        "langgraph",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 48
+    },
+    {
+      "id": "010-CI-CD-Testing-040",
+      "module": "010-CI-CD-Testing",
+      "title": "10. Important Docker terms",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "docker",
+        "git",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 110
+    },
+    {
+      "id": "010-CI-CD-Testing-041",
+      "module": "010-CI-CD-Testing",
+      "title": "1. How did Docker find /root/.docker/config.json?",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 24
+    },
+    {
+      "id": "010-CI-CD-Testing-042",
+      "module": "010-CI-CD-Testing",
+      "title": "2. What happened during your successful build?",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "ci-cd-testing",
+        "docker",
+        "imported",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 67
+    },
+    {
+      "id": "010-CI-CD-Testing-043",
+      "module": "010-CI-CD-Testing",
+      "title": "1. Python",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-044",
+      "module": "010-CI-CD-Testing",
+      "title": "2. Flask application",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-045",
+      "module": "010-CI-CD-Testing",
+      "title": "3. Dockerfile",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-046",
+      "module": "010-CI-CD-Testing",
+      "title": "4. Docker build",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-047",
+      "module": "010-CI-CD-Testing",
+      "title": "5. Docker image       ← YOU ARE HERE",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-048",
+      "module": "010-CI-CD-Testing",
+      "title": "6. Docker container",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-049",
+      "module": "010-CI-CD-Testing",
+      "title": "7. Port mapping",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-050",
+      "module": "010-CI-CD-Testing",
+      "title": "8. Container lifecycle",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-051",
+      "module": "010-CI-CD-Testing",
+      "title": "9. Volumes",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-052",
+      "module": "010-CI-CD-Testing",
+      "title": "10. Docker Compose",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-053",
+      "module": "010-CI-CD-Testing",
+      "title": "11. FastAPI",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "fastapi",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-054",
+      "module": "010-CI-CD-Testing",
+      "title": "12. LangChain",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "langchain"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-055",
+      "module": "010-CI-CD-Testing",
+      "title": "13. LangGraph",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "langgraph"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-056",
+      "module": "010-CI-CD-Testing",
+      "title": "14. RAG",
+      "type": "Imported Topic",
+      "tags": [
+        "ci-cd-testing",
+        "imported",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 2
+    },
+    {
+      "id": "010-CI-CD-Testing-057",
+      "module": "010-CI-CD-Testing",
+      "title": "15. Agentic AI",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "ci-cd-testing",
+        "docker",
+        "fastapi",
+        "imported",
+        "langchain",
+        "langgraph",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "10",
+      "source_lines": 55
+    },
+    {
+      "id": "011-Docker-001",
+      "module": "011-Docker",
+      "title": "11 — DOCKER + CONTAINERS + SECRETS + PRODUCTION PATTERNS",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 2
+    },
+    {
+      "id": "011-Docker-002",
+      "module": "011-Docker",
+      "title": "syntax=docker/dockerfile:1",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 28
+    },
+    {
+      "id": "011-Docker-003",
+      "module": "011-Docker",
+      "title": "syntax=docker/dockerfile:1",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "git",
+        "github",
+        "imported",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 141
+    },
+    {
+      "id": "011-Docker-004",
+      "module": "011-Docker",
+      "title": "1. What is Dockerfile Scaffolding?",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 61
+    },
+    {
+      "id": "011-Docker-005",
+      "module": "011-Docker",
+      "title": "1. First understand: Why does a container exit?",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 13
+    },
+    {
+      "id": "011-Docker-006",
+      "module": "011-Docker",
+      "title": "2. CMD — What should the container do by default?",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 14
+    },
+    {
+      "id": "011-Docker-007",
+      "module": "011-Docker",
+      "title": "3. Override CMD",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 15
+    },
+    {
+      "id": "011-Docker-008",
+      "module": "011-Docker",
+      "title": "4. ENTRYPOINT — The main program",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 4
+    },
+    {
+      "id": "011-Docker-009",
+      "module": "011-Docker",
+      "title": "5. ENTRYPOINT + CMD   ##This is where it becomes really useful.",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 6
+    },
+    {
+      "id": "011-Docker-010",
+      "module": "011-Docker",
+      "title": "6. Override CMD while keeping ENTRYPOINT  ##docker run ubuntu-sleeper 10",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 3
+    },
+    {
+      "id": "011-Docker-011",
+      "module": "011-Docker",
+      "title": "7. ARG — Build-time variable",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 12
+    },
+    {
+      "id": "011-Docker-012",
+      "module": "011-Docker",
+      "title": "8. Environment Variables — why use them?",
+      "type": "Imported Topic",
+      "tags": [
+        "agentic",
+        "docker",
+        "git",
+        "github",
+        "imported",
+        "llm",
+        "python",
+        "rag"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "11",
+      "source_lines": 441
+    },
+    {
+      "id": "012-Ollama-001",
+      "module": "012-Ollama",
+      "title": "12 — OLLAMA + LOCAL LLM OPERATIONS",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "llm",
+        "ollama"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "12",
+      "source_lines": 8
+    },
+    {
+      "id": "012-Ollama-002",
+      "module": "012-Ollama",
+      "title": "7. Check Ollama logs",
+      "type": "Imported Topic",
+      "tags": [
+        "fastapi",
+        "git",
+        "github",
+        "imported",
+        "ollama",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "12",
+      "source_lines": 219
+    },
+    {
+      "id": "013-Portfolio-Projects-001",
+      "module": "013-Portfolio-Projects",
+      "title": "13 — PORTFOLIO / PROJECT NOTES: QBR + ACCESS COMPLIANCE",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "portfolio-projects"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "13",
+      "source_lines": 2
+    },
+    {
+      "id": "013-Portfolio-Projects-002",
+      "module": "013-Portfolio-Projects",
+      "title": "4. Start the portal",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "fastapi",
+        "git",
+        "github",
+        "imported",
+        "llm",
+        "ollama",
+        "portfolio-projects",
+        "python"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "13",
+      "source_lines": 536
+    },
+    {
+      "id": "014-QBR-Deployment-001",
+      "module": "014-QBR-Deployment",
+      "title": "14 — QBR DOCKER / UBUNTU PRODUCTION DEPLOYMENT NOTES",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "git",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 11
+    },
+    {
+      "id": "014-QBR-Deployment-002",
+      "module": "014-QBR-Deployment",
+      "title": "1. Create the runtime environment file",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 2
+    },
+    {
+      "id": "014-QBR-Deployment-003",
+      "module": "014-QBR-Deployment",
+      "title": "2. Make sure the secret is generated",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "python",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 5
+    },
+    {
+      "id": "014-QBR-Deployment-004",
+      "module": "014-QBR-Deployment",
+      "title": "3. Check Compose before building",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 2
+    },
+    {
+      "id": "014-QBR-Deployment-005",
+      "module": "014-QBR-Deployment",
+      "title": "4. Build",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 9
+    },
+    {
+      "id": "014-QBR-Deployment-006",
+      "module": "014-QBR-Deployment",
+      "title": "5. Start QBR",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 61
+    },
+    {
+      "id": "014-QBR-Deployment-007",
+      "module": "014-QBR-Deployment",
+      "title": "1. Go to your QBR project",
+      "type": "Imported Topic",
+      "tags": [
+        "git",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 3
+    },
+    {
+      "id": "014-QBR-Deployment-008",
+      "module": "014-QBR-Deployment",
+      "title": "2. Create the Docker environment",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 3
+    },
+    {
+      "id": "014-QBR-Deployment-009",
+      "module": "014-QBR-Deployment",
+      "title": "3. Generate the cookie secret",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "python",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 3
+    },
+    {
+      "id": "014-QBR-Deployment-010",
+      "module": "014-QBR-Deployment",
+      "title": "4. Validate Docker Compose",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 3
+    },
+    {
+      "id": "014-QBR-Deployment-011",
+      "module": "014-QBR-Deployment",
+      "title": "5. Build the QBR image",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 3
+    },
+    {
+      "id": "014-QBR-Deployment-012",
+      "module": "014-QBR-Deployment",
+      "title": "6. Start the container",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 15
+    },
+    {
+      "id": "014-QBR-Deployment-013",
+      "module": "014-QBR-Deployment",
+      "title": "7. Test locally from Ubuntu",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 3
+    },
+    {
+      "id": "014-QBR-Deployment-014",
+      "module": "014-QBR-Deployment",
+      "title": "8. Test from Windows",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "git",
+        "github",
+        "imported",
+        "python",
+        "qbr-deployment",
+        "testing"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 197
+    },
+    {
+      "id": "014-QBR-Deployment-015",
+      "module": "014-QBR-Deployment",
+      "title": "2. Create Docker secret directory",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 10
+    },
+    {
+      "id": "014-QBR-Deployment-016",
+      "module": "014-QBR-Deployment",
+      "title": "3. Modify app/config.py",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 2
+    },
+    {
+      "id": "014-QBR-Deployment-017",
+      "module": "014-QBR-Deployment",
+      "title": "4. Create production Compose",
+      "type": "Imported Topic",
+      "tags": [
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 2
+    },
+    {
+      "id": "014-QBR-Deployment-018",
+      "module": "014-QBR-Deployment",
+      "title": "5. Create production environment file",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 3
+    },
+    {
+      "id": "014-QBR-Deployment-019",
+      "module": "014-QBR-Deployment",
+      "title": "6. Protect .env.production Because we added it to .gitignore",
+      "type": "Imported Topic",
+      "tags": [
+        "git",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 1
+    },
+    {
+      "id": "014-QBR-Deployment-020",
+      "module": "014-QBR-Deployment",
+      "title": "7. Build a versioned image",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 5
+    },
+    {
+      "id": "014-QBR-Deployment-021",
+      "module": "014-QBR-Deployment",
+      "title": "8. Validate the production Compose configuration",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 2
+    },
+    {
+      "id": "014-QBR-Deployment-022",
+      "module": "014-QBR-Deployment",
+      "title": "9. Then we'll test the production container",
+      "type": "Imported Topic",
+      "tags": [
+        "docker",
+        "imported",
+        "python",
+        "qbr-deployment"
+      ],
+      "updated_at": "2026-09-02T00:11:41",
+      "source_section": "14",
+      "source_lines": 10
+    }
+  ],
+  "entry_count": 182,
+  "upgraded_at": "2026-09-02T00:15:50",
+  "features": [
+    "better search",
+    "favorites",
+    "tags",
+    "attachment folders",
+    "version history",
+    "markdown",
+    "mermaid",
+    "offline filesystem"
+  ]
+}

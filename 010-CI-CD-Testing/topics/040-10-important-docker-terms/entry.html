@@ -1,0 +1,97 @@
+<!doctype html><html><head><meta charset="utf-8"><title>10. Important Docker terms</title><meta name="vault-tags" content="ci-cd-testing,docker,git,imported"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>10. Important Docker terms</h1><div><span class="tag">ci-cd-testing</span> <span class="tag">docker</span> <span class="tag">git</span> <span class="tag">imported</span></div><p>10. Important Docker terms</p>
+<p>DOCKER</p>
+<p>│</p>
+<p>├── Dockerfile</p>
+<p>│      ↓</p>
+<p>│   Instructions for building an image</p>
+<p>│</p>
+<p>├── Image</p>
+<p>│      ↓</p>
+<p>│   Packaged application + dependencies</p>
+<p>│</p>
+<p>├── Container</p>
+<p>│      ↓</p>
+<p>│   Running instance of an image</p>
+<p>│</p>
+<p>├── Docker Engine</p>
+<p>│      ↓</p>
+<p>│   Runs containers</p>
+<p>│</p>
+<p>├── Docker Registry</p>
+<p>│      ↓</p>
+<p>│   Stores images</p>
+<p>│</p>
+<p>├── Docker Hub</p>
+<p>│      ↓</p>
+<p>│   Public/private image registry</p>
+<p>│</p>
+<p>├── Volume</p>
+<p>│      ↓</p>
+<p>│   Persistent data</p>
+<p>│</p>
+<p>├── Network</p>
+<p>│      ↓</p>
+<p>│   Container communication</p>
+<p>│</p>
+<p>└── Docker Compose</p>
+<p>       ↓</p>
+<p>    Run multiple containers</p>
+<p>----------------------------------------------------------</p>
+<p>📝 Put this in your Docker notes</p>
+<p>Problem:</p>
+<pre><code>curl works but docker pull/run fails.</code></pre>
+<p>Reason:</p>
+<p>Shell proxy ≠ Docker daemon proxy.</p>
+<p>Check shell:</p>
+<p>env | grep -i proxy</p>
+<p>Check Docker daemon:</p>
+<pre><code>sudo systemctl show --property=Environment docker</code></pre>
+<p>Configure:</p>
+<p> /etc/systemd/system/docker.service.d/http-proxy.conf</p>
+<p>[Service]</p>
+<p>Environment=&quot;HTTP_PROXY=http://proxy.esl.cisco.com:80&quot;</p>
+<p>Environment=&quot;HTTPS_PROXY=http://proxy.esl.cisco.com:80&quot;</p>
+<p>Environment=&quot;NO_PROXY=localhost,127.0.0.1&quot;</p>
+<p>Reload:</p>
+<pre><code>sudo systemctl daemon-reload</code></pre>
+<p>Restart:</p>
+<pre><code>sudo systemctl restart docker</code></pre>
+<p>Verify:</p>
+<pre><code>sudo systemctl show --property=Environment docker</code></pre>
+<p>Test:</p>
+<pre><code>sudo docker run --rm hello-world</code></pre>
+<p>----------------------------------------------------------</p>
+<p>Run Nginx in background</p>
+<pre><code>docker run -d --name my-nginx nginx</code></pre>
+<p>------------------------------------  ----------------------</p>
+<p>VS code --&gt; ubuntu</p>
+<p>DOCKER-BEGINNER</p>
+<p>│</p>
+<p>├── app.py</p>
+<p>├── README.md</p>
+<p>├── requirements.txt</p>
+<p>├── .gitignore</p>
+<p>└── .venv</p>
+<p>app.py</p>
+<p>requirements.txt</p>
+<p>      │</p>
+<p>      ▼</p>
+<p>  Dockerfile</p>
+<p>      │</p>
+<p>      ▼</p>
+<p> docker build</p>
+<p>      │</p>
+<p>      ▼</p>
+<p> Docker Image</p>
+<p>      │</p>
+<p>      ▼</p>
+<p> docker run</p>
+<p>      │</p>
+<p>      ▼</p>
+<p> Flask Container</p>
+<p>      │</p>
+<p>      ▼</p>
+<p>10.106.44.12:5000</p>
+<p>------------------------------------------------------------------------------------------------------------</p>
+<pre><code>sudo systemctl show --property=Environment docker</code></pre>
+<p>apt-config dump | grep -i proxy</p></body></html>

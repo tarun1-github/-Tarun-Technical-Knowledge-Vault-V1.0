@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><title>15. Agentic AI</title><meta name="vault-tags" content="agentic,ci-cd-testing,docker,fastapi,imported,langchain,langgraph,python"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>15. Agentic AI</h1><div><span class="tag">agentic</span> <span class="tag">ci-cd-testing</span> <span class="tag">docker</span> <span class="tag">fastapi</span> <span class="tag">imported</span> <span class="tag">langchain</span> <span class="tag">langgraph</span> <span class="tag">python</span></div><p>15. Agentic AI</p>
+<p>----------------------------------------------------------------------------------------</p>
+<pre><code>Docker BuildKit — Traditional vs Modern Docker Builds</code></pre>
+<p>Traditional Docker Build</p>
+<p>        │</p>
+<p>        ├── Problem 1 → Packages re-download every build</p>
+<p>        │</p>
+<p>        ├── Problem 2 → Secrets can leak into image/history</p>
+<p>        │</p>
+<p>        ├── Problem 3 → Architecture lock-in</p>
+<p>        │</p>
+<p>        └── Problem 4 → Independent stages run sequentially</p>
+<p>----------------------------------------------------------------------------------------</p>
+<p>Problem 1 — Packages re-download every build</p>
+<p>Consider dockerfile</p>
+<p>FROM python:3.12</p>
+<p>RUN pip install -r requirements.txt</p>
+<p>COPY . .</p>
+<p>If dependencies are downloaded during a build, rebuilding can cause unnecessary downloads.</p>
+<p>Build 1</p>
+<p>   ↓</p>
+<p>Download Flask</p>
+<p>Download LangChain</p>
+<p>Download LangGraph</p>
+<p>Download FastAPI</p>
+<p>   ↓</p>
+<p>Build</p>
+<p>Build 2</p>
+<p>   ↓</p>
+<p>Download again ❌</p>
+<p>This makes builds slower and wastes bandwidth.</p>
+<p>Modern solution — Cache mounts</p>
+<p>BuildKit allows a persistent cache to be mounted during the build.</p>
+<p>Build 1</p>
+<p>   ↓</p>
+<p>Download packages</p>
+<p>   ↓</p>
+<p>Cache</p>
+<p>Build 2</p>
+<p>   ↓</p>
+<p>Reuse cache ✅</p>
+<p>   ↓</p>
+<p>Only download what&#x27;s missing</p>
+<p>Consider dockerfile</p>
+<p>##############################################################################</p></body></html>

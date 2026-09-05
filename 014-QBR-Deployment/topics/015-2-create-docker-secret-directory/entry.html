@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><title>2. Create Docker secret directory</title><meta name="vault-tags" content="docker,imported,qbr-deployment"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>2. Create Docker secret directory</h1><div><span class="tag">docker</span> <span class="tag">imported</span> <span class="tag">qbr-deployment</span></div><p>2. Create Docker secret directory</p>
+<p>mkdir -p secrets</p>
+<p>chmod 700 secrets</p>
+<p>nano secrets/db_password</p>
+<p>chmod 600 secrets/db_password</p>
+<p>Create the QBR cookie secret:</p>
+<p>nano secrets/qbr_cookie_secret</p>
+<p>chmod 600 secrets/qbr_cookie_secret</p></body></html>

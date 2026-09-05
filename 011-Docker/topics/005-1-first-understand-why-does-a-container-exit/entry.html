@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><title>1. First understand: Why does a container exit?</title><meta name="vault-tags" content="docker,imported"><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;padding:3px 9px;border-radius:14px;background:#e8eef7;margin:2px;font-size:12px}</style></head><body><h1>1. First understand: Why does a container exit?</h1><div><span class="tag">docker</span> <span class="tag">imported</span></div><p>1. First understand: Why does a container exit?</p>
+<p>This is the most important Docker concept.</p>
+<p>	A container stays alive only while its main process is running.</p>
+<pre><code>docker run ubuntu ##Ubuntu starts, but there is no long-running foreground process.</code></pre>
+<p>Container   ##Docker doesn&#x27;t keep the container alive just because you created it.</p>
+<p>   ↓</p>
+<p>Main process</p>
+<p>   ↓</p>
+<p>Process finishes</p>
+<p>   ↓</p>
+<p>Container exits</p></body></html>

@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"><title>4. Conda_Venv_kernel</title><style>body{font-family:system-ui;max-width:1000px;margin:36px auto;padding:0 24px;line-height:1.62;color:#17202a}h1{font-size:30px}h2{margin-top:28px}pre{background:#111827;color:#f8fafc;padding:14px;border-radius:9px;overflow:auto}.callout{padding:12px 14px;border-left:5px solid #64748b;background:#f8fafc;margin:12px 0;border-radius:6px}.blue{border-color:#2563eb}.green{border-color:#16a34a}.yellow{border-color:#ca8a04}.red{border-color:#dc2626}.purple{border-color:#9333ea}.orange{border-color:#ea580c}.tag{display:inline-block;background:#e8eef7;border-radius:14px;padding:3px 9px;margin:2px;font-size:12px}.diagram{background:#f8fafc;border:1px dashed #94a3b8;padding:14px;white-space:pre-wrap;font-family:monospace}img{max-width:100%;height:auto;border-radius:8px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #cbd5e1;padding:7px}</style></head><body><h1>4. Conda_Venv_kernel</h1><div><span class="tag">venv kernel</span></div><div class="codebox selectable"><div class="codelabel">VENV • PowerShell <button class="copycode" type="button" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy</button></div><pre><code>++Activate venv
+
+conda activate <span class="str">"C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\venv"</span>
+
+uv init demouv (initiate/start UV project)
+
+PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph&gt; <span class="kw">cd</span> .\demouv\
+PS C:\Users\tataneja\OneDrive - Cisco\Desktop\Agentic_AI\Demo_LangGraph\demouv&gt; uv venv
+
+=====================
+
+py --list (To see list of python versions)
+
+uv python list
+
+uv add pandas (not working, alternate pip install pandas)
+
+uv add langchain
+
+uv add langgraph
+
+uv add langchain-openai
+
+uv add langchain-communit
+
+uv add ipykernel (<span class="kw">for</span> jupiyter)
+
+uv pip list
+
+Failed to uninstall package at .venv\Lib\site-packages\demouv-0.<span class="num">1.0</span>.dist-info
+
+due to missing `RECORD` file usually means the existing .venv has an incomplete/stale installation record <span class="kw">for</span> your own project.)
+
+
+deactivate
+
+Remove-Item -Recurse -Force <span class="str">".\venv"</span>
+
+<span class="kw">Test-Path</span> <span class="str">".\venv"</span> (<span class="kw">false</span>)
+
+uv venv --python <span class="num">3.14.6</span> venv
+
+.\venv\Scripts\python.exe --version
+
+uv pip install --python .\venv\Scripts\python.exe pip
+
+uv pip install --python .\venv\Scripts\python.exe ipykernel (install ipykernel)
+
+========ipykernel kernel=========
+
+.\venv\Scripts\python.exe -m ipykernel --version
+
+Register the kernel
+
+.\venv\Scripts\python.exe -m ipykernel install --user --name python_bootcamp --display-name <span class="str">"Python 3.14 - Python Bootcamp"</span></code></pre></div><p></p><p></p></body></html>
