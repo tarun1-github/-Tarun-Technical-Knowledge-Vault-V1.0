@@ -1,0 +1,30 @@
+# Tarun Technical Knowledge Vault - Option B
+
+# Local Vault content / generated data
+001-*/
+002-*/
+003-*/
+000-Index/
+_Vault-Backups/
+Vault_Backups/
+
+# Attachments / binary assets
+**/attachments/
+**/history/
+
+# Python runtime
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archives
+*.zip
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
